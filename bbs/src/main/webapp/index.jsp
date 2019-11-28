@@ -62,12 +62,10 @@
                                     </ul>
                                 </li>
                                 <li class="user">
-                                    <span><a href="javascript:void(0)">啊啊啊</a></span>
+                                    <span><a href="javascript:void(0)">发帖</a></span>
                                     <ul>
-                                        <li><a href="#">蝌蚪团</a></li>
-                                        <li><a href="#">燃梦计划</a></li>
-                                        <li><a href="#">百科任务</a></li>
-                                        <li><a href="#">百科商城</a></li>
+                                        <li><a href="#">文字帖</a></li>
+                                        <li><a href="#">投票贴</a></li>
                                     </ul>
                                 </li>
                                 <li class="cooperation">
@@ -75,13 +73,6 @@
                                     <ul>
                                         <li><a href="#">我的发帖</a></li>
                                         <li><a href="#">我的回帖</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile">
-                                    <span><a href="javascript:void(0)">手机百科</a></span>
-                                    <ul>
-                                        <li><a href="#">客户端</a></li>
-                                        <li><a href="#">网页版</a></li>
                                     </ul>
                                 </li>
                                 <li class="index on">
@@ -94,6 +85,9 @@
                                 </li>
                                 <li class="index on">
                                     <span><a href="#">系统公告</a></span>
+                                    <ul>
+                                        <li><a href="#">公告</a></li>
+                                    </ul>
                                 </li>
                                 <li class="index on">
                                     <span><a href="#">个人信息</a></span>
@@ -101,6 +95,14 @@
                                 <li class="index on">
                                     <span><a href="#">系统设置</a></span>
                                 </li>
+                                <li class="mobile">
+                                    <span><a href="javascript:void(0)">手机百科</a></span>
+                                    <ul>
+                                        <li><a href="#">客户端</a></li>
+                                        <li><a href="#">网页版</a></li>
+                                    </ul>
+                                </li>
+
                             </ul>
                         </div>
                     </div>

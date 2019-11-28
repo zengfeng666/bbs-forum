@@ -85,7 +85,12 @@
                                     </ul>
                                 </li>
                                 <li class="index on">
-                                    <span><a href="#">发布需求</a></span>
+                                    <span><a href="#">全部需求</a></span>
+                                    <ul>
+                                        <li><a href="#">发布需求</a></li>
+                                        <li><a href="#">我的需求</a></li>
+
+                                    </ul>
                                 </li>
                                 <li class="index on">
                                     <span><a href="#">系统公告</a></span>

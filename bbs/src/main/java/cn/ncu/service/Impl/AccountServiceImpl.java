@@ -16,13 +16,12 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public List<Account> findAll() {
-        System.out.println("业务层：查询所有账户...");
         return accountDao.findAll();
     }
 
     @Override
-    public void saveAccount(Account account) {
-        System.out.println("业务层：保存账户...");
-        accountDao.saveAccount(account);
+    public List<Account> findAccountByUid(Integer userId) {
+        return accountDao.findAccountByUid(userId);
     }
+
 }

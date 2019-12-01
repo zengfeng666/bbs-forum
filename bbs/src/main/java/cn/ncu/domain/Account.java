@@ -1,18 +1,31 @@
 package cn.ncu.domain;
 
+import org.apache.ibatis.annotations.Insert;
+
 import java.io.Serializable;
 
 public class Account implements Serializable {
 
     private Integer id;
-    private String name;
+    private Integer uid;
     private Double money;
+
+    // 一对一关系映射：一个账户对应一个用户
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", uid=" + uid +
                 ", money=" + money +
                 '}';
     }
@@ -25,12 +38,12 @@ public class Account implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
     public Double getMoney() {

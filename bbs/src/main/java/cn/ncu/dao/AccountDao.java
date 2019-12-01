@@ -1,27 +1,40 @@
 package cn.ncu.dao;
 
+
 import cn.ncu.domain.Account;
-import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.mapping.FetchType;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.List;
 
-/**
- * 账户dao接口
- */
 public interface AccountDao {
 
     /**
-     * 查询所有
+     * 查询所有账户，并且获取每个账户所属的用户信息
+     *
      * @return
      */
     @Select("select * from account")
-    public List<Account> findAll();
+    @Results(id = "accountMap", value = {
+            @Result(id = true, column = "id", property = "id"),
+            @Result(column = "uid", property = "uid"),
+            @Result(column = "money", property = "money"),
+            @Result(property = "user", column = "uid", one = @One(select = "cn.ncu.dao.UserDao.findById", fetchType = FetchType.EAGER))
+    })
+    List<Account> findAll();
 
     /**
-     * 保存账户信息
-     * @param account
+     * 根据用户id查询账户信息
+     * @param userId
+     * @return
      */
-    @Insert("insert into account(name, money) values(#{name},#{money})")
-    public void saveAccount(Account account);
+    @Select("select * from account where uid = #{ userId }")
+    @ResultMap("accountMap")
+    List<Account> findAccountByUid(Integer userId);
+
 }

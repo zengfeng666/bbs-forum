@@ -21,14 +21,9 @@ public class AccountController {
 
     @RequestMapping("/findAll")
     public String findAll(Model model){
-        List<Account> list = accountService.findAll();
-        model.addAttribute("list", list);
-        return "list";
+        List<Account> accounts = accountService.findAll();
+        model.addAttribute("accounts", accounts);
+        return "list-account";
     }
 
-    @RequestMapping("/save")
-    public String save(Account account){
-        accountService.saveAccount(account);
-        return "redirect:/account/findAll";
-    }
 }

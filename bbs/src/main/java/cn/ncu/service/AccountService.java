@@ -1,6 +1,7 @@
 package cn.ncu.service;
 
 import cn.ncu.domain.Account;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -13,8 +14,10 @@ public interface AccountService {
         public List<Account> findAll();
 
         /**
-         * 保存账户信息
-         * @param account
+         * 根据用户id查询账户信息
+         * @param userId
+         * @return
          */
-        public void saveAccount(Account account);
+        List<Account> findAccountByUid(Integer userId);
+
 }

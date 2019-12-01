@@ -4,12 +4,7 @@
         <title>Title</title>
     </head>
     <body>
-        <a href="account/findAll">测试</a>
-        <br />
-        <form action="${pageContext.request.contextPath}/account/save" method="post">
-            姓名：<input type="text" name="name" /><br />
-            金额：<input type="text" name="money" /><br />
-            <input type="submit" value="submit"/>
-        </form>
+        <a href="account/findAll">测试AccountDao的findAll()方法</a><br />
+        <a href="user/findAll">测试UserDao的findAll()方法</a><br />
     </body>
 </html>

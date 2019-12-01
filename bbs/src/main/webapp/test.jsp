@@ -6,7 +6,6 @@
     <body>
         <a href="account/findAll">测试</a>
         <br />
-
         <form action="${pageContext.request.contextPath}/account/save" method="post">
             姓名：<input type="text" name="name" /><br />
             金额：<input type="text" name="money" /><br />

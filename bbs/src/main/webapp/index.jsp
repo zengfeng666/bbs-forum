@@ -95,14 +95,6 @@
                                 <li class="index on">
                                     <span><a href="javascript:void(0)">系统设置</a></span>
                                 </li>
-                                <li class="mobile">
-                                    <span><a href="javascript:void(0)">手机百科</a></span>
-                                    <ul>
-                                        <li><a href="#" target="iframe1">客户端</a></li>
-                                        <li><a href="#" target="iframe1">网页版</a></li>
-                                    </ul>
-                                </li>
-
                             </ul>
                         </div>
                     </div>

@@ -17,13 +17,14 @@
     </head>
     <body>
         <div class="header">
+            <button type="button" class="login1"><a href="login.jsp">登入</a> </button>
+            <button type="button" class="register1"><a href="register.jsp">注册</a> </button>
             <div class="top-bar">
                 <div style="text-align: center">
                     <form class="form-inline">
                         <div class="form-group">
                             <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入您要搜索的帖子" size="60">
                         </div>
-                        &nbsp;&nbsp;&nbsp;
                         <button type="submit" class="btn btn-default" style="width: 106px">查找</button>
                     </form>
                 </div>
@@ -39,66 +40,66 @@
                                 <li class="cat">
                                     <span><a href="#">分类</a></span>
                                     <ul>
-                                        <li><a href="#">自然</a></li>
-                                        <li><a href="#">文化</a></li>
-                                        <li><a href="#">地理</a></li>
-                                        <li><a href="#">历史</a></li>
-                                        <li><a href="#">生活</a></li>
-                                        <li><a href="#">社会</a></li>
-                                        <li><a href="#">艺术</a></li>
-                                        <li><a href="#">人物</a></li>
-                                        <li><a href="#">经济</a></li>
-                                        <li><a href="#">科技</a></li>
-                                        <li><a href="#">体育</a></li>
+                                        <li><a href="#" target="iframe1">自然</a></li>
+                                        <li><a href="#" target="iframe1">文化</a></li>
+                                        <li><a href="#" target="iframe1">地理</a></li>
+                                        <li><a href="#" target="iframe1">历史</a></li>
+                                        <li><a href="#" target="iframe1">生活</a></li>
+                                        <li><a href="#" target="iframe1">社会</a></li>
+                                        <li><a href="#" target="iframe1">艺术</a></li>
+                                        <li><a href="#" target="iframe1">人物</a></li>
+                                        <li><a href="#"  target="iframe1">经济</a></li>
+                                        <li><a href="#" target="iframe1">科技</a></li>
+                                        <li><a href="#" target="iframe1">体育</a></li>
                                     </ul>
                                 </li>
                                 <li class="special ">
-                                    <span><a href="javascript:void(0)">看帖</a></span>
+                                    <span><a href="javascript:void(0)" target="iframe1">看帖</a></span>
                                     <ul>
-                                        <li><a href="#">文字帖</a></li>
-                                        <li><a href="#">投票贴</a></li>
-                                        <li><a href="#">精品贴</a></li>
+                                        <li><a href="#" target="iframe1">文字帖</a></li>
+                                        <li><a href="#" target="iframe1">投票贴</a></li>
+                                        <li><a href="#" target="iframe1">精品贴</a></li>
                                     </ul>
                                 </li>
                                 <li class="user">
                                     <span><a href="javascript:void(0)">发帖</a></span>
                                     <ul>
-                                        <li><a href="#">文字帖</a></li>
-                                        <li><a href="#">投票贴</a></li>
+                                        <li><a href="#" target="iframe1">文字帖</a></li>
+                                        <li><a href="#" target="iframe1">投票贴</a></li>
                                     </ul>
                                 </li>
                                 <li class="cooperation">
                                     <span><a href="javascript:void(0)">我的帖子</a></span>
                                     <ul>
-                                        <li><a href="#">我的发帖</a></li>
-                                        <li><a href="#">我的回帖</a></li>
+                                        <li><a href="#" target="iframe1">我的发帖</a></li>
+                                        <li><a href="#" target="iframe1">我的回帖</a></li>
                                     </ul>
                                 </li>
                                 <li class="index on">
-                                    <span><a href="#">全部需求</a></span>
+                                    <span><a href="javascript:void(0)">全部需求</a></span>
                                     <ul>
-                                        <li><a href="#">发布需求</a></li>
-                                        <li><a href="#">我的需求</a></li>
+                                        <li><a href="#" target="iframe1">发布需求</a></li>
+                                        <li><a href="login.jsp" target="iframe1">我的需求</a></li>
 
                                     </ul>
                                 </li>
                                 <li class="index on">
-                                    <span><a href="#">系统公告</a></span>
+                                    <span><a href="javascript:void(0)">系统公告</a></span>
                                     <ul>
-                                        <li><a href="#">公告</a></li>
+                                        <li><a href="#" target="iframe1">公告</a></li>
                                     </ul>
                                 </li>
                                 <li class="index on">
-                                    <span><a href="#">个人信息</a></span>
+                                    <span><a href="javascript:void(0)">个人信息</a></span>
                                 </li>
                                 <li class="index on">
-                                    <span><a href="#">系统设置</a></span>
+                                    <span><a href="javascript:void(0)">系统设置</a></span>
                                 </li>
                                 <li class="mobile">
                                     <span><a href="javascript:void(0)">手机百科</a></span>
                                     <ul>
-                                        <li><a href="#">客户端</a></li>
-                                        <li><a href="#">网页版</a></li>
+                                        <li><a href="#" target="iframe1">客户端</a></li>
+                                        <li><a href="#" target="iframe1">网页版</a></li>
                                     </ul>
                                 </li>
 
@@ -108,10 +109,8 @@
                 </div>
             </div>
         </div>
-
         <div>
-            <br /><br /><br />
-            <a href="test.jsp">点这里测试test.jsp</a>
+            <iframe name="iframe1"  frameborder="0"></iframe>
         </div>
     </body>
 </html>

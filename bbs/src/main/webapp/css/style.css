@@ -1,11 +1,12 @@
-body{margin:0;padding:0;font-family:arial,tahoma,'Microsoft Yahei','\5b8b\4f53',sans-serif;;}
-
+body{margin:0;padding:0;font-family:arial,tahoma,'Microsoft Yahei','\5b8b\4f53',sans-serif;}
 
 .top-bar{background-color:#f3f3f3;text-align:center;padding:2.5em;}
 .nav-bar a{padding-bottom:3px;color:white;text-decoration:none;}
 .nav-bar ul{list-style:none;padding:0;margin:0;}
 .nav-bar li{text-align:center;}
-
+.login1{
+    float: right;
+}
 .nav-bar{position:relative;z-index:1000;overflow:hidden;min-width:900px;height:45px;}
 .nav-bar:hover{overflow:visible;-webkit-transition:all 0.5s ease;transition:all 0.5s ease;}
 .nav-bg{position:absolute;width:100%;height:272px;background:#24619c;background:rgba(36,97,158,.95);-webkit-transition:.3s;transition:.3s;z-index:9999;}
@@ -24,3 +25,13 @@ ul.nav-content-box>li>ul:after{visibility:hidden;display:block;font-size:0;conte
 ul.nav-content-box>li>ul>li{float:left;width:100%;line-height:2;text-align:center;}
 ul.nav-content-box>li.cat>ul>li{width:49%;}
 ul.nav-content-box>li>ul>li>a{display:block;width:100%;}
+
+div iframe{
+    margin-top: 10px;
+    width: 98%;
+    margin-left:1%;
+    margin-right: 1%;
+    height: 1000px;
+    overflow-y:scroll ;
+    background-color: #008c8c;
+}

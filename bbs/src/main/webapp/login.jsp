@@ -25,14 +25,12 @@
                     <div class="card-body">
                         <h4 class="card-title">Login</h4>
 
-
-
-                        <form action="" method="post" class="my-login-validation">
+                        <form action="" method="post" class="my-login-validation" novalidate="">
                             <div class="form-group">
-                                <label for="email">E-Mail Address</label>
-                                <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                                <label for="username">账号</label>
+                                <input id="username" type="text" class="form-control" name="username" placeholder="请输入姓名" required autofocus>
                                 <div class="invalid-feedback">
-                                    Email is invalid
+                                    username is invalid
                                 </div>
                             </div>
 
@@ -42,7 +40,7 @@
                                         Forgot Password?
                                     </a>
                                 </label>
-                                <input id="password" type="password" class="form-control" name="password" required data-eye>
+                                <input id="password" type="password" class="form-control" name="password" placeholder="请输入密码" required data-eye>
                                 <div class="invalid-feedback">
                                     Password is required
                                 </div>
@@ -64,8 +62,6 @@
                                 Don't have an account? <a href="register.jsp">Create One</a>
                             </div>
                         </form>
-
-
 
                     </div>
                 </div>

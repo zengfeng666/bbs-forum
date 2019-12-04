@@ -23,20 +23,22 @@
                 <div class="card fat">
                     <div class="card-body">
                         <h4 class="card-title">Register</h4>
-                        <form method="POST" class="my-login-validation" novalidate="">
+
+
+                        <form action="" method="post" class="my-login-validation" novalidate="">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input id="name" type="text" class="form-control" name="name" required autofocus>
+                                <label for="username">用户名</label>
+                                <input id="username" type="text" class="form-control" name="username" required autofocus>
                                 <div class="invalid-feedback">
-                                    What's your name?
+                                    What's your username?
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">E-Mail Address</label>
-                                <input id="email" type="email" class="form-control" name="email" required>
+                                <label for="nickname">昵称</label>
+                                <input id="nickname" type="text" class="form-control" name="nickname" required autofocus>
                                 <div class="invalid-feedback">
-                                    Your email is invalid
+                                    What's your nickname?
                                 </div>
                             </div>
 
@@ -45,6 +47,55 @@
                                 <input id="password" type="password" class="form-control" name="password" required data-eye>
                                 <div class="invalid-feedback">
                                     Password is required
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">邮箱</label>
+                                <input id="email" type="email" class="form-control" name="email" required>
+                                <div class="invalid-feedback">
+                                    Your email is invalid
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tel">电话</label>
+                                <input id="tel" type="text" class="form-control" name="tel" required data-eye>
+                                <div class="invalid-feedback">
+                                    telephone is invalid
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label >性别</label>
+                                <input type="radio" name="sex" value="male" required data-eye>男
+                                <input type="radio" name="sex" value="male" required data-eye>女
+                                <div class="invalid-feedback">
+                                    sex is invalid
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">个性签名</label>
+                                <input id="description" type="text" class="form-control" name="description" required autofocus>
+                                <div class="invalid-feedback">
+                                    What's your description?
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="job">工作</label>
+                                <input id="job" type="text" class="form-control" name="job" required autofocus>
+                                <div class="invalid-feedback">
+                                    What's your job?
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company">个性签名</label>
+                                <input id="company" type="text" class="form-control" name="company" required autofocus>
+                                <div class="invalid-feedback">
+                                    What's your company?
                                 </div>
                             </div>
 

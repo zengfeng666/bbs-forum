@@ -24,7 +24,10 @@
                 <div class="card fat">
                     <div class="card-body">
                         <h4 class="card-title">Login</h4>
-                        <form method="POST" class="my-login-validation" novalidate="">
+
+
+
+                        <form action="" method="post" class="my-login-validation">
                             <div class="form-group">
                                 <label for="email">E-Mail Address</label>
                                 <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
@@ -61,6 +64,9 @@
                                 Don't have an account? <a href="register.jsp">Create One</a>
                             </div>
                         </form>
+
+
+
                     </div>
                 </div>
                 <div class="footer">

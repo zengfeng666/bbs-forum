@@ -9,11 +9,8 @@
 <html>
     <head>
         <title>发布需求</title>
-        <!-- 1. 导入CSS的全局样式 -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-        <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
-        <!-- 3. 导入bootstrap的js文件 -->
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     </head>
     <body>

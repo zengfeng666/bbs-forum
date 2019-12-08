@@ -9,6 +9,8 @@ import cn.ncu.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("questionService")
 public class QuestionServiceImpl implements QuestionService {
 
@@ -28,6 +30,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public void addQuestionUser(QuestionUser questionUser) {
         questionDao.addQuestionUser(questionUser);
+    }
+
+    @Override
+    public List<Question> findAll() {
+        return questionDao.findAll();
     }
 
 }

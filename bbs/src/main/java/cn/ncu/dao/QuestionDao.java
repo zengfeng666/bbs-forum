@@ -6,13 +6,17 @@ import cn.ncu.domain.QuestionUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface QuestionDao {
-    @Insert("insert into question values(null,#{uid},null,#{title},#{content},#{currentFloor},#{credit})")
+
+    @Select("select * from question")
     @Results(id = "questionMap", value = {
             @Result(id = true, column = "qid", property = "qid"),
             @Result(column = "uid", property = "uid"),
@@ -22,7 +26,11 @@ public interface QuestionDao {
             @Result(column = "current_floor", property = "currentFloor"),
             @Result(column = "credit", property = "credit")
     })
-    @Options(useGeneratedKeys=true, keyProperty="qid", keyColumn="qid")
+    List<Question> findAll();
+
+    @Insert("insert into question values(null,#{uid},null,#{title},#{content},#{currentFloor},#{credit})")
+    @ResultMap("questionMap")
+    @Options(useGeneratedKeys = true, keyProperty = "qid", keyColumn = "qid")
     void addQuestion(Question question);
 
     @Insert("insert into question_floor values(#{qid},#{fid},#{uid},#{replyTime},#{content},#{isAccept})")
@@ -44,4 +52,6 @@ public interface QuestionDao {
             @Result(column = "action", property = "action")
     })
     void addQuestionUser(QuestionUser questionUser);
+
+
 }

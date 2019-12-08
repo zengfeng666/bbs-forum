@@ -5,6 +5,8 @@ import cn.ncu.domain.QuestionFloor;
 import cn.ncu.domain.QuestionUser;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 public interface QuestionService {
 
 
@@ -13,5 +15,7 @@ public interface QuestionService {
     void addQuestionFloor(QuestionFloor questionFloor);
 
     void addQuestionUser(QuestionUser questionUser);
+
+    List<Question> findAll();
 
 }

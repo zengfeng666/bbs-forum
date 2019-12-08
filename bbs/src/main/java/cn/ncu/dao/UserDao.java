@@ -54,4 +54,19 @@ public interface UserDao {
     @Insert("insert into user(username,nickname,password,email,credit,photo,tel,sex,description,job,company)" + "values(#{username},#{nickname},#{password},#{email},100,#{photo},#{tel},#{sex},#{description},#{job},#{company})")
     public void register(User user);
 
+    /**
+     * 重置密码
+     * @param user
+     */
+    @Update("update user set password = #{password) where ")
+    public void reset(User user);
+
+
+    /**
+     * 查询是由存在邮箱，然后是否给予修改密码的权限
+     * @param email
+     * @return
+     */
+    @Select( "select * from user where email = #{email}")
+    public User findEmail(String email);
 }

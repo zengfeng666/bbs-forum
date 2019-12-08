@@ -47,13 +47,46 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping(value = "/forget",method = RequestMethod.POST)
+    public String forget(String email,Model model, HttpSession session){
+        //通过邮箱查询是否存在用户
+        User user = userService.findEmail(email);
+        if(user != null){
+            //将用户对象添加到Session
+            session.setAttribute("USER_SESSION",user);
+            //跳转到主页面
+            return "reset";
+        }
+        model.addAttribute("msg","邮箱错误，请重新输入！");
+        //返回到登录页面
+        return "forget";
+
+    }
 
 
+    /**
+     * 注册
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String register(User user){
         userService.register(user);
         return "login";
     }
+
+    /**
+     * 重置密码
+     * @param user
+     * @return
+     */
+    @RequestMapping(value = "/reset",method = RequestMethod.POST)
+    public String reset(User user){
+        userService.reset(user);
+        return "login";
+    }
+
+
 
 
 }

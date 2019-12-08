@@ -35,4 +35,17 @@ public class UserServiceImpl implements UserService {
     public void register(User user) {
         userDao.register(user);
     }
+
+    @Override
+    public void reset(User user){
+        userDao.reset(user);
+    }
+
+    @Override
+    public User findEmail(String email) {
+        User user = this.userDao.findEmail(email);
+        return user;
+    }
+
+
 }

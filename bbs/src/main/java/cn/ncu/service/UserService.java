@@ -24,4 +24,7 @@ public interface UserService {
      */
     void register(User user);
 
+    void reset(User user);
+
+    User findEmail(String email);
 }

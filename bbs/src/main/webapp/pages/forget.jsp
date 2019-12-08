@@ -23,7 +23,7 @@
                 <div class="card fat">
                     <div class="card-body">
                         <h4 class="card-title">Forgot Password</h4>
-                        <form method="POST" class="my-login-validation" novalidate="">
+                        <form action="${pageContext.request.contextPath}/user/forget" method="POST" class="my-login-validation" novalidate="">
                             <div class="form-group">
                                 <label for="email">E-Mail Address</label>
                                 <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="footer">
-                    Copyright &copy; 2017 &mdash; Your Company
+                    Copyright &copy; 2019 &mdash; Your Company
                 </div>
             </div>
         </div>

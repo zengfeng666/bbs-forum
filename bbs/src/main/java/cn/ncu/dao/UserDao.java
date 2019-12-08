@@ -1,15 +1,10 @@
 package cn.ncu.dao;
 
 import cn.ncu.domain.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,43 +18,27 @@ public interface UserDao {
      */
     @Select("select * from user")
     @Results(id = "userMap", value = {
-            @Result(id = true, column = "id", property = "userId"),
-            @Result(column = "username", property = "userName"),
-            @Result(column = "birthday", property = "userBirthday"),
-            @Result(column = "sex", property = "userSex"),
-            @Result(column = "address", property = "userAddress"),
-            @Result(property = "accounts", column = "id", many = @Many(select = "cn.ncu.dao.AccountDao.findAccountByUid", fetchType = FetchType.LAZY))
+            @Result(id = true, column = "uid", property = "uid"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "nickname", property = "nickname"),
+            @Result(column = "password", property = "password"),
+            @Result(column = "email", property = "email"),
+            @Result(column = "credit", property = "credit"),
+            @Result(column = "photo", property = "photo"),
+            @Result(column = "tel", property = "tel"),
+            @Result(column = "sex", property = "sex"),
+            @Result(column = "description", property = "description"),
+            @Result(column = "job", property = "job"),
+            @Result(column = "company", property = "company"),
+            @Result(column = "exp", property = "exp"),
+            @Result(column = "rank", property = "rank"),
+//            一对多连接查询
+//            @Result(property = "accounts", column = "id", many = @Many(select = "cn.ncu.dao.AccountDao.findAccountByUid", fetchType = FetchType.LAZY))
     })
     List<User> findAll();
 
-    @Select("select* from user where id = #{id}")
+    @Select("select* from user where uid = #{uid}")
     @ResultMap("userMap")
     User findById(Integer id);
 
-
-    @Insert("insert into user values( null, #{username}, #{birthday}, #{sex}, #{address})")
-    @ResultMap("userMap")
-    void saveUser(User user);
-
-    @Update("update user set username = #{username}, birthday = #{birthday}, sex = #{sex}, address = #{address} where id = #{id}")
-    @ResultMap("userMap")
-    void updateUser(User user);
-
-    @Delete("delete from user where username = #{username}")
-    @ResultMap("userMap")
-    void deleteUser(User user);
-
-    /**
-     * 根据用户名模糊查询
-     * @param username
-     * @return
-     */
-    @Select("select * from user where username like #{username}")
-    @ResultMap("userMap")
-    List<User> findByName(String username);
-
-
-    @Select("select count(*) from user")
-    @ResultMap("userMap")
-    int findTotalUser();
 }

@@ -14,39 +14,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+
     @Override
     public List<User> findAll() {
-        System.out.println("执行了 UserService的findAll()...");
-        return userDao.findAll();
+        return null;
     }
 
     @Override
     public User findById(Integer id) {
-        return userDao.findById(id);
-    }
-
-    @Override
-    public void saveUser(User user) {
-        userDao.saveUser(user);
-    }
-
-    @Override
-    public void updateUser(User user) {
-        userDao.updateUser(user);
-    }
-
-    @Override
-    public void deleteUser(User user) {
-        userDao.deleteUser(user);
-    }
-
-    @Override
-    public List<User> findByName(String username) {
-        return userDao.findByName(username);
-    }
-
-    @Override
-    public int findTotalUser() {
-        return userDao.findTotalUser();
+        return null;
     }
 }

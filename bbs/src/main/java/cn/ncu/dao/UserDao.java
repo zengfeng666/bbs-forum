@@ -41,4 +41,6 @@ public interface UserDao {
     @ResultMap("userMap")
     User findById(Integer id);
 
+
+
 }

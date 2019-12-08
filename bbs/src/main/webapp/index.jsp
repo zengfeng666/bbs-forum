@@ -78,7 +78,7 @@
                                 <li class="index on">
                                     <span><a href="javascript:void(0)">全部需求</a></span>
                                     <ul>
-                                        <li><a href="#" target="iframe1">发布需求</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/pages/post-question.jsp" target="iframe1">发布需求</a></li>
                                         <li><a href="${pageContext.request.contextPath}/pages/login.jsp" target="iframe1">我的需求</a></li>
 
                                     </ul>

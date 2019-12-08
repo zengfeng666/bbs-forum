@@ -27,4 +27,10 @@ public interface UserService {
     void reset(User user);
 
     User findEmail(String email);
+
+    /**
+     * 更新用户积分
+     * @param user
+     */
+    void updateCredit(User user);
 }

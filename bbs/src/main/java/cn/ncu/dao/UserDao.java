@@ -69,4 +69,13 @@ public interface UserDao {
      */
     @Select( "select * from user where email = #{email}")
     public User findEmail(String email);
+
+
+    /**
+     * 更新用户积分
+     * @param user
+     */
+    @Update("update user set credit = #{credit} where uid = #{uid}")
+    @ResultMap("userMap")
+    void updateCredit(User user);
 }

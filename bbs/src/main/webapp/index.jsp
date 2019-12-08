@@ -7,18 +7,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>BBS论坛首页</title>
         <!-- 1. 导入CSS的全局样式 -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
-        <script src="js/jquery-2.1.0.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <!-- 3. 导入bootstrap的js文件 -->
-        <script src="js/bootstrap.min.js"></script>
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body>
         <div class="header">
-            <button type="button" class="login1"><a href="login.jsp">登入</a> </button>
-            <button type="button" class="register1"><a href="register.jsp">注册</a> </button>
+            <button type="button" class="login1"><a href="${pageContext.request.contextPath}/pages/login.jsp">登入</a> </button>
+            <button type="button" class="register1"><a href="${pageContext.request.contextPath}/pages/register.jsp">注册</a> </button>
             <div class="top-bar">
                 <div style="text-align: center">
                     <form class="form-inline">
@@ -79,7 +79,7 @@
                                     <span><a href="javascript:void(0)">全部需求</a></span>
                                     <ul>
                                         <li><a href="#" target="iframe1">发布需求</a></li>
-                                        <li><a href="login.jsp" target="iframe1">我的需求</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/pages/login.jsp" target="iframe1">我的需求</a></li>
 
                                     </ul>
                                 </li>

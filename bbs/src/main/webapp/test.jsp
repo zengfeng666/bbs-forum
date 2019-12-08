@@ -5,6 +5,6 @@
     </head>
     <body>
         <a href="account/findAll">测试AccountDao的findAll()方法</a><br />
-        <a href="user/findAll">测试UserDao的findAll()方法</a><br />
+        <a href="test/hello">测试UserDao的findAll()方法</a><br />
     </body>
 </html>

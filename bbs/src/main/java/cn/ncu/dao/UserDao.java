@@ -1,10 +1,7 @@
 package cn.ncu.dao;
 
 import cn.ncu.domain.User;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -40,5 +37,21 @@ public interface UserDao {
     @Select("select* from user where uid = #{uid}")
     @ResultMap("userMap")
     User findById(Integer id);
+
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @return
+     */
+    @Select( "select * from user where username = #{username} and password = #{password}")
+    public User findUser(@Param("username") String username, @Param("password") String password);
+
+    /**
+     * 注册
+     * @param user
+     */
+    @Insert("insert into user(username,nickname,password,email,credit,photo,tel,sex,description,job,company)" + "values(#{username},#{nickname},#{password},#{email},100,#{photo},#{tel},#{sex},#{description},#{job},#{company})")
+    public void register(User user);
 
 }

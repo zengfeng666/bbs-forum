@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>注册</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/my-login.css">
 </head>
 <body class="my-login-page">
@@ -25,7 +25,7 @@
                         <h4 class="card-title">Register</h4>
 
 
-                        <form action="" method="post" class="my-login-validation" novalidate="">
+                        <form action="${pageContext.request.contextPath}/user/register" method="post" class="my-login-validation" novalidate="">
                             <div class="form-group">
                                 <label for="username">用户名</label>
                                 <input id="username" type="text" class="form-control" name="username" required autofocus>

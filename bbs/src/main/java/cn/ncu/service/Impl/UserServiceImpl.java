@@ -17,11 +17,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return null;
+        return userDao.findAll();
     }
 
     @Override
     public User findById(Integer id) {
-        return null;
+        return userDao.findById(id);
     }
 }

@@ -14,7 +14,6 @@
         <title>所有提问</title>
         <style type="text/css">
             td, th {
-                width: 100px;
                 text-align: center;
             }
             a{
@@ -34,7 +33,7 @@
             <c:forEach items="${questions}" var="question" varStatus="vs">
                 <tr>
                     <td>${vs.count}</td>
-                    <td>
+                    <td style="width: 500px">
                         <c:if test="${question.isResolved == 1}">
                             <font color="red">(已解决)</font>
                         </c:if>

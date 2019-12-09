@@ -79,4 +79,6 @@ public interface UserDao {
     @Update("update user set credit = credit + #{add} where uid = #{uid}")
     @ResultMap("userMap")
     void addCredit(@Param("uid") Integer uid, @Param("add") Integer add);
+
+
 }

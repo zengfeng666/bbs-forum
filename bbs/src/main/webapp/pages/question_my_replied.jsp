@@ -34,7 +34,7 @@
             <c:forEach items="${questionsReplied}" var="question" varStatus="vs">
                 <tr>
                     <td>${vs.count}</td>
-                    <td>
+                    <td style="width: 500px">
                         <c:if test="${question.isResolved == 1}">
                             <font color="red">(已解决)</font>
                         </c:if>

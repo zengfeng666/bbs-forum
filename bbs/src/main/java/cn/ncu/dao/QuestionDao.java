@@ -3,6 +3,7 @@ package cn.ncu.dao;
 import cn.ncu.domain.Floor;
 import cn.ncu.domain.Question;
 import cn.ncu.domain.QuestionFloor;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Options;
@@ -14,6 +15,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -127,4 +129,19 @@ public interface QuestionDao {
      */
     @Update("update question_floor set is_accept = 1 where qid = #{qid} and fid = #{fid}")
     void updateFloorStatus(@Param("qid") Integer qid, @Param("fid") Integer fid);
+
+    /**
+     * 删除问题(内部是级联删除)
+     * @param qid
+     */
+    @Delete("delete from question where qid = #{qid}")
+    void deleteQuestion(Integer qid);
+
+    /**
+     * 删除某一楼
+     * @param qid
+     * @param fid
+     */
+    @Delete("delete from question_floor where qid = #{qid} and fid = #{fid}")
+    void deleteQuestionFloor(@Param("qid") Integer qid, @Param("fid") Integer fid);
 }

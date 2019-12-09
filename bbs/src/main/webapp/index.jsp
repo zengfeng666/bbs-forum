@@ -92,9 +92,9 @@
                                     <span><a href="javascript:void(0)">问题</a></span>
                                     <ul>
                                         <li><a href="${pageContext.request.contextPath}/question/findAll" target="iframe1">全部问题</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/pages/question_post.jsp" target="iframe1">发起提问</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/pages/login.jsp" target="iframe1">我的提问</a></li>
-
+                                        <li><a href="${pageContext.request.contextPath}/pages/question_ask.jsp" target="iframe1">发起提问</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/user/ask" target="iframe1">我的提问</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/user/reply" target="iframe1">我的回复</a></li>
                                     </ul>
                                 </li>
                                 <li class="index on">

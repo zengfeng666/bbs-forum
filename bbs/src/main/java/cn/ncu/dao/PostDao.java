@@ -8,7 +8,7 @@ public interface PostDao {
 
     /* private Integer pid;     //帖子id
     private Integer uid;      //发帖人id
-    private Timestamp postTime;  //发帖时间
+    private Timestamp askTime;  //发帖时间
     private String title;    //帖子标题
     private String content;   //发帖内容
     private Integer currentFloor;  //帖子楼层数

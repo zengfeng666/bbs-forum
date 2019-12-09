@@ -41,7 +41,7 @@
                     内容：${question.content}
                 </p>
                 <p>
-                    提问时间：<fmt:formatDate value="${question.postTime}" pattern="yyyy-MM-dd HH:mm"/>
+                    提问时间：<fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/>
                 </p>
             </c:if>
             <%--回复者的信息--%>

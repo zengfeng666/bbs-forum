@@ -53,5 +53,26 @@ public class QuestionServiceImpl implements QuestionService {
         questionDao.updateCurrentFloor(qid, currentFloor);
     }
 
+    /**
+     * 查找用户提出的问题
+     * @param uid
+     * @return
+     */
+    @Override
+    public List<Question> findQuestionAskedByUser(Integer uid) {
+        return questionDao.findQuestionAskedByUser(uid);
+    }
+
+    /**
+     * 查找用户回复的问题
+     * @param uid
+     * @return
+     */
+    @Override
+    public List<Question> findQuestionRepliedByUser(Integer uid) {
+        return questionDao.findQuestionRepliedByUser(uid);
+    }
+
+
 }
 

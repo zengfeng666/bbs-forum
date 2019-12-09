@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class Post implements Serializable {
     private Integer pid;     //帖子id
     private Integer uid;      //发帖人id
-    private Timestamp postTime;  //发帖时间
+    private Timestamp askTime;  //发帖时间
     private String title;    //帖子标题
     private String content;   //发帖内容
     private Integer currentFloor;  //帖子楼层数
@@ -32,12 +32,12 @@ public class Post implements Serializable {
         this.uid = uid;
     }
 
-    public Timestamp getPostTime() {
-        return postTime;
+    public Timestamp getaskTime() {
+        return askTime;
     }
 
-    public void setPostTime(Timestamp postTime) {
-        this.postTime = postTime;
+    public void setaskTime(Timestamp askTime) {
+        this.askTime = askTime;
     }
 
     public String getTitle() {
@@ -109,7 +109,7 @@ public class Post implements Serializable {
         return "Post{" +
                 "pid=" + pid +
                 ", uid=" + uid +
-                ", postTime=" + postTime +
+                ", askTime=" + askTime +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", currentFloor=" + currentFloor +

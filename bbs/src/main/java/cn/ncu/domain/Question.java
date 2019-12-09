@@ -7,7 +7,7 @@ import java.util.List;
 public class Question implements Serializable {
     private Integer qid;            //需求id
     private Integer uid;            //需求发布者的id
-    private Timestamp postTime;     //需求发布的时间
+    private Timestamp askTime;     //需求发布的时间
     private String title;           //需求标题
     private String content;         //需求内容
     private Integer currentFloor;   //楼层数
@@ -39,12 +39,12 @@ public class Question implements Serializable {
         this.uid = uid;
     }
 
-    public Timestamp getPostTime() {
-        return postTime;
+    public Timestamp getAskTime() {
+        return askTime;
     }
 
-    public void setPostTime(Timestamp postTime) {
-        this.postTime = postTime;
+    public void setAskTime(Timestamp askTime) {
+        this.askTime = askTime;
     }
 
     public String getTitle() {
@@ -84,7 +84,7 @@ public class Question implements Serializable {
         return "Question{" +
                 "qid=" + qid +
                 ", uid=" + uid +
-                ", postTime=" + postTime +
+                ", askTime=" + askTime +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", currentFloor=" + currentFloor +

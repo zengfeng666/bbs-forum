@@ -45,7 +45,7 @@ public class QuestionController {
         }
         // 获取当前时间
         Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-        question.setPostTime(currentTime);
+        question.setAskTime(currentTime);
         question.setUid(user.getUid());
         question.setCurrentFloor(1);    // 当前楼层数是1
         questionService.addQuestion(question);

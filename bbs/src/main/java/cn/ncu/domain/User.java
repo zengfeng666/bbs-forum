@@ -4,20 +4,21 @@ import java.io.Serializable;
 
 
 public class User implements Serializable{
-    private Integer uid;   //用户id
-    private String username;   //用户名(账号)
-    private String nickname;   //昵称
-    private String password;   //密码
-    private String email;   //邮箱
-    private Integer credit;   //积分
-    private String photo;   //头像
-    private String tel;   //电话
-    private String sex;   //性别
-    private String description;   //个性签名
-    private String job;   //工作
-    private String company;   //工作单位
-    private Integer exp;  //经验
-    private Integer rank;   //等级
+    private Integer uid;        //用户id
+    private String username;     //用户名(账号)
+    private String nickname;     //昵称
+    private String password;     //密码
+    private String email;        //邮箱
+    private Integer credit;      //积分
+    private String photo;        //头像
+    private String tel;          //电话
+    private String sex;          //性别
+    private String description;  //个性签名
+    private String job;          //工作
+    private String company;      //工作单位
+    private Integer exp;         //经验
+    private Integer rank;        //等级
+
 
     public Integer getUid() {
         return uid;

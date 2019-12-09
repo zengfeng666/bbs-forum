@@ -30,7 +30,7 @@ public interface QuestionDao {
     @Results(value = {
             @Result(id = true, column = "qid", property = "qid"),
             @Result(column = "uid", property = "uid"),
-            @Result(column = "post_time", property = "postTime"),
+            @Result(column = "ask_time", property = "askTime"),
             @Result(column = "title", property = "title"),
             @Result(column = "content", property = "content"),
             @Result(column = "current_floor", property = "currentFloor"),
@@ -42,11 +42,11 @@ public interface QuestionDao {
     Question findByQid(Integer qid);
 
 
-    @Select("select * from question order by post_time desc")
+    @Select("select * from question order by ask_time desc")
     @Results(id = "questionMap", value = {
             @Result(id = true, column = "qid", property = "qid"),
             @Result(column = "uid", property = "uid"),
-            @Result(column = "post_time", property = "postTime"),
+            @Result(column = "ask_time", property = "askTime"),
             @Result(column = "title", property = "title"),
             @Result(column = "content", property = "content"),
             @Result(column = "current_floor", property = "currentFloor"),
@@ -54,7 +54,7 @@ public interface QuestionDao {
     })
     List<Question> findAll();
 
-    @Insert("insert into question values(null,#{uid},#{postTime},#{title},#{content},#{currentFloor},#{credit})")
+    @Insert("insert into question values(null,#{uid},#{askTime},#{title},#{content},#{currentFloor},#{credit})")
     @Options(useGeneratedKeys = true, keyProperty = "qid", keyColumn = "qid")
     void addQuestion(Question question);
 
@@ -90,4 +90,30 @@ public interface QuestionDao {
     @Update("update question set current_floor = #{currentFloor} where qid = #{qid}")
     void updateCurrentFloor(@Param("qid") Integer qid, @Param("currentFloor") Integer currentFloor);
 
+
+    /**
+     * 查找用户提出的问题
+     * @param uid
+     * @return
+     */
+    @Select("select * from question where uid = #{uid} order by ask_time desc")
+    @ResultMap("questionMap")
+    List<Question> findQuestionAskedByUser(Integer uid);
+
+
+    /**
+     * 查找用户回复的问题, 1楼是用户提出的问题，所以fid不能为1
+     * 这里使用了DISTINCT，因为同一用户可能多次回复同一个问题
+     * 如果不用DISTINCT关键字，则会重复显示同一个问题
+     * @param uid
+     * @return
+     */
+    @Select("SELECT DISTINCT question.qid qid, question.uid uid, " +
+            "question.ask_time, question.title, question.content, " +
+            "question.current_floor, question.credit " +
+            "FROM question, question_floor " +
+            "WHERE question_floor.uid = #{uid} " +
+            "AND question_floor.fid != 1 ORDER BY question.ask_time desc")
+    @ResultMap("questionMap")
+    List<Question> findQuestionRepliedByUser(Integer uid);
 }

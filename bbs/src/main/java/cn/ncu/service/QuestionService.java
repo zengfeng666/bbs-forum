@@ -22,4 +22,8 @@ public interface QuestionService {
     Question findByQid(Integer qid);
 
     void updateCurrentFloor(Integer qid, Integer currentFloor);
+
+    List<Question> findQuestionAskedByUser(Integer uid);
+
+    List<Question> findQuestionRepliedByUser(Integer uid);
 }

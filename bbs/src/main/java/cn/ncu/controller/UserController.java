@@ -1,6 +1,8 @@
 package cn.ncu.controller;
 
+import cn.ncu.domain.Question;
 import cn.ncu.domain.User;
+import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -17,12 +20,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/findAll")
-    public String findAll(Model model){
-
-        return null;
-    }
-
+    @Autowired
+    private QuestionService questionService;
 
     /**
      * 核对用户登录
@@ -84,6 +83,27 @@ public class UserController {
     public String reset(User user){
         userService.reset(user);
         return "login";
+    }
+
+    @SuppressWarnings("all")
+    @RequestMapping("/ask")
+    public String ask(HttpSession session, Model model){
+        User user = (User) session.getAttribute("USER_SESSION");
+        int uid = user.getUid();
+        List<Question> questionsAsked = questionService.findQuestionAskedByUser(uid);
+        model.addAttribute("questionsAsked", questionsAsked);
+
+        return "question_my_asked";
+    }
+
+    @RequestMapping("/reply")
+    public String reply(HttpSession session, Model model){
+        User user = (User) session.getAttribute("USER_SESSION");
+        int uid = user.getUid();
+        List<Question> questionsReplied = questionService.findQuestionRepliedByUser(uid);
+        model.addAttribute("questionsReplied", questionsReplied);
+
+        return "question_my_replied";
     }
 
 

@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class Post implements Serializable {
     private Integer pid;     //帖子id
     private Integer uid;      //发帖人id
-    private Timestamp askTime;  //发帖时间
+    private Timestamp postTime;  //发帖时间
     private String title;    //帖子标题
     private String content;   //发帖内容
     private Integer currentFloor;  //帖子楼层数
@@ -14,7 +14,8 @@ public class Post implements Serializable {
     private Integer isGood;    //是否精品
     private Integer isTop;    //是否置顶
     private Integer kind;       // 帖子的种类
-    private Timestamp LastActiveTime;   // 帖子的最后活跃时间
+    private Timestamp lastActiveTime;   // 帖子的最后活跃时间
+    private String nickName;            // 发帖人的昵称
 
     public Integer getPid() {
         return pid;
@@ -32,12 +33,12 @@ public class Post implements Serializable {
         this.uid = uid;
     }
 
-    public Timestamp getaskTime() {
-        return askTime;
+    public Timestamp getPostTime() {
+        return postTime;
     }
 
-    public void setaskTime(Timestamp askTime) {
-        this.askTime = askTime;
+    public void setPostTime(Timestamp postTime) {
+        this.postTime = postTime;
     }
 
     public String getTitle() {
@@ -97,11 +98,19 @@ public class Post implements Serializable {
     }
 
     public Timestamp getLastActiveTime() {
-        return LastActiveTime;
+        return lastActiveTime;
     }
 
     public void setLastActiveTime(Timestamp lastActiveTime) {
-        LastActiveTime = lastActiveTime;
+        this.lastActiveTime = lastActiveTime;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     @Override
@@ -109,7 +118,7 @@ public class Post implements Serializable {
         return "Post{" +
                 "pid=" + pid +
                 ", uid=" + uid +
-                ", askTime=" + askTime +
+                ", postTime=" + postTime +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", currentFloor=" + currentFloor +
@@ -117,7 +126,8 @@ public class Post implements Serializable {
                 ", isGood=" + isGood +
                 ", isTop=" + isTop +
                 ", kind=" + kind +
-                ", LastActiveTime=" + LastActiveTime +
+                ", lastActiveTime=" + lastActiveTime +
+                ", nickName='" + nickName + '\'' +
                 '}';
     }
 }

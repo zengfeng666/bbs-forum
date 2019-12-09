@@ -34,35 +34,50 @@
                                 <li class="index on">
                                     <span><a href="#">首页</a></span>
                                 </li>
-                                <li class="cat">
+                                <%--<li class="cat">
                                     <span><a href="#">分类</a></span>
                                     <ul>
-                                        <li><a href="#" target="iframe1">自然</a></li>
-                                        <li><a href="#" target="iframe1">文化</a></li>
-                                        <li><a href="#" target="iframe1">地理</a></li>
-                                        <li><a href="#" target="iframe1">历史</a></li>
-                                        <li><a href="#" target="iframe1">生活</a></li>
-                                        <li><a href="#" target="iframe1">社会</a></li>
-                                        <li><a href="#" target="iframe1">艺术</a></li>
-                                        <li><a href="#" target="iframe1">人物</a></li>
-                                        <li><a href="#"  target="iframe1">经济</a></li>
+                                        <li><a href="#" target="iframe1">二次元</a></li>
                                         <li><a href="#" target="iframe1">科技</a></li>
+                                        <li><a href="#" target="iframe1">小说</a></li>
+                                        <li><a href="#" target="iframe1">生活</a></li>
                                         <li><a href="#" target="iframe1">体育</a></li>
+                                        <li><a href="#" target="iframe1">...</a></li>
+                                        <li><a href="#"  target="iframe1">...</a></li>
+                                        <li><a href="#" target="iframe1">...</a></li>
+                                        <li><a href="#" target="iframe1">...</a></li>
                                     </ul>
-                                </li>
+                                </li>--%>
                                 <li class="special ">
                                     <span><a href="javascript:void(0)" target="iframe1">看帖</a></span>
                                     <ul>
-                                        <li><a href="#" target="iframe1">文字帖</a></li>
-                                        <li><a href="#" target="iframe1">投票贴</a></li>
-                                        <li><a href="#" target="iframe1">精品贴</a></li>
+                                        <ul>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=0" target="iframe1">二次元</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=1" target="iframe1">科技</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=2" target="iframe1">小说</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=3" target="iframe1">生活</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=4" target="iframe1">体育</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=5" target="iframe1">...</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=6"  target="iframe1">...</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=7" target="iframe1">...</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=8" target="iframe1">...</a></li>
+                                        </ul>
                                     </ul>
                                 </li>
                                 <li class="user">
                                     <span><a href="javascript:void(0)">发帖</a></span>
                                     <ul>
-                                        <li><a href="#" target="iframe1">文字帖</a></li>
-                                        <li><a href="#" target="iframe1">投票贴</a></li>
+                                        <ul>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=0" target="iframe1">二次元</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=1" target="iframe1">科技</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=2" target="iframe1">小说</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=3" target="iframe1">生活</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=4" target="iframe1">体育</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=5" target="iframe1">...</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=6"  target="iframe1">...</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=7" target="iframe1">...</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=8" target="iframe1">...</a></li>
+                                        </ul>
                                     </ul>
                                 </li>
                                 <li class="cooperation">

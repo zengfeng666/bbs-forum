@@ -13,6 +13,8 @@ public class Post implements Serializable {
     private Integer likenum;   //点赞数
     private Integer isGood;    //是否精品
     private Integer isTop;    //是否置顶
+    private Integer kind;       // 帖子的种类
+    private Timestamp LastActiveTime;   // 帖子的最后活跃时间
 
     public Integer getPid() {
         return pid;
@@ -86,6 +88,22 @@ public class Post implements Serializable {
         this.isTop = isTop;
     }
 
+    public Integer getKind() {
+        return kind;
+    }
+
+    public void setKind(Integer kind) {
+        this.kind = kind;
+    }
+
+    public Timestamp getLastActiveTime() {
+        return LastActiveTime;
+    }
+
+    public void setLastActiveTime(Timestamp lastActiveTime) {
+        LastActiveTime = lastActiveTime;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -98,6 +116,8 @@ public class Post implements Serializable {
                 ", likenum=" + likenum +
                 ", isGood=" + isGood +
                 ", isTop=" + isTop +
+                ", kind=" + kind +
+                ", LastActiveTime=" + LastActiveTime +
                 '}';
     }
 }

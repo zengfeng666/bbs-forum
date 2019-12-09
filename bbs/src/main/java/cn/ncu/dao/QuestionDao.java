@@ -3,7 +3,6 @@ package cn.ncu.dao;
 import cn.ncu.domain.Floor;
 import cn.ncu.domain.Question;
 import cn.ncu.domain.QuestionFloor;
-import cn.ncu.domain.QuestionUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Options;
@@ -61,9 +60,6 @@ public interface QuestionDao {
     @Insert("insert into question_floor values(#{qid},#{fid},#{uid},#{replyTime},#{content},#{isAccept})")
     void addQuestionFloor(QuestionFloor questionFloor);
 
-
-    @Insert("insert into question_user values(#{qid},#{uid},#{action})")
-    void addQuestionUser(QuestionUser questionUser);
 
     /**
      * 查找该问题下的所有楼层信息

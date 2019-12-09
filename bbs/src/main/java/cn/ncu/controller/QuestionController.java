@@ -1,20 +1,15 @@
 package cn.ncu.controller;
 
-import cn.ncu.domain.Floor;
 import cn.ncu.domain.Question;
 import cn.ncu.domain.QuestionFloor;
-import cn.ncu.domain.QuestionUser;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
-import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.List;
@@ -61,13 +56,6 @@ public class QuestionController {
         questionFloor.setIsAccept(0);
         questionService.addQuestionFloor(questionFloor);
 
-        QuestionUser questionUser = new QuestionUser();
-        questionUser.setQid(qid);
-        questionUser.setUid(question.getUid());
-        // 1代表发布，0代表回复
-        questionUser.setAction(1);
-        questionService.addQuestionUser(questionUser);
-
         // 扣除个人积分
         user.setCredit(user.getCredit() - question.getCredit());
         userService.updateCredit(user);
@@ -107,17 +95,6 @@ public class QuestionController {
         questionFloor.setContent(content);
         questionService.addQuestionFloor(questionFloor);
 
-        QuestionUser questionUser = new QuestionUser();
-        // 0代表回复，1代表发布
-        questionUser.setAction(0);
-        questionUser.setQid(qid);
-        questionUser.setUid(uid);
-
-        try {
-            // 此处当同一个人多次回复同一个问题的时候，会反复插入主键
-            questionService.addQuestionUser(questionUser);
-        } catch (Exception e) {
-        }
 
         model.addAttribute("qid", qid);
         return "question_answer_success";

@@ -2,10 +2,8 @@ package cn.ncu.service.Impl;
 
 
 import cn.ncu.dao.QuestionDao;
-import cn.ncu.domain.Floor;
 import cn.ncu.domain.Question;
 import cn.ncu.domain.QuestionFloor;
-import cn.ncu.domain.QuestionUser;
 import cn.ncu.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,10 +26,6 @@ public class QuestionServiceImpl implements QuestionService {
         questionDao.addQuestionFloor(questionFloor);
     }
 
-    @Override
-    public void addQuestionUser(QuestionUser questionUser) {
-        questionDao.addQuestionUser(questionUser);
-    }
 
     @Override
     public List<Question> findAll() {

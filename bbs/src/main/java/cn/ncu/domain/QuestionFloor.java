@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class QuestionFloor implements Serializable {
-    private Integer qid;  //需求id
-    private Integer fid;  //楼层号
-    private Integer uid;   //回复人或发布需求人id
-    private Timestamp replyTime;   //回复时间
-    private String content;    //回复内容
-    private Integer isAccept;   //是否采纳
+    private Integer qid;            //需求id
+    private Integer fid;            //楼层号
+    private Integer uid;            //回复人或发布需求人id
+    private Timestamp replyTime;    //回复时间
+    private String content;         //回复内容
+    private Integer isAccept;       //是否采纳
 
     public Integer getQid() {
         return qid;

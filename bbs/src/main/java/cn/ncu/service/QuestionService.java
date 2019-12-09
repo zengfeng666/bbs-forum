@@ -1,5 +1,6 @@
 package cn.ncu.service;
 
+import cn.ncu.domain.Floor;
 import cn.ncu.domain.Question;
 import cn.ncu.domain.QuestionFloor;
 import cn.ncu.domain.QuestionUser;
@@ -18,4 +19,7 @@ public interface QuestionService {
 
     List<Question> findAll();
 
+    Question findByQid(Integer qid);
+
+    void updateCurrentFloor(Integer qid, Integer currentFloor);
 }

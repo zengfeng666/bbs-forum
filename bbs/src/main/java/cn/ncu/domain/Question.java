@@ -2,15 +2,26 @@ package cn.ncu.domain;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Question implements Serializable {
-    private Integer qid;   //需求id
-    private Integer uid;   //需求发布者的id
-    private Timestamp postTime;  //需求发布的时间
-    private String title;    //需求标题
-    private String content;  //需求内容
-    private Integer currentFloor;  //楼层数
-    private Integer credit;   //悬赏积分
+    private Integer qid;            //需求id
+    private Integer uid;            //需求发布者的id
+    private Timestamp postTime;     //需求发布的时间
+    private String title;           //需求标题
+    private String content;         //需求内容
+    private Integer currentFloor;   //楼层数
+    private Integer credit;         //悬赏积分
+
+    private List<Floor> floors;     // 这个问题对应的所有楼层(即所有回复)
+
+    public List<Floor> getFloors() {
+        return floors;
+    }
+
+    public void setFloors(List<Floor> floors) {
+        this.floors = floors;
+    }
 
     public Integer getQid() {
         return qid;

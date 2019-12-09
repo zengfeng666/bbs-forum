@@ -2,6 +2,7 @@ package cn.ncu.service.Impl;
 
 
 import cn.ncu.dao.QuestionDao;
+import cn.ncu.domain.Floor;
 import cn.ncu.domain.Question;
 import cn.ncu.domain.QuestionFloor;
 import cn.ncu.domain.QuestionUser;
@@ -35,6 +36,21 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public List<Question> findAll() {
         return questionDao.findAll();
+    }
+
+    /**
+     * 查找该问题内容，包括所有楼层
+     * @param qid
+     * @return
+     */
+    @Override
+    public Question findByQid(Integer qid){
+        return questionDao.findByQid(qid);
+    }
+
+    @Override
+    public void updateCurrentFloor(Integer qid, Integer currentFloor){
+        questionDao.updateCurrentFloor(qid, currentFloor);
     }
 
 }

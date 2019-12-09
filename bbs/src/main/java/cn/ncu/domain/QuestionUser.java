@@ -3,9 +3,9 @@ package cn.ncu.domain;
 import java.io.Serializable;
 
 public class QuestionUser implements Serializable {
-    private Integer qid;   //需求id
-    private Integer uid;   //回复人或发布需求人id
-    private Integer action;   //发布/回复
+    private Integer qid;         // 需求id
+    private Integer uid;         // 回复人或发布需求人id
+    private Integer action;      // 1发布/0回复
 
     public Integer getQid() {
         return qid;

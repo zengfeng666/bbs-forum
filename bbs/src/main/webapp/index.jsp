@@ -14,6 +14,7 @@
     </head>
     <body>
         <div class="header">
+            欢迎你，${USER_SESSION.nickname}
             <button type="button" class="login1"><a href="${pageContext.request.contextPath}/pages/login.jsp">登入</a> </button>
             <button type="button" class="register1"><a href="${pageContext.request.contextPath}/pages/register.jsp">注册</a> </button>
             <div class="top-bar">
@@ -88,11 +89,11 @@
                                     </ul>
                                 </li>
                                 <li class="index on">
-                                    <span><a href="javascript:void(0)">全部需求</a></span>
+                                    <span><a href="javascript:void(0)">问题</a></span>
                                     <ul>
-                                        <li><a href="${pageContext.request.contextPath}/question/findAllQuestion" target="iframe1">全部需求</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/pages/post-question.jsp" target="iframe1">发布需求</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/pages/login.jsp" target="iframe1">我的需求</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/question/findAll" target="iframe1">全部问题</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/pages/question_post.jsp" target="iframe1">发起提问</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/pages/login.jsp" target="iframe1">我的提问</a></li>
 
                                     </ul>
                                 </li>
@@ -115,7 +116,7 @@
             </div>
         </div>
         <div>
-            <iframe name="iframe1"  frameborder="0"></iframe>
+            <%--<iframe name="iframe1"  frameborder="0"></iframe>--%>
         </div>
     </body>
 </html>

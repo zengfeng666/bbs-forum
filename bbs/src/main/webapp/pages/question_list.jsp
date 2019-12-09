@@ -11,15 +11,31 @@
 
 <html>
     <head>
-        <title>所有需求</title>
+        <title>所有提问</title>
+        <style type="text/css">
+            td, th {
+                width: 100px;
+                text-align: center;
+            }
+            a{
+                text-decoration: none;
+            }
+        </style>
     </head>
     <body>
-        <table>
+        <table align="center" border="1px">
+            <caption>所有提问</caption>
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>悬赏</th>
+                <th>时间</th>
+            </tr>
             <c:forEach items="${questions}" var="question" varStatus="vs">
                 <tr>
                     <td>${vs.count}</td>
-                    <td>${question.title}</td>
-                    <td>${question.credit}</td>
+                    <td><a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">${question.title}</a></td>
+                    <td>${question.credit}积分</td>
                         <%--<td>${question.postTime}</td>--%>
                     <td><fmt:formatDate value="${question.postTime}" pattern="yyyy-MM-dd HH:mm"/></td>
                 </tr>

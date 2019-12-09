@@ -14,7 +14,7 @@
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <form action="${pageContext.request.contextPath}/question/addQuestion" method="post">
+        <form action="${pageContext.request.contextPath}/question/add" method="post">
             <div class="form-group">
                 <label for="title">提问</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="一句话描述你的问题">
@@ -28,7 +28,7 @@
                 <label for="credit">悬赏积分</label>
                 <input type="text" class="form-control" name="credit" id="credit" placeholder="悬赏积分">
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default">提交</button>
         </form>
     </body>
 </html>

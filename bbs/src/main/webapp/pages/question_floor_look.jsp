@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: zengffeng
+  User: zengfeng
   Date: 2019/12/8
   Time: 21:31
   To change this template use File | Settings | File Templates.
@@ -14,6 +14,15 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <script type="application/javascript">
+            // 参数分别为问题id，被采纳者的id，悬赏积分
+            function adopt(qid, uid, fid, credit) {
+                if (confirm("你确定采纳此楼吗？")) {
+                    location.href = "${pageContext.request.contextPath}/question/accept?qid=" + qid
+                        + "&uid=" + uid + "&fid=" + fid + "&credit=" + credit;
+                }
+            }
+        </script>
     </head>
     <body>
         <c:forEach items="${question.floors}" var="floor" varStatus="vs">
@@ -32,6 +41,9 @@
                     提问者等级：${floor.rank}
                 </p>
                 <p>
+                    <c:if test="${question.isResolved == 1}">
+                        <font color="red">(已解决)</font>
+                    </c:if>
                     标题：${question.title}
                 </p>
                 <p>
@@ -61,10 +73,22 @@
                 <p>
                     回复时间：<fmt:formatDate value="${floor.replyTime}" pattern="yyyy-MM-dd HH:mm"/>
                 </p>
+                <c:if test="${floor.isAccept == 1}">
+                    <font color="red">楼主已采纳此楼</font>
+                </c:if>
+                <c:if test="${USER_SESSION.uid == question.uid && question.isResolved == 0}">
+                    <%--如果当前用户就是提问者--%>
+                    <p>
+                            <%--参数分别为问题id，被采纳者的id，悬赏积分--%>
+                        <input type="button" value="采纳此楼"
+                               onclick="adopt(${question.qid}, ${floor.uid}, ${floor.fid}, ${question.credit});"/>
+                    </p>
+                </c:if>
             </c:if>
             <hr/>
         </c:forEach>
-        <form action="${pageContext.request.contextPath}/question/answer?qid=${question.qid}&currentFloor=${question.currentFloor}" method="post">
+        <form action="${pageContext.request.contextPath}/question/answer?qid=${question.qid}&currentFloor=${question.currentFloor}"
+              method="post">
             <div class="form-group">
                 <label for="content">回复楼主的问题:</label>
                 <textarea class="form-control" name="content" id="content" rows="5"

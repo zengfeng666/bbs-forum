@@ -72,10 +72,11 @@ public interface UserDao {
 
 
     /**
-     * 更新用户积分
-     * @param user
+     * 用户积分加上add增量
+     * @param uid
+     * @param add
      */
-    @Update("update user set credit = #{credit} where uid = #{uid}")
+    @Update("update user set credit = credit + #{add} where uid = #{uid}")
     @ResultMap("userMap")
-    void updateCredit(User user);
+    void addCredit(@Param("uid") Integer uid, @Param("add") Integer add);
 }

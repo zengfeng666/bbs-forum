@@ -29,8 +29,9 @@ public interface UserService {
     User findEmail(String email);
 
     /**
-     * 更新用户积分
-     * @param user
+     * 用户积分加上add增量
+     * @param uid
+     * @param add
      */
-    void updateCredit(User user);
+    void addCredit(Integer uid, Integer add);
 }

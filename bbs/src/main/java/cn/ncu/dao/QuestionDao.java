@@ -34,6 +34,7 @@ public interface QuestionDao {
             @Result(column = "content", property = "content"),
             @Result(column = "current_floor", property = "currentFloor"),
             @Result(column = "credit", property = "credit"),
+            @Result(column = "is_resolved", property = "isResolved"),
             @Result(property = "floors", column = "qid",
                     many = @Many(select = "cn.ncu.dao.QuestionDao.findFloorsByQid", fetchType = FetchType.LAZY))
 
@@ -49,11 +50,12 @@ public interface QuestionDao {
             @Result(column = "title", property = "title"),
             @Result(column = "content", property = "content"),
             @Result(column = "current_floor", property = "currentFloor"),
-            @Result(column = "credit", property = "credit")
+            @Result(column = "credit", property = "credit"),
+            @Result(column = "is_resolved", property = "isResolved")
     })
     List<Question> findAll();
 
-    @Insert("insert into question values(null,#{uid},#{askTime},#{title},#{content},#{currentFloor},#{credit})")
+    @Insert("insert into question values(null,#{uid},#{askTime},#{title},#{content},#{currentFloor},#{credit},0)")
     @Options(useGeneratedKeys = true, keyProperty = "qid", keyColumn = "qid")
     void addQuestion(Question question);
 
@@ -68,7 +70,7 @@ public interface QuestionDao {
      */
     @Select("SELECT qid, fid, user.uid uid, reply_time, content, is_accept, " +
             "username, nickname, `password`, email, credit, photo,tel,sex,description,job,company,`exp`,rank " +
-            "FROM question_floor, USER " +
+            "FROM question_floor, user " +
             "WHERE question_floor.qid = #{qid} and question_floor.uid = user.uid ORDER BY fid ASC")
     @Results(id = "floorMap", value = {
             @Result(column = "uid", property = "uid"),
@@ -106,10 +108,23 @@ public interface QuestionDao {
      */
     @Select("SELECT DISTINCT question.qid qid, question.uid uid, " +
             "question.ask_time, question.title, question.content, " +
-            "question.current_floor, question.credit " +
+            "question.current_floor, question.credit, question.is_resolved " +
             "FROM question, question_floor " +
             "WHERE question_floor.uid = #{uid} " +
             "AND question_floor.fid != 1 ORDER BY question.ask_time desc")
     @ResultMap("questionMap")
     List<Question> findQuestionRepliedByUser(Integer uid);
+
+
+    @Update("update question set is_resolved = 1 where qid = #{qid}")
+    void updateQuestionStatus(Integer qid);
+
+
+    /**
+     * 将楼层置为已采纳状态
+     * @param qid 问题id
+     * @param fid 楼层号
+     */
+    @Update("update question_floor set is_accept = 1 where qid = #{qid} and fid = #{fid}")
+    void updateFloorStatus(@Param("qid") Integer qid, @Param("fid") Integer fid);
 }

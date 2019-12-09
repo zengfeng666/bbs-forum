@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUser(String username, String password) {
-        User user = this.userDao.findUser(username,password);
+        User user = this.userDao.findUser(username, password);
         return user;
     }
 
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void reset(User user){
+    public void reset(User user) {
         userDao.reset(user);
     }
 
@@ -48,9 +48,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateCredit(User user) {
-        userDao.updateCredit(user);
+    public void addCredit(Integer uid, Integer add) {
+        userDao.addCredit(uid, add);
     }
-
 
 }

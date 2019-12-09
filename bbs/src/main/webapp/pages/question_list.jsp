@@ -34,7 +34,12 @@
             <c:forEach items="${questions}" var="question" varStatus="vs">
                 <tr>
                     <td>${vs.count}</td>
-                    <td><a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">${question.title}</a></td>
+                    <td>
+                        <c:if test="${question.isResolved == 1}">
+                            <font color="red">(已解决)</font>
+                        </c:if>
+                        <a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">${question.title}</a>
+                    </td>
                     <td>${question.credit}积分</td>
                         <%--<td>${question.askTime}</td>--%>
                     <td><fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/></td>

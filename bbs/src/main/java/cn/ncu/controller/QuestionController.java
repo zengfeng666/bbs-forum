@@ -57,8 +57,7 @@ public class QuestionController {
         questionService.addQuestionFloor(questionFloor);
 
         // 扣除个人积分
-        user.setCredit(user.getCredit() - question.getCredit());
-        userService.updateCredit(user);
+        userService.addCredit(user.getUid(), - question.getCredit());
 
         return "question_add_success";
     }
@@ -98,6 +97,24 @@ public class QuestionController {
 
         model.addAttribute("qid", qid);
         return "question_answer_success";
+    }
+
+
+    /**
+     *
+     * @param qid 问题id
+     * @param uid 被采纳者id
+     * @param credit 问题悬赏积分
+     * @return
+     */
+    @RequestMapping("/accept")
+    public String accept(Integer qid, Integer uid, Integer fid, Integer credit) {
+        // 增加被采纳者的积分
+        userService.addCredit(uid, credit);
+        // 将问题置为已解决
+        questionService.updateStatus(qid, fid);
+
+        return "question_accept_success";
     }
 
 }

@@ -35,6 +35,9 @@
                 <tr>
                     <td>${vs.count}</td>
                     <td>
+                        <c:if test="${question.isResolved == 1}">
+                            <font color="red">(已解决)</font>
+                        </c:if>
                         <a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">${question.title}</a>
                     </td>
                     <td>${question.credit}积分</td>

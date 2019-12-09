@@ -67,6 +67,14 @@ public class QuestionServiceImpl implements QuestionService {
         return questionDao.findQuestionRepliedByUser(uid);
     }
 
+    @Override
+    public void updateStatus(Integer qid, Integer fid) {
+        // 将问题置为已解决
+        questionDao.updateQuestionStatus(qid);
+        // 将楼层置为已采纳
+        questionDao.updateFloorStatus(qid, fid);
+    }
+
 
 }
 

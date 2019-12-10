@@ -27,7 +27,7 @@
         }
 
         #kind{
-            width: 40px;
+            width: 100px;
         }
     </style>
 </head>

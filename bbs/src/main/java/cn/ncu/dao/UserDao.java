@@ -87,4 +87,6 @@ public interface UserDao {
     @Update("update user set exp = #{exp}, rank = #{rank} where uid = #{uid}")
     void setRankAndExp(User user);
 
+
+
 }

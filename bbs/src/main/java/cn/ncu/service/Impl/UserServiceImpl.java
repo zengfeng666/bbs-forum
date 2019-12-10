@@ -52,4 +52,9 @@ public class UserServiceImpl implements UserService {
         userDao.addCredit(uid, add);
     }
 
+    @Override
+    public void setRankAndExp(User user) {
+        userDao.setRankAndExp(user);
+    }
+
 }

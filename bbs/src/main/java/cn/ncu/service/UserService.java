@@ -34,4 +34,10 @@ public interface UserService {
      * @param add
      */
     void addCredit(Integer uid, Integer add);
+
+    /**
+     * 设置用户的等级经验
+     * @param user
+     */
+    public void setRankAndExp(User user);
 }

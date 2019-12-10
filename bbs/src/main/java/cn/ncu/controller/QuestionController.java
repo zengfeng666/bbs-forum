@@ -30,6 +30,7 @@ public class QuestionController {
         return "question_list";
     }
 
+
     @RequestMapping("/add")
     public String add(Question question, HttpSession session, Model model) {
         User user = (User) session.getAttribute("USER_SESSION");

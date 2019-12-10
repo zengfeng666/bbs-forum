@@ -2,6 +2,7 @@ package cn.ncu.domain;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Post implements Serializable {
     private Integer pid;     //帖子id
@@ -16,6 +17,7 @@ public class Post implements Serializable {
     private Integer kind;       // 帖子的种类
     private Timestamp lastActiveTime;   // 帖子的最后活跃时间
     private String nickName;            // 发帖人的昵称
+    private List<Floor> floors;         // 帖子的所有楼层信息
 
     public Integer getPid() {
         return pid;
@@ -113,6 +115,14 @@ public class Post implements Serializable {
         this.nickName = nickName;
     }
 
+    public List<Floor> getFloors() {
+        return floors;
+    }
+
+    public void setFloors(List<Floor> floors) {
+        this.floors = floors;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -128,6 +138,7 @@ public class Post implements Serializable {
                 ", kind=" + kind +
                 ", lastActiveTime=" + lastActiveTime +
                 ", nickName='" + nickName + '\'' +
+                ", floors=" + floors +
                 '}';
     }
 }

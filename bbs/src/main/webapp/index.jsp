@@ -53,15 +53,12 @@
                                     <span><a href="javascript:void(0)" target="iframe1">看帖</a></span>
                                     <ul>
                                         <ul>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=0" target="iframe1">二次元</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=1" target="iframe1">科技</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=2" target="iframe1">小说</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=3" target="iframe1">生活</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=4" target="iframe1">体育</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=5" target="iframe1">...</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=6"  target="iframe1">...</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=7" target="iframe1">...</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/showPost.jsp?kind=8" target="iframe1">...</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=0" >二次元</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=1" >科技</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=2" >小说</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=3" >生活</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=4" >娱乐新闻</a></li>
+
                                         </ul>
                                     </ul>
                                 </li>
@@ -69,23 +66,20 @@
                                     <span><a href="javascript:void(0)">发帖</a></span>
                                     <ul>
                                         <ul>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=0" target="iframe1">二次元</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=1" target="iframe1">科技</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=2" target="iframe1">小说</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=3" target="iframe1">生活</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=4" target="iframe1">体育</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=5" target="iframe1">...</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=6"  target="iframe1">...</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=7" target="iframe1">...</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/pages/postPost.jsp?kind=8" target="iframe1">...</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=0" >二次元</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=1" >科技</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=2" >小说</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=3" >生活</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=4" >娱乐新闻</a></li>
+
                                         </ul>
                                     </ul>
                                 </li>
                                 <li class="cooperation">
                                     <span><a href="javascript:void(0)">我的帖子</a></span>
                                     <ul>
-                                        <li><a href="#" target="iframe1">我的发帖</a></li>
-                                        <li><a href="#" target="iframe1">我的回帖</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/post/findAllReplyByMe" target="iframe1">我的回帖</a></li>
                                     </ul>
                                 </li>
                                 <li class="index on">

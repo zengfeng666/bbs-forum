@@ -16,4 +16,10 @@ public interface PostFloorService {
      * @param postFloor
      */
     public void addOneFloor(PostFloor postFloor);
+
+    /**
+     * 删除一层楼
+     * @param pid
+     */
+    void deleteReply(Integer pid, Integer uid, Integer fid);
 }

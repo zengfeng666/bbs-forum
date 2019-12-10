@@ -79,4 +79,12 @@ public interface UserDao {
     @Update("update user set credit = credit + #{add} where uid = #{uid}")
     @ResultMap("userMap")
     void addCredit(@Param("uid") Integer uid, @Param("add") Integer add);
+
+    /**
+     * 更新用户的等级和经验
+     * @param user
+     */
+    @Update("update user set exp = #{exp}, rank = #{rank} where uid = #{uid}")
+    void setRankAndExp(User user);
+
 }

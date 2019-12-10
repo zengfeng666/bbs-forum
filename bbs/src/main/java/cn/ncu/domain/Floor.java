@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 // 由QuestionFloor, PostFloor, User三个对象组成的实体类
 public class Floor implements Serializable{
     private Integer qid;            //需求id
+
     private Integer fid;            //楼层号
     private Integer uid;            //回复人或发布需求人id
     private Timestamp replyTime;    //回复时间

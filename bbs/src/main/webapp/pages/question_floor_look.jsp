@@ -22,6 +22,13 @@
                         + "&uid=" + uid + "&fid=" + fid + "&credit=" + credit;
                 }
             }
+
+            function delR(qid, fid) {
+                if (confirm("你确定删除自己的这条回复吗？")) {
+                    location.href = "${pageContext.request.contextPath}/user/delR?qid=" + qid
+                        + "&fid=" + fid;
+                }
+            }
         </script>
     </head>
     <body>
@@ -82,6 +89,15 @@
                             <%--参数分别为问题id，被采纳者的id，悬赏积分--%>
                         <input type="button" value="采纳此楼"
                                onclick="adopt(${question.qid}, ${floor.uid}, ${floor.fid}, ${question.credit});"/>
+                    </p>
+                </c:if>
+
+                <c:if test="${USER_SESSION.uid == floor.uid}">
+                    <%--如果当前用户就是回复者--%>
+                    <p>
+                            <%--参数分别为问题id，被采纳者的id，悬赏积分--%>
+                        <input type="button" value="删除自己本楼的回复"
+                               onclick="delR(${question.qid}, ${floor.fid});"/>
                     </p>
                 </c:if>
             </c:if>

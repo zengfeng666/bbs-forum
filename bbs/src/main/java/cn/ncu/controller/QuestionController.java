@@ -23,6 +23,12 @@ public class QuestionController {
     @Autowired
     private UserService userService;
 
+
+    /**
+     * 查看所有问题
+     * @param model
+     * @return
+     */
     @RequestMapping("/findAll")
     public String findAll(Model model) {
         List<Question> questions = questionService.findAll();
@@ -31,6 +37,13 @@ public class QuestionController {
     }
 
 
+    /**
+     * 提出一个问题
+     * @param question
+     * @param session
+     * @param model
+     * @return
+     */
     @RequestMapping("/add")
     public String add(Question question, HttpSession session, Model model) {
         User user = (User) session.getAttribute("USER_SESSION");
@@ -65,7 +78,7 @@ public class QuestionController {
 
 
     /**
-     * 查看所有问题
+     * 查看问题的楼层信息
      *
      * @param qid
      * @param model
@@ -79,6 +92,16 @@ public class QuestionController {
         return "question_floor_look";
     }
 
+
+    /**
+     * 回复问题
+     * @param qid
+     * @param currentFloor
+     * @param content
+     * @param session
+     * @param model
+     * @return
+     */
     @RequestMapping("/answer")
     public String answer(Integer qid, Integer currentFloor, String content, HttpSession session, Model model) {
         User user = (User) session.getAttribute("USER_SESSION");
@@ -102,7 +125,7 @@ public class QuestionController {
 
 
     /**
-     *
+     * 采纳回答
      * @param qid 问题id
      * @param uid 被采纳者id
      * @param credit 问题悬赏积分

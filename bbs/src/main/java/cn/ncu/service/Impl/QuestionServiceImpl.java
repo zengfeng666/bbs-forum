@@ -75,6 +75,16 @@ public class QuestionServiceImpl implements QuestionService {
         questionDao.updateFloorStatus(qid, fid);
     }
 
+    @Override
+    public void deleteQuestion(Integer qid) {
+        questionDao.deleteQuestion(qid);
+    }
+
+    @Override
+    public void deleteQuestionFloor(Integer qid, Integer fid) {
+        questionDao.deleteQuestionFloor(qid, fid);
+    }
+
 
 }
 

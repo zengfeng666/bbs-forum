@@ -83,12 +83,12 @@
                                     </ul>
                                 </li>
                                 <li class="index on">
-                                    <span><a href="javascript:void(0)">全部需求</a></span>
+                                    <span><a href="javascript:void(0)">问题</a></span>
                                     <ul>
-                                        <li><a href="${pageContext.request.contextPath}/question/findAllQuestion" target="iframe1">全部需求</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/pages/post-question.jsp" target="iframe1">发布需求</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/pages/login.jsp" target="iframe1">我的需求</a></li>
-
+                                        <li><a href="${pageContext.request.contextPath}/question/findAll" target="iframe1">全部问题</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/pages/question_ask.jsp" target="iframe1">发起提问</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/user/askQ" target="iframe1">我的提问</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/user/replyQ" target="iframe1">我的回复</a></li>
                                     </ul>
                                 </li>
                                 <li class="index on">
@@ -110,7 +110,7 @@
             </div>
         </div>
         <div>
-            <iframe name="iframe1"  frameborder="0"></iframe>
+            <%--<iframe name="iframe1"  frameborder="0"></iframe>--%>
         </div>
     </body>
 </html>

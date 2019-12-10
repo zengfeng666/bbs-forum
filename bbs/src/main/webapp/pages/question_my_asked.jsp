@@ -21,6 +21,14 @@
                 text-decoration: none;
             }
         </style>
+        <script type="application/javascript">
+            // 删除问题
+            function delQ(qid) {
+                if (confirm("你确定要删除这个问题吗？")) {
+                    location.href = "${pageContext.request.contextPath}/user/delQ?qid=" + qid;
+                }
+            }
+        </script>
     </head>
     <body>
         <table align="center" border="1px">
@@ -30,11 +38,12 @@
                 <th>问题</th>
                 <th>悬赏</th>
                 <th>时间</th>
+                <th>操作</th>
             </tr>
             <c:forEach items="${questionsAsked}" var="question" varStatus="vs">
                 <tr>
                     <td>${vs.count}</td>
-                    <td>
+                    <td style="width: 500px">
                         <c:if test="${question.isResolved == 1}">
                             <font color="red">(已解决)</font>
                         </c:if>
@@ -43,6 +52,9 @@
                     <td>${question.credit}积分</td>
                         <%--<td>${question.askTime}</td>--%>
                     <td><fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/></td>
+                    <td>
+                        <input type="button" value="删除" onclick="delQ(${question.qid});"/>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

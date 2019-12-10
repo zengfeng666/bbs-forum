@@ -153,7 +153,6 @@ public class UserController {
     @RequestMapping("/delR")
     public String delR(Integer qid, Integer fid, HttpServletRequest request, HttpServletResponse response) {
         questionService.deleteQuestionFloor(qid, fid);
-
         // 注意：qid也被传入look中了
         return  "forward:/question/look";
     }

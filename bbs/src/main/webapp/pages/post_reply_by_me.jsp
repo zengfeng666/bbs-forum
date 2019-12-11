@@ -15,43 +15,90 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
     <style>
-        td{
-            width: 200px;
+        body{
+            text-align: center;
+            display:block;
         }
+
         a:link, hover{
             text-decoration: none;
         }
 
         table{
-            width: 640px;
+            width: 700px;
             margin: auto;
             border-color: blue;
         }
 
-        #replyNum{
-            width: 40px;
+        #postInfo{
+            background-color: #d9edf7;
+            font-size: 14px;
+            border: 1px blue solid;
+            width: 80%;
+            height: 70px;
+            line-height: 70px;
+            padding-left: 18px;
         }
 
+        #firstRow1{
+            font-size: 20px;
+        }
 
+        #content{
+            font-size: 15px;
+
+        }
+
+        .refer{
+            font-size:45px;
+            color: gray;
+           margin-bottom: -50px;
+        }
+
+        #date{
+            font-size: 15px;
+            color: gray;
+        }
+
+        #div1{
+            width: 800px;
+
+        }
     </style>
 
 </head>
 <body>
 
-    <div>
+    <div id = "div1">
         <table class="table table-hover">
             <caption>我回复的所有帖子</caption>
-            <c:forEach items = "${replyListByMe}" var = "post">
+            <c:forEach items = "${replyMapByMe}" var = "replyMap">
                 <tr>
-                    <td id = "replyNum"><div>${post.currentFloor - 1}</div></td>
+                   <%-- <td id = "replyNum"><div>${post.currentFloor - 1}</div></td>
                     <td>
                         <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
                             <div>${post.title}</div>
                         </a>
                     </td>
                     <td><div>${post.nickName}</div></td>
-                    <td><div>${post.lastActiveTime}</div></td>
+                    <td><div>${post.lastActiveTime}</div></td>--%>
 
+                    <td>
+                        <div style = "margin-top: 15px; margin-bottom: 20px;">
+                            <div id = "firstRow1">
+                                <span><a href = "#">${USER_SESSION.nickname}</a>&nbsp;回复</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span id = "date">${replyMap.value.replyTime}</span>
+
+                            </div>
+                           <div id = "content">
+                               <span class = "refer">“</span>${replyMap.value.content}<span class = "refer">”</span><span>回复</span></div>
+                            <div id = "postInfo">
+                                <span><a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${replyMap.key.pid}">${replyMap.key.title}</a></span>
+                                <span>回复(${replyMap.key.currentFloor - 1})</span>
+                                --&nbsp;&nbsp;<span>来自&nbsp;<a href = "#">${replyMap.key.nickName}</a></span>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </c:forEach>
 

@@ -5,6 +5,8 @@ import cn.ncu.domain.PostFloor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 帖子楼层表的业务层
  */
@@ -22,4 +24,12 @@ public interface PostFloorService {
      * @param pid
      */
     void deleteReply(Integer pid, Integer uid, Integer fid);
+
+    /**
+     * 根据uid查找所有回复的楼层
+     * @param uid
+     * @return
+     */
+    List<PostFloor> findAllReplyByUid(Integer uid);
+
 }

@@ -2,6 +2,7 @@ package cn.ncu.service;
 
 import cn.ncu.domain.Floor;
 import cn.ncu.domain.Post;
+import cn.ncu.domain.PostFloor;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -51,12 +52,6 @@ public interface PostService {
      */
     public void updateCurrentFloor(Integer pid, Integer fid);
 
-    /**
-     * 根据uid查找所有回复的帖子
-     * @param uid
-     * @return
-     */
-    List<Post> findAllReplyByUid(Integer uid);
 
     /**
      * 获取uid用户的所有回复时间

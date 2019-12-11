@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostFloorServiceimpl implements PostFloorService {
     @Autowired
@@ -20,5 +22,10 @@ public class PostFloorServiceimpl implements PostFloorService {
     @Override
     public void deleteReply(Integer pid, Integer uid, Integer fid) {
         postFloorDao.deleteReply(pid, uid, fid);
+    }
+
+    @Override
+    public List<PostFloor> findAllReplyByUid(Integer uid) {
+        return postFloorDao.findAllReplyByUid(uid);
     }
 }

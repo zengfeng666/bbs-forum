@@ -2,6 +2,7 @@ package cn.ncu.dao;
 
 import cn.ncu.domain.Floor;
 import cn.ncu.domain.Post;
+import cn.ncu.domain.PostFloor;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
@@ -101,20 +102,6 @@ public interface PostDao {
      */
     @Update("update post set current_floor = #{fid} where pid = #{pid}")
     void updateFid(@Param("pid")Integer pid, @Param("fid")Integer fid);
-
-    /**
-     * 根据uid查找所有回复的帖子的pid， 并根据回复时间排序
-     * @param uid
-     * @return
-     */
-    @Select("SELECT * FROM post WHERE pid IN( " +
-            "SELECT  DISTINCT pid " +
-            "FROM post_floor " +
-            "WHERE uid = #{uid} AND fid != 1 " +
-            "ORDER BY reply_time " +
-            ")")
-    @ResultMap("postMap")
-    List<Post> findAllReplyByUid(Integer uid);
 
 
     /**

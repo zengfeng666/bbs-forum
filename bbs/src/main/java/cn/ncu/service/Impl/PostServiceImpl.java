@@ -3,6 +3,7 @@ package cn.ncu.service.Impl;
 import cn.ncu.dao.PostDao;
 import cn.ncu.domain.Floor;
 import cn.ncu.domain.Post;
+import cn.ncu.domain.PostFloor;
 import cn.ncu.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,11 +45,6 @@ public class PostServiceImpl implements PostService {
     @Override
     public void updateCurrentFloor(Integer pid, Integer fid) {
         postDao.updateFid(pid, fid);
-    }
-
-    @Override
-    public List<Post> findAllReplyByUid(Integer uid) {
-        return postDao.findAllReplyByUid(uid);
     }
 
     @Override

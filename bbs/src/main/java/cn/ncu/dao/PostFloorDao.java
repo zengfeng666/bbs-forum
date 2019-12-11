@@ -1,10 +1,10 @@
 package cn.ncu.dao;
 
 import cn.ncu.domain.PostFloor;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 帖子楼层表
@@ -34,4 +34,15 @@ public interface PostFloorDao {
     @Delete("delete from post_floor where pid = #{pid} and uid = #{uid} and fid = #{fid}")
     void deleteReply(@Param("pid")Integer pid, @Param("uid")Integer uid, @Param("fid")Integer fid);
 
+
+    /**
+     * 根据uid查找所有回复的楼层， 并根据回复时间排序
+     * @param uid
+     * @return
+     */
+    @Select("SELECT * FROM post_floor WHERE uid = #{uid} and fid != 1 order by reply_time asc ")
+    @Results(id = "postFloorMap", value = {
+            @Result(column = "reply_time", property = "replyTime")
+    })
+    List<PostFloor> findAllReplyByUid(Integer uid);
 }

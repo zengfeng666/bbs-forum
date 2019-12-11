@@ -21,7 +21,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/post")
@@ -152,14 +154,19 @@ public class PostController {
     @RequestMapping("/findAllReplyByMe")
     public String findAllReplyByMe(HttpSession session, Model model){
         User user = (User) session.getAttribute("USER_SESSION");
-        // 获取到所有回复的帖子
-        List<Post> list = postService.findAllReplyByUid(user.getUid());
-      /*  // 获取所有回复的时间
-        List<Timestamp> times = postService.findAllReplyTimeByUid(user.getUid());
 
-        Map<Post, Timestamp> replyMap = new HashMap<>();*/
+        // 获取所有我回复的楼层
+        List<PostFloor> list = postFloorService.findAllReplyByUid(user.getUid());
 
-        model.addAttribute("replyListByMe", list);
+        Map<Post, PostFloor> replyMap = new HashMap<>();
+        // 根据每层楼的pid,找到对应的帖子，将那层楼和帖子存入一个map
+        for(PostFloor postFloor : list){
+            Post p = postService.findPostByPid(postFloor.getPid());
+            replyMap.put(p, postFloor);
+        }
+
+        //model.addAttribute("replyListByMe", list);
+        model.addAttribute("replyMapByMe", replyMap);
 
         return "post_reply_by_me";
     }
@@ -215,6 +222,25 @@ public class PostController {
 
         // 更新post表中的当前楼层收
         postService.updateCurrentFloor(p.getPid(), p.getCurrentFloor() + 1);
+
+
+        // 回帖之后给用户加经验，加等级
+        int exp = user.getExp() + 5;
+        int rank = user.getRank();
+        user.setExp(exp);
+
+        user.setRank(calRank(exp));
+
+        // 把等级放到model中，如果为负数，那么没有升级，如果为整数，则是升级到了对应的级数
+        model.addAttribute("rank", rank * (-1));
+
+        if(rank < user.getRank()){
+            model.addAttribute("rank", rank);
+        }
+
+        // 更新User表
+        userService.setRankAndExp(user);
+
 
         // 重新展示所有楼层信息
         return "forward:showAllFloors";

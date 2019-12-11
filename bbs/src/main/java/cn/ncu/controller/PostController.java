@@ -14,7 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -155,9 +159,6 @@ public class PostController {
 
         Map<Post, Timestamp> replyMap = new HashMap<>();*/
 
-        for(Post p : list){
-            System.out.println(p);
-        }
         model.addAttribute("replyListByMe", list);
 
         return "post_reply_by_me";
@@ -175,13 +176,7 @@ public class PostController {
         // 根据pid获取帖子对象
         Post post = postService.findPostByPid(pid);
         // 查找这个帖子的所有楼层信息
-        System.out.println("1-----------------------------------------");
         List<Floor> list = postService.findFloorsByPid(pid);
-        for(Floor f : list){
-            System.out.println(f);
-            System.out.println("2----------------------------------");
-        }
-        System.out.println("3-------------------------------------------");
         post.setFloors(list);
         model.addAttribute("postWithAllFloor", post);
 
@@ -246,10 +241,10 @@ public class PostController {
      */
     @RequestMapping("/deleteReply")
     public String deleteReply(Integer pid, Integer fid, HttpSession session){
+
         User user = (User) session.getAttribute("USER_SESSION");
 
         postFloorService.deleteReply(pid, user.getUid(), fid);
-
 
         return "forward:findAllReplyByMe";
     }

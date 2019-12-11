@@ -27,7 +27,7 @@ public interface PostFloorDao {
     public void addOneFloor(PostFloor postFloor);
 
     /**
-     * 删除某个用户在某个帖子的所有回复
+     * 删除某个用户在某个帖子的某层回复
      * @param pid
      * @param uid
      */

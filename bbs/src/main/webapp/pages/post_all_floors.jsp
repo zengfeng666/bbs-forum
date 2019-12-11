@@ -47,7 +47,7 @@
     </style>
     <script>
         function deleteReply(fid, pid){
-            if(confirm("您确定要删除这个帖子中的所有回复吗？")){
+            if(confirm("您确定要删除该层回复吗？")){
                 location.href = "${pageContext.request.contextPath}/post/deleteReply?pid=" + pid + "&fid=" + fid;
             }
         }
@@ -72,14 +72,15 @@
                         <div>&nbsp;</div>
                         <div>&nbsp;</div>
                         <%--<fmt:formatDate value="${floor.replyTime}" pattern="yyyy-MM-dd HH:mm"/>--%>
-                        <div id = "contentBottom">${floor.fid}# &nbsp;&nbsp;
-                            <fmt:formatDate value="${floor.replyTime}" pattern = "yyy-MM-dd HH:mm:ss"/> </div>
+                        <div id = "contentBottom"><span>${floor.fid}# &nbsp;&nbsp;</span>
+                            <span><fmt:formatDate value="${floor.replyTime}" pattern = "yyy-MM-dd HH:mm:ss"/></span> &nbsp;&nbsp;
 
                         <%--如果是true,则添加一个删除按钮，传入fid, pid,删除该楼层--%>
                             <c:if test = "${USER_SESSION.uid == floor.uid and floor.fid != 1}">
                                 <span><a href = "javascript:deleteReply('${floor.fid}', '${floor.pid}')" >删除</a></span>
                                 <span><a href = "javascript:editContent('${floor.fid}', '${floor.pid}')" >修改</a></span>
                             </c:if>
+                        </div>
                     </td>
 
                 </tr>

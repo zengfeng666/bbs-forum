@@ -23,7 +23,7 @@
         }
 
         table{
-            width: 800px;
+            width: 640px;
             margin: auto;
             border-color: blue;
         }

@@ -36,11 +36,11 @@ public interface PostDao {
 
 
     /**
-     * 查询给定种类的所有帖子
+     * 查询给定种类的所有帖子, 并做降序排序
      * @param kind
      * @return
      */
-    @Select("select * from post where kind = #{kind}")
+    @Select("select * from post where kind = #{kind} order by last_active_time desc")
     @Results(id = "postMap",
             value = {
                 @Result(id = true, column = "pid", property = "pid"),
@@ -64,7 +64,7 @@ public interface PostDao {
      * @param uid
      * @return
      */
-    @Select("select * from post where uid = #{uid}")
+    @Select("select * from post where uid = #{uid} order by post_time desc")
     @ResultMap("postMap")
     public List<Post> findAllPostByUid(Integer uid);
 
@@ -110,7 +110,7 @@ public interface PostDao {
     @Select("SELECT * FROM post WHERE pid IN( " +
             "SELECT  DISTINCT pid " +
             "FROM post_floor " +
-            "WHERE uid = 4 AND fid != 1 " +
+            "WHERE uid = #{uid} AND fid != 1 " +
             "ORDER BY reply_time " +
             ")")
     @ResultMap("postMap")

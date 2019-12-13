@@ -32,8 +32,8 @@
                                 <form action="${pageContext.request.contextPath}/user/forget" method="POST"
                                       class="my-login-validation" novalidate="">
                                     <div class="form-group">
-                                        <label for="email">E-Mail Address</label>
-                                        <input id="email" type="email" class="form-control" name="email" value=""
+                                        <label for="username">E-Mail Address</label>
+                                        <input id="username" type="text" class="form-control" name="username" value=""
                                                required autofocus>
                                         <div class="invalid-feedback">
                                             Email is invalid

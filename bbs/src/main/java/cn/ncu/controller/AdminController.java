@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-public class adminController {
+public class AdminController {
     @Autowired
     PostService postService;
 

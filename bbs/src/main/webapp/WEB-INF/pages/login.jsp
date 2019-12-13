@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
     <head>
-        <title>登入</title>
+        <title>登录</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
               crossorigin="anonymous">
@@ -50,7 +50,7 @@
 
                                     <div class="form-group">
                                         <label for="password">Password
-                                            <a href="${pageContext.request.contextPath}/pages/forget.jsp"
+                                            <a href="${pageContext.request.contextPath}/page/forget"
                                                class="float-right">
                                                 Forgot Password?
                                             </a>
@@ -77,9 +77,10 @@
                                     </div>
                                     <div class="mt-4 text-center">
                                         Don't have an account? <a
-                                            href="${pageContext.request.contextPath}/pages/register.jsp">Create One</a>
+                                            href="${pageContext.request.contextPath}/page/register">Create One</a>
                                     </div>
                                 </form>
+                                ${msg}
                             </div>
                         </div>
                         <div class="footer">

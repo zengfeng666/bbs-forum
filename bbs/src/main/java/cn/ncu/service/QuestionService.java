@@ -43,6 +43,5 @@ public interface QuestionService {
      * @param qid
      * @param fid
      */
-    @Delete("delete from question_floor where qid = #{qid} and fid = #{fid}")
-    void deleteQuestionFloor(@Param("qid") Integer qid, @Param("fid") Integer fid);
+    void deleteQuestionFloor(Integer qid, Integer fid);
 }

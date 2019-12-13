@@ -17,7 +17,7 @@
     <style>
         body{
             text-align: center;
-            display:block;
+
         }
 
         a:link, hover{
@@ -62,7 +62,11 @@
 
         #div1{
             width: 800px;
+            display: block;
+        }
 
+        #content2{
+            margin-top: 0px;
         }
     </style>
 
@@ -91,7 +95,7 @@
 
                             </div>
                            <div id = "content">
-                               <span class = "refer">“</span>${replyMap.value.content}<span class = "refer">”</span><span>回复</span></div>
+                               <span class = "refer">“</span><span id = "content2">${replyMap.value.content}</span><span class = "refer">”</span><span>回复</span></div>
                             <div id = "postInfo">
                                 <span><a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${replyMap.key.pid}">${replyMap.key.title}</a></span>
                                 <span>回复(${replyMap.key.currentFloor - 1})</span>

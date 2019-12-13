@@ -80,16 +80,16 @@
                                     <span><a href="javascript:void(0)">我的帖子</a></span>
                                     <ul>
                                         <li><a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/post/findAllReplyByMe" target="iframe1">我的回帖</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/post/findAllReplyByMe"">我的回帖</a></li>
                                     </ul>
                                 </li>
                                 <li class="index on">
                                     <span><a href="javascript:void(0)">问题</a></span>
                                     <ul>
-                                        <li><a href="${pageContext.request.contextPath}/question/findAll" target="iframe1">全部问题</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/page/question_ask" target="iframe1">发起提问</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/user/askQ" target="iframe1">我的提问</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/user/replyQ" target="iframe1">我的回复</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/question/findAll">全部问题</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/page/question_ask">发起提问</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/user/askQ">我的提问</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/user/replyQ">我的回复</a></li>
                                     </ul>
                                 </li>
                                 <li class="index on">

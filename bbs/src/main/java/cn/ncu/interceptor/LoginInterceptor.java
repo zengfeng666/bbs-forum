@@ -28,15 +28,15 @@ public class LoginInterceptor implements HandlerInterceptor {
      * Handler执行之前调用这个方法
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
-                             Object arg2) throws Exception{
+                             Object arg2) throws Exception {
         // TODO Auto-generated method stub
 
 
         //获取Session
         HttpSession session = request.getSession();
-        User user = (User)session.getAttribute("USER_SESSION");
+        User user = (User) session.getAttribute("USER_SESSION");
 
-        if(user == null){
+        if (user == null) {
             response.sendRedirect(request.getContextPath() + "/user/login");
             return false;
         }

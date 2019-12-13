@@ -50,7 +50,7 @@
 
                                     <div class="form-group">
                                         <label for="password">Password
-                                            <a href="${pageContext.request.contextPath}/pages/forget.jsp"
+                                            <a href="${pageContext.request.contextPath}/page/forget"
                                                class="float-right">
                                                 Forgot Password?
                                             </a>
@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="mt-4 text-center">
                                         Don't have an account? <a
-                                            href="${pageContext.request.contextPath}/pages/register.jsp">Create One</a>
+                                            href="${pageContext.request.contextPath}/page/register">Create One</a>
                                     </div>
                                 </form>
                                 ${msg}

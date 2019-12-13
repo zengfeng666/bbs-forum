@@ -37,6 +37,7 @@
 
 <script>
     function delP(pid,kind) {
+        if(confirm())
         location.href = "${pageContext.request.contextPath}/admin/deletePost?pid=" + pid+"&kind="+kind;
     }
 </script>

@@ -80,7 +80,7 @@
                                             href="${pageContext.request.contextPath}/page/register">Create One</a>
                                     </div>
                                 </form>
-                                ${msg}
+                                <font color="red">${msg}</font>
                             </div>
                         </div>
                         <div class="footer">

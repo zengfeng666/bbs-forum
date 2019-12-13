@@ -43,6 +43,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
             <mvc:exclude-mapping path="/user/register"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/user/logout"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/page/main"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/page/login"></mvc:exclude-mapping>
 
             <mvc:exclude-mapping path="/post/showPosts"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/post/showAllFloors"></mvc:exclude-mapping>

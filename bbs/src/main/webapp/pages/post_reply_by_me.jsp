@@ -70,7 +70,7 @@
 <body>
 
     <div id = "div1">
-        <table class="table table-hover">
+        <table class="table">
             <caption>我回复的所有帖子</caption>
             <c:forEach items = "${replyMapByMe}" var = "replyMap">
                 <tr>

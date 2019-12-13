@@ -80,6 +80,7 @@
                                             href="${pageContext.request.contextPath}/pages/register.jsp">Create One</a>
                                     </div>
                                 </form>
+                                ${msg}
                             </div>
                         </div>
                         <div class="footer">

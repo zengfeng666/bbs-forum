@@ -1,5 +1,6 @@
 package cn.ncu.dao;
 
+import cn.ncu.domain.Post;
 import cn.ncu.domain.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
@@ -84,6 +85,14 @@ public interface UserDao {
      * 更新用户的等级和经验
      * @param user
      */
-    @Update("update user set exp = #{exp} ,rank = #{rank} where uid = #{uid}")
+    @Update("update user set exp = #{exp}, rank = #{rank} where uid = #{uid}")
     void setRankAndExp(User user);
+
+    /**
+     * 搜索
+     * @param title
+     * @return
+     */
+    @Select("select Post.uid,Post.postTime,Post.Title,Post.content,Post.likenum,Post.isGood,Post.kind,Post.nickname,Post.floors from post where title like '%'#{title}")
+    List<Post> search(String title);
 }

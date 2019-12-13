@@ -1,6 +1,7 @@
 package cn.ncu.controller;
 
 import cn.ncu.domain.Post;
+import cn.ncu.service.AdminService;
 import cn.ncu.service.PostService;
 import cn.ncu.service.QuestionService;
 import org.apache.ibatis.annotations.Param;
@@ -20,6 +21,9 @@ public class AdminController {
     @Autowired
     QuestionService questionService;
 
+    @Autowired
+    AdminService adminService;
+
     /**
      * 删除pid这个帖子
      * @param pid
@@ -28,6 +32,54 @@ public class AdminController {
     @RequestMapping("/deletePost")
     public String deletePost(Integer pid ,int kind){
         postService.deletePost(pid);
+        return "forward:showPosts?kind="+kind;
+    }
+
+    /**
+     * 置顶
+     * @param pid
+     * @param kind
+     * @return
+     */
+    @RequestMapping("/isTopPost")
+    public String isTopPost(Integer pid ,int kind){
+        adminService.isTopPost(pid);
+        return "forward:showPosts?kind="+kind;
+    }
+
+    /**
+     * 取消置顶
+     * @param pid
+     * @param kind
+     * @return
+     */
+    @RequestMapping("/notTopPost")
+    public String notTopPost(Integer pid ,int kind){
+        adminService.notTopPost(pid);
+        return "forward:showPosts?kind="+kind;
+    }
+
+    /**
+     * 加精
+     * @param pid
+     * @param kind
+     * @return
+     */
+    @RequestMapping("/isGoodPost")
+    public String isGoodPost(Integer pid ,int kind){
+        adminService.isGoodPost(pid);
+        return "forward:showPosts?kind="+kind;
+    }
+
+    /**
+     * 取消加精
+     * @param pid
+     * @param kind
+     * @return
+     */
+    @RequestMapping("/notGoodPost")
+    public String notGoodPost(Integer pid ,int kind){
+        adminService.notGoodPost(pid);
         return "forward:showPosts?kind="+kind;
     }
 

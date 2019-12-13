@@ -35,13 +35,18 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <!--配置不拦截目录-->
-            <mvc:exclude-mapping path="/user/login"></mvc:exclude-mapping>
-            <mvc:exclude-mapping path="/user/register"></mvc:exclude-mapping>
-            <mvc:exclude-mapping path="/user/logout"></mvc:exclude-mapping>
-
             <mvc:exclude-mapping path="/css/**"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/js/**"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/images/**"></mvc:exclude-mapping>
+
+            <mvc:exclude-mapping path="/user/login"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/user/register"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/user/logout"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/page/main"></mvc:exclude-mapping>
+
+            <mvc:exclude-mapping path="/post/showPosts"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/post/showAllFloors"></mvc:exclude-mapping>
+
 
             <bean class="cn.ncu.interceptor.LoginInterceptor"></bean>
         </mvc:interceptor>

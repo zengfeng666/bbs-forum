@@ -50,7 +50,7 @@ public class UserController {
                 return "admin";
             }
             //跳转到主页面
-            return "redirect:/main.jsp";
+            return "redirect:/index.jsp";
         }
 
         model.addAttribute("msg", "账号或密码错误，请重新输入！");
@@ -78,7 +78,7 @@ public class UserController {
     @RequestMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("USER_SESSION");
-        return "redirect:/main.jsp";
+        return "redirect:/index.jsp";
     }
 
 //    @RequestMapping(value = "/forget")

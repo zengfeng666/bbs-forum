@@ -17,6 +17,7 @@
             欢迎你，${USER_SESSION.nickname}
             <button type="button" class="login1"><a href="${pageContext.request.contextPath}/pages/login.jsp">登入</a> </button>
             <button type="button" class="register1"><a href="${pageContext.request.contextPath}/pages/register.jsp">注册</a> </button>
+            <button type="button" class="register1"><a href="${pageContext.request.contextPath}/user/logout">注销</a> </button>
             <div class="top-bar">
                 <div style="text-align: center">
                     <form class="form-inline">

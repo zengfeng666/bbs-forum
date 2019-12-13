@@ -1,6 +1,7 @@
 package cn.ncu.service.Impl;
 
 import cn.ncu.dao.UserDao;
+import cn.ncu.domain.Post;
 import cn.ncu.domain.User;
 import cn.ncu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void setRankAndExp(User user) {
         userDao.setRankAndExp(user);
+    }
+
+    @Override
+    public List<Post> search(String title) {
+        List<Post> posts = userDao.search(title);
+        return posts;
     }
 
 }

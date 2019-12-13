@@ -1,5 +1,6 @@
 package cn.ncu.controller;
 
+import cn.ncu.domain.Post;
 import cn.ncu.domain.Question;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -36,37 +38,26 @@ public class UserController {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login")
     public String login(String username, String password, Model model, HttpSession session) {
         //通过账号和密码查询用户
         User user = userService.findUser(username, password);
-        if (user != null) {
+        if (user != null && user.getUid()!=1) {
             //将用户对象添加到Session
             session.setAttribute("USER_SESSION", user);
             //跳转到主页面
             return "redirect:/index.jsp";
         }
+        //如果是管理员则跳转到管理员界面
+        else if(user.getUid()==1)
+        {
+            session.setAttribute("USER_SESSION", user);
+            return "admin";
+        }
         model.addAttribute("msg", "账号或密码错误，请重新输入！");
         //返回到登录页面
         return "login";
     }
-
-    @RequestMapping(value = "/forget", method = RequestMethod.POST)
-    public String forget(String email, Model model, HttpSession session) {
-        //通过邮箱查询是否存在用户
-        User user = userService.findEmail(email);
-        if (user != null) {
-            //将用户对象添加到Session
-            session.setAttribute("USER_SESSION", user);
-            //跳转到主页面
-            return "reset";
-        }
-        model.addAttribute("msg", "邮箱错误，请重新输入！");
-        //返回到登录页面
-        return "forget";
-
-    }
-
 
     /**
      * 注册
@@ -74,23 +65,42 @@ public class UserController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(value = "/register")
     public String register(User user) {
         userService.register(user);
         return "login";
     }
 
     /**
-     * 重置密码
-     *
-     * @param user
+     * 注销
+     * @param session
      * @return
      */
-    @RequestMapping(value = "/reset", method = RequestMethod.POST)
-    public String reset(User user) {
-        userService.reset(user);
-        return "login";
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("USER_SESSION");
+        return "redirect:/index.jsp";
     }
+
+//    @RequestMapping(value = "/forget")
+//    public String forget()
+//
+
+    /**
+     * 模糊查询
+     * @param title
+     * @return
+     */
+     @RequestMapping(value = "/search")
+     public ModelAndView search(String title){
+
+     List<Post> postList = userService.search(title);
+     ModelAndView modelAndView = new ModelAndView();
+     modelAndView.addObject("postList",postList);
+     modelAndView.setViewName("/pages/post-list");
+     return modelAndView;
+
+     }
 
     /**
      * 我的提问

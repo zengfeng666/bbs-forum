@@ -1,5 +1,6 @@
 package cn.ncu.service;
 
+import cn.ncu.domain.Post;
 import cn.ncu.domain.User;
 
 import java.util.List;
@@ -40,4 +41,6 @@ public interface UserService {
      * @param user
      */
     public void setRankAndExp(User user);
+
+    List<Post> search(String title);
 }

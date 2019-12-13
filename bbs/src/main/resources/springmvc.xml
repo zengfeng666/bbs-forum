@@ -47,6 +47,9 @@ http://www.springframework.org/schema/context/spring-context.xsd">
             <mvc:exclude-mapping path="/post/showPosts"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/post/showAllFloors"></mvc:exclude-mapping>
 
+            <mvc:exclude-mapping path="/question/findAll"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/question/look"></mvc:exclude-mapping>
+
 
             <bean class="cn.ncu.interceptor.LoginInterceptor"></bean>
         </mvc:interceptor>

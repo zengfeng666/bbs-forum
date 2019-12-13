@@ -111,7 +111,6 @@ public class PostController {
      */
     @RequestMapping("/transitKind")
     public String transitKind(@Param("kind")Integer kind, Model model){
-        System.out.println(kind);
         model.addAttribute("kind", kind);
         return "post_post";
     }
@@ -242,7 +241,7 @@ public class PostController {
 
 
         // 重新展示所有楼层信息
-        return "admin";
+        return "forward:showAllFloors";
     }
 
 
@@ -271,7 +270,7 @@ public class PostController {
 
         postFloorService.deleteReply(pid, user.getUid(), fid);
 
-        return "forward:findAllReplyByMe";
+        return "forward:showAllFloors";
     }
 
     // 计算等级，2个指数

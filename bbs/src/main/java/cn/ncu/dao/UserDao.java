@@ -84,9 +84,6 @@ public interface UserDao {
      * 更新用户的等级和经验
      * @param user
      */
-    @Update("update user set exp = #{exp}, rank = #{rank} where uid = #{uid}")
+    @Update("update user set exp = #{exp} ,rank = #{rank} where uid = #{uid}")
     void setRankAndExp(User user);
-
-
-
 }

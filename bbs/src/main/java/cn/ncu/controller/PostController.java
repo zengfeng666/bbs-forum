@@ -126,7 +126,6 @@ public class PostController {
     public String showPosts(@Param("kind")Integer kind, Model model){
         List<Post> list = postService.findPostsByKind(kind);
         model.addAttribute("postsList", list);
-
         return "posts_show";
     }
 
@@ -243,7 +242,7 @@ public class PostController {
 
 
         // 重新展示所有楼层信息
-        return "forward:showAllFloors";
+        return "admin";
     }
 
 

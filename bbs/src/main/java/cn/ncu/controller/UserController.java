@@ -42,18 +42,17 @@ public class UserController {
     public String login(String username, String password, Model model, HttpSession session) {
         //通过账号和密码查询用户
         User user = userService.findUser(username, password);
-        if (user != null && user.getUid()!=1) {
+        if (user != null) {
             //将用户对象添加到Session
             session.setAttribute("USER_SESSION", user);
+            //如果是管理员则跳转到管理员界面
+            if(user.getUid()==1) {
+                return "admin";
+            }
             //跳转到主页面
             return "redirect:/index.jsp";
         }
-        //如果是管理员则跳转到管理员界面
-        else if(user.getUid()==1)
-        {
-            session.setAttribute("USER_SESSION", user);
-            return "admin";
-        }
+
         model.addAttribute("msg", "账号或密码错误，请重新输入！");
         //返回到登录页面
         return "login";

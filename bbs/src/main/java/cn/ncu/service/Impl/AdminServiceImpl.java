@@ -1,9 +1,12 @@
 package cn.ncu.service.Impl;
 
+import cn.ncu.domain.Notice;
 import cn.ncu.service.AdminService;
 import cn.ncu.dao.AdminDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AdminServiceImpl implements AdminService{
@@ -29,5 +32,10 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public void notGoodPost(Integer pid){
         adminDao.notGoodPost(pid);
+    }
+
+    @Override
+    public List<Notice> findNotice(){
+        return adminDao.findNotice();
     }
 }

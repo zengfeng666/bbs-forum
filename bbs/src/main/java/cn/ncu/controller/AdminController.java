@@ -1,5 +1,6 @@
 package cn.ncu.controller;
 
+import cn.ncu.domain.Notice;
 import cn.ncu.domain.Post;
 import cn.ncu.service.AdminService;
 import cn.ncu.service.PostService;
@@ -95,4 +96,11 @@ public class AdminController {
         model.addAttribute("postsList", list);
         return "admin_post_list";
     }
+    @RequestMapping("/showNotices")
+    public String showNotices(Model model){
+        List<Notice> list = adminService.findNotice();
+        model.addAttribute("noticesList", list);
+        return "admin_notice_list";
+    }
+
 }

@@ -20,6 +20,44 @@
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
                 crossorigin="anonymous"></script>
         <script src="${pageContext.request.contextPath}/js/my-login.js"></script>
+
+        <script>
+            function checkUsername() {
+                var username = document.getElementById("username").value;
+                if(username.charAt(0) >= '0' && username.charAt(0) <= '9'){
+                    document.getElementById("usernameError").innerHTML = "用户名不能以数字开头!";
+                    return false;
+                } else {
+                    document.getElementById("usernameError").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function verifyPassword() {
+                var password = document.getElementById("password").value;
+                var verify_password = document.getElementById("verify_password").value;
+                if(password != verify_password){
+                    document.getElementById("verifyPasswordError").innerHTML = "确认密码与密码不一致!";
+                    return false;
+                } else {
+                    document.getElementById("verifyPasswordError").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function check() {
+                if(checkUsername() == false){
+                    alert("用户名不能以数字开头!");
+                    return false;
+                }
+                if(verifyPassword() == false){
+                    alert("确认密码与密码不一致！");
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
     </head>
     <body class="my-login-page">
         <section class="h-100">
@@ -34,12 +72,12 @@
                                 <h4 class="card-title">Register</h4>
 
 
-                                <form action="${pageContext.request.contextPath}/user/register" method="post"
+                                <form onsubmit="return check();" action="${pageContext.request.contextPath}/user/register" method="post"
                                       class="my-login-validation" novalidate="">
                                     <div class="form-group">
                                         <label for="username">用户名</label>
-                                        <input id="username" type="text" class="form-control" name="username" required
-                                               autofocus>
+                                        <input id="username" type="text" class="form-control" name="username" value="${user.username}" required
+                                               autofocus onblur="checkUsername();">
                                         <div class="invalid-feedback">
                                             What's your username?
                                         </div>
@@ -47,7 +85,7 @@
 
                                     <div class="form-group">
                                         <label for="nickname">昵称</label>
-                                        <input id="nickname" type="text" class="form-control" name="nickname" required
+                                        <input id="nickname" type="text" class="form-control" name="nickname" value="${user.nickname}" required
                                                autofocus>
                                         <div class="invalid-feedback">
                                             What's your nickname?
@@ -55,8 +93,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input id="password" type="password" class="form-control" name="password"
+                                        <label for="password">密码</label>
+                                        <input id="password" type="password" class="form-control" name="password" value="${user.password}"
                                                required data-eye>
                                         <div class="invalid-feedback">
                                             Password is required
@@ -64,53 +102,11 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">邮箱</label>
-                                        <input id="email" type="email" class="form-control" name="email" required>
+                                        <label for="verify_password">确认密码</label>
+                                        <input id="verify_password" type="password" class="form-control"
+                                               required data-eye onblur="verifyPassword()">
                                         <div class="invalid-feedback">
-                                            Your email is invalid
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="tel">电话</label>
-                                        <input id="tel" type="text" class="form-control" name="tel" required data-eye>
-                                        <div class="invalid-feedback">
-                                            telephone is invalid
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>性别</label>
-                                        <input type="radio" name="sex" value="male" required data-eye>男
-                                        <input type="radio" name="sex" value="male" required data-eye>女
-                                        <div class="invalid-feedback">
-                                            sex is invalid
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="description">个性签名</label>
-                                        <input id="description" type="text" class="form-control" name="description"
-                                               required autofocus>
-                                        <div class="invalid-feedback">
-                                            What's your description?
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="job">工作</label>
-                                        <input id="job" type="text" class="form-control" name="job" required autofocus>
-                                        <div class="invalid-feedback">
-                                            What's your job?
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="company">个性签名</label>
-                                        <input id="company" type="text" class="form-control" name="company" required
-                                               autofocus>
-                                        <div class="invalid-feedback">
-                                            What's your company?
+                                            Verify Password is required
                                         </div>
                                     </div>
 
@@ -132,9 +128,13 @@
                                         </button>
                                     </div>
                                     <div class="mt-4 text-center">
-                                        Already have an account? <a href="user_login.jsp">Login</a>
+                                        Already have an account? <a href="${pageContext.request.contextPath}/page/login">Login</a>
                                     </div>
                                 </form>
+                                <font color="red" id="usernameError"></font>
+                                <font color="red" id="verifyPasswordError"></font>
+                                <%--msg为用户名已存在--%>
+                                <font color="red">${msg}</font>
                             </div>
                         </div>
                         <div class="footer">

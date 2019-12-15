@@ -49,4 +49,5 @@ public interface UserService {
 
     void updatePassword(String username, String password);
 
+    User findUserByUsername(String username);
 }

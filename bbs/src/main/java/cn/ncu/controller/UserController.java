@@ -99,7 +99,14 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/register")
-    public String register(User user) {
+    public String register(User user, Model model) {
+        User user1 = userService.findUserByUsername(user.getUsername());
+        if(user1 != null){
+            model.addAttribute("msg", "该用户名已存在!");
+            // 表单信息回显
+            model.addAttribute("user", user);
+            return "user_register";
+        }
         userService.register(user);
         return "user_login";
     }

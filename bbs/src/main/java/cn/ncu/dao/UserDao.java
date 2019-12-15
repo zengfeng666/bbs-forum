@@ -95,4 +95,7 @@ public interface UserDao {
     @Update("update user set password = #{password} where username = #{username}")
     void updatePassword(@Param("username") String username, @Param("password") String password);
 
+    @Select("select * from user where username = #{username}")
+    User findUserByUsername(String username);
+
 }

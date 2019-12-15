@@ -38,4 +38,9 @@ public class AdminServiceImpl implements AdminService{
     public List<Notice> findNotice(){
         return adminDao.findNotice();
     }
+
+    @Override
+    public void addNotice(Notice notice){
+        adminDao.addNotice(notice);
+    }
 }

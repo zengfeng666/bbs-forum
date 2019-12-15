@@ -35,4 +35,10 @@ public interface AdminService {
      * @return
      */
     public List<Notice> findNotice();
+
+    /**
+     * 发布公告
+     * @param notice
+     */
+    public void addNotice(Notice notice);
 }

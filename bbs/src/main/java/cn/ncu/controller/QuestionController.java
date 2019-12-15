@@ -50,7 +50,9 @@ public class QuestionController {
         // 如果当前积分小于提问积分
         if (user.getCredit() < question.getCredit()) {
             model.addAttribute("msg", "积分不足!");
-            return "question_add_fail";
+            // 信息回显
+            model.addAttribute("question", question);
+            return "forward:/WEB-INF/pages/question_ask.jsp";
         }
         // 获取当前时间
         Timestamp currentTime = new Timestamp(System.currentTimeMillis());
@@ -72,6 +74,9 @@ public class QuestionController {
 
         // 扣除个人积分
         userService.addCredit(user.getUid(), - question.getCredit());
+
+        User userNew = userService.findUserById(user.getUid());
+        session.setAttribute("USER_SESSION", userNew);
 
         return "question_add_success";
     }

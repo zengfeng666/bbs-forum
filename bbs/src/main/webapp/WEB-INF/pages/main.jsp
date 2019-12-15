@@ -110,7 +110,7 @@
                                     <ul>
                                         <li><a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>
                                         </li>
-                                        <li><a href="${pageContext.request.contextPath}/post/findAllReplyByMe"">我的回帖</a>
+                                        <li><a href="${pageContext.request.contextPath}/post/findAllReplyByMe">我的回帖</a>
                                         </li>
                                     </ul>
                                 </li>

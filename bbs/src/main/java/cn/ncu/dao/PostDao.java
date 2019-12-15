@@ -54,7 +54,7 @@ public interface PostDao {
      * @param kind
      * @return
      */
-    @Select("select * from post where kind = #{kind} order by last_active_time desc")
+    @Select("select * from post where kind = #{kind} order by is_top desc,last_active_time desc")
     @Results(id = "postMap",
             value = {
                 @Result(id = true, column = "pid", property = "pid"),

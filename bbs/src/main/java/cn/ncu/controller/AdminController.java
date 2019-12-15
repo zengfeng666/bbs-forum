@@ -129,4 +129,17 @@ public class AdminController {
         return showNotices(model);
     }
 
+
+    /**
+     * 删除一条公告
+     * @param nid
+     * @param model
+     * @return
+     */
+    @RequestMapping("/deleteNotice")
+    public String deleteNotice(Integer nid,Model model){
+        adminService.deleteNotice(nid);
+        return showNotices(model);
+    }
+
 }

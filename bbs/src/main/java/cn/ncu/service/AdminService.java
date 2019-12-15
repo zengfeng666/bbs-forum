@@ -41,4 +41,11 @@ public interface AdminService {
      * @param notice
      */
     public void addNotice(Notice notice);
+
+
+    /**
+     * 删除一条公告
+     * @param nid
+     */
+    public void deleteNotice(Integer nid);
 }

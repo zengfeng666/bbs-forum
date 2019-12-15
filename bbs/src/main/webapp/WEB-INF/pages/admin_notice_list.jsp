@@ -51,6 +51,12 @@
     </style>
 </head>
 <body>
+<script>
+    function deleteNotice(nid) {
+        if(confirm("您确定要将这个公告删除吗？"))
+            location.href = "${pageContext.request.contextPath}/admin/deleteNotice?nid=" + nid;
+    }
+</script>
 <div>
     <table id="release_notice">
         <form action = "${pageContext.request.contextPath}/admin/addNotice" method = "post">
@@ -80,6 +86,7 @@
             </tr>
             <tr>
                 <td class="content"><div>${notice.content}</div></td>
+                <td class="deleteNotice"><button onclick="deleteNotice(${notice.nid})">删除公告</button> </td>
             </tr>
         </c:forEach>
     </table>

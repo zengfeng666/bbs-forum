@@ -64,4 +64,11 @@ public interface AdminDao {
     @Options(useGeneratedKeys = true, keyProperty = "nid", keyColumn = "nid")
     void addNotice(Notice notice);
 
+
+    /**
+     * 删除一条公告
+     * @param nid
+     */
+    @Delete("delete from notice where nid = #{nid}")
+    void deleteNotice(Integer nid);
 }

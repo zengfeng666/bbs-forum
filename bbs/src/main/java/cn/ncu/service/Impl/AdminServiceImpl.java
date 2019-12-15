@@ -43,4 +43,9 @@ public class AdminServiceImpl implements AdminService{
     public void addNotice(Notice notice){
         adminDao.addNotice(notice);
     }
+
+    @Override
+    public void deleteNotice(Integer nid){
+        adminDao.deleteNotice(nid);
+    }
 }

@@ -2,6 +2,7 @@ package cn.ncu.service.Impl;
 
 import cn.ncu.dao.UserDao;
 import cn.ncu.domain.Post;
+import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import cn.ncu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUser(String username, String password) {
         User user = this.userDao.findUser(username, password);
+        return user;
+    }
+
+    @Override
+    public ResetPassword findResetPassword(String username) {
+        ResetPassword resetPassword = userDao.findResetPassword(username);
+        return  resetPassword;
+    }
+
+    @Override
+    public User findUserByUsername(String username) {
+        User user = this.userDao.findUserByUsername(username);
         return user;
     }
 
@@ -63,5 +76,7 @@ public class UserServiceImpl implements UserService {
         List<Post> posts = userDao.search(title);
         return posts;
     }
+
+
 
 }

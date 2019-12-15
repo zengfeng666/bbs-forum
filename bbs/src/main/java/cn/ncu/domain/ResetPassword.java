@@ -3,9 +3,9 @@ package cn.ncu.domain;
 import java.io.Serializable;
 
 public class ResetPassword implements Serializable {
-    private String username;
-    private String question;
-    private String answer;
+    private String username;   //用户名
+    private String question;   //密保问题
+    private String answer;     //密保答案
 
     public String getUsername() {
         return username;

@@ -2,6 +2,7 @@ package cn.ncu.controller;
 
 import cn.ncu.domain.Post;
 import cn.ncu.domain.Question;
+import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
@@ -52,11 +53,47 @@ public class UserController {
             //跳转到主页面
             return "redirect:/index.jsp";
         }
-
         model.addAttribute("msg", "账号或密码错误，请重新输入！");
         //返回到登录页面
         return "login";
     }
+
+
+    @RequestMapping(value = "/forget")
+    public String forget(Model model,String username){
+        //通过账号查询用户
+        ResetPassword resetPassword = userService.findResetPassword(username);
+        if(resetPassword != null){
+            model.addAttribute("resetPassword",resetPassword);
+            //返回密保问题界面
+            return "secretProtection";
+        }
+        else{
+            return "forget";
+        }
+    }
+
+    @RequestMapping(value = "/secretAnswer")
+    public String secretAnswer(Model model,String username,String answer){
+        //通过账号查询用户
+        ResetPassword resetPassword = userService.findResetPassword(username);
+        if(resetPassword.getAnswer() == answer){
+            model.addAttribute("resetPassword",resetPassword);
+            return "reset";
+        }
+        else{
+            return "secretProtection";
+        }
+    }
+
+    @RequestMapping(value = "/reset")
+    public String reset(Model model,String username,String password){
+        //通过账号和密码查询用户
+        User user = userService.findUserByUsername(username);
+            return "secretProtectionSuccess";
+
+    }
+
 
     /**
      * 注册
@@ -81,9 +118,7 @@ public class UserController {
         return "redirect:/index.jsp";
     }
 
-//    @RequestMapping(value = "/forget")
-//    public String forget()
-//
+
 
     /**
      * 模糊查询
@@ -91,14 +126,12 @@ public class UserController {
      * @return
      */
      @RequestMapping(value = "/search")
-     public ModelAndView search(String title){
-
-     List<Post> postList = userService.search(title);
-     ModelAndView modelAndView = new ModelAndView();
-     modelAndView.addObject("postList",postList);
-     modelAndView.setViewName("/pages/post-list");
-     return modelAndView;
-
+         public ModelAndView search(String title){
+             List<Post> postList = userService.search(title);
+             ModelAndView modelAndView = new ModelAndView();
+             modelAndView.addObject("postList",postList);
+             modelAndView.setViewName("/pages/post-list");
+             return modelAndView;
      }
 
     /**

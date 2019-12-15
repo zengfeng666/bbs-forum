@@ -1,11 +1,19 @@
 package cn.ncu.controller;
 
+import cn.ncu.domain.User;
+import cn.ncu.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/page")
 public class PageController {
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/main")
     public String main(){
@@ -33,7 +41,10 @@ public class PageController {
     }
 
     @RequestMapping("/user_profile")
-    public String profile(){
+    public String profile(HttpSession session){
+        User user = (User) session.getAttribute("USER_SESSION");
+        user = userService.findUserById(user.getUid());
+        session.setAttribute("USER_SESSION", user);
         return "user_profile";
     }
 

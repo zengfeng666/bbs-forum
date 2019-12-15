@@ -48,6 +48,11 @@ public class UserServiceImpl implements UserService {
         return userDao.findUserByUsername(username);
     }
 
+    @Override
+    public void photoUpload(Integer uid, String photo){
+        userDao.photoUpload(uid,photo);
+    }
+
 
     @Override
     public void register(User user) {

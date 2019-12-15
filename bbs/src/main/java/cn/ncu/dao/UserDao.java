@@ -1,5 +1,6 @@
 package cn.ncu.dao;
 
+import cn.ncu.domain.Post;
 import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import org.apache.ibatis.annotations.*;
@@ -94,6 +95,9 @@ public interface UserDao {
     @Update("update user set password = #{password} where username = #{username}")
     void updatePassword(@Param("username") String username, @Param("password") String password);
 
+    @Select("select * from user where username = #{username}")
+    User findUserByUsername(String username);
+
     /**
      * 更新用户的个人信息
      * @param user
@@ -108,7 +112,13 @@ public interface UserDao {
      */
     @Select("select * from user where uid = #{uid}")
     User findUserById(Integer uid);
-    @Select("select * from user where username = #{username}")
-    User findUserByUsername(String username);
 
+
+    /**
+     * 存入头像的相对地址
+     * @param uid
+     * @param photo
+     */
+    @Update("update user set photo = #{photo} where uid = #{uid}")
+    void photoUpload(@Param("uid") Integer uid, @Param("photo")String photo);
 }

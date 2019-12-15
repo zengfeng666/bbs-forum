@@ -1,7 +1,10 @@
 package cn.ncu.service;
 
+import cn.ncu.domain.Post;
 import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -57,4 +60,5 @@ public interface UserService {
      * @param uid
      */
     User findUserById(Integer uid);
+    User findUserByUsername(String username);
 }

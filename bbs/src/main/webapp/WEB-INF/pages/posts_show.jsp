@@ -31,6 +31,11 @@
         #replyNum{
             width: 40px;
         }
+
+        .topAndGood{
+            float: left;
+            margin: 3px;
+        }
     </style>
 </head>
 <body>
@@ -42,6 +47,12 @@
                 <tr>
                     <td id = "replyNum"><div>${post.currentFloor - 1}</div></td>
                     <td>
+                        <c:if test="${post.isTop == 1}">
+                            <img class="topAndGood" src="../images/top.jpg">
+                        </c:if>
+                        <c:if test="${post.isGood == 1}">
+                            <img class="topAndGood" src="../images/good.jpg">
+                        </c:if>
                         <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
                             <div>${post.title}</div>
                         </a>

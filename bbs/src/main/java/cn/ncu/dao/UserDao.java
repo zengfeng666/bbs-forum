@@ -108,4 +108,7 @@ public interface UserDao {
      */
     @Select("select * from user where uid = #{uid}")
     User findUserById(Integer uid);
+    @Select("select * from user where username = #{username}")
+    User findUserByUsername(String username);
+
 }

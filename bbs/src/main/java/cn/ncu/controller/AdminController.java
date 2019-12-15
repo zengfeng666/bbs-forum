@@ -1,5 +1,6 @@
 package cn.ncu.controller;
 
+import cn.ncu.domain.KindInfo;
 import cn.ncu.domain.Notice;
 import cn.ncu.domain.Post;
 import cn.ncu.service.AdminService;
@@ -95,6 +96,11 @@ public class AdminController {
      */
     @RequestMapping("/showPosts")
     public String showPosts(@Param("kind")Integer kind, Model model){
+
+        //版块信息
+        KindInfo kindInfo = postService.getKindInfoByKind(kind);
+        model.addAttribute("kindInfo", kindInfo);
+        //帖子列表
         List<Post> list = postService.findPostsByKind(kind);
         model.addAttribute("postsList", list);
         return "admin_post_list";

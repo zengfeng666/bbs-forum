@@ -3,6 +3,7 @@ package cn.ncu.service;
 import cn.ncu.domain.Floor;
 import cn.ncu.domain.Post;
 import cn.ncu.domain.PostFloor;
+import cn.ncu.domain.KindInfo;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -31,6 +32,14 @@ public interface PostService {
      * @return
      */
     public List<Post> findPostsByKind(Integer kind);
+
+
+    /**
+     * 根据版块种类查版块信息
+     * @param kind
+     * @return
+     */
+    public KindInfo getKindInfoByKind(Integer kind);
 
     /**
      * 查询指定uid用户的所有发帖

@@ -60,5 +60,12 @@ public interface UserService {
      * @param uid
      */
     User findUserById(Integer uid);
+
     User findUserByUsername(String username);
+
+    /**
+     *上传文件
+     * @param photo
+     */
+    public void photoUpload(Integer uid, String photo);
 }

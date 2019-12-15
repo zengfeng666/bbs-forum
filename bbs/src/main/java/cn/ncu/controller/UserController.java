@@ -6,6 +6,7 @@ import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.*;
 import java.util.List;
 
 @Controller
@@ -202,7 +205,7 @@ public class UserController {
      * @param model
      * @return
      */
-    @RequestMapping("editInfo")
+    @RequestMapping("/editInfo")
     public String editInfo(User user, Model model, HttpSession session){
 
         // 获取当前用户的session
@@ -215,6 +218,22 @@ public class UserController {
         user = userService.findUserById(userNow.getUid());
         session.setAttribute("USER_SESSION", user);
 
-        return "user_profile";
+        return "forward:/page/user_profile";
+    }
+
+    /**
+     * 修改头像
+     * @param photo
+     * @param session
+     * @return
+     */
+    @RequestMapping("/photoUpload")
+    public String photoUpload(String photo, HttpSession session){
+
+        System.out.println(photo);
+        User user = (User) session.getAttribute("USER_SESSION");
+        userService.photoUpload(user.getUid(), photo);
+
+        return "forward:/page/user_profile";
     }
 }

@@ -46,20 +46,7 @@
                                 <li class="index on">
                                     <span><a href="#">首页</a></span>
                                 </li>
-                                <%--<li class="cat">
-                                    <span><a href="#">分类</a></span>
-                                    <ul>
-                                        <li><a href="#" target="iframe1">二次元</a></li>
-                                        <li><a href="#" target="iframe1">科技</a></li>
-                                        <li><a href="#" target="iframe1">小说</a></li>
-                                        <li><a href="#" target="iframe1">生活</a></li>
-                                        <li><a href="#" target="iframe1">体育</a></li>
-                                        <li><a href="#" target="iframe1">...</a></li>
-                                        <li><a href="#"  target="iframe1">...</a></li>
-                                        <li><a href="#" target="iframe1">...</a></li>
-                                        <li><a href="#" target="iframe1">...</a></li>
-                                    </ul>
-                                </li>--%>
+
                                 <li class="special ">
                                     <span><a href="javascript:void(0)" target="iframe1">看帖</a></span>
                                     <ul>

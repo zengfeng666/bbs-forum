@@ -1,9 +1,6 @@
 package cn.ncu.controller;
 
-import cn.ncu.domain.Floor;
-import cn.ncu.domain.Post;
-import cn.ncu.domain.PostFloor;
-import cn.ncu.domain.User;
+import cn.ncu.domain.*;
 import cn.ncu.service.PostFloorService;
 import cn.ncu.service.PostService;
 import cn.ncu.service.UserService;
@@ -134,6 +131,11 @@ public class PostController {
      */
     @RequestMapping("/showPosts")
     public String showPosts(@Param("kind")Integer kind, Model model){
+
+        //版块信息
+        KindInfo kindInfo = postService.getKindInfoByKind(kind);
+        model.addAttribute("kindInfo", kindInfo);
+        //帖子列表
         List<Post> list = postService.findPostsByKind(kind);
         model.addAttribute("postsList", list);
         return "posts_show";

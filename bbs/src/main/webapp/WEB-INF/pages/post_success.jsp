@@ -15,20 +15,15 @@
     <title>Title</title>
 
     <script>
-
         $(function(){
-
              $("#myModal").modal('show')
-
             setTimeout(function(){
                  $('#myModal').modal('hide');
 
                 // 判断是否升级
                 // 获取model中rank的值， 判断是否升级
                 var rank = "${rank}";
-
                 if(rank > 0){
-
                     // 如果等级提升，则延迟跳转
                     $("#myModal2").modal('show');
                     setTimeout("$('#myModal2').modal('hide')", 2000);

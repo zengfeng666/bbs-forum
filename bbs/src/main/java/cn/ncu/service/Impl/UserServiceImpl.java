@@ -1,7 +1,6 @@
 package cn.ncu.service.Impl;
 
 import cn.ncu.dao.UserDao;
-import cn.ncu.domain.Post;
 import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import cn.ncu.service.UserService;
@@ -70,5 +69,17 @@ public class UserServiceImpl implements UserService {
     public void setRankAndExp(User user) {
         userDao.setRankAndExp(user);
     }
+
+
+    @Override
+    public void UpdateInfo(User user) {
+        userDao.updateInfo(user);
+    }
+
+    @Override
+    public User findUserById(Integer uid) {
+        return userDao.findUserById(uid);
+    }
+
 
 }

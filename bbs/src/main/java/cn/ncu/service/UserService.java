@@ -1,10 +1,7 @@
 package cn.ncu.service;
 
-import cn.ncu.domain.Post;
 import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -49,4 +46,15 @@ public interface UserService {
 
     void updatePassword(String username, String password);
 
+    /**
+     * 更新用户的个人信息
+     * @param user
+     */
+    void UpdateInfo(User user);
+
+    /**
+     * 根据uid查找用户
+     * @param uid
+     */
+    User findUserById(Integer uid);
 }

@@ -5,6 +5,7 @@ import cn.ncu.domain.Post;
 import cn.ncu.domain.PostFloor;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -25,6 +26,18 @@ public interface PostDao {
     private Integer kind;       // 帖子的种类
     private Timestamp LastActiveTime;   // 帖子的最后活跃时间
 */
+
+
+    /**
+     * 模糊搜索帖子
+     * @param title
+     * @return
+     */
+    @Select("select * from post where title like #{title}")
+    @ResultMap("postMap")
+    List<Post> search(String title);
+
+
     /**
      * 发帖
      * @param post1

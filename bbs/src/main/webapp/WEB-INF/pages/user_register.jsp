@@ -132,7 +132,7 @@
                                         </button>
                                     </div>
                                     <div class="mt-4 text-center">
-                                        Already have an account? <a href="login.jsp">Login</a>
+                                        Already have an account? <a href="user_login.jsp">Login</a>
                                     </div>
                                 </form>
                             </div>

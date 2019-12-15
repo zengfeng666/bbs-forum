@@ -9,6 +9,15 @@ import java.util.List;
 
 public interface PostService {
 
+
+    /**
+     * 模糊搜索帖子
+     * @param title
+     * @return
+     */
+    public List<Post> search(String title);
+
+
     /**
      * 发帖
      * @param post

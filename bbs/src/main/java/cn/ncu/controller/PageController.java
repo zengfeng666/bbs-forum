@@ -14,7 +14,7 @@ public class PageController {
 
     @RequestMapping("/login")
     public String login(){
-        return "login";
+        return "user_login";
     }
 
     @RequestMapping("/question_ask")
@@ -24,15 +24,18 @@ public class PageController {
 
     @RequestMapping("/register")
     public String register(){
-        return "register";
+        return "user_register";
     }
 
     @RequestMapping("/forget")
     public String forget(){
-        return "forget";
+        return "user_forget";
     }
 
-
+    @RequestMapping("/user_profile")
+    public String profile(){
+        return "user_profile";
+    }
 
 
 }

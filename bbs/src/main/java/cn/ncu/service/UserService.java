@@ -3,6 +3,8 @@ package cn.ncu.service;
 import cn.ncu.domain.Post;
 import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -41,11 +43,10 @@ public interface UserService {
      * 设置用户的等级经验
      * @param user
      */
-    public void setRankAndExp(User user);
-
-    List<Post> search(String title);
+    void setRankAndExp(User user);
 
     ResetPassword findResetPassword(String username);
 
-    User findUserByUsername(String username);
+    void updatePassword(String username, String password);
+
 }

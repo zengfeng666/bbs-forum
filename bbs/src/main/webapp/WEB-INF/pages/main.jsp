@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: zengfeng
+  Date: 2019/12/7
+  Time: 14:32
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -15,14 +22,17 @@
     <body>
         <div class="header">
             欢迎你，${USER_SESSION.nickname}
-            <button type="button" class="login1"><a href="${pageContext.request.contextPath}/page/login">登录</a> </button>
-            <button type="button" class="register1"><a href="${pageContext.request.contextPath}/page/register">注册</a> </button>
-            <button type="button" class="register1"><a href="${pageContext.request.contextPath}/user/logout">注销</a> </button>
+            <button type="button" class="login1"><a href="${pageContext.request.contextPath}/page/login">登录</a></button>
+            <button type="button" class="register1"><a href="${pageContext.request.contextPath}/page/register">注册</a>
+            </button>
+            <button type="button" class="register1"><a href="${pageContext.request.contextPath}/user/logout">注销</a>
+            </button>
             <div class="top-bar">
                 <div style="text-align: center">
-                    <form class="form-inline">
+                    <form class="form-inline" action="${pageContext.request.contextPath}/post/search">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入您要搜索的帖子" size="60">
+                            <input type="text" class="form-control" name="title" placeholder="请输入您要搜索的帖子"
+                                   size="60">
                         </div>
                         <button type="submit" class="btn btn-default" style="width: 106px">查找</button>
                     </form>
@@ -54,11 +64,21 @@
                                     <span><a href="javascript:void(0)" target="iframe1">看帖</a></span>
                                     <ul>
                                         <ul>
-                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=0" >二次元</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=1" >科技</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=2" >小说</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=3" >生活</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=4" >娱乐新闻</a></li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=0">二次元</a>
+                                            </li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=1">科技</a>
+                                            </li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=2">小说</a>
+                                            </li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=3">生活</a>
+                                            </li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=4">娱乐新闻</a>
+                                            </li>
 
                                         </ul>
                                     </ul>
@@ -67,11 +87,20 @@
                                     <span><a href="javascript:void(0)">发帖</a></span>
                                     <ul>
                                         <ul>
-                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=0" >二次元</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=1" >科技</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=2" >小说</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=3" >生活</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=4" >娱乐新闻</a></li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">二次元</a>
+                                            </li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=1">科技</a>
+                                            </li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=2">小说</a>
+                                            </li>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=3">生活</a>
+                                            </li>
+                                            <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=4">娱乐新闻</a>
+                                            </li>
 
                                         </ul>
                                     </ul>
@@ -79,8 +108,10 @@
                                 <li class="cooperation">
                                     <span><a href="javascript:void(0)">我的帖子</a></span>
                                     <ul>
-                                        <li><a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/post/findAllReplyByMe"">我的回帖</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>
+                                        </li>
+                                        <li><a href="${pageContext.request.contextPath}/post/findAllReplyByMe"">我的回帖</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="index on">
@@ -100,6 +131,9 @@
                                 </li>
                                 <li class="index on">
                                     <span><a href="javascript:void(0)">个人信息</a></span>
+                                    <ul>
+                                        <li><a href="${pageContext.request.contextPath}/page/user_profile">个人信息</a></li>
+                                    </ul>
                                 </li>
                                 <li class="index on">
                                     <span><a href="javascript:void(0)">系统设置</a></span>

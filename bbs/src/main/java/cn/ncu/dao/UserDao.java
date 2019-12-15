@@ -49,7 +49,7 @@ public interface UserDao {
     @Select( "select * from user where username = #{username} and password = #{password}")
     public User findUser(@Param("username") String username, @Param("password") String password);
 
-    @Select("select * from ResetPassword where username = #{username}")
+    @Select("select * from reset_password where username = #{username}")
     ResetPassword findResetPassword(String username);
     /**
      * 注册
@@ -91,14 +91,8 @@ public interface UserDao {
     @Update("update user set exp = #{exp}, rank = #{rank} where uid = #{uid}")
     void setRankAndExp(User user);
 
-    /**
-     * 搜索
-     * @param title
-     * @return
-     */
-    @Select("select Post.uid,Post.postTime,Post.Title,Post.content,Post.likenum,Post.isGood,Post.kind,Post.nickname,Post.floors from post where title like '%'#{title}")
-    List<Post> search(String title);
 
     @Update("update user set password = #{password} where username = #{username}")
-    User findUserByUsername(String username);
+    void updatePassword(@Param("username") String username, @Param("password") String password);
+
 }

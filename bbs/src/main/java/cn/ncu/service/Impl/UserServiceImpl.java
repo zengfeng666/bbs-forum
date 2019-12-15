@@ -40,10 +40,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserByUsername(String username) {
-        User user = this.userDao.findUserByUsername(username);
-        return user;
+    public void updatePassword(String username, String password) {
+        userDao.updatePassword(username, password);
     }
+
 
     @Override
     public void register(User user) {
@@ -70,13 +70,5 @@ public class UserServiceImpl implements UserService {
     public void setRankAndExp(User user) {
         userDao.setRankAndExp(user);
     }
-
-    @Override
-    public List<Post> search(String title) {
-        List<Post> posts = userDao.search(title);
-        return posts;
-    }
-
-
 
 }

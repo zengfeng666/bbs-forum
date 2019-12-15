@@ -6,18 +6,17 @@ import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -47,7 +46,7 @@ public class UserController {
             //将用户对象添加到Session
             session.setAttribute("USER_SESSION", user);
             //如果是管理员则跳转到管理员界面
-            if(user.getUid()==1) {
+            if (user.getUid() == 1) {
                 return "admin";
             }
             //跳转到主页面
@@ -55,43 +54,41 @@ public class UserController {
         }
         model.addAttribute("msg", "账号或密码错误，请重新输入！");
         //返回到登录页面
-        return "login";
+        return "user_login";
     }
 
 
     @RequestMapping(value = "/forget")
-    public String forget(Model model,String username){
+    public String forget(Model model, String username) {
         //通过账号查询用户
         ResetPassword resetPassword = userService.findResetPassword(username);
-        if(resetPassword != null){
-            model.addAttribute("resetPassword",resetPassword);
+        if (resetPassword != null) {
+            model.addAttribute("resetPassword", resetPassword);
             //返回密保问题界面
-            return "secretProtection";
-        }
-        else{
-            return "forget";
+            return "user_secretProtection";
+        } else {
+            return "user_forget";
         }
     }
 
     @RequestMapping(value = "/secretAnswer")
-    public String secretAnswer(Model model,String username,String answer){
+    public String secretAnswer(Model model, String username, String answer) {
         //通过账号查询用户
         ResetPassword resetPassword = userService.findResetPassword(username);
-        if(resetPassword.getAnswer() == answer){
-            model.addAttribute("resetPassword",resetPassword);
-            return "reset";
-        }
-        else{
-            return "secretProtection";
+        if (resetPassword.getAnswer().equals(answer)) {
+            model.addAttribute("resetPassword", resetPassword);
+            return "user_reset";
+        } else {
+            model.addAttribute("msg", "密保答案错误！");
+            return "user_secretProtection";
         }
     }
 
     @RequestMapping(value = "/reset")
-    public String reset(Model model,String username,String password){
+    public String reset(Model model, String username, String password) {
         //通过账号和密码查询用户
-        User user = userService.findUserByUsername(username);
-            return "secretProtectionSuccess";
-
+        userService.updatePassword(username, password);
+        return "user_secretProtectionSuccess";
     }
 
 
@@ -104,35 +101,20 @@ public class UserController {
     @RequestMapping(value = "/register")
     public String register(User user) {
         userService.register(user);
-        return "login";
+        return "user_login";
     }
 
     /**
      * 注销
+     *
      * @param session
      * @return
      */
     @RequestMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         session.removeAttribute("USER_SESSION");
         return "redirect:/index.jsp";
     }
-
-
-
-    /**
-     * 模糊查询
-     * @param title
-     * @return
-     */
-     @RequestMapping(value = "/search")
-         public ModelAndView search(String title){
-             List<Post> postList = userService.search(title);
-             ModelAndView modelAndView = new ModelAndView();
-             modelAndView.addObject("postList",postList);
-             modelAndView.setViewName("/pages/post-list");
-             return modelAndView;
-     }
 
     /**
      * 我的提问
@@ -196,7 +178,7 @@ public class UserController {
     public String delR(Integer qid, Integer fid, HttpServletRequest request, HttpServletResponse response) {
         questionService.deleteQuestionFloor(qid, fid);
         // 注意：qid也被传入look中了
-        return  "forward:/question/look";
+        return "forward:/question/look";
     }
 
 }

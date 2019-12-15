@@ -18,6 +18,11 @@ public class PostServiceImpl implements PostService {
     private PostDao postDao;
 
     @Override
+    public List<Post> search(String title) {
+        return postDao.search(title);
+    }
+
+    @Override
     public void addPost(Post post) {
         postDao.addPost(post);
     }

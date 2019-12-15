@@ -42,11 +42,20 @@ http://www.springframework.org/schema/context/spring-context.xsd">
             <mvc:exclude-mapping path="/user/login"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/user/register"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/user/logout"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/user/forget"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/user/reset"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/user/secretAnswer"></mvc:exclude-mapping>
+
+
             <mvc:exclude-mapping path="/page/main"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/page/login"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/page/register"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/page/forget"></mvc:exclude-mapping>
+
 
             <mvc:exclude-mapping path="/post/showPosts"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/post/showAllFloors"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/post/search"></mvc:exclude-mapping>
 
             <mvc:exclude-mapping path="/question/findAll"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/question/look"></mvc:exclude-mapping>

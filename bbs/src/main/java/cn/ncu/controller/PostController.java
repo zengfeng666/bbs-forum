@@ -39,6 +39,17 @@ public class PostController {
     @Autowired
     private PostFloorService postFloorService;
 
+    /**
+     * 模糊搜索帖子
+     * @return
+     */
+    @RequestMapping("/search")
+    public String search(String title, Model model){
+        title = "%"+title+"%";
+        List<Post> posts = postService.search(title);
+        model.addAttribute("posts", posts);
+        return "post_searched";
+    }
 
     /**
      * 发帖
@@ -282,4 +293,6 @@ public class PostController {
         }
         return rank;
     }
+
+
 }

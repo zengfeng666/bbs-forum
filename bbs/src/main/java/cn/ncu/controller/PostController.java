@@ -48,7 +48,7 @@ public class PostController {
     @RequestMapping("/addPost")
     public String  addPost(Post post, Model model, HttpSession session){
 
-        System.out.println("id是啥");
+
         // 发帖的时候要更新三张表
 
         /*Post{pid=null, uid=null, postTime=null, title='aaa', content='傻逼
@@ -69,7 +69,7 @@ public class PostController {
         post.setLastActiveTime(postTime);
         post.setNickName(user.getNickname());       // 获取昵称
         postService.addPost(post);
-        System.out.println(post);
+
 
          // 更新post_floor表
         PostFloor postFloor = new PostFloor();
@@ -91,11 +91,11 @@ public class PostController {
 
         user.setRank(calRank(exp));
 
-        // 把等级放到model中，如果为负数，那么没有升级，如果为整数，则是升级到了对应的级数
-        model.addAttribute("rank", rank * (-1));
-
+        // 把等级放到model中，如果为负数，那么没有升级，如果为正数，则是升级到了对应的级数
         if(rank < user.getRank()){
-            model.addAttribute("rank", rank);
+            model.addAttribute("rank", user.getRank());
+        }else{
+            model.addAttribute("rank", user.getRank() * (-1));
         }
 
         // 更新User表

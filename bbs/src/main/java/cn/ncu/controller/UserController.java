@@ -155,7 +155,6 @@ public class UserController {
         int uid = user.getUid();
         List<Question> questionsReplied = questionService.findQuestionRepliedByUser(uid);
         model.addAttribute("questionsReplied", questionsReplied);
-
         return "question_my_replied";
     }
 

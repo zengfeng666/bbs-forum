@@ -112,7 +112,8 @@ public interface QuestionDao {
             "question.ask_time, question.title, question.content, " +
             "question.current_floor, question.credit, question.is_resolved " +
             "FROM question, question_floor " +
-            "WHERE question_floor.uid = #{uid} " +
+            "WHERE question.qid = question_floor.qid " +
+            "AND question_floor.uid = #{uid} " +
             "AND question_floor.fid != 1 ORDER BY question.ask_time desc")
     @ResultMap("questionMap")
     List<Question> findQuestionRepliedByUser(Integer uid);

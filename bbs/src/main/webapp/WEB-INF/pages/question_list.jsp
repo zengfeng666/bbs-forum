@@ -24,31 +24,38 @@
             a {
                 text-decoration: none;
             }
+            div{
+                border: 1px solid #CDCDCD;
+                margin: 5px;
+            }
         </style>
 
     </head>
     <body>
         <a href="${pageContext.request.contextPath}/page/question_ask">
-            <img src="${pageContext.request.contextPath}/images/ask.jpg" style="width: 76px;height: 32px;">
+            <img src="${pageContext.request.contextPath}/images/ask.jpg" style="width: 76px;height: 32px;margin: 5px;">
         </a>
-        <table class="table table-hover">
-            <c:forEach items="${questions}" var="question" varStatus="vs">
-                <tr>
-                        <%--<td>${vs.count}</td>--%>
-                    <td style="width: 500px; text-align: left;">
-                        <a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">
-                            <img src="${pageContext.request.contextPath}/images/question_logo.png" style="width: 20px;height: 20px;"/> ${question.title}
-                        </a>
-                        <font color="red"> - [悬赏 ${question.credit} 积分] </font>
-                        <c:if test="${question.isResolved == 1}">
-                            (已解决)
-                        </c:if>
-                    </td>
-                    <td style="text-align: right">
-                        <fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
+        <div>
+            <table class="table table-hover">
+                <c:forEach items="${questions}" var="question" varStatus="vs">
+                    <tr>
+                            <%--<td>${vs.count}</td>--%>
+                        <td style="width: 500px; text-align: left;">
+                            <a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">
+                                <img src="${pageContext.request.contextPath}/images/question_logo.png"
+                                     style="width: 20px;height: 20px;"/> ${question.title}
+                            </a>
+                            <font color="red"> - [悬赏 ${question.credit} 积分] </font>
+                            <c:if test="${question.isResolved == 1}">
+                                (已解决)
+                            </c:if>
+                        </td>
+                        <td style="text-align: right">
+                            <fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </body>
 </html>

@@ -2,6 +2,7 @@ package cn.ncu.service.Impl;
 
 import cn.ncu.dao.PostDao;
 import cn.ncu.domain.Floor;
+import cn.ncu.domain.KindInfo;
 import cn.ncu.domain.Post;
 import cn.ncu.domain.PostFloor;
 import cn.ncu.service.PostService;
@@ -30,6 +31,11 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<Post> findPostsByKind(Integer kind) {
         return postDao.findPostsByKind(kind);
+    }
+
+    @Override
+    public KindInfo getKindInfoByKind(Integer kind){
+        return postDao.getKindInfoByKind(kind);
     }
 
     @Override

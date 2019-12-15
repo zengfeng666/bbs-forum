@@ -1,6 +1,7 @@
 package cn.ncu.dao;
 
 import cn.ncu.domain.Floor;
+import cn.ncu.domain.KindInfo;
 import cn.ncu.domain.Post;
 import cn.ncu.domain.PostFloor;
 import org.apache.ibatis.annotations.*;
@@ -71,6 +72,23 @@ public interface PostDao {
                 @Result(column = "nick_name", property = "nickName")
             })
     public List<Post> findPostsByKind(Integer kind);
+
+
+    /**
+     * 根据版块种类查版块信息
+     * @param kind
+     * @return
+     */
+    @Select("select * from kind_info where kind = #{kind}")
+    @Results(id = "kindInfoMap",
+            value = {
+                    @Result(column = "kind", property = "kind"),
+                    @Result(column = "time", property = "time"),
+                    @Result(column = "content", property = "content")
+            })
+    public KindInfo getKindInfoByKind(Integer kind);
+
+
 
 
     /**

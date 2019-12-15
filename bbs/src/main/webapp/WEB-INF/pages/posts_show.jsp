@@ -36,10 +36,31 @@
             float: left;
             margin: 3px;
         }
+        #KindInfo{
+            width: 1200px;
+            margin: auto;
+            border: 3px red solid;
+        }
+        #KindInfoContent{
+            height: 600px;
+        }
+        #KindInfoTime{
+            height: 30px;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
-
+    <div>
+        <table id="KindInfo">
+            <tr>
+                <td id="KindInfoContent">${kindInfo.content}</td>
+            </tr>
+            <tr>
+                <td id="KindInfoTime">最后编辑于：${kindInfo.time}</td>
+            </tr>
+        </table>
+    </div>
     <div>
         <table id = "table1" class="table table-hover">
             <caption>该板块所有帖子如下</caption>

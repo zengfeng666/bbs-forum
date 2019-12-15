@@ -12,5 +12,6 @@
     </head>
     <body>
         <h3>提问成功</h3>
+        <a href="${pageContext.request.contextPath}/index.jsp">回到首页</a>
     </body>
 </html>

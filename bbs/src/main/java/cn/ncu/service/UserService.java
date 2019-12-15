@@ -1,6 +1,7 @@
 package cn.ncu.service;
 
 import cn.ncu.domain.Post;
+import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 
 import java.util.List;
@@ -43,4 +44,8 @@ public interface UserService {
     public void setRankAndExp(User user);
 
     List<Post> search(String title);
+
+    ResetPassword findResetPassword(String username);
+
+    User findUserByUsername(String username);
 }

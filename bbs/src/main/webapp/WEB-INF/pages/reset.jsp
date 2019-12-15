@@ -32,7 +32,8 @@
                         <div class="card fat">
                             <div class="card-body">
                                 <h4 class="card-title">Reset Password</h4>
-                                <form method="POST" class="my-login-validation" novalidate="">
+                                <form action="${pageContext.request.contextPath}/user/reset" method="post" class="my-login-validation" novalidate="">
+                                    <input type="hidden" value="${resetPassword.username}">
                                     <div class="form-group">
                                         <label for="new-password">New Password</label>
                                         <input id="new-password" type="password" class="form-control" name="password"

@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -96,11 +99,34 @@ public class AdminController {
         model.addAttribute("postsList", list);
         return "admin_post_list";
     }
+
+    /**
+     * 显示所有公告
+     * @param model
+     * @return
+     */
     @RequestMapping("/showNotices")
     public String showNotices(Model model){
         List<Notice> list = adminService.findNotice();
         model.addAttribute("noticesList", list);
         return "admin_notice_list";
+    }
+
+
+    /**
+     * 发布公告
+     * @param notice
+     * @param model
+     * @return
+     */
+    @RequestMapping("/addNotice")
+    public String  addNotice(Notice notice, Model model){
+
+        Date date = new Date();
+        Timestamp noticeTime = new Timestamp(date.getTime());
+        notice.setNoticeTime(noticeTime);
+        adminService.addNotice(notice);
+        return showNotices(model);
     }
 
 }

@@ -1,6 +1,7 @@
 package cn.ncu.dao;
 
 import cn.ncu.domain.Post;
+import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
@@ -48,6 +49,8 @@ public interface UserDao {
     @Select( "select * from user where username = #{username} and password = #{password}")
     public User findUser(@Param("username") String username, @Param("password") String password);
 
+    @Select("select * from ResetPassword where username = #{username}")
+    ResetPassword findResetPassword(String username);
     /**
      * 注册
      * @param user
@@ -95,4 +98,7 @@ public interface UserDao {
      */
     @Select("select Post.uid,Post.postTime,Post.Title,Post.content,Post.likenum,Post.isGood,Post.kind,Post.nickname,Post.floors from post where title like '%'#{title}")
     List<Post> search(String title);
+
+    @Update("update user set password = #{password} where username = #{username}")
+    User findUserByUsername(String username);
 }

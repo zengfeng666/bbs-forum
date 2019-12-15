@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <title>登录</title>
+    <title>密保问题</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
@@ -37,17 +37,20 @@
                     <div class="card-body">
                         <h4 class="card-title">Login</h4>
 
-                        <form action="${pageContext.request.contextPath}/user/forget" method="post"
+                        <form action="${pageContext.request.contextPath}/user/secretAnswer" method="post"
                               class="my-login-validation" novalidate="">
                             <div class="form-group">
-                                <label for="username">账号</label>
-                                <input id="username" type="text" class="form-control" name="username"
-                                       placeholder="请输入姓名" required autofocus>
+                                <input id="username" type="hidden" class="form-control" name="username"
+                                       value="${resetPassword.username}" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label for="answer">问题：${resetPassword.question}</label>
+                                <input id="answer" type="text" class="form-control" name="answer"
+                                       placeholder="请输入密保答案" required autofocus>
                                 <div class="invalid-feedback">
-                                    username is invalid
+                                    answer is invalid
                                 </div>
                             </div>
-
                             <div class="form-group m-0">
                                 <button type="submit" class="btn btn-primary btn-block">
                                     Submit
@@ -55,7 +58,6 @@
                             </div>
 
                         </form>
-                        <font color="red">${msg}</font>
                     </div>
                 </div>
                 <div class="footer">

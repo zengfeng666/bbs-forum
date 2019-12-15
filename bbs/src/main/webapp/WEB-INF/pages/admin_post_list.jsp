@@ -34,6 +34,7 @@
 
         .topAndGood{
             float: left;
+            margin: 3px;
         }
     </style>
 </head>

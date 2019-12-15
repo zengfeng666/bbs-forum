@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -279,7 +281,10 @@
                             </tr>
                             <tr>
                                 <td class="table3_td1">性别:</td>
-                                <td class="table3_td2">${USER_SESSION.sex}</td>
+                                <td class="table3_td2">
+                                    <%--${}
+                                    <c:if test="${USER_SESSION.sex == male"}"--%>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="table3_td1">职业:</td>

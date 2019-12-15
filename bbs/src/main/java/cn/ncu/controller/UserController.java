@@ -6,11 +6,7 @@ import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FilenameUtils;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;

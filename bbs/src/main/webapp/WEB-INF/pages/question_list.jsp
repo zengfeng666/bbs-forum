@@ -21,11 +21,6 @@
                 border-width: 0px;
             }
 
-            img{
-                width: 20px;
-                height: 20px;
-            }
-
             a {
                 text-decoration: none;
             }
@@ -33,13 +28,16 @@
 
     </head>
     <body>
-        <table align="center" border="1px" class="table table-hover">
+        <a href="${pageContext.request.contextPath}/page/question_ask">
+            <img src="${pageContext.request.contextPath}/images/ask.jpg" style="width: 76px;height: 32px;">
+        </a>
+        <table class="table table-hover">
             <c:forEach items="${questions}" var="question" varStatus="vs">
                 <tr>
                         <%--<td>${vs.count}</td>--%>
                     <td style="width: 500px; text-align: left;">
                         <a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">
-                            <img src="${pageContext.request.contextPath}/images/question_logo.png"/> ${question.title}
+                            <img src="${pageContext.request.contextPath}/images/question_logo.png" style="width: 20px;height: 20px;"/> ${question.title}
                         </a>
                         <font color="red"> - [悬赏 ${question.credit} 积分] </font>
                         <c:if test="${question.isResolved == 1}">

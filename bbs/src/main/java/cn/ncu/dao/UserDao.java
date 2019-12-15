@@ -1,6 +1,5 @@
 package cn.ncu.dao;
 
-import cn.ncu.domain.Post;
 import cn.ncu.domain.ResetPassword;
 import cn.ncu.domain.User;
 import org.apache.ibatis.annotations.*;
@@ -95,6 +94,20 @@ public interface UserDao {
     @Update("update user set password = #{password} where username = #{username}")
     void updatePassword(@Param("username") String username, @Param("password") String password);
 
+    /**
+     * 更新用户的个人信息
+     * @param user
+     */
+    @Update("update user set nickname = #{nickname}, email = #{email}, tel = #{tel}, sex = #{sex}, " +
+            "job = #{job}, company = #{company}, description = #{description} where uid = #{uid}")
+    void updateInfo(User user);
+
+    /**
+     * 根据用户id查找用户
+     * @param uid
+     */
+    @Select("select * from user where uid = #{uid}")
+    User findUserById(Integer uid);
     @Select("select * from user where username = #{username}")
     User findUserByUsername(String username);
 

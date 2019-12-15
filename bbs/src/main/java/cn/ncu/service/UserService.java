@@ -49,5 +49,16 @@ public interface UserService {
 
     void updatePassword(String username, String password);
 
+    /**
+     * 更新用户的个人信息
+     * @param user
+     */
+    void UpdateInfo(User user);
+
+    /**
+     * 根据uid查找用户
+     * @param uid
+     */
+    User findUserById(Integer uid);
     User findUserByUsername(String username);
 }

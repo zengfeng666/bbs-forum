@@ -188,4 +188,34 @@ public class UserController {
         return "forward:/question/look";
     }
 
+    /**
+     * 根据用户id查找用户
+     * @param uid
+     * @return
+     */
+    public void  findUserById(Integer uid){
+        userService.findUserById(uid);
+    }
+
+    /**
+     * 修改个人信息
+     * @param user
+     * @param model
+     * @return
+     */
+    @RequestMapping("editInfo")
+    public String editInfo(User user, Model model, HttpSession session){
+
+        // 获取当前用户的session
+        User userNow = (User) session.getAttribute("USER_SESSION");
+        user.setUid(userNow.getUid());
+
+        userService.UpdateInfo(user);
+
+        // 根据uid查找用户，覆盖session中原来的当前用户
+        user = userService.findUserById(userNow.getUid());
+        session.setAttribute("USER_SESSION", user);
+
+        return "user_profile";
+    }
 }

@@ -323,8 +323,14 @@
                                         <tr>
                                             <td class="table3_td1">性别:</td>
                                             <td class="table3_td2">
-                                                <%--${}
-                                                <c:if test="${USER_SESSION.sex == male"}"--%>
+
+                                                <c:if test="${USER_SESSION.sex == 'male'}">
+                                                    男
+                                                </c:if>
+                                                <c:if test="${USER_SESSION.sex == 'female'}">
+                                                    女
+                                                </c:if>
+
                                             </td>
                                         </tr>
                                         <tr>

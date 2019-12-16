@@ -224,6 +224,9 @@
             <div class="menu">
                 <ul class="nav">
                     <li>
+                        <a href="${pageContext.request.contextPath}/index.jsp">首页</a>
+                    </li>
+                    <li>
                         <a href="#">看帖</a>
                         <ul class="sub-nav">
                             <li>
@@ -292,28 +295,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">公告</a>
-                        <ul class="sub-nav">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/notice/showNotices">系统公告</a>
-                            </li>
-                        </ul>
+                        <a href="${pageContext.request.contextPath}/notice/showNotices">公告</a>
                     </li>
                     <li>
                         <a href="#">排行榜</a>
-                        <ul class="sub-nav">
-                            <li>
-                                <a href="#">排行榜</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="#">个人信息</a>
-                        <ul class="sub-nav">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/page/user_profile">个人信息</a>
-                            </li>
-                        </ul>
+                        <a href="${pageContext.request.contextPath}/page/user_profile">个人信息</a>
                     </li>
                 </ul>
             </div>

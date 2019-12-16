@@ -10,11 +10,6 @@
     <head>
         <title>登录</title>
         <style>
-            .clearfix::after{
-                content:"";
-                clear: both;
-                display: block;
-            }
             body{
                 background: url("${pageContext.request.contextPath}/images/timg1.gif") no-repeat;
                 background-size:  100% 100%;

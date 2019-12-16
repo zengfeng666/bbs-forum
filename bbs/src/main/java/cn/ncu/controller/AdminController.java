@@ -3,6 +3,7 @@ package cn.ncu.controller;
 import cn.ncu.domain.KindInfo;
 import cn.ncu.domain.Notice;
 import cn.ncu.domain.Post;
+import cn.ncu.domain.Question;
 import cn.ncu.service.AdminService;
 import cn.ncu.service.PostService;
 import cn.ncu.service.QuestionService;
@@ -30,6 +31,18 @@ public class AdminController {
     AdminService adminService;
 
     /**
+     * 注销
+     *
+     * @param session
+     * @return
+     */
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("USER_SESSION");
+        return "redirect:/index.jsp";
+    }
+
+    /**
      * 删除pid这个帖子
      * @param pid
      * @return
@@ -39,6 +52,49 @@ public class AdminController {
         postService.deletePost(pid);
         return "forward:showPosts?kind="+kind;
     }
+
+    /**
+     * 展示某类特定帖子
+     * @param kind
+     * @param model
+     * @return
+     */
+    @RequestMapping("/showPosts")
+    public String showPosts(@Param("kind")Integer kind, Model model){
+
+        //版块信息
+        KindInfo kindInfo = postService.getKindInfoByKind(kind);
+        model.addAttribute("kindInfo", kindInfo);
+        //帖子列表
+        List<Post> list = postService.findPostsByKind(kind);
+        model.addAttribute("postsList", list);
+        return "admin_post_list";
+    }
+
+    /**展示所有问题
+     *
+     * @param model
+     * @return
+     */
+    @RequestMapping("/showQuestion")
+    public String showQuestion(Model model){
+        List<Question> list=questionService.findAll();
+        model.addAttribute("questions",list);
+        return "admin_question_list";
+    }
+
+    /**
+     * 删除问题
+     * @param qid
+     * @return
+     */
+    @RequestMapping("/delQ")
+    public String delQ(Integer qid) {
+        questionService.deleteQuestion(qid);
+        // 问题删除成功，重定向回我的提问页面
+        return "redirect:showQuestion";
+    }
+
 
     /**
      * 置顶
@@ -88,23 +144,6 @@ public class AdminController {
         return "forward:showPosts?kind="+kind;
     }
 
-    /**
-     * 展示某类特定帖子
-     * @param kind
-     * @param model
-     * @return
-     */
-    @RequestMapping("/showPosts")
-    public String showPosts(@Param("kind")Integer kind, Model model){
-
-        //版块信息
-        KindInfo kindInfo = postService.getKindInfoByKind(kind);
-        model.addAttribute("kindInfo", kindInfo);
-        //帖子列表
-        List<Post> list = postService.findPostsByKind(kind);
-        model.addAttribute("postsList", list);
-        return "admin_post_list";
-    }
 
     /**
      * 显示所有公告
@@ -133,6 +172,25 @@ public class AdminController {
         notice.setNoticeTime(noticeTime);
         adminService.addNotice(notice);
         return showNotices(model);
+    }
+
+
+    /**
+     * 更改版块信息
+     * @param kindInfo
+     * @return
+     */
+    @RequestMapping("/changeKindInfo")
+    public String changeKindInfo(KindInfo kindInfo,Model model){
+        adminService.changeKindInfo(kindInfo);
+
+        //版块信息
+        KindInfo kindInfo1 = postService.getKindInfoByKind(kindInfo.getKind());
+        model.addAttribute("kindInfo", kindInfo1);
+        //帖子列表
+        List<Post> list = postService.findPostsByKind(kindInfo.getKind());
+        model.addAttribute("postsList", list);
+        return "admin_post_list";
     }
 
 

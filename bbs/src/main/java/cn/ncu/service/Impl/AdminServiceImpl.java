@@ -1,5 +1,6 @@
 package cn.ncu.service.Impl;
 
+import cn.ncu.domain.KindInfo;
 import cn.ncu.domain.Notice;
 import cn.ncu.service.AdminService;
 import cn.ncu.dao.AdminDao;
@@ -42,6 +43,11 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public void addNotice(Notice notice){
         adminDao.addNotice(notice);
+    }
+
+    @Override
+    public void changeKindInfo(KindInfo kindInfo){
+        adminDao.changeKindInfo(kindInfo);
     }
 
     @Override

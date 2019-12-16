@@ -48,6 +48,10 @@
             height: 30px;
             text-align: right;
         }
+        textarea{
+            width: 520px;
+            height: 500px;
+        }
     </style>
 </head>
 <body>
@@ -79,12 +83,30 @@
 <div>
     <table id="KindInfo">
         <tr>
-            <td id="KindInfoContent">${kindInfo.content}</td>
+            <td colspan="2" id="KindInfoContent">${kindInfo.content}</td>
         </tr>
         <tr>
+            <td><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#kindInfoModal">编辑版块信息</button></td>
             <td id="KindInfoTime">最后编辑于：${kindInfo.time}</td>
         </tr>
     </table>
+</div>
+<div class="modal fade" id="kindInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">请输入版块信息</h4>
+            </div>
+            <form action="${pageContext.request.contextPath}/admin/changeKindInfo" method="post">
+            <div class="modal-body"><textarea name="content"></textarea></div>
+                <input hidden="hidden" type="text" name="kind" value="${kindInfo.kind}">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <input type="submit" class="btn btn-primary" value="保存更改">
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
 </div>
 <div>
     <table id = "table1" class="table table-hover">

@@ -32,4 +32,11 @@ public interface PostFloorService {
      */
     List<PostFloor> findAllReplyByUid(Integer uid);
 
+
+    /**
+     * 编辑一层楼的内容
+     * @param postFloor
+     */
+    void editContent(PostFloor postFloor);
+
 }

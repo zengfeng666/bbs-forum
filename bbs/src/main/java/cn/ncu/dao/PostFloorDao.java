@@ -26,6 +26,17 @@ public interface PostFloorDao {
             "#{uid}, #{replyTime}, #{content})")
     public void addOneFloor(PostFloor postFloor);
 
+
+    /**
+     * 编辑一层楼的内容
+     * @param postFloor
+     */
+
+    @Update("UPDATE post_floor SET content = #{content} WHERE pid = #{pid} and fid = #{fid}")
+    public void editContent(PostFloor postFloor);
+
+
+
     /**
      * 删除某个用户在某个帖子的某层回复
      * @param pid

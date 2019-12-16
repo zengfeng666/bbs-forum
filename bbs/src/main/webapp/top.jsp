@@ -146,6 +146,7 @@
             #table_user td {
                 text-align: center;
                 margin: 20px;
+                padding: 5px;
             }
 
             #div_search {
@@ -202,8 +203,9 @@
                         <tr>
                             <td>${USER_SESSION.nickname}</td>
                             <td rowspan="3">
-                                <a href="${pageContext.request.contextPath}/page/user_profile"><img id="photo"
-                                                                                                    src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/></a>
+                                <a href="${pageContext.request.contextPath}/page/user_profile">
+                                    <img id="photo" src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
+                                </a>
                             </td>
                         </tr>
                         <tr>
@@ -286,7 +288,7 @@
                         <a href="#">个人信息</a>
                         <ul class="sub-nav">
                             <li>
-                                <a href="${pageContext.request.contextPath}/page/user_profile">我的主页</a>
+                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">我的主页</a>
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>

@@ -16,7 +16,7 @@
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <style type="text/css">
             td {
-                font-size: 10px;
+                font-size: 14px;
                 border-width: 0px;
             }
 
@@ -27,6 +27,13 @@
             div {
                 border: 1px solid #CDCDCD;
                 margin: 5px;
+            }
+            .td1{
+                width: 1000px;
+                text-align: left;
+            }
+            .td2{
+                text-align: right;
             }
         </style>
         <script type="application/javascript">
@@ -39,6 +46,7 @@
         </script>
     </head>
     <body>
+        <jsp:include page="../../top.jsp"></jsp:include>
         <a href="${pageContext.request.contextPath}/page/question_ask">
             <img src="${pageContext.request.contextPath}/images/question_ask.jpg" style="width: 76px;height: 32px;margin: 5px;">
         </a>
@@ -47,7 +55,7 @@
                 <c:forEach items="${questionsAsked}" var="question" varStatus="vs">
                     <tr>
                             <%--<td>${vs.count}</td>--%>
-                        <td style="width: 500px; text-align: left;">
+                        <td class="td1">
                             <a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">
                                 <img src="${pageContext.request.contextPath}/images/question_logo.png"
                                      style="width: 20px;height: 20px;"/> ${question.title}
@@ -57,10 +65,11 @@
                                 (已解决)
                             </c:if>
                         </td>
-                        <td style="text-align: right">
+                        <td class="td2">
                             <a href="javascript:delQ(${question.qid});">删除</a>
                             &nbsp;&nbsp;&nbsp;
                             <fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/>
+                            &nbsp;&nbsp;&nbsp;
                         </td>
                     </tr>
                 </c:forEach>

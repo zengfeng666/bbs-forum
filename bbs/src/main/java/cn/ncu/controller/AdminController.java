@@ -185,6 +185,7 @@ public class AdminController {
         model.addAttribute("kind", kindInfo.getKind());
         adminService.changeKindInfo(kindInfo);
 
+        //跳转到提示修改成功的页面
         return "admin_change_kind_info_success";
     }
 

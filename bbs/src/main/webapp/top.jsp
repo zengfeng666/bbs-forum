@@ -23,7 +23,7 @@
 
             .nav * {
                 text-decoration: none;
-                font-size: 9pt;
+                font-size: 12pt;
             }
 
             #content .menu .nav * a:hover {
@@ -33,7 +33,8 @@
             .menu {
                 list-style: none;
                 height: 40px;
-                width: 100%;
+                width: 55%;
+                margin-left: 259px;
                 background-color: #2975C4;
                 /*margin-top: 96px;*/
             }
@@ -41,7 +42,7 @@
             .nav {
                 list-style: none;
                 height: 40px;
-                width: 1560px;
+                width: 1000px;
                 margin: 0 auto;
                 background-color: #2975C4;
             }
@@ -97,14 +98,16 @@
             }
 
             #top {
-                width: 100%;
                 height: 110px;
-                background: url("") repeat;
+                width: 1000px;
+                margin-left: 259px;
+                background: url("${pageContext.request.contextPath}/images/bgtop.jpg") no-repeat;
             }
 
             #login {
                 float: right;
                 margin: 20px;
+                margin-right: -9px;
             }
 
             #login a {
@@ -122,6 +125,13 @@
                 width: 70px;
                 height: 21px;
                 vertical-align: middle;
+            }
+
+            #ad{
+                height: 100px;
+                width: 1000px;
+                margin-left: 259px;
+                background-image: url("${pageContext.request.contextPath}/images/ad.jpg");
             }
         </style>
 
@@ -252,6 +262,9 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div id="ad">
+
         </div>
     </body>
 </html>

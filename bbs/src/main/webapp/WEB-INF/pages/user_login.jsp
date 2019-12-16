@@ -16,6 +16,7 @@
                 display: block;
             }
             body{
+                background: url("${pageContext.request.contextPath}/images/timg1.gif") no-repeat;
                 background-size:  100% 100%;
                 height: 722px;
             }
@@ -119,7 +120,7 @@
             article .remember .passwordRegister{
                 margin-left: 44%;
             }
-            body article form .verify_password{
+            body article form .verify_password,.new-password{
                 margin-top: 1%;
             }
             article form .input{
@@ -131,22 +132,7 @@
                 color: #042020;
                 margin-left: 57%;
             }
-            article .icon{
-                margin-top: 1%;
-            }
-            article .icon p{
-                margin:1.5% 0 2% 36%;
-            }
-            article .icon .one{
-                margin-top: 1%;
-            }
-            article .icon img{
-                width: 25px;
-                margin-left: 14%;
-            }
-            article .icon span .name{
-                margin-left: 2%;
-            }
+
         </style>
     </head>
     <body>
@@ -179,12 +165,7 @@
                 <div class="tiao">
                     <p><a href="${pageContext.request.contextPath}/page/register">尚未注册，请先注册</a></p>
                 </div>
-                <div class="icon">
-                    <p>-其他登录方式-</p>
-                    <span class="one"><img src="${pageContext.request.contextPath}/images/qq.png" alt=""><span class="name">QQ</span></span>
-                    <span class="one"><img src="${pageContext.request.contextPath}/images/weixin.png" alt=""><span class="name">微信</span></span>
-                    <span class="one"><img src="${pageContext.request.contextPath}/images/weibo.png" alt=""><sapn class="name">微博</sapn></span>
-                </div>
+
             </form>
         </article>
     </div>

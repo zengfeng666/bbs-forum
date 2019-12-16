@@ -12,6 +12,8 @@
     <head>
         <title>Title</title>
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js" type="text/javascript"></script>
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <style type="text/css">
             html * {
                 padding: 0;
@@ -142,9 +144,27 @@
                 margin-right: 10px;
             }
 
-            #table_user td{
+            #table_user td {
                 text-align: center;
                 margin: 20px;
+            }
+
+            #div_search {
+                height: 50px;
+                width: 1000px;
+                margin-left: 259px;
+                background-color: #E8EFF5;
+                padding: 10px;
+            }
+
+            #div_search input{
+                width: 470px;
+                height: 30px;
+                padding: 4px;
+            }
+
+            #div_search img{
+                height: 30px;
             }
         </style>
 
@@ -183,14 +203,18 @@
                         <tr>
                             <td>${USER_SESSION.nickname}</td>
                             <td rowspan="3">
-                                <img id="photo" src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
+                                <a href="${pageContext.request.contextPath}/page/user_profile"><img id="photo"
+                                                                                                    src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/></a>
                             </td>
                         </tr>
                         <tr>
-                            <td>等级: ${USER_SESSION.rank}</td>
+                            <td>等级:${USER_SESSION.rank}&nbsp;&nbsp;&nbsp;&nbsp;
+                                积分:${USER_SESSION.credit}</td>
                         </tr>
                         <tr>
-                            <td>积分: ${USER_SESSION.credit}</td>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/user/logout">退出</a>
+                            </td>
                         </tr>
                     </table>
                 </c:if>
@@ -294,8 +318,10 @@
                 </ul>
             </div>
         </div>
-        <div id="ad">
-
+        <div id="ad"></div>
+        <div id="div_search">
+            <input type="text" placeholder="请输入搜索内容" required/>
+            <a href="${pageContext.request.contextPath}/post/search"><img src="${pageContext.request.contextPath}/images/search.jpg"/></a>
         </div>
     </body>
 </html>

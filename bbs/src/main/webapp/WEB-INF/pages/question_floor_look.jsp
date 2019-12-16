@@ -64,7 +64,8 @@
 
             #out .one #title {
                 font-family: 黑体;
-                font-size: 20px;
+                font-size: 18px;
+                color: #63008A;
                 height: 30px;
                 padding: 6px;
             }
@@ -169,18 +170,23 @@
                                     <font color="red">(楼主已采纳此楼)</font>
                                 </c:if>
                             </font>
-                            <c:if test="${USER_SESSION.uid == question.uid && question.isResolved == 0}">
-                                <%--如果当前用户就是提问者--%>
-                                <%--参数分别为问题id，被采纳者的id，悬赏积分--%>
-                                <input type="button" value="采纳此楼"
-                                       onclick="adopt(${question.qid}, ${floor.uid}, ${floor.fid}, ${question.credit});"/>
+                                <%--当前用户是楼主--%>
+                            <c:if test="${USER_SESSION.uid == question.uid}">
+                                <c:if test="${floor.fid != 1}">
+                                    <c:if test="${question.isResolved != 1}">
+                                        <a href="javascript:adopt('${question.qid}', '${floor.uid}', '${floor.fid}', '${question.credit}');">采纳</a>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <a href="javascript:delR('${question.qid}', '${floor.fid}');">删除该楼的回复</a>
+                                    </c:if>
+                                </c:if>
                             </c:if>
-
-                            <c:if test="${USER_SESSION.uid == floor.uid}">
-                                <%--如果当前用户就是回复者--%>
-                                <%--参数分别为问题id，被采纳者的id，悬赏积分--%>
-                                <input type="button" value="删除自己本楼的回复"
-                                       onclick="delR(${question.qid}, ${floor.fid});"/>
+                                <%--当前用户不是楼主--%>
+                            <c:if test="${USER_SESSION.uid != question.uid}">
+                                <c:if test="${floor.fid != 1}">
+                                    <c:if test="${floor.uid == USER_SESSION.uid}">
+                                        <a href="javascript:delR('${question.qid}', '${floor.fid}');">删除自己该楼的回复</a>
+                                    </c:if>
+                                </c:if>
                             </c:if>
                         </font>
 

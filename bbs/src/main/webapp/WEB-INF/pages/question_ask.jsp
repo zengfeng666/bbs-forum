@@ -40,14 +40,14 @@
                         <td class="td1"><label for="title">提问</label></td>
                         <td class="td2">
                             <input type="text" class="form-control" name="title" value="${question.title}" id="title"
-                                   size="25" placeholder="一句话描述你的问题" required>
+                                   size="25" placeholder="一句话描述你的问题(50字以内)" required>
                         </td>
                     </tr>
                     <tr>
                         <td class="td1"><label for="content">内容</label></td>
                         <td class="td2">
                         <textarea class="form-control" name="content" id="content" rows="5" cols="8"
-                                  placeholder="详细说明问题，以便更好的获得回答">${question.content}</textarea>
+                                  placeholder="详细说明问题，以便更好的获得回答(300字以内)">${question.content}</textarea>
                         </td>
                     </tr>
                     <tr>

@@ -37,8 +37,8 @@
             .menu {
                 list-style: none;
                 height: 40px;
-                width: 55%;
-                margin-left: 259px;
+                width: 1000px;
+                margin: auto;
                 background-color: #2975C4;
                 /*margin-top: 96px;*/
             }
@@ -47,7 +47,7 @@
                 list-style: none;
                 height: 40px;
                 width: 1000px;
-                margin: 0 auto;
+                margin: auto;
                 background-color: #2975C4;
             }
 
@@ -104,7 +104,7 @@
             #top {
                 height: 110px;
                 width: 1000px;
-                margin-left: 259px;
+                margin: auto;
                 background: url("${pageContext.request.contextPath}/images/bgtop.jpg") no-repeat;
             }
 
@@ -134,14 +134,13 @@
             #ad {
                 height: 100px;
                 width: 1000px;
-                margin-left: 259px;
+                margin: auto;
                 background-image: url("${pageContext.request.contextPath}/images/ad.jpg");
             }
 
             #photo {
                 width: 65px;
                 height: 65px;
-                margin-right: 10px;
             }
 
             #table_user td {
@@ -152,7 +151,7 @@
             #div_search {
                 height: 50px;
                 width: 1000px;
-                margin-left: 259px;
+                margin: auto;
                 background-color: #E8EFF5;
                 padding: 10px;
             }
@@ -267,17 +266,6 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">我的帖子</a>
-                        <ul class="sub-nav">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/post/findAllReplyByMe">我的回帖</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
                         <a href="#">问题</a>
                         <ul class="sub-nav">
                             <li>
@@ -285,12 +273,6 @@
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/page/question_ask">发起提问</a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/user/askQ">我的提问</a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/user/replyQ">我的回复</a>
                             </li>
                         </ul>
                     </li>
@@ -301,7 +283,24 @@
                         <a href="#">排行榜</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/user_profile">个人信息</a>
+                        <a href="#">个人信息</a>
+                        <ul class="sub-nav">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/page/user_profile">我的主页</a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/post/findAllReplyByMe">我的回帖</a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/user/askQ">我的提问</a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/user/replyQ">我的回复</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

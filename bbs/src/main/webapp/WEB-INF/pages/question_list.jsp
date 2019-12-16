@@ -15,44 +15,16 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-        <style type="text/css">
-            td {
-                font-size: 14px;
-                border-width: 0px;
-            }
-
-            a {
-                text-decoration: none;
-            }
-
-            #table-div {
-                border: 1px solid #CDCDCD;
-                margin: auto;
-                width: 1000px;
-            }
-
-            .td1 {
-                width: 780px;
-                text-align: left;
-            }
-
-            .td2 {
-                text-align: right;
-            }
-
-            #img_ask {
-                width: 76px;
-                height: 32px;
-                margin: 5px;
-                margin-left: 259px;
-            }
-        </style>
+        <link href="${pageContext.request.contextPath}/css/question.css" rel="stylesheet">
     </head>
     <body>
         <jsp:include page="../../top.jsp"></jsp:include>
-        <a href="${pageContext.request.contextPath}/page/question_ask">
-            <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>
-        </a>
+        <div id="div_img_ask">
+            <a href="${pageContext.request.contextPath}/page/question_ask">
+                <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>
+            </a>
+            <hr />
+        </div>
         <div id="table-div">
             <table class="table table-hover">
                 <c:forEach items="${questions}" var="question" varStatus="vs">

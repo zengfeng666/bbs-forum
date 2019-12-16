@@ -132,13 +132,12 @@
             color: #042020;
             margin-left: 57%;
         }
-
-    </style>0
+    </style>
 </head>
 <body>
 <header>
     <div class="ima">
-        <img src="./images/nculogo.png" alt="">
+        <img src="${pageContext.request.contextPath}/images/nculogo.png" alt="">
     </div>
     <h1>
         修&nbsp;改&nbsp;密&nbsp;码
@@ -152,11 +151,8 @@
             <input id="new-password" type="password" placeholder="请输入新密码" name="password"
                    required autofocus data-eye>
         </div>
-
-
-
         <div class="remember">
-            <span><label class="maintain" for="maintain">新密码包括字母、数字、特殊符号</label></span>
+            <span><label class="maintain" class="maintain">新密码包括字母、数字、特殊符号</label></span>
         </div>
         <div>
             <button type="submit" class="btn btn-primary btn-block">

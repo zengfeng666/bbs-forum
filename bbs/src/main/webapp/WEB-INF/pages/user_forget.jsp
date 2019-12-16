@@ -141,7 +141,7 @@
         <img src="${pageContext.request.contextPath}/images/nculogo.png" alt="">
     </div>
     <h1>
-        登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
+        忘&nbsp;记&nbsp;密&nbsp;码
     </h1>
 </header>
 <article>

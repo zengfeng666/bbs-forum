@@ -18,10 +18,11 @@
 <script>
     function delQ(qid) {
         if (confirm("你确定要删除这个问题吗？")) {
-            location.href = "${pageContext.request.contextPath}/user/delQ?qid=" + qid;
+            location.href = "${pageContext.request.contextPath}/admin/delQ?qid=" + qid;
         }
     }
 </script>
+<jsp:include page="../../top.jsp"></jsp:include>
 <table align="center" border="1px">
     <caption>所有提问</caption>
     <tr>
@@ -31,7 +32,7 @@
         <th>时间</th>
         <th>操作</th>
     </tr>
-    <c:forEach items="${questions}" var="question" varStatus="vs">
+    <c:forEach items="${list}" var="question" varStatus="vs">
         <tr>
             <td>${vs.count}</td>
             <td style="width: 500px">

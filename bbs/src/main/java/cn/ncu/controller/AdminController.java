@@ -3,12 +3,15 @@ package cn.ncu.controller;
 import cn.ncu.domain.KindInfo;
 import cn.ncu.domain.Notice;
 import cn.ncu.domain.Post;
+import cn.ncu.domain.Question;
 import cn.ncu.service.AdminService;
 import cn.ncu.service.PostService;
 import cn.ncu.service.QuestionService;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,6 +32,30 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+    @RequestMapping("logOut")
+    public String logOut(HttpSession session){
+        session.removeAttribute("USER_SESSION");
+        return "redirect:/index.jsp";
+    }
+
+    /**
+     * 展示某类特定帖子
+     * @param kind
+     * @param model
+     * @return
+     */
+    @RequestMapping("/showPosts")
+    public String showPosts(@Param("kind")Integer kind, Model model){
+
+        //版块信息
+        KindInfo kindInfo = postService.getKindInfoByKind(kind);
+        model.addAttribute("kindInfo", kindInfo);
+        //帖子列表
+        List<Post> list = postService.findPostsByKind(kind);
+        model.addAttribute("postsList", list);
+        return "admin_post_list";
+    }
+
     /**
      * 删除pid这个帖子
      * @param pid
@@ -38,6 +65,29 @@ public class AdminController {
     public String deletePost(Integer pid ,int kind){
         postService.deletePost(pid);
         return "forward:showPosts?kind="+kind;
+    }
+
+    /**
+     * 展示问题
+     * @param model
+     * @return
+     */
+    @RequestMapping("showQ")
+    public String showQuestion(Model model){
+        List<Question> list=questionService.findAll();
+        model.addAttribute("list",list);
+        return "admin_question_list";
+    };
+
+    /**
+     * 删除问题
+     * @param qid
+     * @return
+     */
+    @RequestMapping("/deleteQ")
+    public String deleteQuestion(Integer qid){
+        questionService.deleteQuestion(qid);
+        return "redirect:showQ";
     }
 
     /**
@@ -88,23 +138,6 @@ public class AdminController {
         return "forward:showPosts?kind="+kind;
     }
 
-    /**
-     * 展示某类特定帖子
-     * @param kind
-     * @param model
-     * @return
-     */
-    @RequestMapping("/showPosts")
-    public String showPosts(@Param("kind")Integer kind, Model model){
-
-        //版块信息
-        KindInfo kindInfo = postService.getKindInfoByKind(kind);
-        model.addAttribute("kindInfo", kindInfo);
-        //帖子列表
-        List<Post> list = postService.findPostsByKind(kind);
-        model.addAttribute("postsList", list);
-        return "admin_post_list";
-    }
 
     /**
      * 显示所有公告

@@ -279,7 +279,7 @@
                         <a href="#">排行榜</a>
                         <ul class="sub-nav">
                             <li>
-                                <a href="#">排行榜</a>
+                                <a href="${pageContext.request.contextPath}/rank/show">排行榜</a>
                             </li>
                         </ul>
                     </li>

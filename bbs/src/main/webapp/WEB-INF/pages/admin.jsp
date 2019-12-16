@@ -17,6 +17,7 @@
     欢迎你，${USER_SESSION.nickname}
     <button type="button" class="login1"><a href="${pageContext.request.contextPath}/pages/login.jsp">登入</a> </button>
     <button type="button" class="register1"><a href="${pageContext.request.contextPath}/pages/register.jsp">注册</a> </button>
+    <button type="button" class="register1"><a href="${pageContext.request.contextPath}/admin/logOut">注销</a> </button>
     <div class="top-bar">
         <div style="text-align: center">
             <form class="form-inline">
@@ -85,7 +86,7 @@
                         <li class="index on">
                             <span><a href="javascript:void(0)">问题</a></span>
                             <ul>
-                                <li><a href="${pageContext.request.contextPath}/question/findAll" target="iframe1">全部问题</a></li>
+                                <li><a href="${pageContext.request.contextPath}/admin/showQ" target="iframe1">全部问题</a></li>
                                 <li><a href="${pageContext.request.contextPath}/pages/question_ask.jsp" target="iframe1">发起提问</a></li>
                                 <li><a href="${pageContext.request.contextPath}/user/askQ" target="iframe1">我的提问</a></li>
                                 <li><a href="${pageContext.request.contextPath}/user/replyQ" target="iframe1">我的回复</a></li>

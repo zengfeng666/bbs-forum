@@ -49,7 +49,7 @@
         </style>
     </head>
     <body>
-        <jsp:include page="../../top.jsp"></jsp:include>
+    <jsp:include page="../../top.jsp"></jsp:include>
         <a href="${pageContext.request.contextPath}/page/question_ask">
             <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>
         </a>

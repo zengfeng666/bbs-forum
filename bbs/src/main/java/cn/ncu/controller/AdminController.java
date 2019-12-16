@@ -182,15 +182,10 @@ public class AdminController {
      */
     @RequestMapping("/changeKindInfo")
     public String changeKindInfo(KindInfo kindInfo,Model model){
+        model.addAttribute("kind", kindInfo.getKind());
         adminService.changeKindInfo(kindInfo);
 
-        //版块信息
-        KindInfo kindInfo1 = postService.getKindInfoByKind(kindInfo.getKind());
-        model.addAttribute("kindInfo", kindInfo1);
-        //帖子列表
-        List<Post> list = postService.findPostsByKind(kindInfo.getKind());
-        model.addAttribute("postsList", list);
-        return "admin_post_list";
+        return "admin_change_kind_info_success";
     }
 
 

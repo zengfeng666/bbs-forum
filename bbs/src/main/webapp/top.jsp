@@ -131,6 +131,10 @@
                 vertical-align: middle;
             }
 
+            #login input[type="text"], #login input[type="password"]{
+                border-radius: 1px;
+            }
+
             #ad {
                 height: 100px;
                 width: 1000px;

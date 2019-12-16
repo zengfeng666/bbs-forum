@@ -6,10 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
     <head>
         <title>Title</title>
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js" type="text/javascript"></script>
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <style type="text/css">
             html * {
                 padding: 0;
@@ -127,11 +131,40 @@
                 vertical-align: middle;
             }
 
-            #ad{
+            #ad {
                 height: 100px;
                 width: 1000px;
                 margin-left: 259px;
                 background-image: url("${pageContext.request.contextPath}/images/ad.jpg");
+            }
+
+            #photo {
+                width: 65px;
+                height: 65px;
+                margin-right: 10px;
+            }
+
+            #table_user td {
+                text-align: center;
+                margin: 20px;
+            }
+
+            #div_search {
+                height: 50px;
+                width: 1000px;
+                margin-left: 259px;
+                background-color: #E8EFF5;
+                padding: 10px;
+            }
+
+            #div_search input{
+                width: 470px;
+                height: 30px;
+                padding: 4px;
+            }
+
+            #div_search img{
+                height: 30px;
             }
         </style>
 
@@ -148,26 +181,51 @@
     <body>
         <div id="top">
             <div id="login">
-                <form action="${pageContext.request.contextPath}/user/login" method="post">
-                    <p>
-                        账号 <input type="text" name="username" placeholder="用户名" required/>
-                        <a href="${pageContext.request.contextPath}/page/forget">找回密码</a>
-                    </p>
-                    <p>
-                        密码 <input type="password" name="password" required/>
+                <c:if test="${USER_SESSION == null}">
+                    <form action="${pageContext.request.contextPath}/user/login" method="post">
+                        <p>
+                            账号 <input type="text" name="username" placeholder="用户名" required/>
+                            <a href="${pageContext.request.contextPath}/page/forget">找回密码</a>
+                        </p>
+                        <p>
+                            密码 <input type="password" name="password" required/>
 
-                        <a href="${pageContext.request.contextPath}/page/register">注册[Register]</a>
-                    </p>
-                    <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="submit" value="登录"/>
-                    </p>
-                </form>
+                            <a href="${pageContext.request.contextPath}/page/register">注册[Register]</a>
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="登录"/>
+                        </p>
+                    </form>
+                </c:if>
+                <c:if test="${USER_SESSION != null}">
+                    <table id="table_user">
+                        <tr>
+                            <td>${USER_SESSION.nickname}</td>
+                            <td rowspan="3">
+                                <a href="${pageContext.request.contextPath}/page/user_profile"><img id="photo"
+                                                                                                    src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>等级:${USER_SESSION.rank}&nbsp;&nbsp;&nbsp;&nbsp;
+                                积分:${USER_SESSION.credit}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/user/logout">退出</a>
+                            </td>
+                        </tr>
+                    </table>
+                </c:if>
             </div>
         </div>
         <div id="content">
             <div class="menu">
                 <ul class="nav">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/index.jsp">首页</a>
+                    </li>
                     <li>
                         <a href="#">看帖</a>
                         <ul class="sub-nav">
@@ -237,34 +295,21 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">公告</a>
-                        <ul class="sub-nav">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/notice/showNotices">系统公告</a>
-                            </li>
-                        </ul>
+                        <a href="${pageContext.request.contextPath}/notice/showNotices">公告</a>
                     </li>
                     <li>
                         <a href="#">排行榜</a>
-                        <ul class="sub-nav">
-                            <li>
-                                <a href="#">排行榜</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="#">个人信息</a>
-                        <ul class="sub-nav">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/page/user_profile">个人信息</a>
-                            </li>
-                        </ul>
+                        <a href="${pageContext.request.contextPath}/page/user_profile">个人信息</a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div id="ad">
-
+        <div id="ad"></div>
+        <div id="div_search">
+            <input type="text" placeholder="请输入搜索内容" required/>
+            <a href="${pageContext.request.contextPath}/post/search"><img src="${pageContext.request.contextPath}/images/search.jpg"/></a>
         </div>
     </body>
 </html>

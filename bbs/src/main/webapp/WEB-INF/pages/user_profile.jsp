@@ -111,7 +111,6 @@
 
     </head>
     <body>
-        <jsp:include page="../../top.jsp"></jsp:include>
         <div>
             <table border="1px" cellspacing="0" cellpadding="0" align="center" id="table1">
                 <tr>

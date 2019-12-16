@@ -55,7 +55,7 @@ public interface UserDao {
      * 注册
      * @param user
      */
-    @Insert("insert into user(username,nickname,password,email,credit,photo,tel,sex,description,job,company)" + "values(#{username},#{nickname},#{password},#{email},100,#{photo},#{tel},#{sex},#{description},#{job},#{company})")
+    @Insert("insert into user(username,nickname,password,email,credit,photo,tel,sex,description,job,company)" + "values(#{username},#{nickname},#{password},#{email},100,'default_photo.png',#{tel},#{sex},#{description},#{job},#{company})")
     public void register(User user);
 
     /**

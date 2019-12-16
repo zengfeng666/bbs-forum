@@ -16,6 +16,7 @@
                 display: block;
             }
             body{
+                background: url("${pageContext.request.contextPath}/images/timg1.gif") no-repeat;
                 background-size:  100% 100%;
                 height: 722px;
             }
@@ -131,22 +132,7 @@
                 color: #042020;
                 margin-left: 57%;
             }
-            article .icon{
-                margin-top: 1%;
-            }
-            article .icon p{
-                margin:1.5% 0 2% 36%;
-            }
-            article .icon .one{
-                margin-top: 1%;
-            }
-            article .icon img{
-                width: 25px;
-                margin-left: 14%;
-            }
-            article .icon span .name{
-                margin-left: 2%;
-            }
+
         </style>
         <script>
             function checkUsername() {

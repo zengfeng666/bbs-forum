@@ -19,10 +19,10 @@
                 setTimeout(function(){
                     $('#myModal').modal('hide');
                     // 等2s才能跳转
-                    setTimeout("location.href = \"${pageContext.request.contextPath}/admin/showPosts?kind=\"+${kind}", 2000);
+                    setTimeout("location.href = \"${pageContext.request.contextPath}/admin/showPosts?kind=\"+${kind}",0);
 
 
-                },0);
+                },2000);
             }
         );
 

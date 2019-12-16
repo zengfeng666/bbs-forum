@@ -28,4 +28,10 @@ public class PostFloorServiceimpl implements PostFloorService {
     public List<PostFloor> findAllReplyByUid(Integer uid) {
         return postFloorDao.findAllReplyByUid(uid);
     }
+
+
+    @Override
+    public void editContent(PostFloor postFloor){
+        postFloorDao.editContent(postFloor);
+    }
 }

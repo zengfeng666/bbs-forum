@@ -9,86 +9,184 @@
 <html>
     <head>
         <title>登录</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-              crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/my-login.css">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
-        <script src="${pageContext.request.contextPath}/js/my-login.js"></script>
+        <style>
+            .clearfix::after{
+                content:"";
+                clear: both;
+                display: block;
+            }
+            body{
+                background-size:  100% 100%;
+                height: 722px;
+            }
+            header{
+                width: 100%;
+                height: 30%;
+            }
+
+            header .ima{
+                margin-top: 30px;
+                text-align: center;
+            }
+            header .ima img{
+                width: 140px;
+                height: 140px;
+            }
+            header h1{
+                margin-top:30px;
+                text-align: center;
+                font-size: 45px;
+                font-weight: bold;
+                margin-bottom: 40px;
+                font-family:initial;
+                padding-bottom: 20px;
+                width: 80%;
+                margin-left: 10.2%;
+            }
+            article{
+                margin: 0 auto;
+                height: auto;
+                width: 40%;
+            }
+            article .input{
+                margin-top: 55px;
+            }
+            input[type="text"],input[type="password"],input[type="email"]{
+                width: 318px;
+                height: 35px;
+                margin-left: 1%;
+                font-size: 15px;
+                border: 1px solid #b4c1e0;
+                border-radius: 3px;
+                text-indent: 15px;
+            }
+            input[type="text"]:hover,input[type="password"]:hover,input[type="email"]:hover{
+                border-color:#c0c4cc;
+            }
+
+            input[type="text"]:focus,input[type="password"]:focus,input[type="email"]:focus{
+                border-color: #00a1d6;
+            }
+            article .input input::placeholder{
+                margin-left: 15px;
+            }
+            article .input label{
+                padding-top: 1%;
+                font-size: 21px;
+                color: #0a0a0a;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                margin-left: 13%;
+            }
+            article .remember{
+                margin-top: 1%;
+                color: #042020;
+                font-size: 14px;
+            }
+
+            article .remember span input[type="checkbox"]{
+                margin-left: 27%;
+                margin-top: 7px;
+            }
+            article .remember a{
+                margin-left: 30%;
+                color: #042020;
+                text-decoration: none;
+            }
+            article .maintain{
+                margin-left: 46%;
+            }
+            article button{
+                width: 65%;
+                height: 46px;
+                background: #389c9c;
+                margin-left: 13.6%;
+                margin-top: 4%;
+                font-size: 25px;
+                color: #dddddd;
+                font-family: unset;
+                font-weight: bold;
+                border-radius: 4px;
+                border: 1px solid;
+                margin-bottom: 1%;
+            }
+            article .resetSubmit{
+                width: 66.3%;
+            }
+            article .forgetSubmit{
+                margin-top: 7%;
+                width: 66.3%;
+            }
+            article .remember .passwordRegister{
+                margin-left: 44%;
+            }
+            body article form .verify_password{
+                margin-top: 1%;
+            }
+            article form .input{
+                margin-top: 4%;
+            }
+            article .tiao a{
+                text-decoration: none;
+                font-size: 14px;
+                color: #042020;
+                margin-left: 57%;
+            }
+            article .icon{
+                margin-top: 1%;
+            }
+            article .icon p{
+                margin:1.5% 0 2% 36%;
+            }
+            article .icon .one{
+                margin-top: 1%;
+            }
+            article .icon img{
+                width: 25px;
+                margin-left: 14%;
+            }
+            article .icon span .name{
+                margin-left: 2%;
+            }
+        </style>
     </head>
-
-    <body class="my-login-page">
-        <section class="h-100">
-            <div class="container h-100">
-                <div class="row justify-content-md-center h-100">
-                    <div class="card-wrapper">
-                        <div class="brand">
-                            <img src="../images/logo.jpg" alt="logo">
-                        </div>
-                        <div class="card fat">
-                            <div class="card-body">
-                                <h4 class="card-title">Login</h4>
-
-                                <form action="${pageContext.request.contextPath}/user/login" method="post"
-                                      class="my-login-validation" novalidate="">
-                                    <div class="form-group">
-                                        <label for="username">账号</label>
-                                        <input id="username" type="text" class="form-control" name="username"
-                                               placeholder="请输入姓名" required autofocus>
-                                        <div class="invalid-feedback">
-                                            username is invalid
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="password">Password
-                                            <a href="${pageContext.request.contextPath}/page/forget"
-                                               class="float-right">
-                                                Forgot Password?
-                                            </a>
-                                        </label>
-                                        <input id="password" type="password" class="form-control" name="password"
-                                               placeholder="请输入密码" required data-eye>
-                                        <div class="invalid-feedback">
-                                            Password is required
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="custom-checkbox custom-control">
-                                            <input type="checkbox" name="remember" id="remember"
-                                                   class="custom-control-input">
-                                            <label for="remember" class="custom-control-label">Remember Me</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group m-0">
-                                        <button type="submit" class="btn btn-primary btn-block">
-                                            Login
-                                        </button>
-                                    </div>
-                                    <div class="mt-4 text-center">
-                                        Don't have an account? <a
-                                            href="${pageContext.request.contextPath}/page/register">Create One</a>
-                                    </div>
-                                </form>
-                                <font color="red">${msg}</font>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            Copyright &copy; 2019 &mdash; Your Company
-                        </div>
-                    </div>
+    <body>
+    <header>
+        <div class="ima">
+            <img src="${pageContext.request.contextPath}/images/nculogo.png" alt="">
+        </div>
+        <h1>
+            登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
+        </h1>
+    </header>
+        <article>
+            <form action="${pageContext.request.contextPath}/user/login" method="post">
+                <div class="input">
+                    <label for="username">账&nbsp;号：</label>
+                    <input type="text" name="username" id="username" placeholder="请输入账户">
                 </div>
-            </div>
-        </section>
+                <div class="input">
+                    <label for="password">密&nbsp;码：</label>
+                    <input type="password" name="password" id="password" placeholder="请输入密码">
+                </div>
+                <div class="remember">
+                    <span><input type="checkbox" id="maintain"></span>
+                    <span><label for="maintain">记住我</label></span>
+                    <span ><a href="${pageContext.request.contextPath}/page/forget">忘记密码？</a></span>
+                </div>
+                <div>
+                    <button>登录</button>
+                </div>
+                <div class="tiao">
+                    <p><a href="${pageContext.request.contextPath}/page/register">尚未注册，请先注册</a></p>
+                </div>
+                <div class="icon">
+                    <p>-其他登录方式-</p>
+                    <span class="one"><img src="${pageContext.request.contextPath}/images/qq.png" alt=""><span class="name">QQ</span></span>
+                    <span class="one"><img src="${pageContext.request.contextPath}/images/weixin.png" alt=""><span class="name">微信</span></span>
+                    <span class="one"><img src="${pageContext.request.contextPath}/images/weibo.png" alt=""><sapn class="name">微博</sapn></span>
+                </div>
+            </form>
+        </article>
+    </div>
     </body>
 </html>

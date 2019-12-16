@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
     <head>
         <title>Title</title>
@@ -127,11 +129,22 @@
                 vertical-align: middle;
             }
 
-            #ad{
+            #ad {
                 height: 100px;
                 width: 1000px;
                 margin-left: 259px;
                 background-image: url("${pageContext.request.contextPath}/images/ad.jpg");
+            }
+
+            #photo {
+                width: 65px;
+                height: 65px;
+                margin-right: 10px;
+            }
+
+            #table_user td{
+                text-align: center;
+                margin: 20px;
             }
         </style>
 
@@ -148,21 +161,39 @@
     <body>
         <div id="top">
             <div id="login">
-                <form action="${pageContext.request.contextPath}/user/login" method="post">
-                    <p>
-                        账号 <input type="text" name="username" placeholder="用户名" required/>
-                        <a href="${pageContext.request.contextPath}/page/forget">找回密码</a>
-                    </p>
-                    <p>
-                        密码 <input type="password" name="password" required/>
+                <c:if test="${USER_SESSION == null}">
+                    <form action="${pageContext.request.contextPath}/user/login" method="post">
+                        <p>
+                            账号 <input type="text" name="username" placeholder="用户名" required/>
+                            <a href="${pageContext.request.contextPath}/page/forget">找回密码</a>
+                        </p>
+                        <p>
+                            密码 <input type="password" name="password" required/>
 
-                        <a href="${pageContext.request.contextPath}/page/register">注册[Register]</a>
-                    </p>
-                    <p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="submit" value="登录"/>
-                    </p>
-                </form>
+                            <a href="${pageContext.request.contextPath}/page/register">注册[Register]</a>
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="登录"/>
+                        </p>
+                    </form>
+                </c:if>
+                <c:if test="${USER_SESSION != null}">
+                    <table id="table_user">
+                        <tr>
+                            <td>${USER_SESSION.nickname}</td>
+                            <td rowspan="3">
+                                <img id="photo" src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>等级: ${USER_SESSION.rank}</td>
+                        </tr>
+                        <tr>
+                            <td>积分: ${USER_SESSION.credit}</td>
+                        </tr>
+                    </table>
+                </c:if>
             </div>
         </div>
         <div id="content">

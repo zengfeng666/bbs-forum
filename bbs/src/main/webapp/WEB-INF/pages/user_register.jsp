@@ -28,7 +28,7 @@
             }
 
             header .ima {
-                margin-top: 30px;
+                margin-top: 15px;
                 text-align: center;
             }
 
@@ -38,7 +38,7 @@
             }
 
             header h1 {
-                margin-top: 30px;
+                margin-top: 10px;
                 text-align: center;
                 font-size: 45px;
                 font-weight: bold;
@@ -52,11 +52,11 @@
             article {
                 margin: 0 auto;
                 height: auto;
-                width: 40%;
+                width: 70%;
             }
 
-            article .input {
-                margin-top: 55px;
+            body article form .input {
+                margin-top: 2%;
             }
 
             input[type="text"], input[type="password"], input[type="email"] {
@@ -86,7 +86,7 @@
                 font-size: 21px;
                 color: #0a0a0a;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
-                margin-left: 13%;
+                margin-left: 28%;
             }
 
             article .remember {
@@ -111,10 +111,10 @@
             }
 
             article button {
-                width: 65%;
+                width: 38%;
                 height: 46px;
                 background: #389c9c;
-                margin-left: 13.6%;
+                margin-left: 28.2%;
                 margin-top: 4%;
                 font-size: 25px;
                 color: #dddddd;
@@ -122,7 +122,7 @@
                 font-weight: bold;
                 border-radius: 4px;
                 border: 1px solid;
-                margin-bottom: 1%;
+                margin-bottom: -1%;
             }
 
             article .resetSubmit {
@@ -150,7 +150,7 @@
                 text-decoration: none;
                 font-size: 14px;
                 color: #042020;
-                margin-left: 57%;
+                margin-left: 55%;
             }
         </style>
         <script>
@@ -223,6 +223,23 @@
                     <input id="verify_password" type="password" placeholder="确认密码"
                            required data-eye onblur="verifyPassword()"> <font color="red" id="verifyPasswordError"></font>
                 </div>
+
+
+
+
+                <div class="input">
+                    <label for="question">密&nbsp;保：</label>
+                    <input id="question" type="text" placeholder="密保问题" name="question" value="${user.username}" required
+                           autofocus onblur="checkUsername();"> <!--<font color="red" id="usernameError">${msg}</font>-->
+                </div>
+                <div class="input">
+                <label for="answer">答&nbsp;案：</label>
+                <input id="answer" type="text" placeholder="密保答案" name="answer" value="${user.username}" required
+                       autofocus onblur="checkUsername();"><!-- <font color="red" id="usernameError">${msg}</font>-->
+                </div>
+
+
+
 
 
                 <div>

@@ -1,0 +1,39 @@
+td {
+    font-size: 14px;
+    border-width: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#table-div {
+    border: 1px solid #CDCDCD;
+    margin: auto;
+    width: 1000px;
+}
+
+.td1 {
+    width: 780px;
+    text-align: left;
+}
+
+.td2 {
+    text-align: right;
+}
+
+#div_img_ask {
+    height: 50px;
+    width: 1000px;
+    margin: auto;
+}
+
+#img_ask{
+    width: 76px;
+    height: 32px;
+    margin: 3px;
+}
+
+#div_img_ask hr{
+    border: 1px solid #CDCDCD;
+}

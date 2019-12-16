@@ -1,5 +1,6 @@
 package cn.ncu.service;
 
+import cn.ncu.domain.KindInfo;
 import cn.ncu.domain.Notice;
 
 import java.util.List;
@@ -41,6 +42,13 @@ public interface AdminService {
      * @param notice
      */
     public void addNotice(Notice notice);
+
+
+    /**
+     * 修改版块信息
+     * @param kindInfo
+     */
+    public void changeKindInfo(KindInfo kindInfo);
 
 
     /**

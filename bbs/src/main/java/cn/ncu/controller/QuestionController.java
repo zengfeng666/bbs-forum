@@ -125,7 +125,7 @@ public class QuestionController {
 
 
         model.addAttribute("qid", qid);
-        return "question_answer_success";
+        return "forward:look";
     }
 
 

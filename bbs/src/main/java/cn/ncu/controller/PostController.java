@@ -201,6 +201,23 @@ public class PostController {
         return "post_all_floors";
     }
 
+
+    /**
+     * 编辑一层楼的内容
+     * @param postFloor
+     * @param model
+     * @return
+     */
+
+    @RequestMapping("/editContent")
+    public String editContent(PostFloor postFloor,Model model){
+        model.addAttribute("pid", postFloor.getPid());
+        postFloorService.editContent(postFloor);
+
+        //跳转到修改成功提示页面
+        return "post_floor_edit_success";
+    }
+
     /**
      * 回帖功能
      * @param post_Floor

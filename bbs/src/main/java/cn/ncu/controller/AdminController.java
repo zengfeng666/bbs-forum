@@ -32,18 +32,20 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
-    @RequestMapping("logOut")
-    public String logOut(HttpSession session){
+
+    /**
+     * 注销
+     *
+     * @param session
+     * @return
+     */
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
         session.removeAttribute("USER_SESSION");
         return "redirect:/index.jsp";
     }
 
-    /**
-     * 展示某类特定帖子
-     * @param kind
-     * @param model
-     * @return
-     */
+
     @RequestMapping("/showPosts")
     public String showPosts(@Param("kind")Integer kind, Model model){
 
@@ -55,6 +57,7 @@ public class AdminController {
         model.addAttribute("postsList", list);
         return "admin_post_list";
     }
+
 
     /**
      * 删除pid这个帖子
@@ -79,16 +82,19 @@ public class AdminController {
         return "admin_question_list";
     };
 
+
     /**
      * 删除问题
      * @param qid
      * @return
      */
-    @RequestMapping("/deleteQ")
-    public String deleteQuestion(Integer qid){
+    @RequestMapping("/delQ")
+    public String delQ(Integer qid) {
         questionService.deleteQuestion(qid);
-        return "redirect:showQ";
+        // 问题删除成功，重定向回我的提问页面
+        return "redirect:showQuestion";
     }
+
 
     /**
      * 置顶
@@ -166,6 +172,21 @@ public class AdminController {
         notice.setNoticeTime(noticeTime);
         adminService.addNotice(notice);
         return showNotices(model);
+    }
+
+
+    /**
+     * 更改版块信息
+     * @param kindInfo
+     * @return
+     */
+    @RequestMapping("/changeKindInfo")
+    public String changeKindInfo(KindInfo kindInfo,Model model){
+        model.addAttribute("kind", kindInfo.getKind());
+        adminService.changeKindInfo(kindInfo);
+
+        //跳转到提示修改成功的页面
+        return "admin_change_kind_info_success";
     }
 
 

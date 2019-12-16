@@ -1,5 +1,6 @@
 package cn.ncu.dao;
 
+import cn.ncu.domain.KindInfo;
 import cn.ncu.domain.Notice;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
@@ -66,9 +67,18 @@ public interface AdminDao {
 
 
     /**
+     * 修改版块信息
+     * @param kindInfo
+     */
+    @Update("UPDATE kind_info SET content = #{content} WHERE kind = #{kind} ")
+    void changeKindInfo(KindInfo kindInfo);
+
+    /**
      * 删除一条公告
      * @param nid
      */
     @Delete("delete from notice where nid = #{nid}")
     void deleteNotice(Integer nid);
+
+
 }

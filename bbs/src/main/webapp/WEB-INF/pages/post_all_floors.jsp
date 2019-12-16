@@ -43,6 +43,11 @@
             width: 400px;
         }
 
+        textarea{
+            width: 530px;
+            height: 500px;
+        }
+
 
     </style>
     <script>
@@ -50,6 +55,12 @@
             if(confirm("您确定要删除该层回复吗？")){
                 location.href = "${pageContext.request.contextPath}/post/deleteReply?pid=" + pid + "&fid=" + fid;
             }
+        }
+
+        $("#editContentModal").modal("hide");
+        function editContent(pid,fid) {
+            $("#pid").val(pid);
+            $("#fid").val(fid);
         }
     </script>
 
@@ -78,7 +89,9 @@
                         <%--如果是true,则添加一个删除按钮，传入fid, pid,删除该楼层--%>
                             <c:if test = "${USER_SESSION.uid == floor.uid and floor.fid != 1}">
                                 <span><a href = "javascript:deleteReply('${floor.fid}', '${floor.pid}')" >删除</a></span>
-                                <span><a href = "javascript:editContent('${floor.fid}', '${floor.pid}')" >修改</a></span>
+                            </c:if>
+                            <c:if test = "${USER_SESSION.uid == floor.uid or USER_SESSION.uid == 1}">
+                                <span><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editContentModal" onclick="editContent('${floor.pid}','${floor.fid}')">修改内容</button></span>
                             </c:if>
                         </div>
                     </td>
@@ -106,6 +119,23 @@
            </tr>
         </table>
     </div>
-
+    <div class="modal fade" id="editContentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">请编辑内容：</h4>
+                </div>
+                <form action="${pageContext.request.contextPath}/post/editContent" method="post">
+                    <div class="modal-body"><textarea name="content"></textarea></div>
+                    <input hidden="hidden" type="text" id="pid" name="pid" value="">
+                    <input hidden="hidden" type="text" id="fid" name="fid" value="">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <input type="submit" class="btn btn-primary" value="保存更改">
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
 </body>
 </html>

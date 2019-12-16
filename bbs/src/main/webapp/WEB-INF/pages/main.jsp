@@ -17,15 +17,8 @@
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
-
     </head>
     <body>
         <jsp:include page="../../top.jsp"></jsp:include>
-        <div class="header">
-            欢迎你，${USER_SESSION.nickname}
-            <button type="button" class="login1"><a href="${pageContext.request.contextPath}/page/login">登录</a></button>
-            <button type="button" class="register1"><a href="${pageContext.request.contextPath}/page/register">注册</a></button>
-            <button type="button" class="register1"><a href="${pageContext.request.contextPath}/user/logout">注销</a></button>
-        </div>
     </body>
 </html>

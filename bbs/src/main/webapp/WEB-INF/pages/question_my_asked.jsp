@@ -40,7 +40,7 @@
     </head>
     <body>
         <a href="${pageContext.request.contextPath}/page/question_ask">
-            <img src="${pageContext.request.contextPath}/images/ask.jpg" style="width: 76px;height: 32px;margin: 5px;">
+            <img src="${pageContext.request.contextPath}/images/question_ask.jpg" style="width: 76px;height: 32px;margin: 5px;">
         </a>
         <div>
             <table class="table table-hover">

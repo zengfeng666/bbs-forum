@@ -87,7 +87,7 @@
         }
 
         td{
-            line-height: 35px;
+            line-height: 19px;
         }
 
         .td5{

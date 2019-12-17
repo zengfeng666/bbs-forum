@@ -110,10 +110,10 @@
                         <td class="td1"><label>悬赏</label></td>
                         <td class="td2">
                             <input type="radio" name="credit" value="10"/> 10 &nbsp;
-                            <input type="radio" name="credit" value="10"/> 20 &nbsp;
-                            <input type="radio" name="credit" value="10"/> 150 &nbsp;
-                            <input type="radio" name="credit" value="10"/> 100 &nbsp;
-                            <input type="radio" name="credit" value="10"/> 200 (积分)
+                            <input type="radio" name="credit" value="20"/> 20 &nbsp;
+                            <input type="radio" name="credit" value="50"/> 50 &nbsp;
+                            <input type="radio" name="credit" value="100"/> 100 &nbsp;
+                            <input type="radio" name="credit" value="200"/> 200 (积分)
                         </td>
                     </tr>
                     <tr>

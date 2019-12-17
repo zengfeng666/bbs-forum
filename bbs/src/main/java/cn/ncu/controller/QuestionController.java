@@ -78,7 +78,7 @@ public class QuestionController {
         User userNew = userService.findUserById(user.getUid());
         session.setAttribute("USER_SESSION", userNew);
 
-        return "question_add_success";
+        return "redirect:findAll";
     }
 
 

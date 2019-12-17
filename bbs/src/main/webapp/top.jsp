@@ -292,7 +292,7 @@
                         <a href="#">个人信息</a>
                         <ul class="sub-nav">
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">我的主页</a>
+                                <a href="${pageContext.request.contextPath}/page/user_profile">我的主页</a>
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>

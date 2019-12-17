@@ -176,12 +176,16 @@
                             <c:if test="${question.isResolved != 1}">
                                 <a href="javascript:adopt('${question.qid}', '${floor.uid}', '${floor.fid}', '${question.credit}');">采纳</a>
                                 &nbsp;&nbsp;&nbsp;
-                                <c:if test="${floor.isAccept!=1}">
-                                    <a href="javascript:delR('${question.qid}', '${floor.fid}');">删除该楼的回复</a>
-                                </c:if>
                             </c:if>
                         </c:if>
                     </c:if>
+
+                    <c:if test="${floor.fid!=1}">
+                        <c:if test="${floor.isAccept!=1}">
+                            <a href="javascript:delR('${question.qid}', '${floor.fid}');">删除该楼的回复</a>
+                        </c:if>
+                    </c:if>
+
 
                 </font>
 

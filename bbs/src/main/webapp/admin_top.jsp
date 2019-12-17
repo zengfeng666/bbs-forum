@@ -77,7 +77,7 @@
     <div class="menu">
         <ul class="nav">
             <li>
-                <a href="${pageContext.request.contextPath}/index.jsp">首页</a>
+                <a href="${pageContext.request.contextPath}/page/admin">首页</a>
             </li>
             <li>
                 <a href="#">看帖</a>
@@ -129,7 +129,7 @@
                 <a href="#">问题</a>
                 <ul class="sub-nav">
                     <li>
-                        <a href="${pageContext.request.contextPath}/question/findAll">全部问题</a>
+                        <a href="${pageContext.request.contextPath}/admin/showQ">全部问题</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/page/question_ask">发起提问</a>
@@ -141,6 +141,14 @@
             </li>
             <li>
                 <a href="#">排行榜</a>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/rank/show">经验排行榜</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/rank/showC">积分排行榜</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="#">个人信息</a>

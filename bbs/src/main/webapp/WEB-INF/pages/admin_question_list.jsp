@@ -58,7 +58,7 @@
             <c:forEach items="${list}" var="question" varStatus="vs">
                 <tr>
                     <td class="td1">
-                        <a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">
+                        <a href="${pageContext.request.contextPath}/admin/lookQ?qid=${question.qid}">
                             <img src="${pageContext.request.contextPath}/images/question_logo.png"
                                  style="width: 20px;height: 20px;"/> ${question.title}
                         </a>
@@ -70,6 +70,9 @@
                     <td class="td2">
                         <fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/>
                         &nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/admin/delQ?qid=${question.qid}">删除</a>
                     </td>
                 </tr>
             </c:forEach>

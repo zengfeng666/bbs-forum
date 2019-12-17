@@ -1,9 +1,6 @@
 package cn.ncu.controller;
 
-import cn.ncu.domain.KindInfo;
-import cn.ncu.domain.Notice;
-import cn.ncu.domain.Post;
-import cn.ncu.domain.Question;
+import cn.ncu.domain.*;
 import cn.ncu.service.AdminService;
 import cn.ncu.service.PostService;
 import cn.ncu.service.QuestionService;
@@ -116,6 +113,16 @@ public class AdminController {
         return "admin_question_floor_look";
     }
 
+    @RequestMapping("/lookP")
+    public String lookP(Integer pid ,Model model){
+        Post post=postService.findPostByPid(pid);
+        // 查找这个帖子的所有楼层信息
+        List<Floor> list = postService.findFloorsByPid(pid);
+        post.setFloors(list);
+        model.addAttribute("postWithAllFloor", post);
+
+        return "admin_post_all_floors";
+    }
     /**
      * 删除问题回复
      * @param qid
@@ -133,6 +140,8 @@ public class AdminController {
      * @param kind
      * @return
      */
+
+
     @RequestMapping("/isTopPost")
     public String isTopPost(Integer pid ,int kind){
         adminService.isTopPost(pid);

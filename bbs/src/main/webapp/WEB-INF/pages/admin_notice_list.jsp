@@ -17,7 +17,7 @@
     <style>
 
         #table1{
-            width: 800px;
+            width: 1000px;
             margin: auto;
 
         }
@@ -58,9 +58,16 @@
             height: 30px;
             background-color: #F0F0EE;
         }
+        #table1 .content{
+            width: 850px;
+        }
+        #table1 .deleteNotice{
+            width: 115px;
+        }
     </style>
 </head>
 <body>
+<jsp:include page="../../admin_top.jsp"></jsp:include>
 
 <script>
     function deleteNotice(nid) {
@@ -102,11 +109,12 @@
                 <th class="time"><div>${notice.noticeTime}</div></th>
             </tr>
             <tr class="td_tr">
-                <td class="content"><div>${notice.content}</div></td>
-                <td class="deleteNotice"><button class="btn btn-danger" onclick="deleteNotice(${notice.nid})">删除公告</button> </td>
+                <td><div class="content">${notice.content}</div></td>
+                <td ><div class="deleteNotice"><button class="btn btn-danger" onclick="deleteNotice(${notice.nid})">删除公告</button> </div></td>
             </tr>
         </c:forEach>
     </table>
 </div>
+<jsp:include page="../../bottom.jsp"></jsp:include>
 </body>
 </html>

@@ -14,6 +14,7 @@
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/question_floor.css" rel="stylesheet"/>
     <script type="application/javascript">
         // 参数分别为问题id，被采纳者的id，悬赏积分
         function adopt(qid, uid, fid, credit) {
@@ -30,97 +31,6 @@
             }
         }
     </script>
-    <style>
-        #div_img_ask {
-            height: 50px;
-            width: 1000px;
-            margin: auto;
-        }
-
-        #img_ask {
-            width: 76px;
-            height: 32px;
-            margin: 3px;
-        }
-
-        #div_img_ask hr {
-            border: 1px solid #CDCDCD;
-        }
-
-        #out {
-            width: 1000px;
-            margin: auto;
-        }
-
-        .photo {
-            width: 130px;
-            height: 130px;
-            border: 5px solid white;
-        }
-
-        #out .one {
-            border: 1px solid #C2D5E3;
-        }
-
-        #out .one #title {
-            font-family: 黑体;
-            font-size: 18px;
-            color: #63008A;
-            height: 30px;
-            padding: 6px;
-        }
-
-        #out .one .left {
-            width: 165px;
-            background-color: #E5EDF2;
-        }
-
-        #out .floor {
-            border: 1px solid #C2D5E3;
-        }
-
-        #out .floor .left {
-            float: left;
-            width: 163px;
-            height: 224px;
-            background-color: #E5EDF2;
-            padding: 17px;
-            border: 1px solid #C2D5E3;
-        }
-
-        #out .floor .left .rank {
-            text-align: center;
-            font-size: 18px;
-            color: #2e6da4;
-        }
-
-        #out .floor .right {
-            float: right;
-            text-align: left;
-            border: 1px solid #C2D5E3;
-            width: 834px;
-            height: 224px;
-            padding: 10px;
-        }
-
-        #out .floor .left hr, #out .floor .right hr {
-            border: 1px dashed #C2D5E3;
-            margin: 5px;
-            clear: both;
-        }
-
-        #out .floor .right img {
-            width: 15px;
-            height: 15px;
-        }
-
-        #out .floor hr {
-            border: 2px solid #C2D5E3;
-            position: relative;
-        }
-
-
-    </style>
 </head>
 <body>
 <c:if test="${USER_SESSION.uid == 1}">
@@ -133,7 +43,7 @@
     <a href="${pageContext.request.contextPath}/page/question_ask">
         <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>
     </a>
-    <hr/>
+    <hr id="ask_hr"/>
 </div>
 <div id="out">
     <div class="one">

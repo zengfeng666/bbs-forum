@@ -94,7 +94,7 @@ public class AdminController {
     public String delQ(Integer qid) {
         questionService.deleteQuestion(qid);
         // 问题删除成功，重定向回我的提问页面
-        return "redirect:showQuestion";
+        return "redirect:showQ";
     }
 
 

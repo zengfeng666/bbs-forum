@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -62,9 +63,12 @@
     </style>
 </head>
 <body>
-
-<jsp:include page="../../admin_top.jsp"></jsp:include>
-
+<c:if test="${USER_SESSION.uid == 1}">
+    <jsp:include page="../../admin_top.jsp"></jsp:include>
+</c:if>
+<c:if test="${USER_SESSION.uid!=1}">
+    <jsp:include page="../../top.jsp"></jsp:include>
+</c:if>
 <div id="main">
     <table border="1" id="mainTable">
         <tr>

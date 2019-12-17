@@ -149,7 +149,12 @@
     }
 </script>
 
-<jsp:include page="../../admin_top.jsp" ></jsp:include>
+<c:if test="${USER_SESSION.uid == 1}">
+    <jsp:include page="../../admin_top.jsp"></jsp:include>
+</c:if>
+<c:if test="${USER_SESSION.uid!=1}">
+    <jsp:include page="../../top.jsp"></jsp:include>
+</c:if>
 <div>
     <table id="KindInfo">
         <tr>
@@ -194,7 +199,7 @@
                         <c:if test="${post.isGood == 1}">
                             <img class="topAndGood" src="../images/good.jpg">
                         </c:if>
-                        <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
+                        <a href = "${pageContext.request.contextPath}/admin/lookP?pid=${post.pid}">
                             <div>${post.title}</div>
                         </a>
                     </div>

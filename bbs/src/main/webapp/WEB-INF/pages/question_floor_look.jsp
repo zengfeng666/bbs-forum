@@ -43,7 +43,12 @@
         </script>
     </head>
     <body>
+    <c:if test="${USER_SESSION.uid == 1}">
+        <jsp:include page="../../admin_top.jsp"></jsp:include>
+    </c:if>
+    <c:if test="${USER_SESSION.uid!=1}">
         <jsp:include page="../../top.jsp"></jsp:include>
+    </c:if>
         <div id="div_img_ask">
             <a href="${pageContext.request.contextPath}/page/question_ask">
                 <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>

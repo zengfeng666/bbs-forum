@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: zengfeng
@@ -20,7 +21,12 @@
         <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+    <c:if test="${USER_SESSION.uid == 1}">
+        <jsp:include page="../../admin_top.jsp"></jsp:include>
+    </c:if>
+    <c:if test="${USER_SESSION.uid!=1}">
         <jsp:include page="../../top.jsp"></jsp:include>
+    </c:if>
 
         <div id="main">
             <table border="1" id="mainTable">

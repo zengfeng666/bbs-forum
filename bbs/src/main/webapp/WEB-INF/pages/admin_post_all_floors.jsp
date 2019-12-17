@@ -66,6 +66,12 @@
 
 </head>
 <body>
+<c:if test="${USER_SESSION.uid == 1}">
+    <jsp:include page="../../admin_top.jsp"></jsp:include>
+</c:if>
+<c:if test="${USER_SESSION.uid!=1}">
+    <jsp:include page="../../top.jsp"></jsp:include>
+</c:if>
 <div>
     <table border = "1"  style = "border-collapse: collapse;" id = "floors">
         <caption>${postWithAllFloor.title}</caption>
@@ -135,5 +141,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
+<jsp:include page="../../bottom.jsp"></jsp:include>
 </body>
 </html>

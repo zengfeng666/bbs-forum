@@ -91,7 +91,7 @@
         }
 
         td{
-            line-height: 35px;
+            line-height: 19px;
         }
 
         .td5{
@@ -178,7 +178,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-<div id = "content">
+<div id = "contentDiv">
 
     <table id = "table1" class="table table-hover" rules = "rows">
         <caption>该板块所有帖子如下</caption>

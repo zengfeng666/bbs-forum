@@ -207,7 +207,7 @@
 
     <header>
         <a href="${pageContext.request.contextPath}/index.jsp" class="return">返回首页</a>
-        <div class="Rank">等级：${USER_SESSION.rank}</div>
+        <div class="Rank">等级：Lv${USER_SESSION.rank}</div>
         <div class="Exp">经验：${USER_SESSION.exp}</div>
         <div class="Credit">积分：${USER_SESSION.credit}</div>
         <div class="Inckname" id="info">${USER_SESSION.nickname}</div>

@@ -312,6 +312,4 @@ public class PostController {
         }
         return rank;
     }
-
-
 }

@@ -131,7 +131,7 @@
                 vertical-align: middle;
             }
 
-            #login input[type="text"], #login input[type="password"]{
+            #login input[type="text"], #login input[type="password"] {
                 border-radius: 1px;
             }
 
@@ -161,13 +161,13 @@
                 padding: 10px;
             }
 
-            #div_search input{
+            #div_search input {
                 width: 470px;
                 height: 30px;
                 padding: 4px;
             }
 
-            #div_search img{
+            #div_search img {
                 height: 30px;
             }
         </style>
@@ -211,7 +211,8 @@
                             <td>${USER_SESSION.nickname}</td>
                             <td rowspan="3">
                                 <a href="${pageContext.request.contextPath}/page/user_profile">
-                                    <img id="photo" src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
+                                    <img id="photo"
+                                         src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
                                 </a>
                             </td>
                         </tr>
@@ -316,8 +317,23 @@
         </div>
         <div id="ad"></div>
         <div id="div_search">
-            <input type="text" placeholder="请输入搜索内容" required/>
-            <a href="${pageContext.request.contextPath}/post/search"><img src="${pageContext.request.contextPath}/images/search.jpg"/></a>
+            <form action="${pageContext.request.contextPath}/post/search" method="post" id="form_search">
+                <input type="text" name="title" id="search_title" placeholder="请输入搜索内容(长度不超过50)" required/>
+                <a href="javascript:checkForm();">
+                    <img src="${pageContext.request.contextPath}/images/search.jpg"/>
+                </a>
+            </form>
         </div>
     </body>
+    <script>
+        function checkForm() {
+            var value = document.getElementById("search_title").value;
+            if(value.length > 50){
+                alert("搜索内容不能超过50个字符！");
+                return false;
+            }
+            document.getElementById("form_search").submit();
+            return true;
+        }
+    </script>
 </html>

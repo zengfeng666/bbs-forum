@@ -46,7 +46,6 @@ http://www.springframework.org/schema/context/spring-context.xsd">
             <mvc:exclude-mapping path="/user/reset"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/user/secretAnswer"></mvc:exclude-mapping>
 
-
             <mvc:exclude-mapping path="/page/main"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/page/login"></mvc:exclude-mapping>
             <mvc:exclude-mapping path="/page/register"></mvc:exclude-mapping>

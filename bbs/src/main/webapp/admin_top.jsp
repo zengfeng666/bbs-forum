@@ -66,7 +66,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="${pageContext.request.contextPath}/user/logout">退出</a>
+                        <a href="${pageContext.request.contextPath}/admin/logout">退出</a>
                     </td>
                 </tr>
             </table>

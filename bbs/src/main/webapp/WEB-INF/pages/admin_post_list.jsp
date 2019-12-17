@@ -173,7 +173,7 @@
                 <h4 class="modal-title" id="myModalLabel">请输入版块信息</h4>
             </div>
             <form action="${pageContext.request.contextPath}/admin/changeKindInfo" method="post">
-            <div class="modal-body"><textarea name="content"></textarea></div>
+            <div class="modal-body"><textarea maxlength="3000" placeholder="请输入版块信息(不超过3000字)" name="content"></textarea></div>
                 <input hidden="hidden" type="text" name="kind" value="${kindInfo.kind}">
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>

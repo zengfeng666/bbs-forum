@@ -85,14 +85,14 @@
         <form action = "${pageContext.request.contextPath}/admin/addNotice" method = "post">
             <tr>
                 <td class="release_notice_title"><div>公告标题：</div></td>
-                <td><input class="form-control" id="notice_title" name="title" type="text" placeholder="请输入公告标题"></td>
+                <td><input maxlength="80" class="form-control" id="notice_title" name="title" type="text" placeholder="请输入公告标题(不超过80字)"></td>
             </tr>
             <tr>
                 <td><br></td>
             </tr>
             <tr>
                 <td class="release_notice_title"><div>公告内容：</div></td>
-                <td><textarea class="form-control" id="notice_content" name = "content" placeholder="请输入公告内容"></textarea></td>
+                <td><textarea maxlength="3000" class="form-control" id="notice_content" name = "content" placeholder="请输入公告内容(不超过3000字)"></textarea></td>
             </tr>
             <tr>
                 <td><br></td>

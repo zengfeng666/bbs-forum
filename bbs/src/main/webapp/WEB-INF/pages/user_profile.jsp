@@ -161,6 +161,19 @@
                 width: 40%;
                 height: 100%;
             }
+            .right .Description{
+                margin-left: 10%;
+                margin-top: 2%;
+            }
+            .right .Description .three{
+                font-size: 23px;
+                font-weight: bold;
+                color: #3eb1d6;
+            }
+            .right .Description .four{
+                font-size: 20px;
+                font-weight: bold;
+            }
             .photoDiv {
                 float: left;
                 width: 120px;
@@ -421,8 +434,8 @@
                 </span>
             </div>
             <div class="Description">
-                <span class="one">简介:</span>
-                <span class="two">
+                <span class="three">简介:</span>
+                <span class="four">
                     ${USER_SESSION.description}
                 </span>
             </div>

@@ -25,7 +25,7 @@
 
             #info {
                 float: left;
-                width: 100px;
+                width: 50%;
 
             }
 
@@ -62,7 +62,8 @@
             }
             header{
                 height: 40%;
-                width: 100%;
+                width: 102%;
+                margin-left: -10px;
                 background: url("${pageContext.request.contextPath}/images/timg17.gif") no-repeat;
                 background-size:100% 100%;
                 position: relative;
@@ -77,7 +78,7 @@
                 top: 2%;
                 font-size: 20px;
                 text-decoration: none;
-                color: #0f0f0f;
+                color: #7222d6;
             }
             header .Rank{
                 position: absolute;
@@ -97,7 +98,7 @@
             }
             header .Inckname{
                 position: absolute;
-                right: 47%;
+                right: 10%;
                 top: 47%;
                 font-size: 50px;
                 color: #853f8c;
@@ -107,8 +108,7 @@
                 right: 2%;
                 top: 50%;
                 font-size: 22px;
-                color: #383c40;
-                text-decoration: underline;
+                color: #7222d6;
             }
             article{
                 height: 40%;
@@ -160,6 +160,21 @@
                 float: left;
                 width: 40%;
                 height: 100%;
+            }
+            .photoDiv {
+                float: left;
+                width: 120px;
+                height: 192px;
+                padding: 10px;
+            }
+            input[type="radio"]{
+                margin-left: 26%;
+            }
+            body article .center img {
+                height: 119px;
+                width: auto;
+                margin-left: 25%;
+                margin-top: 15%;
             }
         </style>
         <script>

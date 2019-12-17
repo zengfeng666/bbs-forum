@@ -15,42 +15,53 @@
 <head>
     <title>管理员公告</title>
     <style>
-        td{
-            width: 200px;
-        }
-        a:link, hover{
-            text-decoration: none;
-        }
 
         #table1{
             width: 800px;
             margin: auto;
-            border: 1px blue solid;
+
         }
 
-        .title{
-            width: 800px;
+        #table1 .title{
+            width: 850px;
         }
-        .time{
-            width: 200px;
+        #table1 .time{
+            width: 150px;
+            font-weight: 100;
+            font-size: 0.7em;
         }
-        .content{
+        #table1 .content{
             width: 1000px;
         }
         #release_notice{
             margin: 0 auto;
         }
         #notice_title{
-            width: 700px;
-            height: 60px;
+            width: 500px;
+            height: 50px;
         }
         #notice_content{
-            width: 700px;
-            height: 300px;
+            width: 500px;
+            height: 250px;
+        }
+        #release_notice #button_td{
+            text-align: center;
+        }
+        #release_notice td{
+            text-align: left;
+            width: 100px;
+        }
+        #release_notice .release_notice_title{
+            font-weight: bold;
+        }
+        #table1 .th_tr{
+            height: 30px;
+            background-color: #F0F0EE;
         }
     </style>
 </head>
 <body>
+
 <script>
     function deleteNotice(nid) {
         if(confirm("您确定要将这个公告删除吗？"))
@@ -61,18 +72,24 @@
     <table id="release_notice">
         <form action = "${pageContext.request.contextPath}/admin/addNotice" method = "post">
             <tr>
-                <td>公告标题：</td>
-                <td><input id="notice_title" name="title" type="text" placeholder="请输入公告标题"></td>
+                <td class="release_notice_title"><div>公告标题：</div></td>
+                <td><input class="form-control" id="notice_title" name="title" type="text" placeholder="请输入公告标题"></td>
             </tr>
             <tr>
-                <td>公告内容：</td>
-                <td><textarea id="notice_content" name = "content" placeholder="请输入公告内容"></textarea></td>
+                <td><br></td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <input type="submit" value="发布公告">
+                <td class="release_notice_title"><div>公告内容：</div></td>
+                <td><textarea class="form-control" id="notice_content" name = "content" placeholder="请输入公告内容"></textarea></td>
+            </tr>
+            <tr>
+                <td><br></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="button_td">
+                    <input class="btn btn-primary" type="submit" value="发布公告">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="reset" value="清空">
+                    <input class="btn btn-warning" type="reset" value="清空">
                 </td>
             </tr>
         </form>
@@ -80,13 +97,13 @@
     <table id = "table1" class="table table-hover">
         <caption>所有公告如下</caption>
         <c:forEach items = "${noticesList}" var = "notice">
-            <tr>
-                <td class="title"><div>${notice.title}</div></td>
-                <td class="time"><div>${notice.noticeTime}</div></td>
+            <tr class="th_tr">
+                <th class="title"><div>${notice.title}</div></th>
+                <th class="time"><div>${notice.noticeTime}</div></th>
             </tr>
-            <tr>
+            <tr class="td_tr">
                 <td class="content"><div>${notice.content}</div></td>
-                <td class="deleteNotice"><button onclick="deleteNotice(${notice.nid})">删除公告</button> </td>
+                <td class="deleteNotice"><button class="btn btn-danger" onclick="deleteNotice(${notice.nid})">删除公告</button> </td>
             </tr>
         </c:forEach>
     </table>

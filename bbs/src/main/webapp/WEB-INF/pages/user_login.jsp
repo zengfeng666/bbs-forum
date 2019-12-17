@@ -127,11 +127,17 @@
                 color: #042020;
                 margin-left: 57%;
             }
-
+            header .return{
+                font-size: 20px;
+                text-decoration: none;
+                color: #7222d6;
+            }
         </style>
     </head>
     <body>
     <header>
+        <a href="${pageContext.request.contextPath}/index.jsp" class="return">返回首页</a>
+
         <div class="ima">
             <img src="${pageContext.request.contextPath}/images/nculogo.png" alt="">
         </div>

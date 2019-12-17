@@ -128,9 +128,7 @@ public class QuestionController {
         questionFloor.setContent(content);
         questionService.addQuestionFloor(questionFloor);
 
-
-        model.addAttribute("qid", qid);
-        return "forward:look";
+        return "redirect:look?qid=" + qid;
     }
 
 

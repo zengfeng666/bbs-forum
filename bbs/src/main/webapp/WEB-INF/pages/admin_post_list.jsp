@@ -95,7 +95,7 @@
         }
 
         .td5{
-            width: 250px;
+            width: 300px;
             padding-top: 1px;
             padding-bottom: 1px;
         }
@@ -121,6 +121,7 @@
         #table1 button{
             width: 82px;
         }
+
     </style>
 </head>
 <body>
@@ -219,7 +220,7 @@
                     <div class = "td5_1">${post.nickName}</div>
                     <div class = "td_2 time"><fmt:formatDate value="${post.postTime}" pattern="yyyy-MM-dd HH:mm"/></div>
                 </td>
-                <td class = "replyNum"><div>${post.currentFloor - 1}</div></td>
+                <td class = "replyNum"><div id="replyNumDiv">${post.currentFloor - 1}</div></td>
                 <td class = "td5">
                     <div class = "td5_1">最新回复时间</div>
                     <div class = "td_2 time">

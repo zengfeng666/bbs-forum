@@ -83,19 +83,22 @@
                 <a href="#">看帖</a>
                 <ul class="sub-nav">
                     <li>
-                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=0">二次元</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=0">数码科技</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=1">科技</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=1">音乐分享</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=2">小说</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=2">体育运动</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=3">生活</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=3">校园生活</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=4">娱乐新闻</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=4">聊天交友</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=5">好书推荐</a>
                     </li>
                 </ul>
             </li>
@@ -103,19 +106,22 @@
                 <a href="#">发帖</a>
                 <ul class="sub-nav">
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">二次元</a>
+                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">数码科技</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=1">科技</a>
+                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=1">音乐分享</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=2">小说</a>
+                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=2">体育运动</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=3">生活</a>
+                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=3">校园生活</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=4">娱乐新闻</a>
+                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=4">聊天交友</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=5">好书推荐</a>
                     </li>
                 </ul>
             </li>

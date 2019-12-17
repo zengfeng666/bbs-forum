@@ -12,6 +12,7 @@
 
     <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "${pageContext.request.contextPath}/css/post.css" rel = "stylesheet" type = "text/css"/>
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
@@ -27,17 +28,26 @@
         }
 
         #kind{
-            width: 100px;
+            width: 120px;
+            margin-top: 5px;
+        }
+        #td2{
+            padding-top: 5px;
+        }
+
+        #submit{
+            text-align: center;
         }
     </style>
 </head>
 <body>
-   <div>
+<jsp:include page="../../top.jsp"></jsp:include>
+   <div id = "content">
        <form action = "${pageContext.request.contextPath}/post/addPost" method = "post">
-           <table>
+           <table id = "table1">
                <tr>
                    <td> 标题：</td>
-                   <td>
+                   <td id = "td2">
                       <input type = "text" name = "title" class="form-control" placeholder="请输入标题"/>
                    </td>
                </tr>
@@ -58,16 +68,17 @@
                    <td>内容：</td>
                    <td>
 
-                       <textarea name = "content" class="form-control" placeholder="请输入内容" rows = "10" cols = "50" ></textarea><br/>
+                       <textarea name = "content1" class="form-control" placeholder="请输入内容" rows = "10" cols = "50" ></textarea><br/>
                    </td>
                </tr>
                <tr>
-                   <td cols = "2">
+                   <td colspan = "2" id = "submit">
                        <input type = "submit" class="btn btn-default" value = "确定"/>
                    </td>
                </tr>
            </table>
        </form>
    </div>
+<jsp:include page="../../bottom.jsp"></jsp:include>
 </body>
 </html>

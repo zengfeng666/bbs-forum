@@ -14,80 +14,66 @@
             border-width: 0px;
         }
 
-        a {
-            text-decoration: none;
-        }
+            a {
+                text-decoration: none;
+            }
 
-        #table-div {
-            border: 1px solid #CDCDCD;
-            margin: auto;
-            width: 1000px;
-        }
+            #table-div {
+                border: 1px solid #CDCDCD;
+                margin: auto;
+                width: 1000px;
+            }
+        </style>
+    </head>
+    <body>
+    <c:if test="${USER_SESSION.uid == 1}">
+        <jsp:include page="../../admin_top.jsp"></jsp:include>
+    </c:if>
+    <c:if test="${USER_SESSION.uid!=1}">
+        <jsp:include page="../../top.jsp"></jsp:include>
+    </c:if>
+        <div id="table-div">
+            <table class="table table-hover">
+                <tr>
+                    <td>
+                        排名
+                    </td>
+                    <td>
+                        昵称
+                    </td>
+                    <td>
+                        性别
+                    </td>
+                    <td>
+                        积分
+                    </td>
+                    <td>
+                        等级
+                    </td>
+                </tr>
 
-        .td1 {
-            width: 780px;
-            text-align: left;
-        }
-
-        .td2 {
-            text-align: right;
-        }
-
-        #img_ask {
-            width: 76px;
-            height: 32px;
-            margin: 5px;
-            margin-left: 259px;
-        }
-    </style>
-</head>
-<body>
-<c:if test="${USER_SESSION.uid == 1}">
-    <jsp:include page="../../admin_top.jsp"></jsp:include>
-</c:if>
-<c:if test="${USER_SESSION.uid!=1}">
-    <jsp:include page="../../top.jsp"></jsp:include>
-</c:if>
-<div id="table-div">
-    <table class="table table-hover">
-        <tr>
-            <td>
-                排名
-            </td>
-            <td>
-                昵称
-            </td>
-            <td>
-                性别
-            </td>
-            <td>
-                积分
-            </td>
-            <td>
-                等级
-            </td>
-        </tr>
-
-        <c:forEach items="${list}" var="list" varStatus="vs">
-            <tr>
-                <td>
-                        ${vs.count}
-                </td>
-                <td >
-                        ${list.nickname}
-                </td>
-                <td>
-                        ${list.sex}
-                </td>
-                <td>
-                        ${list.credit}
-                </td>
-                <td>
-                        ${list.rank}
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
-</body>
+                <c:forEach items="${list}" var="list" varStatus="vs">
+                    <tr>
+                        <td>
+                                ${vs.count}
+                        </td>
+                        <td>
+                                ${list.nickname}
+                        </td>
+                        <td>
+                            <c:if test="${list.sex == 'male'}">男</c:if>
+                            <c:if test="${list.sex == 'female'}">女</c:if>
+                        </td>
+                        <td>
+                                ${list.credit}
+                        </td>
+                        <td>
+                                ${list.rank}
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+        <jsp:include page="../../bottom.jsp"></jsp:include>
+    </body>
 </html>

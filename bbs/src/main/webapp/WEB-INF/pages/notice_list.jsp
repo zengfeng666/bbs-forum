@@ -15,54 +15,44 @@
 <head>
     <title>公告</title>
     <style>
-        td{
-            width: 200px;
-        }
-        a:link, hover{
-            text-decoration: none;
-        }
-
         #table1{
-            width: 800px;
+            width: 1000px;
             margin: auto;
-            border: 1px blue solid;
         }
-
-        .title{
-            width: 800px;
+        #table1 .title{
+            width: 850px;
         }
-        .time{
-            width: 200px;
+        #table1 .time{
+            width: 150px;
+            font-weight: 100;
+            font-size: 0.7em;
         }
-        .content{
+        #table1 .content{
             width: 1000px;
         }
-        #release_notice{
-            margin: 0 auto;
+        #table1 .th_tr{
+            height: 30px;
+            background-color: #F0F0EE;
         }
-        #notice_title{
-            width: 700px;
-            height: 60px;
-        }
-        #notice_content{
-            width: 700px;
-            height: 300px;
+        #table1 .content{
+            width: 1000px;
         }
     </style>
 </head>
 <body>
+<jsp:include page="../../top.jsp"></jsp:include>
 <table id = "table1" class="table table-hover">
     <caption>所有公告如下</caption>
     <c:forEach items = "${noticesList}" var = "notice">
-        <tr>
-            <td class="title"><div>${notice.title}</div></td>
-            <td class="time"><div>${notice.noticeTime}</div></td>
+        <tr class="th_tr">
+            <th class="title"><div>${notice.title}</div></th>
+            <th class="time"><div>${notice.noticeTime}</div></th>
         </tr>
-        <tr>
-            <td class="content"><div>${notice.content}</div></td>
+        <tr class="td_tr">
+            <td colspan="2"><div class="content">${notice.content}</div></td>
         </tr>
     </c:forEach>
 </table>
-
+<jsp:include page="../../bottom.jsp"></jsp:include>
 </body>
 </html>

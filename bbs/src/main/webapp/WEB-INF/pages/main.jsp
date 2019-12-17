@@ -35,7 +35,7 @@
                         <p class="title2">系统通知</p>
                         <p class="title3">与本论坛有关个重要事情都在这里宣布哦~</p>
                     </td>
-                    <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/post/showPosts?kind=0'">
+                    <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/rank/show'">
                         <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/22.gif" /></div>
                         <p class="title2">经验排行榜</p>
                         <p class="title3">今日排名很稳定，很稳定……淡定，以不变应万变~</p>

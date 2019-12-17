@@ -23,7 +23,7 @@
     <!--配置连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/bbs1"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://192.168.123.236:3306/bbs"></property>
         <property name="user" value="root"></property>
         <property name="password" value="123456"></property>
     </bean>

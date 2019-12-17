@@ -145,7 +145,7 @@
         <div class="input">
             <label for="username">账&nbsp;号：</label>
             <input id="username" type="text" name="username"
-                   placeholder="请输入账号" required autofocus>
+                   placeholder="请输入账号" required autofocus><font color="red"> ${msg}</font>
         </div>
         <div>
             <button type="submit" class="btn btn-primary btn-block">
@@ -153,7 +153,6 @@
             </button>
         </div>
     </form>
-    <font color="red">${msg}</font>
 </article>
 </body>
 

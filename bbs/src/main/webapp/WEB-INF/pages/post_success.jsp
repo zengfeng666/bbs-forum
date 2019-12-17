@@ -26,10 +26,11 @@
                 if(rank > 0){
                     // 如果等级提升，则延迟跳转
                     $("#myModal2").modal('show');
-                    setTimeout("$('#myModal2').modal('hide')", 2000);
+                    setTimeout("$('#myModal2').modal('hide')", 1000);
+                    setTimeout("location.href = '${pageContext.request.contextPath}/page/main'", 1000);
                 }
                 // 必须等2s才能跳转
-                setTimeout("location.href = '${pageContext.request.contextPath}/page/main'", 2000);
+                setTimeout("location.href = '${pageContext.request.contextPath}/page/main'", 1000);
 
             },1000);
         }

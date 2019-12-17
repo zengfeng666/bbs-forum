@@ -61,7 +61,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>等级:${USER_SESSION.rank}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <td>等级: Lv${USER_SESSION.rank}&nbsp;&nbsp;&nbsp;&nbsp;
                                 积分:${USER_SESSION.credit}</td>
                         </tr>
                         <tr>

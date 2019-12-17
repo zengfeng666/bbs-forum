@@ -239,15 +239,15 @@
                                         <td class="table4_td2"><input
                                                 type="text"
                                                 name="nickname"
-                                                value="${USER_SESSION.nickname}"/>
+                                                value="${USER_SESSION.nickname}" maxlength="5"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>邮箱:</td>
                                         <td class="table4_td2"><input
-                                                type="text"
+                                                type="email"
                                                 name="email"
-                                                value="${USER_SESSION.email}"/>
+                                                value="${USER_SESSION.email}" maxlength="20"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -256,7 +256,7 @@
                                         <td class="table4_td2"><input
                                                 type="text"
                                                 name="tel"
-                                                value="${USER_SESSION.tel}"/>
+                                                value="${USER_SESSION.tel}" maxlength="20" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -274,7 +274,7 @@
                                         <td class="table4_td2"><input
                                                 type="text"
                                                 name="job"
-                                                value="${USER_SESSION.job}"/>
+                                                value="${USER_SESSION.job}" maxlength="10"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -282,14 +282,14 @@
                                         <td class="table4_td2"><input
                                                 type="text"
                                                 name="company"
-                                                value="${USER_SESSION.company}"/>
+                                                value="${USER_SESSION.company}" maxlength="300" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>简介:</td>
                                         <td class="table4_td2">
-                                                                        <textarea name="description" cols="45"
-                                                                                  rows="8">${USER_SESSION.description}</textarea>
+                                            <textarea name="description" cols="45"
+                                                      rows="8">${USER_SESSION.description}</textarea>
                                         </td>
                                     </tr>
                                 </table>
@@ -360,7 +360,7 @@
 
                                 <div id="fileDiv">
                                     <div class="photoDiv">
-                                        <input type="radio" name="photo" value="default_photo.png"/><img
+                                        <input type="radio" name="photo" value="default_photo.png" checked/><img
                                             src="${pageContext.request.contextPath}/images/default_photo.png"
                                             class="photo"/>
                                     </div>

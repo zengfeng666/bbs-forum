@@ -104,7 +104,35 @@
         #KindInfoContentDiv{
             padding: 20px;
         }
+
+        #post{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 1000px;
+            margin: auto;
+        }
     </style>
+    <script>
+        $(function(){
+                if("${postSuccess}" == true){
+                    $("#myModal").modal('show')
+                    setTimeout(function(){
+                        $('#myModal').modal('hide');
+
+                        // 判断是否升级
+                        // 获取model中rank的值， 判断是否升级
+                        var rank = "${rank}";
+                        if(rank > 0){
+                            // 如果等级提升，则延迟跳转
+                            $("#myModal2").modal('show');
+                            setTimeout("$('#myModal2').modal('hide')", 1000);
+                        }
+
+                    },1000);
+                }
+            }
+        );
+    </script>
 </head>
 <body>
 <c:if test="${USER_SESSION.uid == 1}">
@@ -113,7 +141,7 @@
 <c:if test="${USER_SESSION.uid!=1}">
     <jsp:include page="../../top.jsp"></jsp:include>
 </c:if>
-<jsp:include page="post_success.jsp"></jsp:include>
+
     <div>
         <table id="KindInfo">
             <tr>
@@ -124,6 +152,9 @@
             </tr>
         </table>
     </div>
+    <div id="post">
+        <input class="btn btn-info" type="button" value="发帖" onclick="postPosting()">
+    </div>
     <div id = "contentDiv">
 
         <table id = "table1" class="table table-hover" rules = "rows">
@@ -133,7 +164,6 @@
 
                        <div>
                            <div>
-                              <span class = "span_icn"> <img src = "${pageContext.request.contextPath}/images/p1.png" class = "icn"/></span>
                                <c:if test="${post.isTop == 1}">
                                    <img class="topAndGood" src="../images/top.jpg">
                                </c:if>
@@ -161,6 +191,41 @@
 
         </table>
     </div>
+
+<%--发帖成功要提示--%>
+<!-- Button to trigger modal -->
+
+
+<%--<button class="btn btn-primary btn-lg btn_add" style="display: block;" data-toggle="modal" data-target="#myModal">
+
+    一个按钮
+
+</button>--%>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" style="width: 300px;margin: 100px auto">
+        <div class="modal-content" >
+            <div class="modal-header">
+                发帖成功
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<%--升级提示--%>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 300px;margin: 100px auto">
+        <div class="modal-content" >
+            <div class="modal-header">
+                升级成功
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 <jsp:include page="../../bottom.jsp" ></jsp:include>
 </body>
 </html>

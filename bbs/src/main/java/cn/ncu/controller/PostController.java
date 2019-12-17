@@ -108,6 +108,7 @@ public class PostController {
 
         // 更新User表
         userService.setRankAndExp(user);
+        model.addAttribute("postSuccess", true);
         return "forward:showPosts?kind=" + post.getKind();
     }
 

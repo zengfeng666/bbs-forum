@@ -95,15 +95,15 @@
 
                         <div>
                             <div>
-                                <span class = "span_icn"> <img src = "${pageContext.request.contextPath}/images/p1.png" class = "icn"/></span>
                                 <c:if test="${post.isTop == 1}">
                                     <img class="topAndGood" src="../images/top.jpg">
                                 </c:if>
                                 <c:if test="${post.isGood == 1}">
                                     <img class="topAndGood" src="../images/good.jpg">
                                 </c:if>
+                                <span class = "span_icn"> <img src = "${pageContext.request.contextPath}/images/p1.png" class = "icn"/></span>
                                 <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
-                                        ${post.title}
+                                ${post.title}
                                 </a>
                             </div>
                         </div>

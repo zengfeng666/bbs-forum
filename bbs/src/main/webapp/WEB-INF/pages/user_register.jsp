@@ -23,7 +23,7 @@
 
             header .ima {
                 margin-top: 15px;
-                text-align: center;
+                margin-left: 45.5%;
             }
 
             header .ima img {
@@ -147,6 +147,7 @@
                 margin-left: 55%;
             }
             header .return{
+                float: left;
                 font-size: 20px;
                 text-decoration: none;
                 color: #7222d6;

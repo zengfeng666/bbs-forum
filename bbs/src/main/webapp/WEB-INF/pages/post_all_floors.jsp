@@ -114,7 +114,7 @@
             padding: 10px;
             padding-left: 20px;
             width: 800px;
-            border-bottom: 1px #CDCDCD dashed;
+
 
             float: left;
         }
@@ -138,9 +138,9 @@
 
         .fid{
             float: right;
-            font-size: 15px;
+            font-size: 14px;
             width: 50px;
-
+            color: red;
         }
 
         .right_content{
@@ -169,6 +169,10 @@
             height: 500px;
         }
 
+        a{
+            text-decoration: none;
+        }
+
 
     </style>
     <script>
@@ -189,7 +193,7 @@
 <body>
 <jsp:include page="../../top.jsp"></jsp:include>
     <div id ="content">
-        <table border = "1" style = "border-collapse: collapse;" id = "table1">
+        <table border = "1" rules = "rows" style = "border-collapse: collapse;" id = "table1">
             <caption>
                 <td id = "cap_td1"></td>
                 <td  id = "cap_td2">

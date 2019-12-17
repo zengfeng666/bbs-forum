@@ -51,4 +51,9 @@ public class PageController {
         return "user_profile";
     }
 
+    @RequestMapping("/post_post")
+    public String post_post(){
+        return "post_post";
+    }
+
 }

@@ -76,7 +76,6 @@
         }
 
         #post{
-            padding-left: 10px;
             padding-top: 5px;
             padding-bottom: 5px;
             width: 1000px;
@@ -123,6 +122,6 @@
         </table>
 
     </div>
-
+<jsp:include page="../../bottom.jsp"></jsp:include>
 </body>
 </html>

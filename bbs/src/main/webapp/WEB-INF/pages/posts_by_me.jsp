@@ -19,7 +19,7 @@
     <style>
 
         .margin {
-            margin-top: 15px;
+            margin-top: 10px;
             color: black;
         }
 
@@ -33,9 +33,6 @@
             color: black;
         }
 
-        .title1 a{
-            color: black;
-        }
 
         .nickname {
             width: 100px;
@@ -52,11 +49,6 @@
             width: 50px;
         }
 
-        .td1 {
-            width: 21px;
-            padding-right: 0px;
-            margin-right:0px;
-        }
 
         .td1_1 {
 
@@ -66,11 +58,17 @@
 
 
         #post{
-            padding-left: 10px;
+
             padding-top: 5px;
             padding-bottom: 5px;
             width: 1000px;
             margin: auto;
+        }
+
+        .deletePost{
+            width: 80px;
+            font-size: 14px;
+            text-align: right;
         }
 
 
@@ -111,12 +109,13 @@
                         <fmt:formatDate value="${post.postTime}" pattern = "yyy-MM-dd HH:MM:ss"/>
                     </div></td>
                     <td>
-                        <input class="btn btn-danger" type="button" value = "删除" onclick = "deletePost('${post.pid}')" />
+                        <div class = "deletePost margin"><a href = "${pageContext.request.contextPath}/page/post_post">删除</a></div>
                     </td>
                 </tr>
             </c:forEach>
 
         </table>
     </div>
+<jsp:include page="../../bottom.jsp"></jsp:include>
 </body>
 </html>

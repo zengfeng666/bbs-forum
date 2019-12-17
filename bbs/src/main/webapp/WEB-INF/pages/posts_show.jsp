@@ -46,13 +46,16 @@
         }
         .title{
             font-family: Tahoma,'Microsoft Yahei','Simsun';
-            font-size: 14px;
+            font-size: 15px;
             color: #666;
             width: 600px;
             text-align: left;
+            padding-top: 20px;
         }
 
-        .td_icn{
+
+        .span_icn{
+            margin-top: 20px;
             padding-left: 5px;
             width: 25px;
             text-align: left;
@@ -75,7 +78,7 @@
         }
 
         .replyNum{
-            width: 40px;
+            width: 80px;
             font-size: 14px;
         }
 
@@ -111,29 +114,31 @@
     <div id = "content">
 
         <table id = "table1" class="table table-hover" rules = "rows">
-            <caption>该板块所有帖子如下</caption>
             <c:forEach items = "${postsList}" var = "post">
                 <tr>
-                    <td class = "td_icn"><img src = "${pageContext.request.contextPath}/images/p1.png" class = "icn"/></td>
+
                     <td class = "title">
 
                        <div>
-                           <c:if test="${post.isTop == 1}">
-                               <img class="topAndGood" src="../images/top.jpg">
-                           </c:if>
-                           <c:if test="${post.isGood == 1}">
-                               <img class="topAndGood" src="../images/good.jpg">
-                           </c:if>
-                           <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
-                               <div>${post.title}</div>
-                           </a>
+                           <div>
+                              <span class = "span_icn"> <img src = "${pageContext.request.contextPath}/images/p1.png" class = "icn"/></span>
+                               <c:if test="${post.isTop == 1}">
+                                   <img class="topAndGood" src="../images/top.jpg">
+                               </c:if>
+                               <c:if test="${post.isGood == 1}">
+                                   <img class="topAndGood" src="../images/good.jpg">
+                               </c:if>
+                               <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
+                                       ${post.title}
+                               </a>
+                           </div>
                        </div>
                     </td>
                     <td class = "td5">
                         <div class = "td5_1">${post.nickName}</div>
                         <div class = "td_2 time"><fmt:formatDate value="${post.postTime}" pattern="yyyy-MM-dd HH:mm"/></div>
                     </td>
-                    <td class = "replyNum"><div>${post.currentFloor - 1}</div></td>
+                    <td class = "replyNum"><div>回复(${post.currentFloor - 1})</div></td>
                     <td class = "td5">
                         <div class = "td5_1">最新回复时间</div>
                         <div class = "time td_2">
@@ -144,5 +149,6 @@
 
         </table>
     </div>
+<jsp:include page="../../bottom.jsp"></jsp:include>
 </body>
 </html>

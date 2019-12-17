@@ -140,14 +140,11 @@
 </header>
 <article>
     <form action="${pageContext.request.contextPath}/user/reset" method="post" class="my-login-validation" novalidate="">
-        <input type="hidden" name="username" value="${resetPassword.username}">
+        <input type="hidden" name="username" value="${secretProtection.username}">
         <div class="input">
             <label for="new-password">密&nbsp;码：</label>
             <input id="new-password" type="password" placeholder="请输入新密码" name="password"
                    required autofocus data-eye>
-        </div>
-        <div class="remember">
-            <span><label class="maintain" class="maintain">新密码包括字母、数字、特殊符号</label></span>
         </div>
         <div>
             <button type="submit" class="btn btn-primary btn-block">

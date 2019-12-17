@@ -14,159 +14,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js" type="text/javascript"></script>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-        <style type="text/css">
-            html * {
-                padding: 0;
-                margin: 0;
-                font-family: Arial, Verdana, Helvetica, sans-serif;
-            }
-
-            .nav {
-                margin-top: 200px;
-            }
-
-            .nav * {
-                text-decoration: none;
-                font-size: 12pt;
-            }
-
-            #content .menu .nav * a:hover {
-                background-color: #82ce18;
-            }
-
-            .menu {
-                list-style: none;
-                height: 40px;
-                width: 1000px;
-                margin: auto;
-                background-color: #2975C4;
-                /*margin-top: 96px;*/
-            }
-
-            .nav {
-                list-style: none;
-                height: 40px;
-                width: 1000px;
-                margin: auto;
-                background-color: #2975C4;
-            }
-
-            .nav li {
-                float: left;
-                border-left: 1px solid #2975C4;
-                border-right: 1px solid #2975C4;
-                border-top: 1px solid #2975C4;
-                border-bottom: 1px solid #2975C4;
-                position: relative;
-            }
-
-            .nav li a {
-                color: #fff;
-                height: 38px;
-                line-height: 38px;
-                font-weight: bold;
-                padding: 0 20px;
-                blr: expression(this.onFocus=this.close());
-                blr: expression(this.onFocus=this.blur());
-                display: inline-block;
-            }
-
-            .nav li a:focus {
-                -moz-outline-style: none;
-            }
-
-            .nav li .sub-nav {
-                position: absolute;
-                top: 39px;
-                left: -1px;
-                list-style: none;
-                background-color: #2975C4;
-                display: none;
-            }
-
-            .nav li .sub-nav li {
-                text-align: center;
-                clear: left;
-                width: 140px;
-                height: 35px;
-                line-height: 35px;
-                position: relative;
-            }
-
-            .nav li .sub-nav li a {
-                height: 34px;
-                line-height: 34px;
-                width: 138px;
-                padding: 0;
-                display: inline-block;
-            }
-
-            #top {
-                height: 110px;
-                width: 1000px;
-                margin: auto;
-                background: url("${pageContext.request.contextPath}/images/bgtop.jpg") no-repeat;
-            }
-
-            #login {
-                float: right;
-                margin: 20px;
-                margin-right: -9px;
-            }
-
-            #login a {
-                text-decoration: none;
-                margin: 3px;
-                color: #337DC4;
-                font-family: 黑体;
-            }
-
-            #login p {
-                margin: 5px;
-            }
-
-            #login input[type="submit"] {
-                width: 70px;
-                height: 21px;
-                vertical-align: middle;
-            }
-
-            #ad {
-                height: 100px;
-                width: 1000px;
-                margin: auto;
-                background-image: url("${pageContext.request.contextPath}/images/ad.jpg");
-            }
-
-            #photo {
-                width: 65px;
-                height: 65px;
-            }
-
-            #table_user td {
-                text-align: center;
-                margin: 20px;
-                padding: 5px;
-            }
-
-            #div_search {
-                height: 50px;
-                width: 1000px;
-                margin: auto;
-                background-color: #E8EFF5;
-                padding: 10px;
-            }
-
-            #div_search input{
-                width: 470px;
-                height: 30px;
-                padding: 4px;
-            }
-
-            #div_search img{
-                height: 30px;
-            }
-        </style>
+        <link href="${pageContext.request.contextPath}/css/top.css" rel="stylesheet">
 
         <script type="text/javascript">
             $(function () {
@@ -193,8 +41,11 @@
                             <a href="${pageContext.request.contextPath}/page/register">注册[Register]</a>
                         </p>
                         <p>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="submit" value="登录"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="${pageContext.request.contextPath}/page/login">登录起始页</a>
                         </p>
                     </form>
                 </c:if>
@@ -204,7 +55,8 @@
                             <td>${USER_SESSION.nickname}</td>
                             <td rowspan="3">
                                 <a href="${pageContext.request.contextPath}/page/user_profile">
-                                    <img id="photo" src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
+                                    <img id="photo"
+                                         src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
                                 </a>
                             </td>
                         </tr>
@@ -231,19 +83,22 @@
                         <a href="#">看帖</a>
                         <ul class="sub-nav">
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=0">二次元</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=0">数码科技</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=1">科技</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=1">音乐分享</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=2">小说</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=2">体育运动</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=3">生活</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=3">校园生活</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=4">娱乐新闻</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=4">聊天交友</a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=5">好书推荐</a>
                             </li>
                         </ul>
                     </li>
@@ -251,19 +106,22 @@
                         <a href="#">发帖</a>
                         <ul class="sub-nav">
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">二次元</a>
+                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">数码科技</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=1">科技</a>
+                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=1">音乐分享</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=2">小说</a>
+                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=2">体育运动</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=3">生活</a>
+                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=3">校园生活</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=4">娱乐新闻</a>
+                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=4">聊天交友</a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=5">好书推荐</a>
                             </li>
                         </ul>
                     </li>
@@ -288,7 +146,7 @@
                         <a href="#">个人信息</a>
                         <ul class="sub-nav">
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">我的主页</a>
+                                <a href="${pageContext.request.contextPath}/page/user_profile">我的主页</a>
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>
@@ -309,8 +167,23 @@
         </div>
         <div id="ad"></div>
         <div id="div_search">
-            <input type="text" placeholder="请输入搜索内容" required/>
-            <a href="${pageContext.request.contextPath}/post/search"><img src="${pageContext.request.contextPath}/images/search.jpg"/></a>
+            <form action="${pageContext.request.contextPath}/post/search" method="post" id="form_search">
+                <input type="text" name="title" id="search_title" placeholder="搜贴 (长度不超过50)" required/>
+                <a href="javascript:checkForm();">
+                    <img src="${pageContext.request.contextPath}/images/search.jpg"/>
+                </a>
+            </form>
         </div>
     </body>
+    <script>
+        function checkForm() {
+            var value = document.getElementById("search_title").value;
+            if(value.length > 50){
+                alert("搜索内容不能超过50个字符！");
+                return false;
+            }
+            document.getElementById("form_search").submit();
+            return true;
+        }
+    </script>
 </html>

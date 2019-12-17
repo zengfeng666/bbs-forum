@@ -45,11 +45,12 @@
                    <td> 种类：</td>
                    <td>
                        <select name = "kind" id = "kind" class="form-control">
-                           <option value = "0">二次元</option>
-                           <option value = "1">科技</option>
-                           <option value = "2">小说</option>
-                           <option value = "3">生活</option>
-                           <option value = "4">娱乐圈</option>
+                           <option value = "0">数码科技</option>
+                           <option value = "1">音乐分享</option>
+                           <option value = "2">体育运动</option>
+                           <option value = "3">校园生活</option>
+                           <option value = "4">聊天交友</option>
+                           <option value = "5">好书推荐</option>
                        </select><br/>
                    </td>
                </tr>

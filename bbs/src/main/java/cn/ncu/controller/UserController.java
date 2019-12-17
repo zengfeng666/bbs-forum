@@ -2,7 +2,7 @@ package cn.ncu.controller;
 
 import cn.ncu.domain.Post;
 import cn.ncu.domain.Question;
-import cn.ncu.domain.ResetPassword;
+import cn.ncu.domain.SecretProtection;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServlet;
@@ -33,8 +34,7 @@ public class UserController {
     private QuestionService questionService;
 
     /**
-     * 核对用户登录
-     *
+     * 登录
      * @param username
      * @param password
      * @param model
@@ -42,7 +42,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/login")
-    public String login(String username, String password, Model model, HttpSession session) {
+    public String login(String username, String password, Model model, HttpServletRequest request, HttpSession session) {
         //通过账号和密码查询用户
         User user = userService.findUser(username, password);
         if (user != null) {
@@ -52,24 +52,47 @@ public class UserController {
             if (user.getUid() == 1) {
                 return "admin";
             }
-            //跳转到主页面
-            return "redirect:/index.jsp";
+
+            // 获取登录之前的页面的地址
+            String referer = request.getHeader("referer");
+            if (referer.contains("login")){
+                // 如果登录之前就在登录页面，则登录后返回到首页
+                return "redirect:/index.jsp";
+            }
+            // 跳转回登录之前的页面
+            return "redirect:" + referer;
         }
         model.addAttribute("msg", "账号或密码错误，请重新输入！");
         //返回到登录页面
         return "user_login";
     }
 
+    /**
+     * 注销
+     *
+     * @param session
+     * @return
+     */
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request, HttpSession session) {
+        session.removeAttribute("USER_SESSION");
+        // 获取注销之前的页面的地址
+        String referer = request.getHeader("referer");
+        // 注销之后返回当前页
+        return "redirect:" + referer;
+    }
+
 
     @RequestMapping(value = "/forget")
     public String forget(Model model, String username) {
         //通过账号查询用户
-        ResetPassword resetPassword = userService.findResetPassword(username);
-        if (resetPassword != null) {
-            model.addAttribute("resetPassword", resetPassword);
+        SecretProtection secretProtection = userService.findSecretProtection(username);
+        if (secretProtection != null) {
+            model.addAttribute("secretProtection", secretProtection);
             //返回密保问题界面
             return "user_secretProtection";
         } else {
+            model.addAttribute("msg", "用户名不存在!");
             return "user_forget";
         }
     }
@@ -77,9 +100,9 @@ public class UserController {
     @RequestMapping(value = "/secretAnswer")
     public String secretAnswer(Model model, String username, String answer) {
         //通过账号查询用户
-        ResetPassword resetPassword = userService.findResetPassword(username);
-        if (resetPassword.getAnswer().equals(answer)) {
-            model.addAttribute("resetPassword", resetPassword);
+        SecretProtection secretProtection = userService.findSecretProtection(username);
+        model.addAttribute("secretProtection", secretProtection);
+        if (secretProtection.getAnswer().equals(answer)) {
             return "user_reset";
         } else {
             model.addAttribute("msg", "密保答案错误！");
@@ -102,7 +125,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/register")
-    public String register(User user, Model model) {
+    public String register(User user, @RequestParam("question") String question, @RequestParam("answer") String answer, Model model) {
         User user1 = userService.findUserByUsername(user.getUsername());
         if(user1 != null){
             model.addAttribute("msg", "该用户名已存在!");
@@ -111,20 +134,11 @@ public class UserController {
             return "user_register";
         }
         userService.register(user);
+        userService.addSecretProtection(user.getUsername(), question, answer);
         return "user_login";
     }
 
-    /**
-     * 注销
-     *
-     * @param session
-     * @return
-     */
-    @RequestMapping("/logout")
-    public String logout(HttpSession session) {
-        session.removeAttribute("USER_SESSION");
-        return "redirect:/index.jsp";
-    }
+
 
     /**
      * 我的提问

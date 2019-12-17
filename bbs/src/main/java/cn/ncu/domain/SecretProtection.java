@@ -2,7 +2,7 @@ package cn.ncu.domain;
 
 import java.io.Serializable;
 
-public class ResetPassword implements Serializable {
+public class SecretProtection implements Serializable {
     private String username;   //用户名
     private String question;   //密保问题
     private String answer;     //密保答案
@@ -33,7 +33,7 @@ public class ResetPassword implements Serializable {
 
     @Override
     public String toString() {
-        return "ResetPassword{" +
+        return "SecretProtection{" +
                 "username='" + username + '\'' +
                 ", question='" + question + '\'' +
                 ", answer='" + answer + '\'' +

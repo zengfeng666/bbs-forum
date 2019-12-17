@@ -1,7 +1,6 @@
 package cn.ncu.dao;
 
-import cn.ncu.domain.Post;
-import cn.ncu.domain.ResetPassword;
+import cn.ncu.domain.SecretProtection;
 import cn.ncu.domain.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
@@ -49,14 +48,19 @@ public interface UserDao {
     @Select( "select * from user where username = #{username} and password = #{password}")
     public User findUser(@Param("username") String username, @Param("password") String password);
 
-    @Select("select * from reset_password where username = #{username}")
-    ResetPassword findResetPassword(String username);
+    @Select("select * from secret_protection where username = #{username}")
+    SecretProtection findSecretProtection(String username);
+
     /**
      * 注册
      * @param user
      */
     @Insert("insert into user(username,nickname,password,email,credit,photo,tel,sex,description,job,company)" + "values(#{username},#{nickname},#{password},#{email},100,'default_photo.png',#{tel},#{sex},#{description},#{job},#{company})")
-    public void register(User user);
+    void register(User user);
+
+
+    @Insert("insert into secret_protection values(#{username}, #{question}, #{answer})")
+    void addSecretProtection(@Param("username") String username, @Param("question") String question, @Param("answer") String answer);
 
     /**
      * 重置密码

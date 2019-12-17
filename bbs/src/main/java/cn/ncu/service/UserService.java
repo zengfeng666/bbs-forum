@@ -1,7 +1,7 @@
 package cn.ncu.service;
 
 import cn.ncu.domain.Post;
-import cn.ncu.domain.ResetPassword;
+import cn.ncu.domain.SecretProtection;
 import cn.ncu.domain.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
@@ -45,7 +45,7 @@ public interface UserService {
      */
     void setRankAndExp(User user);
 
-    ResetPassword findResetPassword(String username);
+    SecretProtection findSecretProtection(String username);
 
     void updatePassword(String username, String password);
 
@@ -68,4 +68,6 @@ public interface UserService {
      * @param photo
      */
     public void photoUpload(Integer uid, String photo);
+
+    void addSecretProtection(String username, String question, String answer);
 }

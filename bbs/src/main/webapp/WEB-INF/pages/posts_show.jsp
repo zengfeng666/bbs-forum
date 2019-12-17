@@ -118,7 +118,7 @@
             </tr>
         </table>
     </div>
-    <div id = "content">
+    <div id = "contentDiv">
 
         <table id = "table1" class="table table-hover" rules = "rows">
             <c:forEach items = "${postsList}" var = "post">

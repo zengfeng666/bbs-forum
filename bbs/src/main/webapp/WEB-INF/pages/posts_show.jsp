@@ -46,7 +46,7 @@
 
 
         td{
-            border-bottom: 1px solid #c2d5e3;
+            border-bottom: 0px solid #c2d5e3;
         }
         .title{
             font-family: Tahoma,'Microsoft Yahei','Simsun';
@@ -107,7 +107,12 @@
     </style>
 </head>
 <body>
-<jsp:include page="../../top.jsp"></jsp:include>
+<c:if test="${USER_SESSION.uid == 1}">
+    <jsp:include page="../../admin_top.jsp"></jsp:include>
+</c:if>
+<c:if test="${USER_SESSION.uid!=1}">
+    <jsp:include page="../../top.jsp"></jsp:include>
+</c:if>
     <div>
         <table id="KindInfo">
             <tr>

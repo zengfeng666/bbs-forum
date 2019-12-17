@@ -80,5 +80,13 @@ public interface AdminDao {
     @Delete("delete from notice where nid = #{nid}")
     void deleteNotice(Integer nid);
 
+    /**
+     * 删除某个用户在某个帖子的某层回复
+     *这里要加@param
+     */
+    @Delete("delete from post_floor where pid = #{pid} and fid = #{fid}")
+    void deletePostReply(@Param("pid") Integer pid,@Param("fid") Integer fid);
+
+
 
 }

@@ -40,7 +40,12 @@
     </style>
 </head>
 <body>
-<jsp:include page="../../top.jsp"></jsp:include>
+<c:if test="${USER_SESSION.uid == 1}">
+    <jsp:include page="../../admin_top.jsp"></jsp:include>
+</c:if>
+<c:if test="${USER_SESSION.uid!=1}">
+    <jsp:include page="../../top.jsp"></jsp:include>
+</c:if>
 <table id = "table1" class="table table-hover">
     <caption>所有公告如下</caption>
     <c:forEach items = "${noticesList}" var = "notice">

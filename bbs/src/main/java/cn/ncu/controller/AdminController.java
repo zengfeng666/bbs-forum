@@ -94,7 +94,7 @@ public class AdminController {
     public String delQ(Integer qid) {
         questionService.deleteQuestion(qid);
         // 问题删除成功，重定向回我的提问页面
-        return "redirect:showQuestion";
+        return "redirect:showQ";
     }
 
 
@@ -113,6 +113,12 @@ public class AdminController {
         return "admin_question_floor_look";
     }
 
+    /**
+     * 查看帖子楼层信息
+     * @param pid
+     * @param model
+     * @return
+     */
     @RequestMapping("/lookP")
     public String lookP(Integer pid ,Model model){
         Post post=postService.findPostByPid(pid);
@@ -123,15 +129,24 @@ public class AdminController {
 
         return "admin_post_all_floors";
     }
+
     /**
      * 删除问题回复
      * @param qid
-     * @param pid
+     * @param fid
      * @return
      */
-    @RequestMapping("/delR")
-    public String delR(Integer qid,Integer pid){
-        return "";
+    @RequestMapping("/delQR")
+    public String delQR(Integer qid,Integer fid){
+        questionService.deleteQuestionFloor(qid, fid);
+        // 注意：qid也被传入lookQ中了
+        return "forward:lookQ";
+    }
+
+    @RequestMapping("delPR")
+    public String delPR(Integer pid,Integer fid){
+        adminService.deletePostReply(pid,fid);
+        return "forward:lookP";
     }
 
     /**

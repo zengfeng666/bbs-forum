@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: zengfeng
@@ -86,7 +87,12 @@
         </script>
     </head>
     <body>
+    <c:if test="${USER_SESSION.uid == 1}">
+        <jsp:include page="../../admin_top.jsp"></jsp:include>
+    </c:if>
+    <c:if test="${USER_SESSION.uid!=1}">
         <jsp:include page="../../top.jsp"></jsp:include>
+    </c:if>
         <div id="div_ask">
             <form onsubmit="return check();" action="${pageContext.request.contextPath}/question/add" method="post">
                 <table id="table_ask">

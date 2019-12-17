@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
    User: luoChunHui
@@ -41,7 +42,12 @@
     </style>
 </head>
 <body>
-<jsp:include page="../../top.jsp"></jsp:include>
+<c:if test="${USER_SESSION.uid == 1}">
+    <jsp:include page="../../admin_top.jsp"></jsp:include>
+</c:if>
+<c:if test="${USER_SESSION.uid!=1}">
+    <jsp:include page="../../top.jsp"></jsp:include>
+</c:if>
    <div id = "content">
        <form action = "${pageContext.request.contextPath}/post/addPost" method = "post">
            <table id = "table1">

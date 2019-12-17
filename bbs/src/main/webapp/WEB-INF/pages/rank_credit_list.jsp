@@ -3,16 +3,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
-    <head>
-        <title>排行榜</title>
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-        <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-        <style type="text/css">
-            td {
-                font-size: 14px;
-                border-width: 0px;
-            }
+<head>
+    <title>排行榜</title>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        td {
+            font-size: 14px;
+            border-width: 0px;
+        }
 
             a {
                 text-decoration: none;
@@ -26,7 +26,12 @@
         </style>
     </head>
     <body>
+    <c:if test="${USER_SESSION.uid == 1}">
+        <jsp:include page="../../admin_top.jsp"></jsp:include>
+    </c:if>
+    <c:if test="${USER_SESSION.uid!=1}">
         <jsp:include page="../../top.jsp"></jsp:include>
+    </c:if>
         <div id="table-div">
             <table class="table table-hover">
                 <tr>

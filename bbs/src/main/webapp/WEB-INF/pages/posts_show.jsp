@@ -46,7 +46,7 @@
 
 
         td{
-            border-bottom: 1px solid #c2d5e3;
+            border-bottom: 0px solid #c2d5e3;
         }
         .title{
             font-family: Tahoma,'Microsoft Yahei','Simsun';

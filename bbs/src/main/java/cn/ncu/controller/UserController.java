@@ -92,6 +92,7 @@ public class UserController {
             //返回密保问题界面
             return "user_secretProtection";
         } else {
+            model.addAttribute("msg", "用户名不存在!");
             return "user_forget";
         }
     }
@@ -100,8 +101,8 @@ public class UserController {
     public String secretAnswer(Model model, String username, String answer) {
         //通过账号查询用户
         SecretProtection secretProtection = userService.findSecretProtection(username);
+        model.addAttribute("secretProtection", secretProtection);
         if (secretProtection.getAnswer().equals(answer)) {
-            model.addAttribute("secretProtection", secretProtection);
             return "user_reset";
         } else {
             model.addAttribute("msg", "密保答案错误！");

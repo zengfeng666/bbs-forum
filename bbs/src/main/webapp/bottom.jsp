@@ -15,7 +15,7 @@
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <style type="text/css">
-        #buttomDiv{
+        #bottomDiv{
             width: 100%;
             height: 130px;
             text-align: center;
@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<div id="buttomDiv">
+<div id="bottomDiv">
     <br><br><br>
     <span class="bottom_title1"><a href="https://github.com/MeCelestial/bbs-forum">开源地址</a></span>|
     <span class="bottom_title1"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=w7ml8fD28fX18vfy94OlrLuuoqqv7aCsrg">给我写信</a></span>|

@@ -5,112 +5,147 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>BBS论坛管理员界面</title>
+    <title>BBS管理员系统</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #main{
+            width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #CDCDCB;
+        }
+        .main_th{
+            width: 1000px;
+            height: 45px;
+            background-color: #EFF4F5;
+        }
+        .main_td{
+            width: 500px;
+            height: 100px;
+            border-left: 0px;
+            border-right: 0px;
 
+        }
+        .main_td:hover{
+            background-color: #F2F2EF;
+            cursor: pointer;
+        }
+        .title1{
+            margin: auto 7px;
+            font-weight: bold;
+            color: #1b6d85;
+            font-family:黑体;
+            font-size: 1.1em;
+        }
+        .imageDiv img{
+            width: 122px;
+            height: 66px;
+            margin: auto 30px;
+            float: left;
+
+        }
+        #mainTable{
+            border: 0px;
+        }
+        .title2{
+            margin: 2px auto 12px 170px;
+            font-weight: bold;
+        }
+        .title3{
+            margin: 2px auto 2px 170px;
+            font-family: 宋体;
+            font-size: 0.8em;
+        }
+
+    </style>
 </head>
-<body style="background-color: purple">
-<div class="header">
-    欢迎你，${USER_SESSION.nickname}
-    <button type="button" class="login1"><a href="${pageContext.request.contextPath}/pages/login.jsp">登入</a> </button>
-    <button type="button" class="register1"><a href="${pageContext.request.contextPath}/pages/register.jsp">注册</a> </button>
-    <div class="top-bar">
-        <div style="text-align: center">
-            <form class="form-inline">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入您要搜索的帖子" size="60">
-                </div>
-                <button type="submit" class="btn btn-default" style="width: 106px">查找</button>
-            </form>
-        </div>
-    </div>
-    <div class="nav-bar">
-        <div class="nav-bg">
-            <div class="nav-top">
-                <div class="nav-content">
-                    <ul class="nav-content-box">
-                        <li class="index on">
-                            <span><a href="#">首页</a></span>
-                        </li>
-                        <%--<li class="cat">
-                            <span><a href="#">分类</a></span>
-                            <ul>
-                                <li><a href="#" target="iframe1">二次元</a></li>
-                                <li><a href="#" target="iframe1">科技</a></li>
-                                <li><a href="#" target="iframe1">小说</a></li>
-                                <li><a href="#" target="iframe1">生活</a></li>
-                                <li><a href="#" target="iframe1">体育</a></li>
-                                <li><a href="#" target="iframe1">...</a></li>
-                                <li><a href="#"  target="iframe1">...</a></li>
-                                <li><a href="#" target="iframe1">...</a></li>
-                                <li><a href="#" target="iframe1">...</a></li>
-                            </ul>
-                        </li>--%>
-                        <li class="special ">
-                            <span><a href="javascript:void(0)" target="iframe1">看帖</a></span>
-                            <ul>
-                                <ul>
-                                    <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=0" >二次元</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=1" >科技</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=2" >小说</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=3" >生活</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=4" >娱乐新闻</a></li>
+<body>
 
-                                </ul>
-                            </ul>
-                        </li>
-                        <li class="user">
-                            <span><a href="javascript:void(0)">发帖</a></span>
-                            <ul>
-                                <ul>
-                                    <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=0" >二次元</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=1" >科技</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=2" >小说</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=3" >生活</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/post/transitKind?kind=4" >娱乐新闻</a></li>
+<jsp:include page="../../admin_top.jsp"></jsp:include>
 
-                                </ul>
-                            </ul>
-                        </li>
-                        <li class="cooperation">
-                            <span><a href="javascript:void(0)">我的帖子</a></span>
-                            <ul>
-                                <li><a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a></li>
-                                <li><a href="${pageContext.request.contextPath}/post/findAllReplyByMe" target="iframe1">我的回帖</a></li>
-                            </ul>
-                        </li>
-                        <li class="index on">
-                            <span><a href="javascript:void(0)">问题</a></span>
-                            <ul>
-                                <li><a href="${pageContext.request.contextPath}/question/findAll" target="iframe1">全部问题</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/question_ask.jsp" target="iframe1">发起提问</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user/askQ" target="iframe1">我的提问</a></li>
-                                <li><a href="${pageContext.request.contextPath}/user/replyQ" target="iframe1">我的回复</a></li>
-                            </ul>
-                        </li>
-                        <li class="index on">
-                            <span><a href="javascript:void(0)">系统公告</a></span>
-                            <ul>
-                                <li><a href="${pageContext.request.contextPath}/admin/showNotices" target="iframe1">公告</a></li>
-                            </ul>
-                        </li>
-                        <li class="index on">
-                            <span><a href="javascript:void(0)">个人信息</a></span>
-                        </li>
-                        <li class="index on">
-                            <span><a href="javascript:void(0)">系统设置</a></span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="main">
+    <table border="1" id="mainTable">
+        <tr>
+            <th class="main_th" colspan="2">
+                <p class="title1">官方通告</p>
+            </th>
+        </tr>
+        <tr>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/admin/showNotices'">
+                <div class="imageDiv"> <img src="${pageContext.request.contextPath}/images/main/05.gif" /></div>
+                <p class="title2">系统通知</p>
+                <p class="title3">与本论坛有关个重要事情都在这里宣布哦~</p>
+            </td>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/22.gif" /></div>
+                <p class="title2">经验排行榜</p>
+                <p class="title3">今日排名很稳定，很稳定……淡定，以不变应万变~</p>
+            </td>
+        </tr>
+        <tr>
+            <th class="main_th" colspan="2">
+                <p class="title1">帖子版块</p>
+            </th>
+        </tr>
+        <tr>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/admin/showPosts?kind=0'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/01.gif" /></div>
+                <p class="title2">数码科技</p>
+                <p class="title3">买到了山寨苹果12？快来这里吐槽吧~</p>
+            </td>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/admin/showPosts?kind=1'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/20.gif" /></div>
+                <p class="title2">音乐分享</p>
+                <p class="title3">周杰伦又发新歌了哦~快来和朋友们一起分享吧~</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/admin/showPosts?kind=2'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/18.gif" /></div>
+                <p class="title2">体育运动</p>
+                <p class="title3">每天一次马拉松~跑完了记得来打卡签到哦~</p>
+            </td>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/admin/showPosts?kind=3'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/08.gif" /></div>
+                <p class="title2">校园生活</p>
+                <p class="title3">四六级考试刚结束，你们考的翻译是哪朵花呢？</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/admin/showPosts?kind=4'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/06.gif" /></div>
+                <p class="title2">聊天交友</p>
+                <p class="title3">空虚寂寞冷？快来一起聊天吧~</p>
+            </td>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/admin/showPosts?kind=5'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/26.gif" /></div>
+                <p class="title2">好书推荐</p>
+                <p class="title3">每日好书推荐！今天你又读了哪些书呢？</p>
+            </td>
+        </tr>
+        <tr>
+            <th class="main_th" colspan="2">
+                <p class="title1">问答版块</p>
+            </th>
+        </tr>
+        <tr>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/question/findAll'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/13.gif" /></div>
+                <p class="title2">问答专区</p>
+                <p class="title3">来看看大家都在问些什么吧~</p>
+            </td>
+            <td class="main_td" onclick="window.location.href='${pageContext.request.contextPath}/page/question_ask'">
+                <div class="imageDiv"><img src="${pageContext.request.contextPath}/images/main/16.gif" /></div>
+                <p class="title2">发起提问</p>
+                <p class="title3">有问题不知如何解决？来问问无所不知的水友们吧~</p>
+            </td>
+        </tr>
+    </table>
 </div>
-<div>
-    <%--<iframe name="iframe1"  frameborder="0"></iframe>--%>
-</div>
+<jsp:include page="../../bottom.jsp"></jsp:include>
+</body>
+
 </body>
 </html>

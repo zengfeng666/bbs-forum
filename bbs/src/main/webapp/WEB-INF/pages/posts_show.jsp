@@ -170,9 +170,10 @@
                                <c:if test="${post.isGood == 1}">
                                    <img class="topAndGood" src="../images/good.jpg">
                                </c:if>
-                               <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
-                                       ${post.title}
-                               </a>
+                               <span class = "span_icn"> <img src = "${pageContext.request.contextPath}/images/p1.png" class = "icn"/>
+                                <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
+                                        ${post.title}
+                                </a></span>
                            </div>
                        </div>
                     </td>

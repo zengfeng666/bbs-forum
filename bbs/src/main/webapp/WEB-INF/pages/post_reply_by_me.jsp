@@ -94,7 +94,7 @@
 <div id = "post">
     <input class="btn btn-info" type="button" value="发帖" onclick = "postPosting()">
 </div>
-    <div id = "content">
+    <div id = "contentDiv">
         <table id="table1" rules = "rows">
             <c:forEach items = "${replyMapByMe}" var = "replyMap">
                 <tr>

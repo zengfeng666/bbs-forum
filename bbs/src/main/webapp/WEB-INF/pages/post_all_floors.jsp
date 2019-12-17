@@ -258,7 +258,7 @@
                        <%--回复帖子--%>
                        <form action = "${pageContext.request.contextPath}/post/addReply" method = "post">
                            <div class="form-group">
-                               <textarea class="form-control" rows="5" name = "content" cols = "5" placeholder="请输入回复的内容"></textarea>
+                               <textarea class="form-control" rows="5" name = "content" cols = "5" maxlength = "300" required placeholder="请输入回复的内容(字数不超过300字)"></textarea>
                                <input type = "hidden" name = "pid" value = "${postWithAllFloor.pid}" />
                            </div>
                            <button type="submit" class="btn btn-danger">提交回复</button>

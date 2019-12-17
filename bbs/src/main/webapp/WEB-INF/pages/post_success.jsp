@@ -30,7 +30,7 @@
                     setTimeout("location.href = '${pageContext.request.contextPath}/page/main'", 1000);
                 }
                 // 必须等2s才能跳转
-                setTimeout("location.href = '${pageContext.request.contextPath}/page/main'", 1000);
+               location.href = "${pageContext.request.contextPath}/page/main";
 
             },1000);
         }

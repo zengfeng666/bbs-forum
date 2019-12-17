@@ -27,7 +27,7 @@
             text-decoration: none;
         }
 
-        #content .title1{
+        #contentDiv .title1{
             width: 500px;
             font-size: 16px;
             color: black;
@@ -90,7 +90,7 @@
     <div id="post">
         <input class="btn btn-info" type="button" value="发帖" onclick="postPosting()">
     </div>
-<div id = "content">
+<div id = "contentDiv">
 
         <table rules = "rows" id = "table1" class="table table-hover">
 

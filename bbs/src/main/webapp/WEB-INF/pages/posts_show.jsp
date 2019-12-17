@@ -123,7 +123,6 @@
         <table id = "table1" class="table table-hover" rules = "rows">
             <c:forEach items = "${postsList}" var = "post">
                 <tr>
-
                     <td class = "title">
 
                        <div>

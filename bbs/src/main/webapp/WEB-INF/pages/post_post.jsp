@@ -48,7 +48,7 @@
                <tr>
                    <td> 标题：</td>
                    <td id = "td2">
-                      <input type = "text" name = "title" class="form-control" placeholder="请输入标题"/>
+                      <input type = "text" name = "title" class="form-control" maxlength="50" required placeholder="请输入标题(不超过50个字)"/>
                    </td>
                </tr>
                <tr>
@@ -68,7 +68,7 @@
                    <td>内容：</td>
                    <td>
 
-                       <textarea name = "content1" class="form-control" placeholder="请输入内容" rows = "10" cols = "50" ></textarea><br/>
+                       <textarea name = "content1" class="form-control" maxlength="300" placeholder="请输入内容,字数不超过300个字" rows = "10" cols = "50" required></textarea><br/>
                    </td>
                </tr>
                <tr>

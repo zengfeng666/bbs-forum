@@ -114,7 +114,7 @@
                         <fmt:formatDate value="${post.postTime}" pattern = "yyy-MM-dd HH:MM:ss"/>
                     </div></td>
                     <td>
-                        <div class = "deletePost margin"><a href = "${pageContext.request.contextPath}/page/post_post">删除</a></div>
+                        <div class = "deletePost margin"><a href = "javascript:deletePost('${post.pid}')">删除</a></div>
                     </td>
                 </tr>
             </c:forEach>

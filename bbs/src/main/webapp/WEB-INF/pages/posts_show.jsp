@@ -113,6 +113,7 @@
 <c:if test="${USER_SESSION.uid!=1}">
     <jsp:include page="../../top.jsp"></jsp:include>
 </c:if>
+<jsp:include page="post_success.jsp"></jsp:include>
     <div>
         <table id="KindInfo">
             <tr>

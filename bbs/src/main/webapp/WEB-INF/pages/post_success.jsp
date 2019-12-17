@@ -27,10 +27,7 @@
                     // 如果等级提升，则延迟跳转
                     $("#myModal2").modal('show');
                     setTimeout("$('#myModal2').modal('hide')", 1000);
-                    setTimeout("location.href = '${pageContext.request.contextPath}/page/main'", 1000);
                 }
-                // 必须等2s才能跳转
-               location.href = "${pageContext.request.contextPath}/page/main";
 
             },1000);
         }
@@ -70,7 +67,7 @@
     <div class="modal-dialog" style="width: 300px;margin: 100px auto">
         <div class="modal-content" >
             <div class="modal-header">
-                恭喜升级成功
+                升级成功
             </div>
 
         </div><!-- /.modal-content -->

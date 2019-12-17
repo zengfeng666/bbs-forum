@@ -108,7 +108,7 @@ public class PostController {
 
         // 更新User表
         userService.setRankAndExp(user);
-        return "post_success";
+        return "forward:showPosts?kind=" + post.getKind();
     }
 
     /**

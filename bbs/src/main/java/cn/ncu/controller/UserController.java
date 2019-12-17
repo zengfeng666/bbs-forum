@@ -2,7 +2,7 @@ package cn.ncu.controller;
 
 import cn.ncu.domain.Post;
 import cn.ncu.domain.Question;
-import cn.ncu.domain.ResetPassword;
+import cn.ncu.domain.SecretProtection;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServlet;
@@ -64,9 +65,9 @@ public class UserController {
     @RequestMapping(value = "/forget")
     public String forget(Model model, String username) {
         //通过账号查询用户
-        ResetPassword resetPassword = userService.findResetPassword(username);
-        if (resetPassword != null) {
-            model.addAttribute("resetPassword", resetPassword);
+        SecretProtection secretProtection = userService.findSecretProtection(username);
+        if (secretProtection != null) {
+            model.addAttribute("secretProtection", secretProtection);
             //返回密保问题界面
             return "user_secretProtection";
         } else {
@@ -77,9 +78,9 @@ public class UserController {
     @RequestMapping(value = "/secretAnswer")
     public String secretAnswer(Model model, String username, String answer) {
         //通过账号查询用户
-        ResetPassword resetPassword = userService.findResetPassword(username);
-        if (resetPassword.getAnswer().equals(answer)) {
-            model.addAttribute("resetPassword", resetPassword);
+        SecretProtection secretProtection = userService.findSecretProtection(username);
+        if (secretProtection.getAnswer().equals(answer)) {
+            model.addAttribute("secretProtection", secretProtection);
             return "user_reset";
         } else {
             model.addAttribute("msg", "密保答案错误！");
@@ -102,7 +103,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/register")
-    public String register(User user, Model model) {
+    public String register(User user, @RequestParam("question") String question, @RequestParam("answer") String answer, Model model) {
         User user1 = userService.findUserByUsername(user.getUsername());
         if(user1 != null){
             model.addAttribute("msg", "该用户名已存在!");
@@ -111,6 +112,7 @@ public class UserController {
             return "user_register";
         }
         userService.register(user);
+        userService.addSecretProtection(user.getUsername(), question, answer);
         return "user_login";
     }
 

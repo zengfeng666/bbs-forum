@@ -1,7 +1,7 @@
 package cn.ncu.service.Impl;
 
 import cn.ncu.dao.UserDao;
-import cn.ncu.domain.ResetPassword;
+import cn.ncu.domain.SecretProtection;
 import cn.ncu.domain.User;
 import cn.ncu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +33,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResetPassword findResetPassword(String username) {
-        ResetPassword resetPassword = userDao.findResetPassword(username);
-        return  resetPassword;
+    public SecretProtection findSecretProtection(String username) {
+        SecretProtection secretProtection = userDao.findSecretProtection(username);
+        return  secretProtection;
     }
 
     @Override
@@ -51,6 +51,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void photoUpload(Integer uid, String photo){
         userDao.photoUpload(uid,photo);
+    }
+
+    @Override
+    public void addSecretProtection(String username, String question, String answer) {
+        userDao.addSecretProtection(username, question, answer);
     }
 
 

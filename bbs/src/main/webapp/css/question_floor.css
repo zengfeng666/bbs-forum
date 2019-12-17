@@ -10,8 +10,11 @@
     margin: 3px;
 }
 
-#div_img_ask hr {
+#div_img_ask #ask_hr{
     border: 1px solid #CDCDCD;
+    position: relative;
+    z-index: -1;
+    top: -20px;
 }
 
 #out {

@@ -48,7 +48,7 @@
             <a href="${pageContext.request.contextPath}/page/question_ask">
                 <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>
             </a>
-            <hr/>
+            <hr id="ask_hr"/>
         </div>
         <div id="out">
             <div class="one">

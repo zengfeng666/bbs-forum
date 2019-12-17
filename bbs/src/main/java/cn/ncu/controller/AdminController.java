@@ -45,7 +45,12 @@ public class AdminController {
         return "redirect:/index.jsp";
     }
 
-
+    /**
+     * 展示某类帖子
+     * @param kind
+     * @param model
+     * @return
+     */
     @RequestMapping("/showPosts")
     public String showPosts(@Param("kind")Integer kind, Model model){
 
@@ -71,7 +76,7 @@ public class AdminController {
     }
 
     /**
-     * 展示问题
+     * 展示所有问题
      * @param model
      * @return
      */
@@ -95,6 +100,32 @@ public class AdminController {
         return "redirect:showQuestion";
     }
 
+
+    /**
+     * 查看问题的楼层信息
+     *
+     * @param qid
+     * @param model
+     * @return
+     */
+    @RequestMapping("/lookQ")
+    public String look(Integer qid, Model model) {
+        // 找到该问题的内容和楼层信息
+        Question question = questionService.findByQid(qid);
+        model.addAttribute("question", question);
+        return "admin_question_floor_look";
+    }
+
+    /**
+     * 删除问题回复
+     * @param qid
+     * @param pid
+     * @return
+     */
+    @RequestMapping("/delR")
+    public String delR(Integer qid,Integer pid){
+        return "";
+    }
 
     /**
      * 置顶

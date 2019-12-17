@@ -282,7 +282,7 @@
                         <a href="${pageContext.request.contextPath}/notice/showNotices">公告</a>
                     </li>
                     <li>
-                        <a href="#">排行榜</a>
+                        <a href="/rank/show">排行榜</a>
                     </li>
                     <li>
                         <a href="#">个人信息</a>

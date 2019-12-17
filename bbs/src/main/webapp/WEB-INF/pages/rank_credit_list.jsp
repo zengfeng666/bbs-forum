@@ -56,29 +56,29 @@
                 性别
             </td>
             <td>
-                等级
+                积分
             </td>
             <td>
-                经验
+                等级
             </td>
         </tr>
 
         <c:forEach items="${list}" var="list" varStatus="vs">
             <tr>
                 <td>
-                    ${vs.count}
+                        ${vs.count}
                 </td>
                 <td >
-                    ${list.nickname}
+                        ${list.nickname}
                 </td>
                 <td>
-                    ${list.sex}
+                        ${list.sex}
                 </td>
                 <td>
-                    ${list.rank}
+                        ${list.credit}
                 </td>
                 <td>
-                    ${list.exp}
+                        ${list.rank}
                 </td>
             </tr>
         </c:forEach>

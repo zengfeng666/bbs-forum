@@ -15,6 +15,9 @@ public class PageController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("/admin")
+    public String admin(){return "admin";}
+
     @RequestMapping("/main")
     public String main(){
         return "main";

@@ -12,6 +12,8 @@
 <head>
     <title>Title</title>
     <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js" type="text/javascript"></script>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <style type="text/css">
         html * {
             padding: 0;
@@ -35,8 +37,8 @@
         .menu {
             list-style: none;
             height: 40px;
-            width: 55%;
-            margin-left: 259px;
+            width: 1000px;
+            margin: auto;
             background-color: #2975C4;
             /*margin-top: 96px;*/
         }
@@ -45,7 +47,7 @@
             list-style: none;
             height: 40px;
             width: 1000px;
-            margin: 0 auto;
+            margin: auto;
             background-color: #2975C4;
         }
 
@@ -102,7 +104,7 @@
         #top {
             height: 110px;
             width: 1000px;
-            margin-left: 259px;
+            margin: auto;
             background: url("${pageContext.request.contextPath}/images/bgtop.jpg") no-repeat;
         }
 
@@ -132,19 +134,37 @@
         #ad {
             height: 100px;
             width: 1000px;
-            margin-left: 259px;
+            margin: auto;
             background-image: url("${pageContext.request.contextPath}/images/ad.jpg");
         }
 
         #photo {
             width: 65px;
             height: 65px;
-            margin-right: 10px;
         }
 
-        #table_user td{
+        #table_user td {
             text-align: center;
             margin: 20px;
+            padding: 5px;
+        }
+
+        #div_search {
+            height: 50px;
+            width: 1000px;
+            margin: auto;
+            background-color: #E8EFF5;
+            padding: 10px;
+        }
+
+        #div_search input{
+            width: 470px;
+            height: 30px;
+            padding: 4px;
+        }
+
+        #div_search img{
+            height: 30px;
         }
     </style>
 
@@ -183,14 +203,19 @@
                 <tr>
                     <td>${USER_SESSION.nickname}</td>
                     <td rowspan="3">
-                        <img id="photo" src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
+                        <a href="${pageContext.request.contextPath}/page/admin">
+                            <img id="photo" src="${pageContext.request.contextPath}/images/${USER_SESSION.photo}"/>
+                        </a>
                     </td>
                 </tr>
                 <tr>
-                    <td>等级: ${USER_SESSION.rank}</td>
+                    <td>等级:${USER_SESSION.rank}&nbsp;&nbsp;&nbsp;&nbsp;
+                        积分:${USER_SESSION.credit}</td>
                 </tr>
                 <tr>
-                    <td>积分: ${USER_SESSION.credit}</td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/user/logout">退出</a>
+                    </td>
                 </tr>
             </table>
         </c:if>
@@ -200,22 +225,25 @@
     <div class="menu">
         <ul class="nav">
             <li>
+                <a href="${pageContext.request.contextPath}/page/admin">首页</a>
+            </li>
+            <li>
                 <a href="#">看帖</a>
                 <ul class="sub-nav">
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/showPosts?kind=0">二次元</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=0">二次元</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/showPosts?kind=1">科技</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=1">科技</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/showPosts?kind=2">小说</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=2">小说</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/showPosts?kind=3">生活</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=3">生活</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/post/showPosts?kind=4">娱乐新闻</a>
+                        <a href="${pageContext.request.contextPath}/admin/showPosts?kind=4">娱乐新闻</a>
                     </li>
                 </ul>
             </li>
@@ -240,24 +268,37 @@
                 </ul>
             </li>
             <li>
-                <a href="#">我的帖子</a>
+                <a href="#">问题</a>
                 <ul class="sub-nav">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin/showQ">全部问题</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/page/question_ask">发起提问</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="${pageContext.request.contextPath}/admin/showNotices">公告</a>
+            </li>
+            <li>
+                <a href="#">排行榜</a>
+                <ul class="sub-nav">
+                    <li> <a href="${pageContext.request.contextPath}/rank/show">等级排行榜</a></li>
+                    <li> <a href="${pageContext.request.contextPath}/rank/showC">积分排行榜</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">个人信息</a>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/post/transitKind?kind=0">我的主页</a>
+                    </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/post/findAllReplyByMe">我的回帖</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">问题</a>
-                <ul class="sub-nav">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/question/findAll">全部问题</a>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/page/question_ask">发起提问</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/user/askQ">我的提问</a>
@@ -267,35 +308,13 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#">公告</a>
-                <ul class="sub-nav">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/notice/showNotices">系统公告</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">排行榜</a>
-                <ul class="sub-nav">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/rank/show">排行榜</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">个人信息</a>
-                <ul class="sub-nav">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/page/user_profile">个人信息</a>
-                    </li>
-                </ul>
-            </li>
         </ul>
     </div>
 </div>
-<div id="ad">
-
+<div id="ad"></div>
+<div id="div_search">
+    <input type="text" placeholder="请输入搜索内容" required/>
+    <a href="${pageContext.request.contextPath}/post/search"><img src="${pageContext.request.contextPath}/images/search.jpg"/></a>
 </div>
 </body>
 </html>

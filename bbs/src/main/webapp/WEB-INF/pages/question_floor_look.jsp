@@ -217,5 +217,6 @@
                 <button type="submit" class="btn btn-default">提交</button>
             </form>
         </div>
+        <jsp:include page="../../bottom.jsp"></jsp:include>
     </body>
 </html>

@@ -29,15 +29,19 @@
         }
         #KindInfo{
             width: 1000px;
-            margin: auto;
-            border: 3px red solid;
+            margin: 5px auto;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px #BCD5E4 dotted;
         }
         #KindInfoContent{
             height: 200px;
+            border: 0px;
         }
         #KindInfoTime{
             height: 30px;
             text-align: right;
+            border: 0px;
         }
 
 
@@ -87,7 +91,7 @@
         }
 
         .td5{
-            width: 100px;
+            width: 130px;
             padding-top: 1px;
             padding-bottom: 1px;
         }
@@ -97,6 +101,9 @@
         .td_2{
             color: #999;
         }
+        #KindInfoContentDiv{
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
@@ -104,7 +111,7 @@
     <div>
         <table id="KindInfo">
             <tr>
-                <td id="KindInfoContent">${kindInfo.content}</td>
+                <td id="KindInfoContent"><div id="KindInfoContentDiv">${kindInfo.content}</div></td>
             </tr>
             <tr>
                 <td id="KindInfoTime">最后编辑于：${kindInfo.time}</td>
@@ -149,6 +156,6 @@
 
         </table>
     </div>
-<jsp:include page="../../bottom.jsp"></jsp:include>
+<jsp:include page="../../bottom.jsp" ></jsp:include>
 </body>
 </html>

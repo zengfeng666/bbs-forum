@@ -201,7 +201,7 @@
                             <input type="submit" value="登录"/>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="${pageContext.request.contextPath}/page/login">登录页面</a>
+                            <a href="${pageContext.request.contextPath}/page/login">登录起始页</a>
                         </p>
                     </form>
                 </c:if>

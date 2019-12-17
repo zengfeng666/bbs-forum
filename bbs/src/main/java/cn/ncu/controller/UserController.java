@@ -34,8 +34,7 @@ public class UserController {
     private QuestionService questionService;
 
     /**
-     * 核对用户登录
-     *
+     * 登录
      * @param username
      * @param password
      * @param model
@@ -43,7 +42,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/login")
-    public String login(String username, String password, Model model, HttpSession session) {
+    public String login(String username, String password, Model model, HttpServletRequest request, HttpSession session) {
         //通过账号和密码查询用户
         User user = userService.findUser(username, password);
         if (user != null) {
@@ -53,12 +52,34 @@ public class UserController {
             if (user.getUid() == 1) {
                 return "admin";
             }
-            //跳转到主页面
-            return "redirect:/index.jsp";
+
+            // 获取登录之前的页面的地址
+            String referer = request.getHeader("referer");
+            if (referer.contains("login")){
+                // 如果登录之前就在登录页面，则登录后返回到首页
+                return "redirect:/index.jsp";
+            }
+            // 跳转回登录之前的页面
+            return "redirect:" + referer;
         }
         model.addAttribute("msg", "账号或密码错误，请重新输入！");
         //返回到登录页面
         return "user_login";
+    }
+
+    /**
+     * 注销
+     *
+     * @param session
+     * @return
+     */
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request, HttpSession session) {
+        session.removeAttribute("USER_SESSION");
+        // 获取注销之前的页面的地址
+        String referer = request.getHeader("referer");
+        // 注销之后返回当前页
+        return "redirect:" + referer;
     }
 
 
@@ -116,17 +137,7 @@ public class UserController {
         return "user_login";
     }
 
-    /**
-     * 注销
-     *
-     * @param session
-     * @return
-     */
-    @RequestMapping("/logout")
-    public String logout(HttpSession session) {
-        session.removeAttribute("USER_SESSION");
-        return "redirect:/index.jsp";
-    }
+
 
     /**
      * 我的提问

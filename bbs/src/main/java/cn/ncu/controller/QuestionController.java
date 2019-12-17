@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.List;
@@ -26,6 +28,7 @@ public class QuestionController {
 
     /**
      * 查看所有问题
+     *
      * @param model
      * @return
      */
@@ -39,6 +42,7 @@ public class QuestionController {
 
     /**
      * 提出一个问题
+     *
      * @param question
      * @param session
      * @param model
@@ -73,7 +77,7 @@ public class QuestionController {
         questionService.addQuestionFloor(questionFloor);
 
         // 扣除个人积分
-        userService.addCredit(user.getUid(), - question.getCredit());
+        userService.addCredit(user.getUid(), -question.getCredit());
 
         User userNew = userService.findUserById(user.getUid());
         session.setAttribute("USER_SESSION", userNew);
@@ -90,7 +94,7 @@ public class QuestionController {
      * @return
      */
     @RequestMapping("/look")
-    public String look(Integer qid, Model model) {
+    public String look(@RequestParam("qid") Integer qid, Model model) {
         // 找到该问题的内容和楼层信息
         Question question = questionService.findByQid(qid);
         model.addAttribute("question", question);
@@ -100,6 +104,7 @@ public class QuestionController {
 
     /**
      * 回复问题
+     *
      * @param qid
      * @param currentFloor
      * @param content
@@ -131,19 +136,20 @@ public class QuestionController {
 
     /**
      * 采纳回答
-     * @param qid 问题id
-     * @param uid 被采纳者id
+     *
+     * @param qid    问题id
+     * @param uid    被采纳者id
      * @param credit 问题悬赏积分
      * @return
      */
     @RequestMapping("/accept")
-    public String accept(Integer qid, Integer uid, Integer fid, Integer credit) {
+    public String accept(Integer qid, Integer uid, Integer fid, Integer credit, HttpServletRequest request) {
         // 增加被采纳者的积分
         userService.addCredit(uid, credit);
         // 将问题置为已解决
         questionService.updateStatus(qid, fid);
 
-        return "question_accept_success";
+        return "redirect:look?qid=" + qid;
     }
 
 }

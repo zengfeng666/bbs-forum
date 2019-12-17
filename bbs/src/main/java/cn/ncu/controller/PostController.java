@@ -24,7 +24,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/post")
-@SessionAttributes("postWithAllFloor")               // 把postWithAllFloor作为session存入model中
+@SessionAttributes({"postWithAllFloor", "rank"})               // 把postWithAllFloor作为session存入model中
 public class PostController {
 
     @Autowired
@@ -271,7 +271,7 @@ public class PostController {
 
 
         // 重新展示所有楼层信息
-        return "forward:showAllFloors";
+        return "redirect:showAllFloors?pid=" + post_Floor.getPid();
     }
 
 

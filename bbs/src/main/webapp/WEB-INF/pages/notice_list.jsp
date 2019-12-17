@@ -35,7 +35,7 @@
             background-color: #F0F0EE;
         }
         #table1 .content{
-            width: 1000px;
+            width: 984px;
         }
     </style>
 </head>

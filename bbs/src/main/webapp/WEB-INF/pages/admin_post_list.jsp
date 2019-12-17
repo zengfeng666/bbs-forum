@@ -121,7 +121,7 @@
                     <c:if test="${post.isGood == 1}">
                         <img class="topAndGood" src="../images/good.jpg">
                     </c:if>
-                    <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
+                    <a href = "${pageContext.request.contextPath}/admin/lookP?pid=${post.pid}">
                         <div>${post.title}</div>
                     </a>
                 </td>

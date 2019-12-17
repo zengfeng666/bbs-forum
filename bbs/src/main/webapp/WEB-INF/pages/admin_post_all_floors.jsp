@@ -53,7 +53,7 @@
     <script>
         function deleteReply(fid, pid){
             if(confirm("您确定要删除该层回复吗？")){
-                location.href = "${pageContext.request.contextPath}/post/deleteReply?pid=" + pid + "&fid=" + fid;
+                location.href = "${pageContext.request.contextPath}/admin/delPR?pid=" + pid + "&fid=" + fid;
             }
         }
 

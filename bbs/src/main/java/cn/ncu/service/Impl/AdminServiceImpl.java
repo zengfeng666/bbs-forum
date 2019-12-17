@@ -54,4 +54,7 @@ public class AdminServiceImpl implements AdminService{
     public void deleteNotice(Integer nid){
         adminDao.deleteNotice(nid);
     }
+
+    @Override
+    public void deletePostReply(Integer pid,Integer fid){adminDao.deletePostReply(pid,fid);}
 }

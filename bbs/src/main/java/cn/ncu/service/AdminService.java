@@ -56,4 +56,6 @@ public interface AdminService {
      * @param nid
      */
     public void deleteNotice(Integer nid);
+
+    public void deletePostReply(Integer pid,Integer fid);
 }

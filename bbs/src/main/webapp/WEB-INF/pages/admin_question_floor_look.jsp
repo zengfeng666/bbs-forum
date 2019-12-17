@@ -25,7 +25,7 @@
 
         function delR(qid, fid) {
             if (confirm("你确定删除自己的这条回复吗？")) {
-                location.href = "${pageContext.request.contextPath}/user/delR?qid=" + qid
+                location.href = "${pageContext.request.contextPath}/admin/delQR?qid=" + qid
                     + "&fid=" + fid;
             }
         }

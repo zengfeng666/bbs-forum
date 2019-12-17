@@ -42,7 +42,12 @@
     </style>
 </head>
 <body>
-<jsp:include page="../../top.jsp"></jsp:include>
+<c:if test="${USER_SESSION.uid == 1}">
+    <jsp:include page="../../admin_top.jsp"></jsp:include>
+</c:if>
+<c:if test="${USER_SESSION.uid!=1}">
+    <jsp:include page="../../top.jsp"></jsp:include>
+</c:if>
 <div id="table-div">
     <table class="table table-hover">
         <tr>

@@ -1,0 +1,87 @@
+#div_img_ask {
+    height: 50px;
+    width: 1000px;
+    margin: auto;
+}
+
+#img_ask {
+    width: 76px;
+    height: 32px;
+    margin: 3px;
+}
+
+#div_img_ask hr {
+    border: 1px solid #CDCDCD;
+}
+
+#out {
+    width: 1000px;
+    margin: auto;
+}
+
+.photo {
+    width: 130px;
+    height: 130px;
+    border: 5px solid white;
+}
+
+#out .one {
+    border: 1px solid #C2D5E3;
+}
+
+#out .one #title {
+    font-family: 黑体;
+    font-size: 18px;
+    color: #63008A;
+    height: 30px;
+    padding: 6px;
+}
+
+#out .one .left {
+    width: 165px;
+    background-color: #E5EDF2;
+}
+
+#out .floor {
+    border: 1px solid #C2D5E3;
+}
+
+#out .floor .left {
+    float: left;
+    width: 163px;
+    height: 224px;
+    background-color: #E5EDF2;
+    padding: 17px;
+    border: 1px solid #C2D5E3;
+}
+
+#out .floor .left .rank {
+    text-align: center;
+    font-size: 18px;
+    color: #2e6da4;
+}
+
+#out .floor .right {
+    float: right;
+    text-align: left;
+    border: 1px solid #C2D5E3;
+    width: 834px;
+    height: 224px;
+    padding: 10px;
+}
+
+#out .floor .left hr, #out .floor .right hr {
+    border: 1px dashed #C2D5E3;
+    margin: 5px;
+    clear: both;
+}
+
+#out .floor .right img {
+    width: 15px;
+    height: 15px;
+}
+
+#out .floor hr {
+    border: 2px solid #C2D5E3;
+    position: relative;
+}

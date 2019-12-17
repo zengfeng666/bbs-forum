@@ -11,9 +11,10 @@
 <html>
     <head>
         <title>查看问题</title>
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <link href="${pageContext.request.contextPath}/css/question_floor.css" rel="stylesheet"/>
         <script type="application/javascript">
             // 参数分别为问题id，被采纳者的id，悬赏积分
             function adopt(qid, uid, fid, credit) {
@@ -29,98 +30,17 @@
                         + "&fid=" + fid;
                 }
             }
+
+            function checkReplyContent() {
+                var replyContent = document.getElementById("reply_content").value;
+                if(replyContent.length > 300){
+                    alert("回复内容的长度不能超过300!");
+                    return false;
+                }
+
+                return true;
+            }
         </script>
-        <style>
-            #div_img_ask {
-                height: 50px;
-                width: 1000px;
-                margin: auto;
-            }
-
-            #img_ask {
-                width: 76px;
-                height: 32px;
-                margin: 3px;
-            }
-
-            #div_img_ask hr {
-                border: 1px solid #CDCDCD;
-            }
-
-            #out {
-                width: 1000px;
-                margin: auto;
-            }
-
-            .photo {
-                width: 130px;
-                height: 130px;
-                border: 5px solid white;
-            }
-
-            #out .one {
-                border: 1px solid #C2D5E3;
-            }
-
-            #out .one #title {
-                font-family: 黑体;
-                font-size: 18px;
-                color: #63008A;
-                height: 30px;
-                padding: 6px;
-            }
-
-            #out .one .left {
-                width: 165px;
-                background-color: #E5EDF2;
-            }
-
-            #out .floor {
-                border: 1px solid #C2D5E3;
-            }
-
-            #out .floor .left {
-                float: left;
-                width: 163px;
-                height: 224px;
-                background-color: #E5EDF2;
-                padding: 17px;
-                border: 1px solid #C2D5E3;
-            }
-
-            #out .floor .left .rank {
-                text-align: center;
-                font-size: 18px;
-                color: #2e6da4;
-            }
-
-            #out .floor .right {
-                float: right;
-                text-align: left;
-                border: 1px solid #C2D5E3;
-                width: 834px;
-                height: 224px;
-                padding: 10px;
-            }
-
-            #out .floor .left hr, #out .floor .right hr {
-                border: 1px dashed #C2D5E3;
-                margin: 5px;
-                clear: both;
-            }
-
-            #out .floor .right img {
-                width: 15px;
-                height: 15px;
-            }
-
-            #out .floor hr {
-                border: 2px solid #C2D5E3;
-                position: relative;
-            }
-
-
-        </style>
     </head>
     <body>
         <jsp:include page="../../top.jsp"></jsp:include>
@@ -208,14 +128,15 @@
             </c:forEach>
             <br/>
             <form action="${pageContext.request.contextPath}/question/answer?qid=${question.qid}&currentFloor=${question.currentFloor}"
-                  method="post">
+                  method="post" onsubmit="return checkReplyContent()">
                 <div class="form-group">
-                    <label for="content">回复楼主的问题:</label>
-                    <textarea class="form-control" name="content" id="content" rows="5"
+                    <label for="reply_content">回复楼主的问题:</label>
+                    <textarea class="form-control" name="content" id="reply_content" rows="5"
                               placeholder="详细回复问题，以便增大被采纳的几率" required="required"></textarea>
                 </div>
                 <button type="submit" class="btn btn-default">提交</button>
             </form>
         </div>
+        <jsp:include page="../../bottom.jsp"></jsp:include>
     </body>
 </html>

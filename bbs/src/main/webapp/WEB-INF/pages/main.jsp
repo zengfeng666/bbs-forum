@@ -17,56 +17,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
-        <style>
-            #main{
-                width: 1000px;
-                margin: 0 auto;
-                border: 1px solid #CDCDCB;
-            }
-            .main_th{
-                width: 1000px;
-                height: 45px;
-                background-color: #EFF4F5;
-            }
-            .main_td{
-                width: 500px;
-                height: 100px;
-                border-left: 0px;
-                border-right: 0px;
-
-            }
-            .main_td:hover{
-                background-color: #F2F2EF;
-                cursor: pointer;
-            }
-            .title1{
-                margin: auto 7px;
-                font-weight: bold;
-                color: #1b6d85;
-                font-family:黑体;
-                font-size: 1.1em;
-            }
-            .imageDiv img{
-                width: 122px;
-                height: 66px;
-                margin: auto 30px;
-                float: left;
-
-            }
-            #mainTable{
-                border: 0px;
-            }
-            .title2{
-                margin: 2px auto 12px 170px;
-                font-weight: bold;
-            }
-            .title3{
-                margin: 2px auto 2px 170px;
-                font-family: 宋体;
-                font-size: 0.8em;
-            }
-
-        </style>
+        <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <jsp:include page="../../top.jsp"></jsp:include>
@@ -150,5 +101,6 @@
                 </tr>
             </table>
         </div>
+        <jsp:include page="../../bottom.jsp"></jsp:include>
     </body>
 </html>

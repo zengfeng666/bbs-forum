@@ -116,7 +116,7 @@
         function postPosting(){
             location.href = "${pageContext.request.contextPath}/page/post_post";
         }
-        $(function(){
+        /*$(function(){
                 if("${postSuccess}" == true){
                     $("#myModal").modal('show')
                     setTimeout(function(){
@@ -134,7 +134,7 @@
                     },1000);
                 }
             }
-        );
+        );*/
     </script>
 </head>
 <body>

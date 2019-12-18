@@ -48,7 +48,7 @@
 <c:if test="${USER_SESSION.uid!=1}">
     <jsp:include page="../../top.jsp"></jsp:include>
 </c:if>
-   <div id = "content">
+   <div id = "contentDiv">
        <form action = "${pageContext.request.contextPath}/post/addPost" method = "post">
            <table id = "table1">
                <tr>
@@ -74,7 +74,7 @@
                    <td>内容：</td>
                    <td>
 
-                       <textarea name = "content1" class="form-control" maxlength="300" placeholder="请输入内容,字数不超过300个字" rows = "10" cols = "50" required></textarea><br/>
+                       <textarea name = "content" class="form-control" maxlength="300" placeholder="请输入内容,字数不超过300个字" rows = "10" cols = "50" required></textarea><br/>
                    </td>
                </tr>
                <tr>

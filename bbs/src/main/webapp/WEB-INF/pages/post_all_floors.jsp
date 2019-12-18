@@ -183,9 +183,10 @@
         }
 
         $("#editContentModal").modal("hide");
-        function editContent(pid,fid) {
+        function editContent(pid,fid,content) {
             $("#pid").val(pid);
             $("#fid").val(fid);
+            $("#content_textarea").val(content);
         }
     </script>
 
@@ -242,7 +243,7 @@
                                   <c:if test = "${USER_SESSION.uid == floor.uid or USER_SESSION.uid == 1}">
                                       <div class = "edit">
 
-                                          <a data-toggle="modal" data-target="#editContentModal" onclick="editContent('${floor.pid}','${floor.fid}')">修改内容</a></div>
+                                          <a data-toggle="modal" data-target="#editContentModal" onclick="editContent('${floor.pid}','${floor.fid}', '${floor.content}')">修改内容</a></div>
                                   </c:if>
                               </div>
                           </div>
@@ -277,12 +278,12 @@
     </div>
     <div class="modal fade" id="editContentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content">s
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">请编辑内容：</h4>
                 </div>
                 <form action="${pageContext.request.contextPath}/post/editContent" method="post">
-                    <div class="modal-body"><textarea name="content"></textarea></div>
+                    <div class="modal-body"><textarea name="content" id = "content_textarea"></textarea></div>
                     <input hidden="hidden" type="text" id="pid" name="pid" value="">
                     <input hidden="hidden" type="text" id="fid" name="fid" value="">
                     <div class="modal-footer">

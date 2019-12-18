@@ -16,14 +16,21 @@
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <link href="${pageContext.request.contextPath}/css/question.css" rel="stylesheet">
+        <style>
+            #div_pagination{
+                margin: auto;
+                width: 1000px;
+                padding-left: 355px;
+            }
+        </style>
     </head>
     <body>
-    <c:if test="${USER_SESSION.uid == 1}">
-        <jsp:include page="../../admin_top.jsp"></jsp:include>
-    </c:if>
-    <c:if test="${USER_SESSION.uid!=1}">
-        <jsp:include page="../../top.jsp"></jsp:include>
-    </c:if>
+        <c:if test="${USER_SESSION.uid == 1}">
+            <jsp:include page="../../admin_top.jsp"></jsp:include>
+        </c:if>
+        <c:if test="${USER_SESSION.uid!=1}">
+            <jsp:include page="../../top.jsp"></jsp:include>
+        </c:if>
         <div id="div_img_ask">
             <a href="${pageContext.request.contextPath}/page/question_ask">
                 <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>
@@ -32,7 +39,7 @@
         </div>
         <div id="table-div">
             <table class="table table-hover">
-                <c:forEach items="${questions}" var="question" varStatus="vs">
+                <c:forEach items="${pageInfo.list}" var="question" varStatus="vs">
                     <tr>
                         <td class="td1">
                             <a href="${pageContext.request.contextPath}/question/look?qid=${question.qid}">
@@ -52,6 +59,47 @@
                 </c:forEach>
             </table>
         </div>
+
+        <!-- 分页条 -->
+        <div id="div_pagination">
+            <div class="col-md-6">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li><a href="${pageContext.request.contextPath}/question/findAll?pn=1">首页</a></li>
+                        <c:if test="${pageInfo.hasPreviousPage }">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/question/findAll?pn=${pageInfo.pageNum-1}"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        </c:if>
+
+                        <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                            <c:if test="${page_Num == pageInfo.pageNum }">
+                                <li class="active"><a href="#">${ page_Num}</a></li>
+                            </c:if>
+                            <c:if test="${page_Num != pageInfo.pageNum }">
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/question/findAll?pn=${ page_Num}">${ page_Num}</a>
+                                </li>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${pageInfo.hasNextPage }">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/question/findAll?pn=${pageInfo.pageNum+1}"
+                                   aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </c:if>
+                        <li><a href="${pageContext.request.contextPath}/question/findAll?pn=${pageInfo.pages}">末页</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <br>
         <jsp:include page="../../bottom.jsp"></jsp:include>
     </body>
 </html>

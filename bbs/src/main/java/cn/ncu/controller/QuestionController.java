@@ -5,6 +5,8 @@ import cn.ncu.domain.QuestionFloor;
 import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,12 +35,15 @@ public class QuestionController {
      * @return
      */
     @RequestMapping("/findAll")
-    public String findAll(Model model) {
+    public String findAll(@RequestParam(value="pn",defaultValue="1")Integer pn, Model model) {
+        //从第一条开始 每页查询10条数据
+        PageHelper.startPage(pn, 10);
         List<Question> questions = questionService.findAll();
-        model.addAttribute("questions", questions);
+        //将用户信息放入PageInfo对象里
+        PageInfo page = new PageInfo(questions,10);
+        model.addAttribute("pageInfo", page);
         return "question_list";
     }
-
 
     /**
      * 提出一个问题
@@ -149,5 +154,6 @@ public class QuestionController {
 
         return "redirect:look?qid=" + qid;
     }
+
 
 }

@@ -113,6 +113,9 @@
         }
     </style>
     <script>
+        function postPosting(){
+            location.href = "${pageContext.request.contextPath}/page/post_post";
+        }
         $(function(){
                 if("${postSuccess}" == true){
                     $("#myModal").modal('show')

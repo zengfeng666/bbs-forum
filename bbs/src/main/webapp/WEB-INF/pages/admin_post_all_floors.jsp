@@ -44,7 +44,7 @@
         }
 
         textarea{
-            width: 530px;
+            width: 564px;
             height: 500px;
         }
 

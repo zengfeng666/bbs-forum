@@ -49,6 +49,7 @@
         }
         #KindInfoContentDiv{
             padding: 20px;
+            white-space: pre-wrap;
         }
 
 

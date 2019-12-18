@@ -112,7 +112,6 @@
                 </ul>
             </nav>
         </div>
-        <br/>
         <jsp:include page="../../bottom.jsp"></jsp:include>
     </body>
 </html>

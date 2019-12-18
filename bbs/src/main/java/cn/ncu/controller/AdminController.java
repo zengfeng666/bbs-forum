@@ -4,6 +4,8 @@ import cn.ncu.domain.*;
 import cn.ncu.service.AdminService;
 import cn.ncu.service.PostService;
 import cn.ncu.service.QuestionService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -79,9 +82,12 @@ public class AdminController {
      * @return
      */
     @RequestMapping("showQ")
-    public String showQuestion(Model model){
+    public String showQuestion(@RequestParam(value="pn",defaultValue="1")Integer pn, Model model){
+        //从第一条开始 每页查询10条数据
+        PageHelper.startPage(pn, 10);
         List<Question> list=questionService.findAll();
-        model.addAttribute("list",list);
+        PageInfo page = new PageInfo(list,10);
+        model.addAttribute("pageInfo", page);
         return "admin_question_list";
     };
 

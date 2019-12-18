@@ -25,7 +25,7 @@
         }
 
         function delR(qid, fid) {
-            if (confirm("你确定删除自己的这条回复吗？")) {
+            if (confirm("你确定删除这条回复吗？")) {
                 location.href = "${pageContext.request.contextPath}/admin/delQR?qid=" + qid
                     + "&fid=" + fid;
             }
@@ -97,7 +97,7 @@
 
                     <c:if test="${floor.fid!=1}">
                         <c:if test="${floor.isAccept!=1}">
-                            <a href="javascript:delR('${question.qid}', '${floor.fid}');">删除该楼的回复</a>
+                            <button class="btn btn-danger" onclick="delR('${question.qid}', '${floor.fid}')">删除该楼</button>
                         </c:if>
                     </c:if>
 

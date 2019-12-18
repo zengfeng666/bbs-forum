@@ -49,7 +49,7 @@
                         &nbsp;&nbsp;&nbsp;
                     </td>
                     <td>
-                        <a href="javascript:delQ('${question.qid}');">删除</a>
+                        <button class="btn btn-danger" onclick="delQ('${question.qid}')">删除</button>
                     </td>
                 </tr>
             </c:forEach>

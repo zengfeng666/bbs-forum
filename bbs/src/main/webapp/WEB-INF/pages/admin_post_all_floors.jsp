@@ -24,23 +24,144 @@
             text-decoration: none;
         }
 
-
-        #floors{
-            width: 650px;
+        #table1{
+            width: 1000px;
+            border: 1px solid #C2D5E3;
+            background: #FFF;
             margin: auto;
-            border: 1px blue solid;
         }
 
-        #userInfo{
-            width: 150px;
+        .td1{
+            width: 160px;
+            overflow: hidden;
+            border-right: 1px solid #C2D5E3;
 
         }
-        #floorContent{
-            width: 500px;
+
+        #table1 #cap_td1{
+            width: 160px;
+            height: 35px;
+            background-color: #E5EDF2;
         }
 
-        #reply{
+        #cap_td2{
+            width: 840px;
+            height: 30px;
+            color: black;
+            font-weight: bolder;
+            font-family: 黑体;
+            font-size: 20px;
+            padding-left: 30px;
+        }
+
+        #table1 .td0_1{
+            width: 160px;
+            background: #C2D5E3;
+            overflow: hidden;
+            border-right: 1px solid #C2D5E3;
+            height: 5px;
+        }
+
+        #table1 .left{
+            float: left;
+            height: 210px;
+            width: 160px;
+            background: #E5EDF2;
+        }
+
+        .right{
+            float: left;
+            width: 800px;
+
+        }
+
+        .photo{
+            width: 120px;
+            height: 120px;
+            border: 2px solid white;
+        }
+
+        .photo_div{
+            padding-top: 8px;
+            width: 125px;
+            height: 125px;
+            margin: 0px auto;
+        }
+
+        .nickname{
+            font-size: 20px;
+            float: left;
+            font-family: 黑体;
+            color: black;
+            padding: 10px;
+            padding-left: 20px;
+            width: 160px;
+            border-bottom: 1px #CDCDCD dashed;
+            background: #E5EDF2;
+        }
+
+        .rank{
+            font-size: 15px;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .right_1{
+            font-size: 20px;
+            color: black;
+            height: 37px;
+            margin-top: 0;
+            padding: 10px;
+            padding-left: 20px;
+            width: 800px;
+
+
+            float: left;
+        }
+
+        .div_icn2{
+            float: left;
+            width: 25px;
+        }
+
+        .icn2{
+            width: 20px;
+            height: 20px;
+
+        }
+
+        .time{
+            float: left;
+            font-size: 15px;
             width: 400px;
+        }
+
+        .fid{
+            float: right;
+            font-size: 14px;
+            width: 50px;
+            color: red;
+        }
+
+        .right_content{
+            padding: 20px;
+            height: 160px;
+        }
+
+
+        .contentBottom{
+            height: 30px;
+            margin-bottom: 10px;
+        }
+
+        .delete{
+            float: right;
+            width: 100px;
+        }
+
+        .edit{
+            float: right;
+            width: 100px;
         }
 
         textarea{
@@ -48,19 +169,24 @@
             height: 500px;
         }
 
+        a{
+            text-decoration: none;
+        }
+
 
     </style>
     <script>
         function deleteReply(fid, pid){
             if(confirm("您确定要删除该层回复吗？")){
-                location.href = "${pageContext.request.contextPath}/admin/delPR?pid=" + pid + "&fid=" + fid;
+                location.href = "${pageContext.request.contextPath}/admin/deletePR?pid=" + pid + "&fid=" + fid;
             }
         }
 
         $("#editContentModal").modal("hide");
-        function editContent(pid,fid) {
+        function editContent(pid,fid,content) {
             $("#pid").val(pid);
             $("#fid").val(fid);
+            $("#content_textarea").val(content);
         }
     </script>
 
@@ -72,34 +198,61 @@
 <c:if test="${USER_SESSION.uid!=1}">
     <jsp:include page="../../top.jsp"></jsp:include>
 </c:if>
-<div>
-    <table border = "1"  style = "border-collapse: collapse;" id = "floors">
-        <caption>${postWithAllFloor.title}</caption>
+<div id ="content">
+    <table border = "1" rules = "rows" style = "border-collapse: collapse;" id = "table1">
+        <caption>
+            <td id = "cap_td1"></td>
+            <td  id = "cap_td2">
+                ${postWithAllFloor.title}
+            </td>
+        </caption>
+        <tr>
+            <td class = "td0_1"></td>
+            <td class = "td0_1"></td>
+        </tr>
         <c:forEach items = "${postWithAllFloor.floors}" var = "floor">
             <tr>
-                <td id = "userInfo">
-                    <div>头像</div>
-                    <div>${floor.nickname}</div>
-                    <div>exp：${floor.exp}</div>
-                    <div>等级：${floor.rank}</div>
-
+                <td colspan = "2">
+                    <div class = "nickname">${floor.nickname}</div>
+                    <div class = "right_1">
+                        <div class = "div_icn2"><img src = "${pageContext.request.contextPath}/images/p2.png" class = "icn2"/></div>
+                        <div class = "time">发表于：<fmt:formatDate value="${floor.replyTime}" pattern = "yyy-MM-dd HH:mm:ss"/></div>
+                        <div class = "fid">${floor.fid}# &nbsp;&nbsp;</div>
+                    </div>
                 </td>
-                <td id = "floorContent">
-                    <div>${floor.content}</div>
-                    <div>&nbsp;</div>
-                    <div>&nbsp;</div>
-                        <%--<fmt:formatDate value="${floor.replyTime}" pattern="yyyy-MM-dd HH:mm"/>--%>
-                    <div id = "contentBottom"><span>${floor.    fid}# &nbsp;&nbsp;</span>
-                        <span><fmt:formatDate value="${floor.replyTime}" pattern = "yyy-MM-dd HH:mm:ss"/></span> &nbsp;&nbsp;
+            </tr>
+            <tr>
+                <td class = "td1" colspan="2">
+                    <div class = "left">
+                        <div class = "photo_div">
+                            <img src = "${pageContext.request.contextPath}/images/${floor.photo}" class = "photo"/>
+                        </div>
+                        <div class = "rank">Lv：${floor.rank}</div>
+                    </div>
 
-                            <%--如果是true,则添加一个删除按钮，传入fid, pid,删除该楼层--%>
-                        <c:if test = "${floor.fid != 1}">
-                            <span><a href = "javascript:deleteReply('${floor.fid}', '${floor.pid}')" >删除</a></span>
-                        </c:if>
-                            <span><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editContentModal" onclick="editContent('${floor.pid}','${floor.fid}')">修改内容</button></span>
+
+
+                    <div class = "right">
+                        <div class = "right_content">${floor.content}</div>
+                        <div class = "contentBottom">
+
+                                <%--如果是true,则添加一个删除按钮，传入fid, pid,删除该楼层--%>
+                            <c:if test = "${ floor.fid != 1}">
+                                <div class = "delete">
+                                    <button  class="btn btn-danger" onclick="deleteReply('${floor.fid}', '${floor.pid}')" value="删除">删除</button>
+                                </div>
+                                &nbsp;&nabla;
+                            </c:if>
+                                    <div class = "edit">
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#editContentModal" onclick="editContent('${floor.pid}','${floor.fid}', '${floor.content}')">修改内容</button></div>
+                        </div>
                     </div>
                 </td>
 
+            </tr>
+            <tr>
+                <td class = "td0_1"></td>
+                <td class = "td0_1"></td>
             </tr>
         </c:forEach>
 
@@ -111,7 +264,7 @@
                     <%--回复帖子--%>
                     <form action = "${pageContext.request.contextPath}/post/addReply" method = "post">
                         <div class="form-group">
-                            <textarea class="form-control" rows="5" name = "content" cols = "5" placeholder="请输入回复的内容"></textarea>
+                            <textarea class="form-control" rows="5" name = "content" cols = "5" maxlength = "300" required placeholder="请输入回复的内容(字数不超过300字)"></textarea>
                             <input type = "hidden" name = "pid" value = "${postWithAllFloor.pid}" />
                         </div>
                         <button type="submit" class="btn btn-danger">提交回复</button>
@@ -125,12 +278,12 @@
 </div>
 <div class="modal fade" id="editContentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content">s
             <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel">请编辑内容：</h4>
             </div>
             <form action="${pageContext.request.contextPath}/post/editContent" method="post">
-                <div class="modal-body"><textarea name="content"></textarea></div>
+                <div class="modal-body"><textarea name="content" id = "content_textarea"></textarea></div>
                 <input hidden="hidden" type="text" id="pid" name="pid" value="">
                 <input hidden="hidden" type="text" id="fid" name="fid" value="">
                 <div class="modal-footer">

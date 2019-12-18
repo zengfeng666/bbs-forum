@@ -24,7 +24,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/post")
-@SessionAttributes({"postWithAllFloor", "rank"})               // 把postWithAllFloor作为session存入model中
+@SessionAttributes({"postWithAllFloor", "rank", "posts"})               // 把postWithAllFloor作为session存入model中
 public class PostController {
 
     @Autowired
@@ -45,7 +45,7 @@ public class PostController {
         title = "%"+title+"%";
         List<Post> posts = postService.search(title);
         model.addAttribute("posts", posts);
-        return "post_searched";
+        return "redirect:/page/post_searched";
     }
 
     /**

@@ -23,57 +23,50 @@
                 }
             }
         </script>
-        <style>
-            #div_pagination {
-                margin: auto;
-                text-align: right;
-                width: 1000px;
-            }
-        </style>
     </head>
     <body>
-    <c:if test="${USER_SESSION.uid == 1}">
-        <jsp:include page="../../admin_top.jsp"></jsp:include>
-    </c:if>
-    <c:if test="${USER_SESSION.uid!=1}">
-        <jsp:include page="../../top.jsp"></jsp:include>
-    </c:if>
+        <c:if test="${USER_SESSION.uid == 1}">
+            <jsp:include page="../../admin_top.jsp"></jsp:include>
+        </c:if>
+        <c:if test="${USER_SESSION.uid!=1}">
+            <jsp:include page="../../top.jsp"></jsp:include>
+        </c:if>
         <div id="div_img_ask">
             <a href="${pageContext.request.contextPath}/page/question_ask">
                 <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>
             </a>
-            <hr id="ask_hr"/>
+            <!-- 分页条 -->
+            <div id="div_pagination_top">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/user/askQ?pn=${pageInfo.pageNum-1}"
+                               aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                            <c:if test="${page_Num == pageInfo.pageNum }">
+                                <li class="active"><a href="#">${ page_Num}</a></li>
+                            </c:if>
+                            <c:if test="${page_Num != pageInfo.pageNum }">
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/user/askQ?pn=${ page_Num}">${ page_Num}</a>
+                                </li>
+                            </c:if>
+                        </c:forEach>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/user/askQ?pn=${pageInfo.pageNum+1}"
+                               aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
 
-        <!-- 分页条 -->
-        <div id="div_pagination">
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/user/askQ?pn=${pageInfo.pageNum-1}"
-                           aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
-                        <c:if test="${page_Num == pageInfo.pageNum }">
-                            <li class="active"><a href="#">${ page_Num}</a></li>
-                        </c:if>
-                        <c:if test="${page_Num != pageInfo.pageNum }">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/user/askQ?pn=${ page_Num}">${ page_Num}</a>
-                            </li>
-                        </c:if>
-                    </c:forEach>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/user/askQ?pn=${pageInfo.pageNum+1}"
-                           aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+
         <div id="table-div">
             <table class="table table-hover">
                 <c:forEach items="${pageInfo.list}" var="question" varStatus="vs">
@@ -100,7 +93,7 @@
         </div>
 
         <!-- 分页条 -->
-        <div id="div_pagination">
+        <div id="div_pagination_bottom">
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>

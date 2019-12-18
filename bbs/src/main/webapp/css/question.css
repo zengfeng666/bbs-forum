@@ -31,12 +31,35 @@ a {
 #img_ask{
     width: 76px;
     height: 32px;
-    margin: 3px;
+    position: relative;
+    top: 10px;
+    z-index: -1;
 }
+
 
 #div_img_ask #ask_hr{
     border: 1px solid #CDCDCD;
     position: relative;
     z-index: -1;
-    top: -20px;
+    top: -10px;
+}
+
+#div_pagination_top {
+    margin: auto;
+    text-align: right;
+    width: 1000px;
+    height: 50px;
+    position: relative;
+    top: -44px;
+    z-index: -1;
+}
+
+#div_pagination_bottom {
+    margin: auto;
+    text-align: right;
+    width: 1000px;
+    height: 50px;
+    position: relative;
+    top: -9px;
+    z-index: -1;
 }

@@ -146,7 +146,7 @@
         .right_content{
             padding: 20px;
             height: 160px;
-            white-space: pre-wrap;
+
         }
 
 
@@ -243,6 +243,9 @@
                         <div class = "right_1">
                             <div class = "div_icn2"><img src = "${pageContext.request.contextPath}/images/p2.png" class = "icn2"/></div>
                             <div class = "time">发表于：<fmt:formatDate value="${floor.replyTime}" pattern = "yyy-MM-dd HH:mm:ss"/></div>
+                            <c:if test = "${floor.fid == 1}">
+
+                            </c:if>
                             <div class = "fid">${floor.fid}# &nbsp;&nbsp;</div>
                         </div>
                     </td>
@@ -255,8 +258,6 @@
                             </div>
                             <div class = "rank">Lv：${floor.rank}</div>
                         </div>
-
-
 
                           <div class = "right">
                               <div class = "right_content">${floor.content}</div>

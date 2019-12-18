@@ -4,11 +4,14 @@ import cn.ncu.domain.*;
 import cn.ncu.service.PostFloorService;
 import cn.ncu.service.PostService;
 import cn.ncu.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.ServletException;
@@ -131,14 +134,18 @@ public class PostController {
      * @return
      */
     @RequestMapping("/showPosts")
-    public String showPosts(@Param("kind")Integer kind, Model model){
+    public String showPosts(@Param("kind")Integer kind, @RequestParam(value = "pn", defaultValue = "1")Integer pn, Model model){
 
         //版块信息
         KindInfo kindInfo = postService.getKindInfoByKind(kind);
         model.addAttribute("kindInfo", kindInfo);
         //帖子列表
+
+        PageHelper.startPage(pn, 6);
         List<Post> list = postService.findPostsByKind(kind);
-        model.addAttribute("postsList", list);
+        PageInfo page = new PageInfo(list);
+        model.addAttribute("pageInfo", page);
+        model.addAttribute("kind", kind);
         return "posts_show";
     }
 

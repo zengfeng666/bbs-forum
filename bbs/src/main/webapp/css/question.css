@@ -33,7 +33,7 @@ a {
     height: 32px;
     position: relative;
     top: 10px;
-    z-index: 2;
+    z-index: 1;
 }
 
 
@@ -51,7 +51,6 @@ a {
     height: 50px;
     position: relative;
     top: -44px;
-    /*z-index: -1;*/
 }
 
 #div_pagination_bottom {
@@ -61,5 +60,4 @@ a {
     height: 50px;
     position: relative;
     top: -9px;
-    /*z-index: -1;*/
 }

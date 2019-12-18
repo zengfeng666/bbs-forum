@@ -163,7 +163,7 @@
         </tr>
         <tr>
             <td><button id="changeKindInfoBtn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#kindInfoModal">编辑版块信息</button></td>
-            <td id="KindInfoTime">最后编辑于：${kindInfo.time}</td>
+            <td id="KindInfoTime">最后编辑于：<fmt:formatDate value="${kindInfo.time}" pattern="yyyy-MM-dd HH:mm"/></td>
         </tr>
     </table>
 </div>

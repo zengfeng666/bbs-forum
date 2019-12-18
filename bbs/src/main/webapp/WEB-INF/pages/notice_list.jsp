@@ -7,6 +7,7 @@
 --%>
 <%@ page isELIgnored="false" contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
@@ -53,7 +54,7 @@
     <c:forEach items = "${noticesList}" var = "notice">
         <tr class="th_tr">
             <th class="title"><div>${notice.title}</div></th>
-            <th class="time"><div>${notice.noticeTime}</div></th>
+            <th class="time"><div><fmt:formatDate value="${notice.noticeTime}" pattern="yyyy-MM-dd HH:mm"/></div></th>
         </tr>
         <tr class="td_tr">
             <td colspan="2"><div class="content">${notice.content}</div></td>

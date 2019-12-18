@@ -56,4 +56,9 @@ public class PageController {
         return "post_post";
     }
 
+    @RequestMapping("/post_searched")
+    public String post_searched(){
+        return "post_searched";
+    }
+
 }

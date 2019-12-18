@@ -4,11 +4,14 @@ import cn.ncu.domain.*;
 import cn.ncu.service.PostFloorService;
 import cn.ncu.service.PostService;
 import cn.ncu.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.ServletException;
@@ -140,6 +143,30 @@ public class PostController {
         List<Post> list = postService.findPostsByKind(kind);
         model.addAttribute("postsList", list);
         return "posts_show";
+    }
+
+    /**
+     * 测试分页
+     * @param kind
+     * @param model
+     * @return
+     */
+    @RequestMapping("/testShowPosts")
+    public String testShowPosts(@Param("kind")Integer kind, @RequestParam(value = "pn", defaultValue = "1")Integer  pn, Model model){
+
+        PageHelper.startPage(pn, 6);
+
+        //版块信息
+        KindInfo kindInfo = postService.getKindInfoByKind(kind);
+        model.addAttribute("kindInfo", kindInfo);
+        //帖子列表
+        List<Post> list = postService.findPostsByKind(kind);
+        PageInfo page = new PageInfo(list, 5);
+        model.addAttribute("pageInfo", page);
+        for(Object p : page.getList()){
+            System.out.println(p);
+        }
+        return "post_test_page";
     }
 
     /**

@@ -134,39 +134,19 @@ public class PostController {
      * @return
      */
     @RequestMapping("/showPosts")
-    public String showPosts(@Param("kind")Integer kind, Model model){
+    public String showPosts(@Param("kind")Integer kind, @RequestParam(value = "pn", defaultValue = "1")Integer pn, Model model){
 
         //版块信息
         KindInfo kindInfo = postService.getKindInfoByKind(kind);
         model.addAttribute("kindInfo", kindInfo);
         //帖子列表
-        List<Post> list = postService.findPostsByKind(kind);
-        model.addAttribute("postsList", list);
-        return "posts_show";
-    }
-
-    /**
-     * 测试分页
-     * @param kind
-     * @param model
-     * @return
-     */
-    @RequestMapping("/testShowPosts")
-    public String testShowPosts(@Param("kind")Integer kind, @RequestParam(value = "pn", defaultValue = "1")Integer  pn, Model model){
 
         PageHelper.startPage(pn, 6);
-
-        //版块信息
-        KindInfo kindInfo = postService.getKindInfoByKind(kind);
-        model.addAttribute("kindInfo", kindInfo);
-        //帖子列表
         List<Post> list = postService.findPostsByKind(kind);
-        PageInfo page = new PageInfo(list, 5);
+        PageInfo page = new PageInfo(list);
         model.addAttribute("pageInfo", page);
-        for(Object p : page.getList()){
-            System.out.println(p);
-        }
-        return "post_test_page";
+        model.addAttribute("kind", kind);
+        return "posts_show";
     }
 
     /**

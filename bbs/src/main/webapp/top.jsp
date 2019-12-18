@@ -83,22 +83,22 @@
                         <a href="#">看帖</a>
                         <ul class="sub-nav">
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=0">数码科技</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=0&pn=1">数码科技</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=1">音乐分享</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=1&pn=1">音乐分享</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=2">体育运动</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=2&pn=1">体育运动</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=3">校园生活</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=3&pn=1">校园生活</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=4">聊天交友</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=4&pn=1">聊天交友</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=5">好书推荐</a>
+                                <a href="${pageContext.request.contextPath}/post/showPosts?kind=5&pn=1">好书推荐</a>
                             </li>
                         </ul>
                     </li>

@@ -106,13 +106,42 @@
             white-space: pre-wrap;
         }
 
-        #post{
+        #postPre{
             padding-top: 5px;
             padding-bottom: 5px;
             width: 1000px;
+            height: 40px;
             margin: auto;
         }
+
+        .rowPage{
+            width: 1000px;
+            height: 50px;
+            text-align: right;
+            margin: auto;
+            position: relative;
+            top: -20px;
+        }
+
+        .post_btn{
+            float: left;
+            width: 100px;
+            text-align: left;
+            margin: auto;
+        }
+
+        .rowPage2{
+            height: 50px;
+            float: right;
+            width: 800px;
+            text-align: right;
+            margin: auto;
+           position: relative;
+            top: -20px;
+        }
+
     </style>
+
     <script>
         function postPosting(){
             location.href = "${pageContext.request.contextPath}/page/post_post";
@@ -156,13 +185,43 @@
             </tr>
         </table>
     </div>
-    <div id="post">
-        <input class="btn btn-info" type="button" value="发帖" onclick="postPosting()">
+    <div id="postPre">
+        <div class = "post_btn"><input class="btn btn-info" type="button" value="发帖" onclick="postPosting()"></div>
+        <div class = "rowPage2">
+            <nav aria-label="Page">
+                <ul class="pagination">
+                    <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=1">首页</a></li>
+
+                    <li>
+                        <a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                        <c:if test="${page_Num == pageInfo.pageNum }">
+                            <li class="active"><a href="#">${ page_Num}</a></li>
+                        </c:if>
+                        <c:if test="${page_Num != pageInfo.pageNum }">
+                            <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                        </c:if>
+                    </c:forEach>
+
+                    <li>
+                        <a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum+1}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+
+                    <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pages}">末页</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <div id = "contentDiv">
 
         <table id = "table1" class="table table-hover" rules = "rows">
-            <c:forEach items = "${postsList}" var = "post">
+            <c:forEach items = "${pageInfo.list}" var = "post">
                 <tr>
                     <td class = "title">
 
@@ -196,6 +255,43 @@
 
         </table>
     </div>
+
+<!-- 分页信息 -->
+<div class="rowPage">
+
+    <!-- 分页条 -->
+    <div>
+        <nav aria-label="Page">
+            <ul class="pagination">
+                <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=1">首页</a></li>
+
+                <li>
+                    <a href="${path}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                    <c:if test="${page_Num == pageInfo.pageNum }">
+                        <li class="active"><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                    </c:if>
+                    <c:if test="${page_Num != pageInfo.pageNum }">
+                        <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                    </c:if>
+                </c:forEach>
+
+                <li>
+                    <a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum+1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+
+                <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pages}">末页</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
 
 <%--发帖成功要提示--%>
 <!-- Button to trigger modal -->

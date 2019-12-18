@@ -156,7 +156,7 @@
         </div>
         <div class="input">
             <label for="answer">问题：${secretProtection.question}</label><br>
-            <input id="answer" type="text" name="answer"
+            <input id="answer" type="text" name="answer" maxlength="50"
                    placeholder="请输入密保答案" required autofocus
             style="margin-left: 14%;margin-top: 5%;width: 385px;height: 40px"><font color="red"> ${msg}</font>
         </div>

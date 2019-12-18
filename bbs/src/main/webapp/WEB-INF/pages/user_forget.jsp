@@ -151,7 +151,7 @@
           class="my-login-validation" novalidate="">
         <div class="input">
             <label for="username">账&nbsp;号：</label>
-            <input id="username" type="text" name="username"
+            <input id="username" type="text" name="username" maxlength="12"
                    placeholder="请输入账号" required autofocus><font color="red"> ${msg}</font>
         </div>
         <div>

@@ -22,7 +22,7 @@
 
         header .ima{
             margin-top: 30px;
-            text-align: center;
+            margin-left: 45.5%;
         }
         header .ima img{
             width: 140px;
@@ -128,6 +128,7 @@
             margin-left: 57%;
         }
         header .return{
+            float: left;
             font-size: 20px;
             text-decoration: none;
             color: #7222d6;
@@ -148,10 +149,10 @@
 
 
     <form action="${pageContext.request.contextPath}/user/reset" method="post" class="my-login-validation" novalidate="">
-        <input type="hidden" name="username" value="${secretProtection.username}">
+        <input type="hidden" name="username" maxlength="12" value="${secretProtection.username}">
         <div class="input">
             <label for="new-password">密&nbsp;码：</label>
-            <input id="new-password" type="password" placeholder="请输入新密码" name="password"
+            <input id="new-password" type="password" maxlength="20" placeholder="请输入新密码 (长度不超过20)" name="password"
                    required autofocus data-eye>
         </div>
         <div>

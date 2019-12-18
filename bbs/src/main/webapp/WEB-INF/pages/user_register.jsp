@@ -23,7 +23,7 @@
 
             header .ima {
                 margin-top: 15px;
-                text-align: center;
+                margin-left: 45.5%;
             }
 
             header .ima img {
@@ -143,10 +143,12 @@
             article .tiao a {
                 text-decoration: none;
                 font-size: 14px;
-                color: #042020;
+                /*color: #042020;*/
                 margin-left: 55%;
             }
-            header .return{
+
+            header .return {
+                float: left;
                 font-size: 20px;
                 text-decoration: none;
                 color: #7222d6;
@@ -205,42 +207,43 @@
             <form onsubmit="return check();" action="${pageContext.request.contextPath}/user/register" method="post">
                 <div class="input">
                     <label for="username">账&nbsp;号：</label>
-                    <input id="username" type="text" placeholder="账号" name="username" value="${user.username}" required
+                    <input id="username" type="text" placeholder="账号 (长度不超过12)" maxlength="12" name="username"
+                           value="${user.username}" required
                            autofocus onblur="checkUsername();"> <font color="red" id="usernameError">${msg}</font>
                 </div>
                 <div class="input">
                     <label for="username">昵&nbsp;称：</label>
-                    <input id="nickname" type="text" placeholder="昵称" name="nickname" value="${user.nickname}" required
+                    <input id="nickname" type="text" placeholder="昵称 (长度不超过5)" maxlength="5" name="nickname"
+                           value="${user.nickname}" required
                            autofocus>
                 </div>
                 <div class="input">
                     <label for="password">密&nbsp;码：</label>
-                    <input id="password" type="password" placeholder="密码" name="password" value="${user.password}"
+                    <input id="password" type="password" placeholder="密码 (长度不超过20)" maxlength="20" name="password"
+                           value="${user.password}"
                            required data-eye>
                 </div>
                 <div class="input">
                     <label for="verify_password">密&nbsp;码：</label>
-                    <input id="verify_password" type="password" placeholder="确认密码"
-                           required data-eye onblur="verifyPassword()"> <font color="red" id="verifyPasswordError"></font>
+                    <input id="verify_password" type="password" placeholder="确认密码" required data-eye
+                           onblur="verifyPassword()"> <font color="red" maxlength="20" id="verifyPasswordError"></font>
                 </div>
-
-
 
 
                 <div class="input">
                     <label for="question">密&nbsp;保：</label>
-                    <input id="question" type="text" placeholder="密保问题" name="question" value="${user.username}" required
-                           autofocus onblur="checkUsername();"> <!--<font color="red" id="usernameError">${msg}</font>-->
+                    <input id="question" type="text" placeholder="密保问题" maxlength="50" name="question"
+                           value="${user.username}" required
+                           autofocus onblur="checkUsername();">
+                    <!--<font color="red" id="usernameError">${msg}</font>-->
                 </div>
                 <div class="input">
-                <label for="answer">答&nbsp;案：</label>
-                <input id="answer" type="text" placeholder="密保答案" name="answer" value="${user.username}" required
-                       autofocus onblur="checkUsername();"><!-- <font color="red" id="usernameError">${msg}</font>-->
+                    <label for="answer">答&nbsp;案：</label>
+                    <input id="answer" type="text" placeholder="密保答案" maxlength="50" name="answer"
+                           value="${user.username}" required
+                           autofocus onblur="checkUsername();">
+                    <!-- <font color="red" id="usernameError">${msg}</font>-->
                 </div>
-
-
-
-
 
                 <div>
                     <button type="submit" id="submit" class="btn btn-primary btn-block">

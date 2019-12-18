@@ -22,7 +22,7 @@
 
             header .ima{
                 margin-top: 30px;
-                text-align: center;
+                margin-left: 45.5%;
             }
             header .ima img{
                 width: 140px;
@@ -69,14 +69,15 @@
             article .input label{
                 padding-top: 1%;
                 font-size: 21px;
-                color: #0a0a0a;
+                /*color: #0a0a0a;*/
                 font-family:Verdana, Geneva, Tahoma, sans-serif;
                 margin-left: 13%;
             }
             article .remember{
                 margin-top: 1%;
-                color: #042020;
+                /*color: #042020;*/
                 font-size: 14px;
+                margin-left: 55%;
             }
 
             article .remember span input[type="checkbox"]{
@@ -85,7 +86,7 @@
             }
             article .remember a{
                 margin-left: 30%;
-                color: #042020;
+                /*color: #042020;*/
                 text-decoration: none;
             }
             article .maintain{
@@ -124,10 +125,11 @@
             article .tiao a{
                 text-decoration: none;
                 font-size: 14px;
-                color: #042020;
+                /*color: #042020;*/
                 margin-left: 57%;
             }
             header .return{
+                float: left;
                 font-size: 20px;
                 text-decoration: none;
                 color: #7222d6;
@@ -149,15 +151,15 @@
             <form action="${pageContext.request.contextPath}/user/login" method="post">
                 <div class="input">
                     <label for="username">账&nbsp;号：</label>
-                    <input type="text" name="username" id="username" placeholder="请输入账户">
+                    <input type="text" name="username" maxlength="12" id="username" placeholder="请输入账户">
                 </div>
                 <div class="input">
                     <label for="password">密&nbsp;码：</label>
-                    <input type="password" name="password" id="password" placeholder="请输入密码">
+                    <input type="password" name="password" maxlength="20" id="password" placeholder="请输入密码">
                 </div>
                 <div class="remember">
-                    <span><input type="checkbox" id="maintain"></span>
-                    <span><label for="maintain">记住我</label></span>
+                    <%--<span><input type="checkbox" id="maintain"></span>--%>
+                    <%--<span><label for="maintain">记住我</label></span>--%>
                     <span ><a href="${pageContext.request.contextPath}/page/forget">忘记密码？</a></span>
                 </div>
                 <div>

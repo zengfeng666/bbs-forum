@@ -42,12 +42,12 @@
         </style>
     </head>
     <body>
-    <c:if test="${USER_SESSION.uid == 1}">
-        <jsp:include page="../../admin_top.jsp"></jsp:include>
-    </c:if>
-    <c:if test="${USER_SESSION.uid!=1}">
-        <jsp:include page="../../top.jsp"></jsp:include>
-    </c:if>
+        <c:if test="${USER_SESSION.uid == 1}">
+            <jsp:include page="../../admin_top.jsp"></jsp:include>
+        </c:if>
+        <c:if test="${USER_SESSION.uid!=1}">
+            <jsp:include page="../../top.jsp"></jsp:include>
+        </c:if>
         <div id="table-div">
             <table class="table table-hover">
                 <tr>
@@ -69,24 +69,26 @@
                 </tr>
 
                 <c:forEach items="${list}" var="list" varStatus="vs">
-                    <tr>
-                        <td>
-                                ${vs.count}
-                        </td>
-                        <td>
-                                ${list.nickname}
-                        </td>
-                        <td>
-                            <c:if test="${list.sex == 'male'}">男</c:if>
-                            <c:if test="${list.sex == 'female'}">女</c:if>
-                        </td>
-                        <td>
-                                ${list.rank}
-                        </td>
-                        <td>
-                                ${list.exp}
-                        </td>
-                    </tr>
+                    <c:if test="${list.uid != 1}">
+                        <tr>
+                            <td>
+                                    ${vs.count-1}
+                            </td>
+                            <td>
+                                    ${list.nickname}
+                            </td>
+                            <td>
+                                <c:if test="${list.sex == 'male'}">男</c:if>
+                                <c:if test="${list.sex == 'female'}">女</c:if>
+                            </td>
+                            <td>
+                                    ${list.rank}
+                            </td>
+                            <td>
+                                    ${list.exp}
+                            </td>
+                        </tr>
+                    </c:if>
                 </c:forEach>
             </table>
         </div>

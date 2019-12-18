@@ -37,6 +37,7 @@
         }
         #table1 .content{
             width: 984px;
+            white-space: pre-wrap;
         }
     </style>
 </head>

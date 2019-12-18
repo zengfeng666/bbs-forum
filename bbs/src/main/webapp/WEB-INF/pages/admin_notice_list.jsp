@@ -60,6 +60,7 @@
         }
         #table1 .content{
             width: 850px;
+            white-space: pre-wrap;
         }
         #table1 .deleteNotice{
             width: 115px;

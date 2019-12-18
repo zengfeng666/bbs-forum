@@ -78,8 +78,8 @@
                                     ${list.nickname}
                             </td>
                             <td>
-                                <c:if test="${list.sex == 'male'}"><img src="../../images/male.jpg" alt="男"></c:if>
-                                <c:if test="${list.sex == 'female'}"><img src="../../images/female.jpg" alt="女"></c:if>
+                                <c:if test="${list.sex == 'male'}">男</c:if>
+                                <c:if test="${list.sex == 'female'}">女</c:if>
                                 <c:if test="${list.sex == null}">保密</c:if>
                             </td>
                             <td>

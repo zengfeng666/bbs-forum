@@ -146,6 +146,7 @@
         .right_content{
             padding: 20px;
             height: 160px;
+            white-space: pre-wrap;
         }
 
 
@@ -167,13 +168,38 @@
         textarea{
             width: 530px;
             height: 500px;
+            white-space: pre-line;
         }
 
         a{
             text-decoration: none;
+
         }
 
+        /*pre{
+            white-space:pre-wrap;
+            white-space:-moz-pre-wrap;
+            white-space:-o-pre-wrap;
+            word-wrap:break-word;
+        }*/
+        /*pre {
 
+            white-space: pre-wrap;       !* css-3 *!
+
+            white-space: -moz-pre-wrap;  !* Mozilla, since 1999 *!
+
+            white-space: -pre-wrap;      !* Opera 4-6 *!
+
+            white-space: -o-pre-wrap;    !* Opera 7 *!
+
+            word-wrap: break-word;       !* Internet Explorer 5.5+ *!
+
+            word-break:break-all;
+
+            overflow:hidden;
+
+        }
+*/
     </style>
     <script>
         function deleteReply(fid, pid){
@@ -243,7 +269,7 @@
                                   <c:if test = "${USER_SESSION.uid == floor.uid or USER_SESSION.uid == 1}">
                                       <div class = "edit">
 
-                                          <a data-toggle="modal" data-target="#editContentModal" onclick="editContent('${floor.pid}','${floor.fid}', '${floor.content}')">修改内容</a></div>
+                                          <a data-toggle="modal" data-target="#editContentModal" style="cursor:pointer" onclick="editContent('${floor.pid}','${floor.fid}', `${floor.content}`)">修改内容</a></div>
                                   </c:if>
                               </div>
                           </div>
@@ -278,12 +304,12 @@
     </div>
     <div class="modal fade" id="editContentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">s
+            <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">请编辑内容：</h4>
                 </div>
                 <form action="${pageContext.request.contextPath}/post/editContent" method="post">
-                    <div class="modal-body"><textarea name="content" id = "content_textarea"></textarea></div>
+                    <div class="modal-body" style = "white-space:pre-wrap"><textarea name="content" id = "content_textarea"></textarea></div>
                     <input hidden="hidden" type="text" id="pid" name="pid" value="">
                     <input hidden="hidden" type="text" id="fid" name="fid" value="">
                     <div class="modal-footer">

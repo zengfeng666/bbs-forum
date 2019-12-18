@@ -32,11 +32,11 @@
                 <c:if test="${USER_SESSION == null}">
                     <form action="${pageContext.request.contextPath}/user/login" method="post">
                         <p>
-                            账号 <input type="text" name="username" placeholder="用户名" required/>
+                            账号 <input type="text" name="username" maxlength="12" placeholder="用户名" required/>
                             <a href="${pageContext.request.contextPath}/page/forget">找回密码</a>
                         </p>
                         <p>
-                            密码 <input type="password" name="password" required/>
+                            密码 <input type="password" name="password" maxlength="20" required/>
 
                             <a href="${pageContext.request.contextPath}/page/register">注册[Register]</a>
                         </p>

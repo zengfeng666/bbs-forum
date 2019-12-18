@@ -19,6 +19,7 @@
         <style>
             #div_pagination {
                 margin: auto;
+                text-align: right;
                 width: 1000px;
             }
         </style>

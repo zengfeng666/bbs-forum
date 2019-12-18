@@ -29,6 +29,7 @@
         }
         #table1 .content{
             width: 1000px;
+            white-space: pre-line;
         }
         #table1 .th_tr{
             height: 30px;

@@ -41,6 +41,7 @@
                 return true;
             }
         </script>
+
     </head>
     <body>
     <c:if test="${USER_SESSION.uid == 1}">
@@ -124,9 +125,11 @@
                             </c:if>
                         </font>
                         <hr/>
-                        <p>
-                                ${floor.content}
-                        </p>
+                       <div>
+                           <p style = "white-space: pre-wrap">
+                                   ${floor.content}
+                           </p>
+                       </div>
                     </div>
                     <hr/>
                 </div>

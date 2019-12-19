@@ -58,7 +58,7 @@ public class AdminController {
         //帖子列表
 
 
-        PageHelper.startPage(pn, 10);
+        PageHelper.startPage(pn, 16);
         List<Post> list = postService.findPostsByKind(kind);
         PageInfo page = new PageInfo(list);
         model.addAttribute("pageInfo", page);

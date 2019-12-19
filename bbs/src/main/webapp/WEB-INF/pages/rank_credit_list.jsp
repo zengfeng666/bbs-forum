@@ -65,6 +65,7 @@
                             <td>
                                 <c:if test="${list.sex == 'male'}">男</c:if>
                                 <c:if test="${list.sex == 'female'}">女</c:if>
+                                <c:if test="${list.sex == null}">保密</c:if>
                             </td>
                             <td>
                                     ${list.credit}

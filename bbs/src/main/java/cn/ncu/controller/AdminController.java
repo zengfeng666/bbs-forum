@@ -60,10 +60,16 @@ public class AdminController {
 
         PageHelper.startPage(pn, 6);
         List<Post> list = postService.findPostsByKind(kind);
-        PageInfo page = new PageInfo(list);
+        PageInfo page = new PageInfo(list,6);
         model.addAttribute("pageInfo", page);
         model.addAttribute("kind", kind);
         return "admin_post_list";
+
+     /*   PageHelper.startPage(pn, 10);
+        List<Question> list=questionService.findAll();
+        PageInfo page = new PageInfo(list,10);
+        model.addAttribute("pageInfo", page);
+        return "admin_question_list";*/
     }
 
 
@@ -156,6 +162,12 @@ public class AdminController {
         return "forward:lookQ";
     }
 
+    /**
+     * 删除帖子回复
+     * @param pid
+     * @param fid
+     * @return
+     */
     @RequestMapping("delPR")
     public String delPR(Integer pid,Integer fid){
         adminService.deletePostReply(pid,fid);

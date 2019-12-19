@@ -48,6 +48,7 @@
         <c:if test="${USER_SESSION.uid!=1}">
             <jsp:include page="../../top.jsp"></jsp:include>
         </c:if>
+        <h3 style="text-align: center">经验排行榜</h3>
         <div id="table-div">
             <table class="table table-hover">
                 <tr>
@@ -69,10 +70,9 @@
                 </tr>
 
                 <c:forEach items="${list}" var="list" varStatus="vs">
-                    <c:if test="${list.uid > 1}">
                         <tr>
                             <td>
-                                    ${vs.count-1}
+                                    ${vs.count}
                             </td>
                             <td>
                                     ${list.nickname}
@@ -89,7 +89,7 @@
                                     ${list.exp}
                             </td>
                         </tr>
-                    </c:if>
+
                 </c:forEach>
             </table>
         </div>

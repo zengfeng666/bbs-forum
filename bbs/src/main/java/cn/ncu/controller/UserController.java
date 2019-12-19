@@ -137,7 +137,7 @@ public class UserController {
         }
         userService.register(user);
         userService.addSecretProtection(user.getUsername(), question, answer);
-        return "user_login";
+        return "redirect:/page/login";
     }
 
 

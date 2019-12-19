@@ -114,10 +114,10 @@
 
     <script>
         function postPosting(){
-            location.href = "${pageContext.request.contextPath}/page/post_post";
+            location.href = "${pageContext.request.contextPath}/post/transitKind?kind=${kind}";
         }
-        /*$(function(){
-                if("${postSuccess}" == true){
+    $(function(){
+                if("${postSuccess}"){
                     $("#myModal").modal('show')
                     setTimeout(function(){
                         $('#myModal').modal('hide');
@@ -134,7 +134,7 @@
                     },1000);
                 }
             }
-        );*/
+        );
     </script>
 </head>
 <body>

@@ -222,9 +222,11 @@
                             <div class = "div_icn2"><img src = "${pageContext.request.contextPath}/images/p2.png" class = "icn2"/></div>
                             <div class = "time">发表于：<fmt:formatDate value="${floor.replyTime}" pattern = "yyy-MM-dd HH:mm:ss"/></div>
                             <c:if test = "${floor.fid == 1}">
-
+                                <div class = "fid">楼主&nbsp;&nbsp;</div>
                             </c:if>
-                            <div class = "fid">${floor.fid}# &nbsp;&nbsp;</div>
+                            <c:if test = "${floor.fid != 1}">
+                             <div class = "fid">${floor.fid}# &nbsp;&nbsp;</div>
+                            </c:if>
                         </div>
                     </td>
                 </tr>

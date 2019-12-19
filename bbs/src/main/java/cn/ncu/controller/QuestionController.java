@@ -36,11 +36,11 @@ public class QuestionController {
      */
     @RequestMapping("/findAll")
     public String findAll(@RequestParam(value="pn",defaultValue="1")Integer pn, Model model) {
-        //从第一条开始 每页查询10条数据
-        PageHelper.startPage(pn, 10);
+        //从第一条开始 每页查询13条数据
+        PageHelper.startPage(pn, 13);
         List<Question> questions = questionService.findAll();
         //将用户信息放入PageInfo对象里
-        PageInfo page = new PageInfo(questions,10);
+        PageInfo page = new PageInfo(questions,13);
         model.addAttribute("pageInfo", page);
         return "question_list";
     }

@@ -154,10 +154,10 @@ public class UserController {
     public String askQ(@RequestParam(value="pn",defaultValue="1")Integer pn, HttpSession session, Model model) {
         User user = (User) session.getAttribute("USER_SESSION");
         int uid = user.getUid();
-        //从第一条开始 每页查询15条数据
-        PageHelper.startPage(pn, 15);
+        //从第一条开始 每页查询13条数据
+        PageHelper.startPage(pn, 13);
         List<Question> questionsAsked = questionService.findQuestionAskedByUser(uid);
-        PageInfo page = new PageInfo(questionsAsked,15);
+        PageInfo page = new PageInfo(questionsAsked,13);
         model.addAttribute("pageInfo", page);
 
         return "question_my_asked";
@@ -175,10 +175,10 @@ public class UserController {
     public String replyQ(@RequestParam(value="pn",defaultValue="1")Integer pn, HttpSession session, Model model) {
         User user = (User) session.getAttribute("USER_SESSION");
         int uid = user.getUid();
-        //从第一条开始 每页查询15条数据
-        PageHelper.startPage(pn, 15);
+        //从第一条开始 每页查询13条数据
+        PageHelper.startPage(pn, 13);
         List<Question> questionsReplied = questionService.findQuestionRepliedByUser(uid);
-        PageInfo page = new PageInfo(questionsReplied,15);
+        PageInfo page = new PageInfo(questionsReplied,13);
         model.addAttribute("pageInfo", page);
         return "question_my_replied";
     }

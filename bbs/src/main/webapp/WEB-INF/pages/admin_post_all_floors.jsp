@@ -241,7 +241,7 @@
                                 <div class = "delete">
                                     <button  class="btn btn-danger" onclick="deleteReply('${floor.fid}', '${floor.pid}')" value="删除">删除</button>
                                 </div>
-                                &nbsp;&nabla;
+                                &nbsp;
                             </c:if>
                                     <div class = "edit">
                                         <button class="btn btn-primary" data-toggle="modal" data-target="#editContentModal" onclick="editContent('${floor.pid}','${floor.fid}', '${floor.content}')">修改内容</button></div>

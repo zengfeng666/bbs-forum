@@ -177,30 +177,7 @@
 
         }
 
-        /*pre{
-            white-space:pre-wrap;
-            white-space:-moz-pre-wrap;
-            white-space:-o-pre-wrap;
-            word-wrap:break-word;
-        }*/
-        /*pre {
 
-            white-space: pre-wrap;       !* css-3 *!
-
-            white-space: -moz-pre-wrap;  !* Mozilla, since 1999 *!
-
-            white-space: -pre-wrap;      !* Opera 4-6 *!
-
-            white-space: -o-pre-wrap;    !* Opera 7 *!
-
-            word-wrap: break-word;       !* Internet Explorer 5.5+ *!
-
-            word-break:break-all;
-
-            overflow:hidden;
-
-        }
-*/
     </style>
     <script>
         function deleteReply(fid, pid){
@@ -271,7 +248,7 @@
                                   <c:if test = "${USER_SESSION.uid == floor.uid or USER_SESSION.uid == 1}">
                                       <div class = "edit">
 
-                                          <a data-toggle="modal" data-target="#editContentModal" style="cursor:pointer" onclick="editContent('${floor.pid}','${floor.fid}', '${floor.content}')">修改内容</a></div>
+                                          <a data-toggle="modal" data-target="#editContentModal" style="cursor:pointer" onclick="editContent('${floor.pid}','${floor.fid}', `${floor.content}`)">修改内容</a></div>
                                   </c:if>
                               </div>
                           </div>

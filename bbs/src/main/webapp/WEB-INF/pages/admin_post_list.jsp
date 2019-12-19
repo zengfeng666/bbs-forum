@@ -190,10 +190,10 @@
     <div class = "rowPage2">
         <nav aria-label="Page">
             <ul class="pagination">
-                <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=1">首页</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=1">首页</a></li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                    <a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -203,17 +203,17 @@
                         <li class="active"><a href="#">${ page_Num}</a></li>
                     </c:if>
                     <c:if test="${page_Num != pageInfo.pageNum }">
-                        <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
                     </c:if>
                 </c:forEach>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum+1}" aria-label="Next">
+                    <a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pageNum+1}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
 
-                <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pages}">末页</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pages}">末页</a></li>
             </ul>
         </nav>
     </div>
@@ -278,30 +278,30 @@
     <div>
         <nav aria-label="Page">
             <ul class="pagination">
-                <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=1">首页</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=1">首页</a></li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                    <a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
 
                 <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
                     <c:if test="${page_Num == pageInfo.pageNum }">
-                        <li class="active"><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
                     </c:if>
                     <c:if test="${page_Num != pageInfo.pageNum }">
-                        <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
                     </c:if>
                 </c:forEach>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum+1}" aria-label="Next">
+                    <a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pageNum+1}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
 
-                <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pages}">末页</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pages}">末页</a></li>
             </ul>
         </nav>
     </div>

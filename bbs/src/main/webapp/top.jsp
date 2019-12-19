@@ -157,7 +157,7 @@
                                 <a href="${pageContext.request.contextPath}/page/user_profile">我的主页</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/post/findAllPostByMe">我的发帖</a>
+                                <a href="${pageContext.request.contextPath}/post/findAllPostByMe?pn=1">我的发帖</a>
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/post/findAllReplyByMe">我的回帖</a>

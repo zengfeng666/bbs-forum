@@ -11,6 +11,7 @@
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
 <link href = "${pageContext.request.contextPath}/css/post.css" rel = "stylesheet" type = "text/css"/>
+<link href = "${pageContext.request.contextPath}/css/post_page.css" rel = "stylesheet" type = "text/css"/>
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <html>
@@ -106,39 +107,8 @@
             white-space: pre-wrap;
         }
 
-        #postPre{
-            padding-top: 5px;
-            padding-bottom: 5px;
-            width: 1000px;
-            height: 40px;
-            margin: auto;
-        }
 
-        .rowPage{
-            width: 1000px;
-            height: 50px;
-            text-align: right;
-            margin: auto;
-            position: relative;
-            top: -20px;
-        }
 
-        .post_btn{
-            float: left;
-            width: 100px;
-            text-align: left;
-            margin: auto;
-        }
-
-        .rowPage2{
-            height: 50px;
-            float: right;
-            width: 800px;
-            text-align: right;
-            margin: auto;
-           position: relative;
-            top: -20px;
-        }
 
     </style>
 
@@ -234,7 +204,7 @@
                                    <img class="topAndGood" src="../images/good.jpg">
                                </c:if>
                                <span class = "span_icn"> <img src = "${pageContext.request.contextPath}/images/p1.png" class = "icn"/>
-                                <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}">
+                                <a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${post.pid}&pn=1">
                                         ${post.title}
                                 </a></span>
                            </div>
@@ -266,7 +236,7 @@
                 <li><a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=1">首页</a></li>
 
                 <li>
-                    <a href="${path}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                    <a href="${pageContext.request.contextPath}/post/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>

@@ -16,7 +16,7 @@ public interface RankDao {
      *
      * @return
      */
-    @Select("select * from user order by exp desc")
+    @Select("select * from user where uid !='1' order by exp desc")
     @Results(id = "userMap", value = {
             @Result(id = true, column = "uid", property = "uid"),
             @Result(column = "username", property = "username"),
@@ -39,7 +39,7 @@ public interface RankDao {
      * 积分排行
      * @return
      */
-    @Select("select * from user order by credit desc")
+    @Select("select * from user where uid !='1' order by credit desc")
     @Results(id = "userCreditMap", value = {
             @Result(id = true, column = "uid", property = "uid"),
             @Result(column = "username", property = "username"),

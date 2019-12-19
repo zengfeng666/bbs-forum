@@ -115,7 +115,7 @@
                            <div class = "content3">
                                <span class = "refer">“</span><span id = "content2">${replyMap.value.content}</span><span class = "refer">”</span><span>回复</span></div>
                             <div class = "postInfo">
-                                <div class = "td1_5"><a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${replyMap.key.pid}">${replyMap.key.title}</a></div>
+                                <div class = "td1_5"><a href = "${pageContext.request.contextPath}/post/showAllFloors?pid=${replyMap.key.pid}&pn=1">${replyMap.key.title}</a></div>
                                 <div class = "td1_6">&nbsp;&nbsp;回复(${replyMap.key.currentFloor - 1})</div>
                                <div class = "td1_7">来自&nbsp;<a href = "#"> --&nbsp;&nbsp;${replyMap.key.nickName}</a></div>
                             </div>

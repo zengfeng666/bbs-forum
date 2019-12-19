@@ -11,6 +11,7 @@
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
 <link href = "${pageContext.request.contextPath}/css/post.css" rel = "stylesheet" type = "text/css"/>
+<link href = "${pageContext.request.contextPath}/css/post_page.css" rel = "stylesheet" type = "text/css"/>
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <html>
@@ -184,11 +185,44 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
+<div id="postPre">
+    <div class = "post_btn"><input class="btn btn-info" type="button" value="发帖" onclick="postPosting()"></div>
+    <div class = "rowPage2">
+        <nav aria-label="Page">
+            <ul class="pagination">
+                <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=1">首页</a></li>
+
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                    <c:if test="${page_Num == pageInfo.pageNum }">
+                        <li class="active"><a href="#">${ page_Num}</a></li>
+                    </c:if>
+                    <c:if test="${page_Num != pageInfo.pageNum }">
+                        <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                    </c:if>
+                </c:forEach>
+
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pageNum+1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+
+                <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pages}">末页</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
 <div id = "contentDiv">
 
     <table id = "table1" class="table table-hover" rules = "rows">
         <caption>该板块所有帖子如下</caption>
-        <c:forEach items = "${postsList}" var = "post">
+        <c:forEach items = "${pageInfo.list}" var = "post">
             <tr>
                 <td class = "td_icn"><img src = "${pageContext.request.contextPath}/images/p1.png" class = "icn"/></td>
                 <td class = "title">
@@ -236,6 +270,41 @@
         </c:forEach>
 
     </table>
+</div>
+<!-- 分页信息 -->
+<div class="rowPage">
+
+    <!-- 分页条 -->
+    <div>
+        <nav aria-label="Page">
+            <ul class="pagination">
+                <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=1">首页</a></li>
+
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                    <c:if test="${page_Num == pageInfo.pageNum }">
+                        <li class="active"><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                    </c:if>
+                    <c:if test="${page_Num != pageInfo.pageNum }">
+                        <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${ page_Num}">${ page_Num}</a></li>
+                    </c:if>
+                </c:forEach>
+
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pageNum+1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+
+                <li><a href="${pageContext.request.contextPath}/admin/showPosts?kind=${kind}&pn=${pageInfo.pages}">末页</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
 <jsp:include page="../../bottom.jsp" ></jsp:include>
 </body>

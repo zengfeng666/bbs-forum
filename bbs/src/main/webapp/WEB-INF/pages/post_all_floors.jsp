@@ -14,6 +14,7 @@
     <title>Title</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href = "${pageContext.request.contextPath}/css/post_page.css" rel = "stylesheet" type = "text/css"/>
     <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
@@ -176,30 +177,7 @@
 
         }
 
-        /*pre{
-            white-space:pre-wrap;
-            white-space:-moz-pre-wrap;
-            white-space:-o-pre-wrap;
-            word-wrap:break-word;
-        }*/
-        /*pre {
 
-            white-space: pre-wrap;       !* css-3 *!
-
-            white-space: -moz-pre-wrap;  !* Mozilla, since 1999 *!
-
-            white-space: -pre-wrap;      !* Opera 4-6 *!
-
-            white-space: -o-pre-wrap;    !* Opera 7 *!
-
-            word-wrap: break-word;       !* Internet Explorer 5.5+ *!
-
-            word-break:break-all;
-
-            overflow:hidden;
-
-        }
-*/
     </style>
     <script>
         function deleteReply(fid, pid){
@@ -236,7 +214,7 @@
                 <td class = "td0_1"></td>
                 <td class = "td0_1"></td>
             </tr>
-            <c:forEach items = "${postWithAllFloor.floors}" var = "floor">
+            <c:forEach items = "${pageInfo.list}" var = "floor">
                 <tr>
                     <td colspan = "2">
                         <div class = "nickname">${floor.nickname}</div>
@@ -282,6 +260,44 @@
                     <td class = "td0_1"></td>
                 </tr>
             </c:forEach>
+<tr>
+    <td colspan="2">
+        <div class="rowPage">
+
+            <!-- 分页条 -->
+            <div>
+                <nav aria-label="Page">
+                    <ul class="pagination">
+                        <li><a href="${pageContext.request.contextPath}/post/showAllFloors?pid=${pageInfo.list[0].pid}&pn=1">首页</a></li>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/post/showAllFloors?pid=${pageInfo.list[0].pid}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+                        <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                            <c:if test="${page_Num == pageInfo.pageNum }">
+                                <li class="active"><a href="${pageContext.request.contextPath}/post/showAllFloors?pid=${pageInfo.list[0].pid}&pn=${ page_Num}">${ page_Num}</a></li>
+                            </c:if>
+                            <c:if test="${page_Num != pageInfo.pageNum }">
+                                <li><a href="${pageContext.request.contextPath}/post/showAllFloors?pid=${pageInfo.list[0].pid}&pn=${ page_Num}">${ page_Num}</a></li>
+                            </c:if>
+                        </c:forEach>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/post/showAllFloors?pid=${pageInfo.list[0].pid}&pn=${pageInfo.pageNum+1}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+
+                        <li><a href="${pageContext.request.contextPath}/post/showAllFloors?pid=${pageInfo.list[0].pid}&pn=${pageInfo.pages}">末页</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </td>
+</tr>
 
            <tr>
                <td colspan = "2" id = "reply">
@@ -303,6 +319,8 @@
            </tr>
         </table>
     </div>
+<!-- 分页信息 -->
+
     <div class="modal fade" id="editContentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

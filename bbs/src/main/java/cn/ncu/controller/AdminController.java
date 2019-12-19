@@ -50,14 +50,19 @@ public class AdminController {
      * @return
      */
     @RequestMapping("/showPosts")
-    public String showPosts(@Param("kind")Integer kind, Model model){
+    public String showPosts(@Param("kind")Integer kind, @RequestParam(value = "pn", defaultValue = "1")Integer pn, Model model){
 
         //版块信息
         KindInfo kindInfo = postService.getKindInfoByKind(kind);
         model.addAttribute("kindInfo", kindInfo);
         //帖子列表
+
+
+        PageHelper.startPage(pn, 6);
         List<Post> list = postService.findPostsByKind(kind);
-        model.addAttribute("postsList", list);
+        PageInfo page = new PageInfo(list);
+        model.addAttribute("pageInfo", page);
+        model.addAttribute("kind", kind);
         return "admin_post_list";
     }
 
@@ -124,11 +129,15 @@ public class AdminController {
      * @return
      */
     @RequestMapping("/lookP")
-    public String lookP(Integer pid ,Model model){
+    public String lookP(Integer pid, @RequestParam(value = "pn", defaultValue = "1")Integer pn, Model model){
         Post post=postService.findPostByPid(pid);
         // 查找这个帖子的所有楼层信息
+        PageHelper.startPage(pn, 6);
         List<Floor> list = postService.findFloorsByPid(pid);
+        PageInfo page = new PageInfo(list);
+        model.addAttribute("pageInfo", page);
         post.setFloors(list);
+
         model.addAttribute("postWithAllFloor", post);
 
         return "admin_post_all_floors";

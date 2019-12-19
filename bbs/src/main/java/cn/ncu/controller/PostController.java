@@ -156,10 +156,12 @@ public class PostController {
      * @return
      */
     @RequestMapping("/findAllPostByMe")
-    public String findAllPostByMe(HttpSession session, Model model){
+    public String findAllPostByMe( @RequestParam(value = "pn", defaultValue = "1")Integer pn, HttpSession session, Model model){
         User user = (User) session.getAttribute("USER_SESSION");
+        PageHelper.startPage(pn, 6);
         List<Post> list = postService.findAllPostByUid(user.getUid());
-
+        PageInfo page = new PageInfo(list);
+        model.addAttribute("pageInfo", page);
         model.addAttribute("postListByMe", list);
         return "posts_by_me";
     }
@@ -198,12 +200,16 @@ public class PostController {
      * @return
      */
     @RequestMapping("/showAllFloors")
-    public String showAllFloors(Integer pid, Model model){
+    public String showAllFloors(@Param("pid")Integer pid,@RequestParam(value = "pn", defaultValue = "1")Integer pn, Model model){
         // 根据pid获取帖子对象
         Post post = postService.findPostByPid(pid);
         // 查找这个帖子的所有楼层信息
+        PageHelper.startPage(pn, 6);
         List<Floor> list = postService.findFloorsByPid(pid);
+        PageInfo page = new PageInfo(list);
+        model.addAttribute("pageInfo", page);
         post.setFloors(list);
+
         model.addAttribute("postWithAllFloor", post);
 
         return "post_all_floors";

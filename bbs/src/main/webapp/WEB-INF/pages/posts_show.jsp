@@ -114,9 +114,9 @@
 
     <script>
         function postPosting(){
-            location.href = "${pageContext.request.contextPath}/page/post_post";
+            location.href = "${pageContext.request.contextPath}/post/transitKind?kind=${kind}";
         }
-        /*$(function(){
+      /* $(function(){
                 if("${postSuccess}" == true){
                     $("#myModal").modal('show')
                     setTimeout(function(){

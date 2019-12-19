@@ -59,7 +59,7 @@
             </div>
             <%--<hr id="ask_hr"/>--%>
         </div>
-
+        <%--页面数据展示--%>
         <div id="table-div">
             <table class="table table-hover">
                 <c:forEach items="${pageInfo.list}" var="question" varStatus="vs">

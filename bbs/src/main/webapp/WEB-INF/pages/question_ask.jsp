@@ -120,6 +120,7 @@
                             <input type="radio" name="credit" value="50"/> 50 &nbsp;
                             <input type="radio" name="credit" value="100"/> 100 &nbsp;
                             <input type="radio" name="credit" value="200"/> 200 (积分)
+                            <font color="red">${msg}</font>
                         </td>
                     </tr>
                     <tr>

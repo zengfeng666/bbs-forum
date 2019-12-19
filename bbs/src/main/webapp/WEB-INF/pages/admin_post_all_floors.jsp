@@ -14,6 +14,7 @@
     <title>Title</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href = "${pageContext.request.contextPath}/css/post_page.css" rel = "stylesheet" type = "text/css"/>
     <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
@@ -210,7 +211,7 @@
             <td class = "td0_1"></td>
             <td class = "td0_1"></td>
         </tr>
-        <c:forEach items = "${postWithAllFloor.floors}" var = "floor">
+        <c:forEach items = "${pageInfo.list}" var = "floor">
             <tr>
                 <td colspan = "2">
                     <div class = "nickname">${floor.nickname}</div>
@@ -255,6 +256,44 @@
                 <td class = "td0_1"></td>
             </tr>
         </c:forEach>
+        <tr>
+            <td colspan="2">
+                <div class="rowPage">
+
+                    <!-- 分页条 -->
+                    <div>
+                        <nav aria-label="Page">
+                            <ul class="pagination">
+                                <li><a href="${pageContext.request.contextPath}/admin/lookP?pid=${pageInfo.list[0].pid}&pn=1">首页</a></li>
+
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/admin/lookP?pid=${pageInfo.list[0].pid}&pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                                    <c:if test="${page_Num == pageInfo.pageNum }">
+                                        <li class="active"><a href="${pageContext.request.contextPath}/admin/lookP?pid=${pageInfo.list[0].pid}&pn=${ page_Num}">${ page_Num}</a></li>
+                                    </c:if>
+                                    <c:if test="${page_Num != pageInfo.pageNum }">
+                                        <li><a href="${pageContext.request.contextPath}/admin/lookP?pid=${pageInfo.list[0].pid}&pn=${ page_Num}">${ page_Num}</a></li>
+                                    </c:if>
+                                </c:forEach>
+
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/admin/lookP?pid=${pageInfo.list[0].pid}&pn=${pageInfo.pageNum+1}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+
+                                <li><a href="${pageContext.request.contextPath}/admin/lookP?pid=${pageInfo.list[0].pid}&pn=${pageInfo.pages}">末页</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </td>
+        </tr>
 
         <tr>
             <td colspan = "2" id = "reply">
@@ -278,7 +317,7 @@
 </div>
 <div class="modal fade" id="editContentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">s
+        <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel">请编辑内容：</h4>
             </div>

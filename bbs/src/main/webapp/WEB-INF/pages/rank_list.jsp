@@ -69,7 +69,7 @@
                 </tr>
 
                 <c:forEach items="${list}" var="list" varStatus="vs">
-                    <c:if test="${list.uid != 1}">
+                    <c:if test="${list.uid > 1}">
                         <tr>
                             <td>
                                     ${vs.count-1}

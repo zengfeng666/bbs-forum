@@ -43,6 +43,7 @@
                 margin: 0 auto;
                 height: auto;
                 width: 40%;
+                margin-left: 400px;
             }
             article .input{
                 margin-top: 55px;
@@ -85,7 +86,7 @@
                 margin-top: 7px;
             }
             article .remember a{
-                margin-left: 30%;
+                margin-left: 50%;
                 /*color: #042020;*/
                 text-decoration: none;
             }
@@ -96,7 +97,7 @@
                 width: 65%;
                 height: 46px;
                 background: #389c9c;
-                margin-left: 13.6%;
+                margin-left: 23.6%;
                 margin-top: 4%;
                 font-size: 25px;
                 color: #dddddd;
@@ -121,12 +122,13 @@
             }
             article form .input{
                 margin-top: 4%;
+                width: 1000px;
             }
             article .tiao a{
                 text-decoration: none;
                 font-size: 14px;
                 /*color: #042020;*/
-                margin-left: 57%;
+                margin-left: 67%;
             }
             header .return{
                 float: left;
@@ -156,6 +158,7 @@
                 <div class="input">
                     <label for="password">密&nbsp;码：</label>
                     <input type="password" name="password" maxlength="20" id="password" placeholder="请输入密码">
+                    <font color="red">${msg}</font>
                 </div>
                 <div class="remember">
                     <%--<span><input type="checkbox" id="maintain"></span>--%>

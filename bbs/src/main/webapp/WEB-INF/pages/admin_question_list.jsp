@@ -28,33 +28,93 @@
             <a href="${pageContext.request.contextPath}/page/question_ask">
                 <img src="${pageContext.request.contextPath}/images/question_ask.jpg" id="img_ask"/>
             </a>
-            <hr id="ask_hr"/>
+            <!-- 分页条 -->
+            <div id="div_pagination_top">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/showQ?pn=${pageInfo.pageNum-1}"
+                               aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                            <c:if test="${page_Num == pageInfo.pageNum }">
+                                <li class="active"><a href="#">${ page_Num}</a></li>
+                            </c:if>
+                            <c:if test="${page_Num != pageInfo.pageNum }">
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/admin/showQ?pn=${ page_Num}">${ page_Num}</a>
+                                </li>
+                            </c:if>
+                        </c:forEach>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/showQ?pn=${pageInfo.pageNum+1}"
+                               aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <%--<hr id="ask_hr"/>--%>
         </div>
-    <div id="table-div">
-        <table class="table table-hover">
-            <c:forEach items="${list}" var="question" varStatus="vs">
-                <tr>
-                    <td class="td1">
-                        <a href="${pageContext.request.contextPath}/admin/lookQ?qid=${question.qid}">
-                            <img src="${pageContext.request.contextPath}/images/question_logo.png"
-                                 style="width: 20px;height: 20px;"/> ${question.title}
+        <div id="table-div">
+            <table class="table table-hover">
+                <c:forEach items="${pageInfo.list}" var="question" varStatus="vs">
+                    <tr>
+                        <td class="td1">
+                            <a href="${pageContext.request.contextPath}/admin/lookQ?qid=${question.qid}">
+                                <img src="${pageContext.request.contextPath}/images/question_logo.png"
+                                     style="width: 20px;height: 20px;"/> ${question.title}
+                            </a>
+                            <font color="red"> - [悬赏 ${question.credit} 积分] </font>
+                            <c:if test="${question.isResolved == 1}">
+                                (已解决)
+                            </c:if>
+                        </td>
+                        <td class="td2">
+                            <fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/>
+                            &nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" onclick="delQ('${question.qid}')">删除</button>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+
+        <!-- 分页条 -->
+        <div id="div_pagination_bottom">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin/showQ?pn=${pageInfo.pageNum-1}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
                         </a>
-                        <font color="red"> - [悬赏 ${question.credit} 积分] </font>
-                        <c:if test="${question.isResolved == 1}">
-                            (已解决)
+                    </li>
+                    <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+                        <c:if test="${page_Num == pageInfo.pageNum }">
+                            <li class="active"><a href="#">${ page_Num}</a></li>
                         </c:if>
-                    </td>
-                    <td class="td2">
-                        <fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm"/>
-                        &nbsp;&nbsp;&nbsp;
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" onclick="delQ('${question.qid}')">删除</button>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-    </div>
-        <jsp:include page="../../bottom.jsp" ></jsp:include>
+                        <c:if test="${page_Num != pageInfo.pageNum }">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/admin/showQ?pn=${ page_Num}">${ page_Num}</a>
+                            </li>
+                        </c:if>
+                    </c:forEach>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin/showQ?pn=${pageInfo.pageNum+1}"
+                           aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <br/>
+        <jsp:include page="../../bottom.jsp"></jsp:include>
     </body>
-    </html>
+</html>

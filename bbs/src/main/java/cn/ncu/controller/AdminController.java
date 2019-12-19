@@ -87,9 +87,12 @@ public class AdminController {
      * @return
      */
     @RequestMapping("showQ")
-    public String showQuestion(Model model){
+    public String showQuestion(@RequestParam(value="pn",defaultValue="1")Integer pn, Model model){
+        //从第一条开始 每页查询10条数据
+        PageHelper.startPage(pn, 10);
         List<Question> list=questionService.findAll();
-        model.addAttribute("list",list);
+        PageInfo page = new PageInfo(list,10);
+        model.addAttribute("pageInfo", page);
         return "admin_question_list";
     };
 

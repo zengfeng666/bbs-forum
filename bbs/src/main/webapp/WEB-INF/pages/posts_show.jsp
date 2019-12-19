@@ -151,7 +151,7 @@
                 <td id="KindInfoContent"><div id="KindInfoContentDiv">${kindInfo.content}</div></td>
             </tr>
             <tr>
-                <td id="KindInfoTime">最后编辑于：${kindInfo.time}</td>
+                <td id="KindInfoTime">最后编辑于：<fmt:formatDate value="${kindInfo.time}" pattern="yyyy-MM-dd HH:mm"/></td>
             </tr>
         </table>
     </div>

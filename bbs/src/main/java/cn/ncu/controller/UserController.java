@@ -7,6 +7,8 @@ import cn.ncu.domain.User;
 import cn.ncu.service.QuestionService;
 import cn.ncu.service.UserService;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -149,11 +151,14 @@ public class UserController {
      */
     @SuppressWarnings("all")
     @RequestMapping("/askQ")
-    public String askQ(HttpSession session, Model model) {
+    public String askQ(@RequestParam(value="pn",defaultValue="1")Integer pn, HttpSession session, Model model) {
         User user = (User) session.getAttribute("USER_SESSION");
         int uid = user.getUid();
+        //从第一条开始 每页查询15条数据
+        PageHelper.startPage(pn, 15);
         List<Question> questionsAsked = questionService.findQuestionAskedByUser(uid);
-        model.addAttribute("questionsAsked", questionsAsked);
+        PageInfo page = new PageInfo(questionsAsked,15);
+        model.addAttribute("pageInfo", page);
 
         return "question_my_asked";
     }
@@ -167,11 +172,14 @@ public class UserController {
      * @return
      */
     @RequestMapping("/replyQ")
-    public String replyQ(HttpSession session, Model model) {
+    public String replyQ(@RequestParam(value="pn",defaultValue="1")Integer pn, HttpSession session, Model model) {
         User user = (User) session.getAttribute("USER_SESSION");
         int uid = user.getUid();
+        //从第一条开始 每页查询15条数据
+        PageHelper.startPage(pn, 15);
         List<Question> questionsReplied = questionService.findQuestionRepliedByUser(uid);
-        model.addAttribute("questionsReplied", questionsReplied);
+        PageInfo page = new PageInfo(questionsReplied,15);
+        model.addAttribute("pageInfo", page);
         return "question_my_replied";
     }
 

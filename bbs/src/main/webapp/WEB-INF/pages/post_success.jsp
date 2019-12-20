@@ -12,7 +12,7 @@
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
 <html>
 <head>
-    <title>Title</title>
+    <title>成功</title>
 
     <script>
         $(function(){

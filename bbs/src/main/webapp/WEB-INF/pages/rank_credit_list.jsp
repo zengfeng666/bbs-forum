@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>排行榜</title>
+        <title>积分排行榜</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

@@ -175,20 +175,16 @@ public class PostController {
     @RequestMapping("/findAllReplyByMe")
     public String findAllReplyByMe(HttpSession session, Model model){
         User user = (User) session.getAttribute("USER_SESSION");
-
         // 获取所有我回复的楼层
         List<PostFloor> list = postFloorService.findAllReplyByUid(user.getUid());
-
         Map<Post, PostFloor> replyMap = new HashMap<>();
         // 根据每层楼的pid,找到对应的帖子，将那层楼和帖子存入一个map
         for(PostFloor postFloor : list){
             Post p = postService.findPostByPid(postFloor.getPid());
             replyMap.put(p, postFloor);
         }
-
         //model.addAttribute("replyListByMe", list);
         model.addAttribute("replyMapByMe", replyMap);
-
         return "post_reply_by_me";
     }
 

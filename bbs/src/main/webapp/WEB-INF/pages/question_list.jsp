@@ -11,7 +11,7 @@
 
 <html>
     <head>
-        <title>所有提问</title>
+        <title>全部问题</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

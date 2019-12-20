@@ -16,7 +16,7 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <html>
 <head>
-    <title>Title</title>
+    <title>看帖</title>
     <style>
 
         a:link, hover{

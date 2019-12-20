@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
     <head>
-        <title>密保问题</title>
+        <title>成功</title>
         <style>
             body {
                 background: url("${pageContext.request.contextPath}/images/timg1.gif") no-repeat;

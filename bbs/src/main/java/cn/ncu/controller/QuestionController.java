@@ -149,7 +149,7 @@ public class QuestionController {
     public String accept(Integer qid, Integer uid, Integer fid, Integer credit, HttpServletRequest request) {
         // 增加被采纳者的积分
         userService.addCredit(uid, credit);
-        // 将问题置为已解决
+        // 将问题置为已解决，将该楼置为已采纳
         questionService.updateStatus(qid, fid);
 
         return "redirect:look?qid=" + qid;

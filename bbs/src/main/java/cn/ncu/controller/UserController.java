@@ -54,7 +54,6 @@ public class UserController {
             if (user.getUid() == 1) {
                 return "admin";
             }
-
             // 获取登录之前的页面的地址
             String referer = request.getHeader("referer");
             if (referer.contains("login")){

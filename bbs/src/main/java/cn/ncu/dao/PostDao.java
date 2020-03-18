@@ -108,7 +108,7 @@ public interface PostDao {
      */
     @Select("SELECT pid, fid, user.uid id, reply_time, content, exp, rank, " +
             "username, nickname, `password`, email, credit, photo, tel, sex, description " +
-            "FROM post_floor, USER " +
+            "FROM post_floor, user " +
             "WHERE post_floor.pid = #{pid} AND post_floor.uid = user.uid " +
             "ORDER BY fid ASC")
     @Results(id = "postFloorMap", value = {
